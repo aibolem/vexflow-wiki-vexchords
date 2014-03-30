@@ -3,7 +3,7 @@
 ### Learn
 
 * The VexFlow Tutorial
-* The VexFlow FAQ
+* [The VexFlow FAQ](VexFlowFAQ)
 * VexFlow Sandbox
 
 ### People
