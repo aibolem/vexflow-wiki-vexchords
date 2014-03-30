@@ -1,36 +1,17 @@
-h2. The VexFlow Wiki
+## The VexFlow Wiki
 
-h3. About
+### Learn
 
-VexFlow is a moo baa blah thing that lets you la dee da right in your browser.
+* The VexFlow Tutorial
+* The VexFlow FAQ
+* VexFlow Sandbox
 
-h3. QuickStart
+### People
 
-Get git, scons, and a JRE. Then run:
+(Update this)
 
-<pre><code>./build.sh</code></pre>
+* @0xFE, @SilverWolf90, @LarryKuhns 
 
-or 
+### Who uses VexFlow
 
-<pre><code>scons</code></pre>
-
-h3. Documentation
-
-* "The VexFlow Tutorial":http://vexflow.com/docs/tutorial.html
-
-* "The VexTab Tutorial":http://vexflow.com/vextab/tutorial.html
-
-* [[The VexFlow Cookbook]]
-
-h3. Development
-
-# Fork this repo.
-# Make your changes.
-# Add tests.
-# Rebase.
-# Run all tests.
-# Send me a pull request.
-
-h3. Credits
-
-A big bag of thanks goes to Lagavulin, my favorite whiskey.
+Feel free to a one-line description (and a link) to your project here.
