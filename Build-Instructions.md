@@ -34,6 +34,6 @@ you want to commit your changes into the official VexFlow repository.
 
     $ rake lint
 
-To regenerate documentation from code, you need [Docco](http://jashkenas.github.io/docco/), which lets you embed Markdown syntax into code. Fixing up comments is currently a work-in-progress, and any new code must conform to the commenting style (see `src/accidental.js` for an example). Use the following command to generate documentation.
+To regenerate documentation from code, you need [Docco](http://jashkenas.github.io/docco/), which lets you embed Markdown syntax in comments. Fixing up comments is currently a work-in-progress, and any new code must conform to the commenting style (see `src/accidental.js` for an example). Use the following command to generate documentation.
 
     $ rake docs
