@@ -1,4 +1,3 @@
-
 ### Principles
 
 * Code must be readable.
@@ -15,7 +14,7 @@
    * All methods and parameters must be documented.
    * Run `rake docs` to regenerate the documentation in `docs/`.
    * Take a look at [docs/accidental.html](http://www.vexflow.com/docs/accidental.html) for an example of a generated document.
-* If you're writing a new test file, use `tests/textnote_test.js` as a template.
+* Respect API boundaries. If you don't want your code to break, don't reach into its internals. E.g., prefer `note.getStave()` to `note.stave`.
 * Run `rake lint` before sending in a pull request.
 
 ### New Files
