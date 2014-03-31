@@ -6,7 +6,7 @@
 * [API Documentation](http://vexflow.com/docs/) generated from the source code. This is a work in progress.
 * [The VexFlow FAQ](VexFlowFAQ) - Frequently Answered Questions from the VexFlow mailing list. 
 * [VexFlow Sandbox](http://www.vexflow.com/docs/sandbox.html) - A place to experiment with the VexFlow API.
-* [Build Instructions](Build-Instructions) - How to build and distribute VexFlow.
+* [Build Instructions](Build-Instructions) - How to build VexFlow from scratch. Requires Ruby and NodeJS.
 * [VexFlow Forum Archive](https://groups.google.com/forum/?fromgroups#!forum/vexflow) - Feel free to join and ask questions on the forum.
 
 ### Contribute
