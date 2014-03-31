@@ -14,11 +14,11 @@
 * Please include tests -- I will not commit changes that don't have accompanying tests.
 * See the [coding style guide](CodingStyle) guide for general rules and conventions.
 
-### People
+### Significant Contributors
 
-(Update this)
-
-* @0xFE, @SilverWolf90, @LarryKuhns 
+* [Mohit Muthanna Cheppudira](http://github.com/0xfe)
+* [Cyril Silverman](http://github.com/Silverwolf90)
+* [Larry Kuhns](http://github.com/LarryKu)
 
 ### Who uses VexFlow
 
