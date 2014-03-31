@@ -3,6 +3,7 @@
 ### Learn
 
 * [The VexFlow Tutorial](http://www.vexflow.com/docs/tutorial.html) - Get started by learning the basics of the VexFlow rendering API.
+* [API Documentation](http://vexflow.com/docs/) generated from the source code. This is a work in progress.
 * [The VexFlow FAQ](VexFlowFAQ) - Frequently Answered Questions from the VexFlow mailing list. 
 * [VexFlow Sandbox](http://www.vexflow.com/docs/sandbox.html) - A place to experiment with the VexFlow API.
 * [VexFlow Forum Archive](https://groups.google.com/forum/?fromgroups#!forum/vexflow) - Feel free to join and ask questions on the forum.
