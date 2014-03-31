@@ -18,7 +18,7 @@ JSHint and Docco can be installed with NPM.
     $ npm install jshint
     $ npm install docco
 
-## Build Instructions
+## Building
 
 Build with:
 
