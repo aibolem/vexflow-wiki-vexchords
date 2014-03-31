@@ -2,9 +2,10 @@
 
 ### Learn
 
-* The VexFlow Tutorial
-* [The VexFlow FAQ](VexFlowFAQ)
-* VexFlow Sandbox
+* [The VexFlow Tutorial](http://www.vexflow.com/docs/tutorial.html) - Get started by learning the basics of the VexFlow rendering API.
+* [The VexFlow FAQ](VexFlowFAQ) - Frequently Answered Questions from the VexFlow mailing list. 
+* [VexFlow Sandbox](http://www.vexflow.com/docs/sandbox.html) - A place to experiment with the VexFlow API.
+* [VexFlow Forum Archive](https://groups.google.com/forum/?fromgroups#!forum/vexflow) - Feel free to join and ask questions on the forum.
 
 ### Contribute
 
