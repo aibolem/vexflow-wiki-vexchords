@@ -13,7 +13,7 @@
 * Send in your changes via a GitHub pull request.
 * Rebase early, rebase often.
 * Please include tests -- I will not commit changes that don't have accompanying tests.
-* See the [coding style guide](CodingStyle) guide for general rules and conventions.
+* See the [coding style guide](VexFlow-Coding-Style) guide for general rules and conventions.
 
 ### Significant Contributors
 
