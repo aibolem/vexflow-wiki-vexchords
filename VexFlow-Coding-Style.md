@@ -7,7 +7,7 @@
 ### Style
 
 * No hard-tabs. Use 2 spaces.
-* Comments get preprocessed through [Docco](jashkenas.github.io/docco/). This allows Markdown in comments.
+* Comments get preprocessed through [Docco](http://jashkenas.github.io/docco/). This allows Markdown in comments.
 * Take a look at `src/accidentals.js` for commenting boilerplate.
    * In particular, note the header at the top of the file.
    * If you contributed significantly to the file, feel free to add an "Author:" comment below the copyright.
