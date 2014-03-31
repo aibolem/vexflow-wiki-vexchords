@@ -1,5 +1,3 @@
-## The VexFlow FAQ
-
 ### Basics
 #### What is VexFlow?
 
