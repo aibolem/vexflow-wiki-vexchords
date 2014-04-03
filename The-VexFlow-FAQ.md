@@ -25,6 +25,10 @@ The desire to support complex musical notation while also providing a high degre
 
 Also note that VexFlow is a low-level rendering API. If all you want to do is display music on a page, take a look at higher level libraries such as [VexTab](http://vexflow.com/vextab/).
 
+#### Can I build mobile apps with VexFlow?
+
+Yes, and there are a number of VexFlow-based mobile apps already out there. These apps typically use frameworks like [PhoneGap](phonegap.com) to build HTML5 applications on phones and tablets.
+
 ### Formatting
 
 #### How do I create and align multiple voices on a single stave?
@@ -77,9 +81,9 @@ You can call `Formatter.getMinTotalWidth()` to return the minimum amount of hori
 
 Yes, and there are a few ways to do it.
 
-2. How do I render slurs?
-3. How can I align text to notation?
-4. Can I color notes individually?
+#### How do I render slurs?
+### How can I align text to notation?
+### Can I color notes individually?
 
 
 
