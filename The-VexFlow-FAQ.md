@@ -28,7 +28,43 @@ Also note that VexFlow is a low-level rendering API. If all you want to do is di
 ### Formatting
 
 1. How do I create and align multiple voices?
+
+If you have multiple voices on a single stave, call `Formatter.joinVoices` on them. This puts notes on the identical beats into the same `ModifierContext`, which in turn positions the various elements such that they don't collide with each other.
+
+```javascript
+voice1 = new Vex.Flow.Voice(...);
+voice2 = new Vex.Flow.Voice(...);
+
+voice1.addTickables([note1, note2, note3]);
+voice2.addTickables([note1, note2, note3]);
+
+formatter = new Formatter();
+formatter.joinVoices([voice1, voice2]);
+```
+
 2. How do I align multiple staves?
+
+If you want to align voices across multiple stave (e.g., for building a grand staff), you can simply run the formatter without joining any voices. Remember that the formatter only positions the `x` coordinates, so the actual notes can be rendered anywhere.
+
+```javascript
+var voiceTreble = new Vex.Flow.Voice({num_beats:4, beat_value: 4, resolution:Vex.Flow.RESOLUTION});
+var voiceBass = new Vex.Flow.Voice({num_beats:4, beat_value: 4, resolution:Vex.Flow.RESOLUTION});
+
+voiceTreble.addTickables(notesTreble);
+voiceBass.addTickables(notesBass);
+
+var formatter = new Vex.Flow.Formatter().format([voiceTreble, voiceBass], stave_length);
+
+var max_x = Math.max(staveTreble.getNoteStartX(), staveBass.getNoteStartX());
+staveTreble.setNoteStartX(max_x);
+staveBass.setNoteStartX(max_x);
+
+voiceTreble.draw(ctx, staveTreble);
+voiceBass.draw(ctx, staveBass);
+```
+
+It is important to note that, since the stave modifiers (such as clef, key signature, etc.) take up room in the stave, you will need to render the voices such that they all start on the same `x` coordinate, else the notation will be misaligned. In the above code, `getNoteStartX()` and `setNoteStartX(...)` are used to do this.
+
 3. How can I pre-calculate the width of a voice?
 4. What are all these `context` classes? (`ModifierContext`, `TickContext` etc.)
 
