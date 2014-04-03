@@ -29,6 +29,10 @@ Also note that VexFlow is a low-level rendering API. If all you want to do is di
 
 Yes, and there are a number of VexFlow-based mobile apps already out there. These apps typically use frameworks like [PhoneGap](phonegap.com) to build HTML5 applications on phones and tablets.
 
+#### Can VexFlow generate audio output from the scores?
+#### Is there a VexFlow editor to enter music without writing code?
+#### How do I import MusicXML / LilyPond / MEI notation?
+
 ### Formatting
 
 #### How do I create and align multiple voices on a single stave?
@@ -82,8 +86,10 @@ You can call `Formatter.getMinTotalWidth()` to return the minimum amount of hori
 Yes, and there are a few ways to do it.
 
 #### How do I render slurs?
-### How can I align text to notation?
-### Can I color notes individually?
+#### How can I align text to notation?
+#### Can I color notes individually?
+#### How do I display grace notes?
+
 
 
 
