@@ -27,7 +27,7 @@ Also note that VexFlow is a low-level rendering API. If all you want to do is di
 
 ### Formatting
 
-1. How do I create and align multiple voices?
+#### How do I create and align multiple voices on a single stave?
 
 If you have multiple voices on a single stave, call `Formatter.joinVoices` on them. This puts notes on the identical beats into the same `ModifierContext`, which in turn positions the various elements such that they don't collide with each other.
 
@@ -42,7 +42,7 @@ formatter = new Formatter();
 formatter.joinVoices([voice1, voice2]);
 ```
 
-2. How do I align multiple staves?
+#### How do I align multiple voices across staves?
 
 If you want to align voices across multiple stave (e.g., for building a grand staff), you can simply run the formatter without joining any voices. Remember that the formatter only positions the `x` coordinates, so the actual notes can be rendered anywhere.
 
@@ -65,12 +65,18 @@ voiceBass.draw(ctx, staveBass);
 
 It is important to note that, since the stave modifiers (such as clef, key signature, etc.) take up room in the stave, you will need to render the voices such that they all start on the same `x` coordinate, else the notation will be misaligned. In the above code, `getNoteStartX()` and `setNoteStartX(...)` are used to do this.
 
-3. How can I pre-calculate the width of a voice?
-4. What are all these `context` classes? (`ModifierContext`, `TickContext` etc.)
+#### How can I pre-calculate the width of a voice?
+
+You can call `Formatter.getMinTotalWidth()` to return the minimum amount of horizontal space required to render a voice.
+
+#### What are all these `context` classes? (`ModifierContext`, `TickContext` etc.)
 
 ### API
 
-1. Can VexFlow automatically generate beams?
+#### Can VexFlow automatically generate beams?
+
+Yes, and there are a few ways to do it.
+
 2. How do I render slurs?
 3. How can I align text to notation?
 4. Can I color notes individually?
