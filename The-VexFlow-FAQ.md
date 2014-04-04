@@ -46,7 +46,7 @@ voice2 = new Vex.Flow.Voice(...);
 voice1.addTickables([note1, note2, note3]);
 voice2.addTickables([note1, note2, note3]);
 
-formatter = new Formatter();
+formatter = new Vex.Flow.Formatter();
 formatter.joinVoices([voice1, voice2]);
 ```
 
@@ -61,7 +61,8 @@ var voiceBass = new Vex.Flow.Voice({num_beats:4, beat_value: 4, resolution:Vex.F
 voiceTreble.addTickables(notesTreble);
 voiceBass.addTickables(notesBass);
 
-var formatter = new Vex.Flow.Formatter().format([voiceTreble, voiceBass], stave_length);
+var formatter = new Vex.Flow.Formatter();
+formatter.format([voiceTreble, voiceBass], stave_length);
 
 var max_x = Math.max(staveTreble.getNoteStartX(), staveBass.getNoteStartX());
 staveTreble.setNoteStartX(max_x);
