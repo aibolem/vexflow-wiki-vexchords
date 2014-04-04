@@ -109,12 +109,7 @@ var gracenotegroup = new Vex.Flow.GraceNoteGroup([gracenote], true);
  
 notes[0].addModifier(0, gracenotegroup.beamNotes());
  
-var voice = new Vex.Flow.Voice({
-  num_beats: 4, 
-  beat_value: 4, 
-  resolution: Vex.Flow.RESOLUTION
-})
- 
+var voice = new Vex.Flow.Voice({num_beats: 4, beat_value: 4});
 voice.addTickables(notes);
  
 var formatter = new Vex.Flow.Formatter();
