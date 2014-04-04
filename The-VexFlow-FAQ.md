@@ -90,6 +90,38 @@ Yes, and there are a few ways to do it.
 #### Can I color notes individually?
 #### How do I display grace notes?
 
+Grace notes are created by adding a `GraceNoteGroup` modifier to your `StaveNote`. The `GraceNoteGroup` consists of `GraceNote` instances, which are only slightly different from `StaveNotes`. You can call `beamNotes()` on the group to auto-beam the grace notes.
+
+```javascript
+var notes = [
+  new Vex.Flow.StaveNote({ keys: ['c/4'], duration: '8'}),
+  new Vex.Flow.StaveNote({ keys: ['c/4'], duration: '8'}),
+  new Vex.Flow.StaveNote({ keys: ['c/4'], duration: '8'}),
+  new Vex.Flow.StaveNote({ keys: ['c/4'], duration: '8'}),
+  new Vex.Flow.StaveNote({ keys: ['c/4'], duration: '8'}),
+  new Vex.Flow.StaveNote({ keys: ['c/4'], duration: '8'}),
+  new Vex.Flow.StaveNote({ keys: ['c/4'], duration: '8'}),
+  new Vex.Flow.StaveNote({ keys: ['c/4'], duration: '8'})
+];
+ 
+var gracenote = new Vex.Flow.GraceNote({keys: ['d/4'], duration: '16', slash: true });
+var gracenotegroup = new Vex.Flow.GraceNoteGroup([gracenote], true);
+ 
+notes[0].addModifier(0, gracenotegroup.beamNotes());
+ 
+var voice = new Vex.Flow.Voice({
+  num_beats: 4, 
+  beat_value: 4, 
+  resolution: Vex.Flow.RESOLUTION
+})
+ 
+voice.addTickables(notes);
+ 
+var formatter = new Vex.Flow.Formatter();
+formatter.joinVoices([voice]).formatToStave([voice], stave);
+voice.draw(ctx, stave);
+```
+
 
 
 
