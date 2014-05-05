@@ -52,3 +52,5 @@ voice.draw(context, stave);
 ```
 
 ![](http://i.imgur.com/o83YUJh.png)
+
+Make the process of beaming easier by learning about [Automatic Beaming](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming)
