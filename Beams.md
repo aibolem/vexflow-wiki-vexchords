@@ -54,3 +54,19 @@ voice.draw(context, stave);
 ![](http://i.imgur.com/o83YUJh.png)
 
 Make the process of beaming easier by learning about [Automatic Beaming](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming)
+
+## Breaking the Secondary Beams
+
+If you want to break the secondary beams, at a certain note, use the `.breakSecondaryAt(indices)` method. Where you pass in an array of `indices` for where to break the secondary beams. Here's an example, lets start with a couple beams:
+
+![](http://i.imgur.com/LmRkCXe.png)
+
+Now lets set the notes to break the beams at:
+
+```javascript
+beam1.breakSecondaryAt([1, 3]);
+beam2.breakSecondaryAt([2]);
+```
+
+On draw, you should get the following breaks in the beams:
+![](http://i.imgur.com/xfXsJfT.png)
