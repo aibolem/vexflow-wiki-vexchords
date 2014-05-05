@@ -1,6 +1,13 @@
-(In progress, unedited)
-
 # Automatic Beaming
+
+* [Forcing Stem Directions](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming#force-stem-direction)
+* [Maintain Stem Directions](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming#maintain-stem-directions)
+* [Beaming Over All Rests](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming#beaming-rests)
+* [Beaming Over Middle Rests](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming#beam-middle-rests-only)
+* [Stemlets](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming#stemlets)
+* [Custom Beam Groups](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming#custom-beam-groups)
+
+(In progress, unedited)
 
 For long scores, manually creating a `Beam` object for each group of notes is very cumbersome. Luckily, the `Beam` module provides a static method that allow us to automatically generate beams for our notes. It's appropriately named `.generateBeams()`. It has two parameters, the `notes` to automatically beam and a `config` object. The `config` object provides many options to beam your notes in different ways, but let's start simple.
 
