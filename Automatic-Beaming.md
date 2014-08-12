@@ -41,8 +41,6 @@ var beams = Beam.generateBeams(notes, {
 
 ### Maintain Stem Directions 
 
-*Important: Not in master yet. Pull request pending.*
-
 By setting `maintain_stem_directions` to `true`, the stem directions for each note will not be altered. Take a look at the initial stem directions for the following notes:
 
 ![](http://i.imgur.com/TbBBIGo.png)
