@@ -42,7 +42,7 @@ So let's take a look at the `Formatter.format()` "flow" from the top level.
   * `Formatter.postFormat()` is called (but only if a Stave was provided to the formatter options, otherwise it is skipped because y values have not been provided)
     * Cascades down to the `ModifierContexts` like `.preFormat()` did.
 
-One key thing to note, is that TickContext.x positions are not absolute, but relative to the provided width. So how does a StaveNote know where to render itself on the canvas? Note (the superclass of StaveNote) has a method called .getAbsoluteX(). See the code snippet:
+One key thing to note, is that `TickContext.x` positions are not absolute, but relative to the provided width. So how does a `StaveNote` know where to render itself on the canvas? `Note` (the superclass of `StaveNote`) has a method called `.getAbsoluteX()`. See the code snippet:
 
 ```javascript
 getAbsoluteX: function() {
@@ -59,4 +59,4 @@ getAbsoluteX: function() {
 So as you can see, with the combination of `stave.getNoteStartX()` (which returns the absolute X position for where notes are to start on this stave instance) and `tickContext.getX()` (which returns the relative X position of the `tickContext`), we get a correctly placed `StaveNote`.
 
 **Where do the Y values for the `StaveNote.NoteHeads` come from?**
-The Y values are assigned to the `NoteHeads` after calling `StaveNote.setStave(stave)`. Until a `Stave` is set, Y coordinate data does not exist. The Stave is the only source of data for Y positioning in VexFlow, any Note type class needs a `.setStave()` method in order to calculate y positions.
+The Y values are assigned to the `NoteHeads` after calling `StaveNote.setStave(stave)`. Until a `Stave` is set, Y coordinate data does not exist. The `Stave` is the *only* source of data for Y positioning in VexFlow, any Note type class needs a `.setStave()` method in order to calculate y positions.
