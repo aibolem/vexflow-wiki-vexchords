@@ -25,7 +25,7 @@ Notice what happens to the `TickContexts` when you do not create the `ModifierCo
 
 ![](http://i.imgur.com/WBaZPlD.png)
 
-It is important to note that basically every class has a `.preFormat()` and a `.postFormat()` method. `Modifiers` do not, but instead have a static `Modifier.format<modifierCategory>()` method.
+It is important to note that basically every class has a `.preFormat()` and a `.postFormat()` method. `Modifiers` do not, but instead have a static `<Modifier>.format()` method.
 * `.preFormat()` deals with calculating widths so that the formatter can justify the objects. For modifiers this also deals with articulation stacking (but it's naive and could work better).
 * `.postFormat()` deals with calculations that are necessary after x/y values have been assigned (eg: if stems have been extended for beams, articulations must be moved accordingly).
 * `<Modifier>.format()` deals with arranging modifiers and altering the `ModifierContext.state` accordingly
