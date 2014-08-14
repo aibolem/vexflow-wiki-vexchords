@@ -25,9 +25,10 @@ Notice what happens to the `TickContexts` when you do not create the `ModifierCo
 
 ![](http://i.imgur.com/WBaZPlD.png)
 
-It is important to note that basically every class has a `.preFormat()` and a `.postFormat()` method (modifiers do not, but instead have a `ModifierContext.format<modifierCategory>()`, this is bad and should be refactored into each individual object).
+It is important to note that basically every class has a `.preFormat()` and a `.postFormat()` method. `Modifiers` do not, but instead have a static `Modifier.format<modifierCategory>()` method.
 * `.preFormat()` deals with calculating widths so that the formatter can justify the objects. For modifiers this also deals with articulation stacking (but it's naive and could work better).
 * `.postFormat()` deals with calculations that are necessary after x/y values have been assigned (eg: if stems have been extended for beams, articulations must be moved accordingly).
+* `<Modifier>.format()` deals with arranging modifiers and altering the `ModifierContext.state` accordingly
 
 So let's take a look at the `Formatter.format()` "flow" from the top level.
 * `Formatter.format(voices, justifyWidth, options)` gets called
@@ -36,7 +37,7 @@ So let's take a look at the `Formatter.format()` "flow" from the top level.
     * For each `TickContext` we call `tickContext.preFormat()`
       * For each `Tickable` in the TickContext we call `tickable.preFormat()`
         * Each `tickable` has a `ModifierContext` which contains all the `tickable`'s modifiers (eg: accidentals, dots, etc), we call `modifierContext.preFormat()` to calculate the extra room the modifiers need on either side of the tickable
-          * For each Modifier category in the `modifierContext`, we call `modifierContext.format<modifierCategory>()` we calculate and store the extra width needed. And we also modify the parent Tickable's properties with these calculated values.
+          * For each Modifier category in the `modifierContext`, we call `Modifier.format()` to calculate and store the extra width needed. And we also modify the parent Tickable's properties with these calculated values.
       * For each `Tickable` (which now have calculated widths) in the `TickContext`,  we store the extra room needed on each side in the `tickContext` and the max width of the `Tickables`, giving us a total width for each `tickContext`
     * Since each `TickContext` has a calculated width, the `Formatter` can justify them throughout the provided j`ustifyWidth` accordingly
   * `Formatter.postFormat()` is called (but only if a Stave was provided to the formatter options, otherwise it is skipped because y values have not been provided)
