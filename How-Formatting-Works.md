@@ -19,7 +19,7 @@ A `ModifierContext` contains a `Tickable` and its attached modifiers. One of its
 
 ![](http://i.imgur.com/OkOQOFs.png)
 
-The `Formatter` creates the `ModifierContexts` when `Formatter.joinVoices(voices)` is called. You can pass multiple voices to the method in order to have Tickables at identical tick positions share a `ModifierContext`. This is specifically for formatting multiple voices onto the same Stave while making sure the modifiers do not overlap.
+The `Formatter` creates the `ModifierContexts` when `Formatter.joinVoices(voices)` is called. You can pass multiple voices to the method to have `Tickables` share a `MoidiferContext` at identical tick positions. This is specifically for formatting multiple voices onto the same `Stave` while making sure the modifiers are arranged without overlapping.
 
 Notice what happens to the `TickContexts` when you do not create the `ModifierContexts`. Also notice that the accidentals are no longer avoiding each other but overlap. That's because the `ModifierContext` handles shifting modifiers to avoid collision.
 
