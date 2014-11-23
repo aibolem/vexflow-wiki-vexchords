@@ -1,5 +1,7 @@
 ## Prerequisites
 
+Note that these instructions are for the new pure-JS toolchain in the `browserify` branch.
+
 To setup the build environments, first install NodeJS and `npm`. Then, from the `vexflow/` directory (this repo), run:
 
     $ npm install
