@@ -4,10 +4,10 @@ _Note that these instructions are for the new pure-JS toolchain in the `browseri
 
 If you have NodeJS and `npm` installed:
 
-   $ git clone _this repository_
-   $ npm install
-   $ npm start
-   $ npm test
+    $ git clone _this repository_
+    $ npm install
+    $ npm start
+    $ npm test
 
 ## The Long Way
 
