@@ -1,11 +1,22 @@
-## Prerequisites
+_Note that these instructions are for the new pure-JS toolchain in the `browserify` branch._
 
-Note that these instructions are for the new pure-JS toolchain in the `browserify` branch.
+## Quick Build
+
+If you have NodeJS and `npm` installed:
+
+   $ git clone _this repository_
+   $ npm install
+   $ npm start
+   $ npm test
+
+## The Long Way
 
 To setup the build environments, first install NodeJS and `npm`. Then, from the `vexflow/` directory (this repo), run:
 
     $ npm install
     $ npm install -g grunt-cli
+
+Note that you can also install `grunt-cli` locally (without the -g flag). If you do so, you'll need to fully qualify the path in the commands below: `./node_modules/.bin/grunt`.
 
 ## Building
 
