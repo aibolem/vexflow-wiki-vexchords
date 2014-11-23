@@ -1,5 +1,30 @@
 ## Prerequisites
 
+To setup the build environments, first install NodeJS and `npm`. Then, from the `vexflow/` directory (this repo), run:
+
+    $ npm install
+    $ npm install -g grunt-cli
+
+## Building
+
+Build with:
+
+    $ grunt
+
+Clean with:
+
+    $ grunt clean
+
+Run tests on command line:
+
+    $ grunt test
+
+To run tests in the browser, open `tests/flow.html` in a new browser tab.
+
+# Using the old Ruby toolchain
+
+## Prerequisites
+
 VexFlow builds require a Ruby installation and are built with the [Rake](http://rake.rubyforge.org/) build tool.
 
 * Rake
