@@ -9,6 +9,8 @@ If you have NodeJS and `npm` installed:
     $ npm start
     $ npm test
 
+The above steps downloads, builds, and executes the tests for VexFlow.
+
 ## The Long Way
 
 To setup the build environments, first install NodeJS and `npm`. Then, from the `vexflow/` directory (this repo), run:
