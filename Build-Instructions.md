@@ -36,6 +36,15 @@ Run tests on command line:
 
 To run tests in the browser, open `tests/flow.html` in a new browser tab.
 
+To publish a new version of VexFlow to the NPM repositories:
+
+    $ npm login
+    $ grunt publish
+    $ git commit -a
+    $ git push
+
+This bumps the version number in `package.json`, publishes the new NPM package, and submits the new binaries to the git repo.
+
 # Using the old Ruby toolchain
 
 ## Prerequisites
