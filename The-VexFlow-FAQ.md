@@ -89,6 +89,27 @@ Yes, and there are a few ways to do it.
 #### How do I render slurs?
 #### How can I align text to notation?
 #### Can I color notes individually?
+
+Yes.  Each of the pitches within a StaveNote (known in VexFlow as "keys"), or the entire note (including stem) can be styled using StaveNote's setKeyStyle(keyIndex, styleObject) or setStyle(styleObject) properties.  
+
+The styleObject is an object with any of these properties:
+- fillStyle: the color of the fill (e.g. inner part of a notehead), in the form of a CSS accepted color value.
+- strokeStyle: the color of the line strokes (e.g. the stem of a note)
+- shadowColor: the color of a note's shadow
+- shadowBlur: the blur radius of the shadow, in pixels, passed as an integer.
+
+'''javascript
+
+// use StaveNote.setStyle() to color all noteheads & the stem:
+var C7 = new Vex.Flow.StaveNote({ keys: ['C/4, E/4, G/4, Bb/4'], duration: '8'});
+C7.setStyle({strokeStyle: "blue", stemStyle: "blue"});
+
+// use StaveNote.setKeyStyle(keyIndex, styleObject) to style an individual notehead.
+// in this example, we use keyIndex = 2, referring to the key "A/4"
+var FMaj = new Vex.Flow.StaveNote({ keys: ['C/4, F/4, A/4'], duration: '8'});
+FMaj.setKeyStyle(2, {shadowColor: "yellow", shadowBlur: 3});
+'''
+
 #### How do I display grace notes?
 
 Grace notes are created by adding a `GraceNoteGroup` modifier to your `StaveNote`. The `GraceNoteGroup` consists of `GraceNote` instances, which are only slightly different from `StaveNotes`. You can call `beamNotes()` on the group to auto-beam the grace notes.
