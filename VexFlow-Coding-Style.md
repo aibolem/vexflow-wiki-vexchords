@@ -25,6 +25,5 @@ If you're writing code that requires a new file, e.g., a new element, class, mod
 * Add the file to `SOURCES` in `Gruntfile`.
 * Add a test file to `tests/`.
    * If your file was called `slurs.js` the test file should be `slurs_test.js`.
-   * Use `tests/textnote_test.js` as a template.
-* Include the test `.js` to `tests/flow.html` and add `Vex.Flow.Test.YourTest.Start()` to the document load function (also in `flow.html`.)
+* Add `VF.Test.YourTest.Start()` to `tests/run.js`
 * Run `grunt` to lint, build, and generate docs, and visually inspect the docs to verify correctness.
