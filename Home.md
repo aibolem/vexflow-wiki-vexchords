@@ -15,6 +15,7 @@
 * Send in your changes via a GitHub pull request.
 * Rebase early, rebase often.
 * Please include tests -- I will not commit changes that don't have accompanying tests.
+* Don't forget to run the [Visual Regression Tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests) -- it is simpler, faster, and more likely to catch issues than eyeballing the output of the QUnit tests.
 * See the [coding style guide](VexFlow-Coding-Style) guide for general rules and conventions.
 * If you add a new feature, update this Wiki with some documentation and examples.
 
