@@ -32,7 +32,7 @@ Run tests on command line:
 
     $ grunt test
 
-To run tests in the browser, open `tests/flow.html` in a new browser tab.
+To run tests in the browser, open `tests/flow.html` in a new browser tab. Don't forget the [Visual Regression Tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests).
 
 To publish a new version of VexFlow to the NPM repositories:
 
