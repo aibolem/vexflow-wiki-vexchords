@@ -1,6 +1,10 @@
 ## About
 
-VexFlow comes with a crude visual regression test system. All VexFlow tests that generate images are automatically included in the tests. Blessed images are stored in `tests/blessed` as SVG files.
+VexFlow comes with a visual regression test system. All VexFlow QUnit tests (the ones in `tests/`) that generate images are automatically included in these regression tests. Blessed images are stored in `tests/blessed` as SVG files.
+
+The goal of this system is to detect regressions in the rendered output without having to rely on human eyeballs, especially given the huge number of tests that exist today. It does this by calculating a [perceptual hash](https://en.wikipedia.org/wiki/Perceptual_hashing) (PHASH) of each test image and comparing it with the hash of a good known _blessed_ image. The larger the arithmetic distance between the hashes, the more different are the two images.
+
+The system also generates a _diff image_, which is an overlay of the two images, with the differences highlighted, to ease debugging.
 
 ## Prerequisites
 
