@@ -22,6 +22,8 @@ Submit your changes, along with the blessed SVG. Be sure to include the before, 
 
 ## How it Works
 
+The current version of `visual_regression.sh` does the following:
+
 * For all SVG files in `tests/blessed`:
  * Find the relevant file in `build/images`.
  * Convert both to PNG.
@@ -31,3 +33,4 @@ Submit your changes, along with the blessed SVG. Be sure to include the before, 
  * Open all three files (blessed, current, diff) using your system image viewer for inspection.
 * Sort `build/images/diff/results.txt` by PHASH difference.
 
+You can examine the `results.txt` file and looks for images fall below the threshold. If you're seeing too many false positives, you can also adjust the threshold in `visual_regression.sh`.
