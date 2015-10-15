@@ -18,9 +18,9 @@ Installing on Ubuntu Linux: `$ apt-get install librsvg2-dev librsvg2-bin imagema
 
 After installing the dependencies, run `tools/generate_svg_images.js` to generate images from the current code-base. Files are named by their QUnit module and test name.
 
-To start the test, run `tools/visual_regression.sh`, which will call out tests for which the images have changed significantly.
+To start the test, run `tools/visual_regression.sh`, which will detect images that have changed significantly.
 
-Visually inspect the images (including the diff image), and if you're happy with the changes, you can bless the SVG by copying it from `build/images` to `tests/blessed`.
+Visually inspect these images (including the diff image), and if you're happy with the changes, you can bless the SVG by copying it from `build/images` to `tests/blessed`.
 
 Submit your changes, along with the blessed SVG. Be sure to include the before, after, and diff images in your pull request.
 
