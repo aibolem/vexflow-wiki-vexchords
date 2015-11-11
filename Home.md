@@ -28,3 +28,4 @@
 ### Who uses VexFlow
 
 Feel free to a one-line description (and a link) to your project here.
+* [MusicNotation](https://github.com/slcott/MusicNotation) Mac/iOS Objective-C port of vexflow in progress... _contributors would be greatly appreciated_
