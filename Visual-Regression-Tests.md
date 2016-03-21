@@ -6,6 +6,13 @@ The goal of this system is to detect regressions in the rendered output without 
 
 The system also generates a _diff image_, which is an overlay of the two images, with the differences highlighted, to ease debugging.
 
+## Crude Example
+Below you can see an example of a blessed image, a current image, and the visual difference (value 27.649.)
+
+![Blessed Image](https://i.imgur.com/Oms9i2b.png)
+![Current Image](https://i.imgur.com/dYMEohn.png)
+![Difference](https://i.imgur.com/ypz5det.png)
+
 ## Prerequisites
 
 The test system relies on the open-source libraries, [RSVG](https://github.com/GNOME/librsvg) and [ImageMagick](http://www.imagemagick.org/).
@@ -14,20 +21,21 @@ Installing on OS X, with HomeBrew: `$ brew install librsvg imagemagick`
 
 Installing on Ubuntu Linux: `$ apt-get install librsvg2-dev librsvg2-bin imagemagick`
 
-## Crude Example
-Below you can see an example of a blessed image, a current image, and the visual difference (value 27.649.)
-
-![Blessed Image](https://i.imgur.com/Oms9i2b.png)
-![Current Image](https://i.imgur.com/dYMEohn.png)
-![Difference](https://i.imgur.com/ypz5det.png)
-
 ## How to Test
+After you install the dependencies, you can start the test by running the following commands:
 
-After installing the dependencies, run `npm run generate` to generate images from the current code-base. Files are named by their QUnit module and test name. The last-good-known-images are generated from the last released binaries and stored in `build/images/blessed`. The images from the current code are stored in `build/images/current`.
+```
+$ npm run generate
+$ npm run diff
+```
 
-To start the test, run `npm run diff`, which will detect images that have changed significantly, and store the results in `build/images/diff`.
+This will store the images of the failed tests (i.e., where there are visible differences) in `build/images/diff`. Visually inspect these images (including the diff image), and if you're happy with the output you can simply submit your changes. Be sure to include the before, after, and diff images in your pull request.
 
-Visually inspect these images (including the diff image), and if you're happy with the output you can simply submit your changes. Be sure to include the before, after, and diff images in your pull request.
+### Details
+
+The `npm run generate` command generates images from the current code-base. Files are named by their QUnit module and test name. The last-good-known-images are generated from the last released binaries and stored in `build/images/blessed`. The images from the current code are stored in `build/images/current`.
+
+The `npm run diff` command calculates the PHASH values to detect images that have changed significantly. These images are stored in `build/images/diff`. There also the files `results.txt` and `warnings.txt` with the complete results.
 
 ## How it Works
 
