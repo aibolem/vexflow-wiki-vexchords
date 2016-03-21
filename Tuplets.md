@@ -19,7 +19,9 @@ In vexflow, a tuplet (triplet, quintuplet, etc...) is created by providing an ar
   * `ratioed`: boolean, whether to show both numbers of the tuplet ratio. True: ┌─5:4─┐ False: ┌─5─┐. Defaults true if the difference between `num_notes` and `notes_occupied` is greater than 1.
   * `y_offset`: The distance by which the entire tuplet should be offset, to avoid (for instance) an articulation. (Use negative values to raise the tuplet, positive values to lower it.)
 
-`num_notes` and `notes_occupied` together make up the tuplet ratio, and when `ratioed` is true, the ratio will be displayed as ┌─`num_notes`:`notes_occupied`─┐. _Caution:_ despite its slightly misleading name, `num_notes` does _not_ refer to the number of notes within the tuplet itself. Rather, it refers to the upper value of the tuplet ratio.
+>> _Caution:_ despite its slightly misleading name, `num_notes` does _not_ refer to the number of notes within the tuplet itself. Rather, it refers to the upper value of the tuplet ratio.
+
+`num_notes` and `notes_occupied` together make up the tuplet ratio, and when `ratioed` is true, the ratio will be displayed as ┌─`num_notes`:`notes_occupied`─┐. 
 
 While `num_notes` and `notes_occupied` are not strictly required, for code legibility they are highly recommended. When omitted, `num_notes` defaults to the number of notes in `notes_array`, so if those notes are not all the same duration, you should be sure to include `num_notes`. Because `notes_occupied` defaults to 2, you should be sure to specify a value for anything other than a basic triplet.
 
