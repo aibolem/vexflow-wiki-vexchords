@@ -31,13 +31,11 @@ $ npm run diff
 
 This will store the images of the failed tests (i.e., where there are visible differences) in `build/images/diff`. Visually inspect these images (including the diff image), and if you're happy with the output you can simply submit your changes. Be sure to include the before, after, and diff images in your pull request.
 
-### Details
+## How it Works
 
 The `npm run generate` command generates images from the current code-base. Files are named by their QUnit module and test name. The last-good-known-images are generated from the last released binaries and stored in `build/images/blessed`. The images from the current code are stored in `build/images/current`.
 
 The `npm run diff` command calculates the PHASH values to detect images that have changed significantly. These images are stored in `build/images/diff`. There also the files `results.txt` and `warnings.txt` with the complete results.
-
-## How it Works
 
 The current version of `visual_regression.sh` does the following:
 
