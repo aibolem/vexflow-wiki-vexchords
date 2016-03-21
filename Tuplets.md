@@ -10,7 +10,7 @@ In vexflow, a tuplet (triplet, quintuplet, etc...) is created by providing an ar
  * The notes array is typically made up of `StaveNote`s, but can be made up of any type of note that inherits from `StemmableNote`, including `GhostNote` and `TabNote`.
 
 `options_object`
- * The optional options_object has properties:
+ * The properties of the `options_object` are:
   * `num_notes`: fit this many notes...
   * `notes_occupied`: ...into the space of this many notes.
   * `location`: 1 (above notes, ┌─3─┐) or -1 (below, └─3─┘). Defaults to 1 (above).
