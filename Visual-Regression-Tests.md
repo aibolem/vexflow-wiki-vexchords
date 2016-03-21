@@ -9,7 +9,7 @@ The system also generates a _diff image_, which is an overlay of the two images,
 ## Crude Example
 Below you can see an example of a blessed image, a current image, and the visual difference (value 27.649.)
 
-<image src="https://i.imgur.com/Oms9i2b.png" width=200/>
+<image src="https://i.imgur.com/Oms9i2b.png" width=200>
 ![Current Image](https://i.imgur.com/dYMEohn.png)
 ![Difference](https://i.imgur.com/ypz5det.png)
 
