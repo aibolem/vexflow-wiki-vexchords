@@ -16,13 +16,10 @@ Installing on Ubuntu Linux: `$ apt-get install librsvg2-dev librsvg2-bin imagema
 
 ## Crude Example
 
-### Blessed Image
 ![Blessed Image](https://i.imgur.com/Oms9i2b.png)
 
-### Current Image
 ![Current Image](https://i.imgur.com/dYMEohn.png)
 
-### Difference (PDIFF: 27.649)
 ![Difference](https://i.imgur.com/ypz5det.png)
 
 ## How to Test
