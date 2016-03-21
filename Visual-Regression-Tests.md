@@ -15,11 +15,10 @@ Installing on OS X, with HomeBrew: `$ brew install librsvg imagemagick`
 Installing on Ubuntu Linux: `$ apt-get install librsvg2-dev librsvg2-bin imagemagick`
 
 ## Crude Example
+Below you can see an example of a blessed image, a current image, and the visual difference (value 27.649.)
 
 ![Blessed Image](https://i.imgur.com/Oms9i2b.png)
-
 ![Current Image](https://i.imgur.com/dYMEohn.png)
-
 ![Difference](https://i.imgur.com/ypz5det.png)
 
 ## How to Test
