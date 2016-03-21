@@ -16,7 +16,7 @@ In vexflow, a tuplet (triplet, quintuplet, etc...) is created by providing an ar
   * `location`: 1 (above notes, ┌─3─┐) or -1 (below, └─3─┘). Defaults to 1 (above).
     For code legibility, you may use `Vex.Flow.Tuplet.LOCATION_TOP` and `Vex.Flow.Tuplet.LOCATION_BOTTOM`
   * `bracketed`: boolean, whether to draw a bracket or show only the number(s). Defaults true if all of the tuplet notes are beamed, false otherwise. _Note:_ If you are relying on the default, you should apply beams before you create the tuplet, as this is checked only on tuplet creation.
-  * `ratioed`: boolean, whether to show both numbers of the tuplet ratio. True: ┌─5:4─┐ False: ┌─5─┐. Defaults true if the difference between `num_notes` and `notes_occupied` is less than 1.
+  * `ratioed`: boolean, whether to show both numbers of the tuplet ratio. True: ┌─5:4─┐ False: ┌─5─┐. Defaults true if the difference between `num_notes` and `notes_occupied` is greater than 1.
   * `y_offset`: The distance by which the entire tuplet should be offset, to avoid (for instance) an articulation. (Use negative values to raise the tuplet, positive values to lower it.)
 
 `num_notes` and `notes_occupied` together make up the tuplet ratio, and when `ratioed` is true, the ratio will be displayed as ┌─`num_notes`:`notes_occupied`─┐.
