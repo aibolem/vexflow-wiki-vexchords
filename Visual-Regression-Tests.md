@@ -14,6 +14,17 @@ Installing on OS X, with HomeBrew: `$ brew install librsvg imagemagick`
 
 Installing on Ubuntu Linux: `$ apt-get install librsvg2-dev librsvg2-bin imagemagick`
 
+## Crude Example
+
+### Blessed Image
+![Blessed Image](https://i.imgur.com/Oms9i2b.png)
+
+### Current Image
+![Current Image](https://i.imgur.com/dYMEohn.png)
+
+### Difference (PDIFF: 27.649)
+![Difference](https://i.imgur.com/ypz5det.png)
+
 ## How to Test
 
 After installing the dependencies, run `npm run generate` to generate images from the current code-base. Files are named by their QUnit module and test name. The last-good-known-images are generated from the last released binaries and stored in `build/images/blessed`. The images from the current code are stored in `build/images/current`.
