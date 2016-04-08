@@ -35,9 +35,13 @@ Yes, and there are a number of VexFlow-based mobile apps already out there. Thes
 
 ### Formatting
 
+#### How do I auto-format my note modifiers (accidentals, etc)?
+
+Even with a single voice, you must always call `Formatter.joinVoices([voice])` if you want your note modifiers to be formatted.
+
 #### How do I create and align multiple voices on a single stave?
 
-If you have multiple voices on a single stave, call `Formatter.joinVoices` on them. This puts notes on the identical beats into the same `ModifierContext`, which in turn positions the various elements such that they don't collide with each other.
+If you have multiple voices on a single stave, call `Formatter.joinVoices` with an array containing the voices. This puts notes at simultaneous timestamps within the same `ModifierContext`, which in turn positions the various elements such that they don't collide with each other.
 
 ```javascript
 voice1 = new Vex.Flow.Voice(...);
