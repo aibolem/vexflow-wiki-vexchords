@@ -37,7 +37,7 @@ Yes, and there are a number of VexFlow-based mobile apps already out there. Thes
 
 #### How do I auto-format my note modifiers (accidentals, etc)?
 
-Even with a single voice, you must always call `Formatter.joinVoices([voice])` if you want your note modifiers to be formatted.
+Even with a single voice, you must always call `Formatter.joinVoices([voice])` if you want your note modifiers to be formatted when calling `Formatter.format([voice])
 
 #### How do I create and align multiple voices on a single stave?
 
@@ -56,7 +56,7 @@ formatter.joinVoices([voice1, voice2]);
 
 #### How do I align multiple voices across staves?
 
-If you want to align voices across multiple stave (e.g., for building a grand staff), you can simply run the formatter without joining any voices. Remember that the formatter only positions the `x` coordinates, so the actual notes can be rendered anywhere.
+If you want to align voices across multiple staves (e.g., for building a grand staff), you should only call `joinVoices` on voices that **share a stave**. However, you should call `format` with **all aligned voices**. Remember that the formatter only positions the `x` coordinates, so the actual notes can be rendered anywhere.
 
 ```javascript
 var voiceTreble = new Vex.Flow.Voice({num_beats:4, beat_value: 4, resolution:Vex.Flow.RESOLUTION});
