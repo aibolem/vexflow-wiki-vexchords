@@ -67,6 +67,8 @@ voiceTreble.addTickables(notesTreble);
 voiceBass.addTickables(notesBass);
 
 var formatter = new Vex.Flow.Formatter();
+
+// the treble and bass are joined independently but formatted together
 formatter.joinVoices([voiceTreble]);
 formatter.joinVoices([voiceBass]);
 formatter.format([voiceTreble, voiceBass], stave_length);
