@@ -41,7 +41,7 @@ Even with a single voice, you must always call `Formatter.joinVoices([voice])` i
 
 #### How do I create and align multiple voices on a single stave?
 
-If you have multiple voices on a single stave, call `Formatter.joinVoices` with an array containing the voices. This causes notes at simultaneous timestamps to share a `ModifierContext`, which in turn positions the various elements such that they don't collide with each other.
+If you have multiple voices on a single stave, call `Formatter.joinVoices` with an array containing the voices. This causes notes at simultaneous timestamps to share a `ModifierContext`, which, upon calling `.format()` (or `.formatToStave()`) positions the notes and their modifiers such that they don't collide with each other.
 
 ```javascript
 voice1 = new Vex.Flow.Voice(...);
@@ -52,6 +52,7 @@ voice2.addTickables([note1, note2, note3]);
 
 formatter = new Vex.Flow.Formatter();
 formatter.joinVoices([voice1, voice2]);
+formatter.format([voice1, voice2], stave_length);
 ```
 
 #### How do I align multiple voices across staves?
@@ -66,6 +67,8 @@ voiceTreble.addTickables(notesTreble);
 voiceBass.addTickables(notesBass);
 
 var formatter = new Vex.Flow.Formatter();
+formatter.joinVoices([voiceTreble]);
+formatter.joinVoices([voiceBass]);
 formatter.format([voiceTreble, voiceBass], stave_length);
 
 var max_x = Math.max(staveTreble.getNoteStartX(), staveBass.getNoteStartX());
@@ -144,7 +147,6 @@ voice.draw(ctx, stave);
 ```
 
 This [fiddle](http://jsfiddle.net/vW9v5/) is a more advanced example of grace notes.
-
 
 
 
