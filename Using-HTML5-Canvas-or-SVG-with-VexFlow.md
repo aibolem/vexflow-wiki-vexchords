@@ -1,6 +1,6 @@
 (This site is currently in edit mode).
 
-The main purpose of this is to describe in section 3. how to use SVG, but without the deprecated RAPHAEL library. 
+The main purpose of this page is to describe in section 3. how to use SVG, but without the deprecated RAPHAEL library. 
 The second purpose is to give you an overview of how you can set up these three options (choose only one)
 
 * CANVAS 
