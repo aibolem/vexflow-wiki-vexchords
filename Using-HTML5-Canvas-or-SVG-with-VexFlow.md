@@ -1,8 +1,11 @@
-This page describes how to use SVG, but without the deprecated Raphael library. Here is an overview of how to set up the three options 
-* CANVAS, 
-* RAPHAEL and 
-* SVG, 
-also covering implementation in a wordpress-like website environment.
+The main purpose of this is to describe how to use SVG, but without the deprecated RAPHAEL library. 
+The second purpose is to give an overview of how to set up the three options
+
+* CANVAS 
+* RAPHAEL
+* SVG
+
+On the side, implementation in a Wordpress-like website environment is mentioned.
 
 ###1. CANVAS:###
 
