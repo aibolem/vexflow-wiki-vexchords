@@ -50,7 +50,7 @@ Step 2. Within the ``<svg>`` element, specify the argument ``viewbox = "0 0 widt
 
     <svg id="mySVGCanvas" width="500px" height="300px" viewbox = "0 0 500 300">
 
-You have to familiarize with how an SVG coordinate system works, with the 3 important properties
+If you need more tweaking for your SVG canvas, you should familiarize with how an SVG coordinate system works, with the 3 important properties
 
 * viewbox
 * viewport 
