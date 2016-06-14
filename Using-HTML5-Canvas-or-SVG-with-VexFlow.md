@@ -56,9 +56,11 @@ If you need more tweaking for your SVG canvas, you should familiarize with how a
 * viewport 
 * preserveAspectRatio 
 
-so you can actually see the output in the virtual SVG world. If unfamiliar, best look at a SVG tutorial (google search) and read about those properties. 
+so you can actually see the output in the virtual SVG world. If unfamiliar, best look at a SVG tutorial (google search) and read about those properties.  
 I used this one:
-[https://sarasoueidan.com/blog/svg-coordinate-systems/](https://sarasoueidan.com/blog/svg-coordinate-systems/)
+
+[https://sarasoueidan.com/blog/svg-coordinate-systems/](https://sarasoueidan.com/blog/svg-coordinate-systems/)  
+
 There are 3 articles about this topic.
 
 Step 3. In your javascript vexflow code do
