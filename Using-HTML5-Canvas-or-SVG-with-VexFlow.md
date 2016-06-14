@@ -16,16 +16,16 @@ Canvas is the easiest to set up
 Step 1. Find a place in your website where you can put html code into. In an old html-based site, this is just something like the index.html, in a wordpress site this might be a blog post with a block for plain html code. Maybe your theme offers such a code block. In your html code of the website, create a `<canvas>` element with width and height and give it an id like id="myCanvas".
 
 Step 2. In your javascript vexflow code do   
-``var renderer = new Vex.Flow.Renderer(yourCanvasElement_ID,Vex.Flow.Renderer.Backends.CANVAS);``
+    var renderer = new Vex.Flow.Renderer(yourCanvasElement_ID,Vex.Flow.Renderer.Backends.CANVAS);
 
 ###2. RAPHAEL###
 
 RAPHAEL is deprecated, best use SVG instead. In case you want to use RAPHAEL:
 
 Step 1. In your html code of the website, create a   
-        ``<div>``   
+        <div> 
 element with width and height and give it an id like   
-        ``id="myRaphaelCanvas"``
+        id="myRaphaelCanvas"
 
 Step 2. In your javascript vexflow code do   
         ``var renderer = new Vex.Flow.Renderer(yourRaphaelCanvasElement_ID, Vex.Flow.Renderer.Backends.RAPHAEL);``  
