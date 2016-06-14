@@ -8,7 +8,8 @@ You can use the `Renderer.Backends.CANVAS` backend to generate notation on Canva
 
 And configure your renderer as so:
      
-     var renderer = new Vex.Flow.Renderer(document.getElementById("myCanvas"), Vex.Flow.Renderer.Backends.CANVAS);     
+    var renderer = new Vex.Flow.Renderer(document.getElementById("myCanvas"),
+                                         Vex.Flow.Renderer.Backends.CANVAS);     
 
 ### SVG
 
@@ -18,7 +19,8 @@ You can render to SVG using the `Renderer.Backends.SVG` backend. VexFlow now has
 
 Then initialize the renderer as so:
 
-    var renderer = new Vex.Flow.Renderer(document.getElementById("mySVGCanvas"), Vex.Flow.Renderer.Backends.SVG);
+    var renderer = new Vex.Flow.Renderer(document.getElementById("mySVGCanvas"),
+                                         Vex.Flow.Renderer.Backends.SVG);
 
 You can tweak your SVG display using the properties `viewbox`, `viewport`, and `preserveAspectRatio`.
 
