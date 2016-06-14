@@ -1,3 +1,5 @@
+(This site is currently in edit mode).
+
 The main purpose of this is to describe how to use SVG, but without the deprecated RAPHAEL library. 
 The second purpose is to give an overview of how to set up the three options
 
