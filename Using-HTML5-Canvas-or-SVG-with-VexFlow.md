@@ -4,7 +4,7 @@ VexFlow abstracts away the rendering backend, and works on both HTML5 Canvas and
 
 You can use the `Renderer.Backends.CANVAS` backend to generate notation on Canvas elements. To use it, create a `canvas` element in your HTML file as so:
 
-    <canvas id="myCanvas" width="500px" height="300px">
+    <canvas id="myCanvas" width="500" height="300"></canvas>
 
 And configure your renderer as so:
      
@@ -15,7 +15,7 @@ And configure your renderer as so:
 
 You can render to SVG using the `Renderer.Backends.SVG` backend. VexFlow now has native support for SVG and does not require RaphaelJS. To use it, create an `svg` element in your HTML document:
 
-    <svg id="mySVGCanvas" width="500px" height="300px" viewbox = "0 0 500 300">
+    <svg id="mySVGCanvas" width="500" height="300" viewbox = "0 0 500 300"></svg>
 
 Then initialize the renderer as so:
 
