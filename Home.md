@@ -26,3 +26,8 @@
 * [Mohit Muthanna Cheppudira](http://github.com/0xfe)
 * [Cyril Silverman](http://github.com/Silverwolf90)
 * [Larry Kuhns](http://github.com/LarryKu)
+* [Gregory Ristow](http://github.com/gristow)
+* [Michael Scott Cuthbert](http://github.com/mscuthbert)
+* [Aaron Mars](http://github.com/aaronmars)
+
+All past contributors: https://github.com/0xfe/vexflow/graphs/contributors
