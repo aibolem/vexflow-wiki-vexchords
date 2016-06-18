@@ -21,7 +21,7 @@ An example output from VexFlow is shown here. This is actually a screenshot from
 Support for more accidentals will occur when Gonville is replaced with a more standard and comprehensive font, such as those that are [SMuFL](http://www.smufl.org/)-compatible. SMuFL support is [an ongoing topic](https://github.com/0xfe/vexflow/issues/350) for VexFlow. Once this happens, it will be trivial-ish to add new mnemonics to represent those accidentals.
 
 ### Microtonal Key Signatures
-VexFlow allows to specify key signatures that contain arbitrary accidentals, including microtonal ones, in place of the standard sharp and flat. An example out is shown here. This is a screenshot from the [VF test module "KeySignature"](https://github.com/0xfe/vexflow/blob/master/tests/keysignature_tests.js#L165).
+VexFlow allows to specify key signatures that contain arbitrary accidentals, including microtonal ones, in place of the standard sharp and flat. An example output is shown here. This is a screenshot from the [VF test module "KeySignature"](https://github.com/0xfe/vexflow/blob/master/tests/keysignature_tests.js#L165).
 [[https://github.com/infojunkie/music-l10n/blob/master/images/vexflow-keysig-altered.png]]
 
-However, microtonal key signature support is not complete, because other musical traditions do not follow the "Berkless style" of key signature layout. For example, Arabic musical notation includes key signatures such as Bb Eb F#. This is currently a [work in progress](https://github.com/0xfe/vexflow/issues/328). 
+However, microtonal key signature support is not complete, because other musical traditions do not follow the "Berklee style" of key signature layout. For example, Arabic musical notation includes key signatures such as Bb Eb F#. This is currently a [work in progress](https://github.com/0xfe/vexflow/issues/328). 
