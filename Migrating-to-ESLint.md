@@ -1,4 +1,8 @@
-# Steps
+Currently VexFlow is in the process of migrating to [eslint](http://eslint.org/). Using a much stricter config than the previous jshint config provided.
+
+[A PR is currently open which has started the process.](https://github.com/0xfe/vexflow/pull/369)
+
+## Basic Steps
 
 1. Run code through [`Lebab`](https://github.com/mohebifar/lebab) with `lebab <filepath> -o <filepath>`
   - [`Lebab`](https://github.com/mohebifar/lebab) is an ES5 to ES6 converter.
@@ -10,8 +14,11 @@
 
 3. Manual edits
   - Despite the automated bits, many errors will remain.
+  - Sometimes minor refactoring will be required
 
-# Config
+4. When finished add the file name to the `ESLINT_SOURCES` array in the `Gruntfile`
+
+## Config
 
 Here's the current `.eslintrc`, acquaint yourself with the [eslint rules](http://eslint.org/docs/rules/) and feel free to make suggestions. Note that we're extending the [`eslint-config-airbnb-base`](https://www.npmjs.com/package/eslint-config-airbnb-base)
 
