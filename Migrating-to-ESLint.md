@@ -14,7 +14,9 @@ Running `grunt eslint` will run eslint on all the  [`ESLINT_SOURCES`](https://gi
 Or you can run eslint independently of grunt:
 
 `cd <vexflow root>`
+
 `npm install`
+
 `eslint <path>`
 
 ## Basic Steps
