@@ -2,6 +2,8 @@ Currently VexFlow is in the process of migrating to [eslint](http://eslint.org/)
 
 [A PR is currently open which has started the process.](https://github.com/0xfe/vexflow/pull/369)
 
+[A branch which continues from PR #369](https://github.com/Silverwolf90/vexflow/tree/eslint-all)
+
 ## Basic Steps
 
 1. Run code through [`Lebab`](https://github.com/mohebifar/lebab) with `lebab <filepath> -o <filepath>`
