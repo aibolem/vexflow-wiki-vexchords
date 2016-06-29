@@ -5,6 +5,18 @@ Currently VexFlow is in the process of migrating to [eslint](http://eslint.org/)
 * [Active Branch](https://github.com/Silverwolf90/vexflow/tree/eslint-all)
 * [Initial PR #369 - with 4 example files](https://github.com/0xfe/vexflow/pull/369)
 
+## Using eslint 
+
+You have two options:
+
+Running `grunt eslint` will run eslint on all the  [`ESLINT_SOURCES`](https://github.com/Silverwolf90/vexflow/blob/eslint-all/Gruntfile.js#L23)  expected to pass in the Gruntfile. You could just add a failing file to that array.
+
+Or you can run eslint independently of grunt:
+
+`cd <vexflow root>`
+`npm install`
+`eslint <path>`
+
 ## Basic Steps
 
 **UPDATE: In the [branch](https://github.com/Silverwolf90/vexflow/tree/eslint-all) the first two steps have been run on each file. Only manual edits remain**
