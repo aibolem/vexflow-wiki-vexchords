@@ -7,12 +7,14 @@ Currently VexFlow is in the process of migrating to [eslint](http://eslint.org/)
 
 ## Basic Steps
 
-1. Run code through [`Lebab`](https://github.com/mohebifar/lebab) with `lebab <filepath> -o <filepath>`
+**UPDATE: In the [branch](https://github.com/Silverwolf90/vexflow/tree/eslint-all) all automatic steps have been ran. Only manual edits remain**
+
+1. ~~Run code through [`Lebab`](https://github.com/mohebifar/lebab) with `lebab <filepath> -o <filepath>`~~
   - [`Lebab`](https://github.com/mohebifar/lebab) is an ES5 to ES6 converter.
   - You can install it with `npm`. 
   - It seems to work quite well, but be sure to review the result because some transforms are unsafe.
 
-2. Run `eslint --fix` <file>
+2. ~~Run `eslint --fix` <file>~~
   - This will fix some pretty trivial things, but definitely saves time.
 
 3. Manual edits
