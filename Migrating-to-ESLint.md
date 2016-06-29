@@ -1,8 +1,8 @@
 Currently VexFlow is in the process of migrating to [eslint](http://eslint.org/). Using a much stricter config than the previous jshint config provided.
 
-[PR #369 is currently open which has started the process.](https://github.com/0xfe/vexflow/pull/369)
-
-[A branch which continues from PR #369](https://github.com/Silverwolf90/vexflow/tree/eslint-all)
+* [Discussion](https://github.com/0xfe/vexflow/issues/361)
+* [Initial PR #369 - with 4 example files](https://github.com/0xfe/vexflow/pull/369)
+* [Active Branch](https://github.com/Silverwolf90/vexflow/tree/eslint-all)
 
 ## Basic Steps
 
