@@ -43,3 +43,77 @@ Here's the current `.eslintrc`, acquaint yourself with the [eslint rules](http:/
   }
 }
 ```
+
+## Complete
+
+- [x] accidental.js
+- [ ] annotation.js
+- [ ] articulation.js
+- [ ] barnote.js
+- [ ] beam.js
+- [ ] bend.js
+- [ ] boundingbox.js
+- [ ] boundingboxcomputation.js
+- [ ] canvascontext.js
+- [x] clef.js
+- [ ] clefnote.js
+- [ ] crescendo.js
+- [ ] curve.js
+- [ ] dot.js
+- [x] formatter.js
+- [ ] fraction.js
+- [x] frethandfinger.js
+- [ ] ghostnote.js
+- [ ] glyph.js
+- [ ] gracenote.js
+- [ ] gracenotegroup.js
+- [ ] header.js
+- [ ] index.js
+- [ ] keymanager.js
+- [ ] keysignature.js
+- [ ] modifier.js
+- [x] modifiercontext.js
+- [ ] music.js
+- [ ] note.js
+- [ ] notehead.js
+- [ ] ornament.js
+- [ ] pedalmarking.js
+- [ ] raphaelcontext.js
+- [ ] renderer.js
+- [x] stave.js
+- [ ] stavebarline.js
+- [x] staveconnector.js
+- [ ] stavehairpin.js
+- [ ] staveline.js
+- [ ] stavemodifier.js
+- [x] stavenote.js
+- [ ] staverepetition.js
+- [ ] stavesection.js
+- [ ] stavetempo.js
+- [ ] stavetext.js
+- [ ] stavetie.js
+- [ ] stavevolta.js
+- [ ] stem.js
+- [ ] stemmablenote.js
+- [x] stringnumber.js
+- [ ] strokes.js
+- [ ] svgcontext.js
+- [ ] tables.js
+- [ ] tabnote.js
+- [ ] tabslide.js
+- [ ] tabstave.js
+- [ ] tabtie.js
+- [ ] textbracket.js
+- [ ] textdynamics.js
+- [ ] textnote.js
+- [ ] tickable.js
+- [ ] tickcontext.js
+- [ ] timesignature.js
+- [ ] timesignote.js
+- [x] tremolo.js
+- [x] tuning.js
+- [ ] tuplet.js
+- [x] vex.js
+- [x] vibrato.js
+- [x] voice.js
+- [ ] voicegroup.js
