@@ -49,6 +49,8 @@ Here's the current `.eslintrc`, acquaint yourself with the [eslint rules](http:/
 
 ## Complete
 
+See branch: https://github.com/Silverwolf90/vexflow/tree/eslint-all
+
 - [x] accidental.js
 - [ ] annotation.js
 - [ ] articulation.js
