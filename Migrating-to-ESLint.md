@@ -12,12 +12,11 @@ You have two options:
 Running `grunt eslint` will run eslint on all the  [`ESLINT_SOURCES`](https://github.com/Silverwolf90/vexflow/blob/eslint-all/Gruntfile.js#L23)  expected to pass in the Gruntfile. You could just add a failing file to that array.
 
 Or you can run eslint independently of grunt:
-
-`cd <vexflow root>`
-
-`npm install`
-
-`eslint <path>`
+```
+cd <vexflow root>
+npm install
+eslint <path>
+```
 
 ## Basic Steps
 
