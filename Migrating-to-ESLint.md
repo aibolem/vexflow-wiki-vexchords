@@ -2,8 +2,6 @@ Currently VexFlow is in the process of migrating to [eslint](http://eslint.org/)
 
 * [Currently completed files](https://github.com/0xfe/vexflow/wiki/Migrating-to-ESLint#complete)
 * [Discussion](https://github.com/0xfe/vexflow/issues/361)
-* [Active Branch](https://github.com/Silverwolf90/vexflow/tree/eslint-all)
-* [Initial PR #369 - with 4 example files](https://github.com/0xfe/vexflow/pull/369)
 
 ## Using eslint 
 
