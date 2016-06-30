@@ -67,11 +67,11 @@ Here's the current `.eslintrc`, acquaint yourself with the [eslint rules](http:/
 See branch: https://github.com/Silverwolf90/vexflow/tree/eslint-all
 
 - [x] accidental.js
-- [ ] annotation.js
-- [ ] articulation.js
-- [ ] barnote.js
-- [ ] beam.js
-- [ ] bend.js
+- [x] annotation.js
+- [x] articulation.js
+- [x] barnote.js
+- [x] beam.js
+- [x] bend.js
 - [ ] boundingbox.js
 - [ ] boundingboxcomputation.js
 - [ ] canvascontext.js
