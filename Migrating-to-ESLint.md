@@ -114,7 +114,7 @@ See branch: https://github.com/Silverwolf90/vexflow/tree/eslint-all
 - [ ] stem.js
 - [ ] stemmablenote.js
 - [x] stringnumber.js
-- [ ] strokes.js
+- [x] strokes.js
 - [ ] svgcontext.js
 - [ ] tables.js
 - [ ] tabnote.js
