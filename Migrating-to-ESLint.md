@@ -18,7 +18,7 @@ eslint <path>
 
 ## Basic Steps
 
-**UPDATE: In the [branch](https://github.com/Silverwolf90/vexflow/tree/eslint-all) the first two steps have been run on each file. Only manual edits remain**
+**UPDATE: On master, the first two steps have been run on each file. Only manual edits remain**
 
 1. ~~Run code through [`Lebab`](https://github.com/mohebifar/lebab) with `lebab <filepath> -o <filepath>`~~
   - [`Lebab`](https://github.com/mohebifar/lebab) is an ES5 to ES6 converter.
