@@ -48,68 +48,67 @@ Acquaint yourself with the [eslint rules](http://eslint.org/docs/rules/) and fee
 - [x] barnote.js
 - [x] beam.js
 - [x] bend.js
-- [ ] boundingbox.js
-- [ ] boundingboxcomputation.js
-- [ ] canvascontext.js
+- [x] boundingbox.js
+- [x] boundingboxcomputation.js
+- [x] canvascontext.js
 - [x] clef.js
-- [ ] clefnote.js
-- [ ] crescendo.js
-- [ ] curve.js
-- [ ] dot.js
+- [x] clefnote.js
+- [x] crescendo.js
+- [x] curve.js
+- [x] dot.js
 - [x] formatter.js
-- [ ] fraction.js
+- [x] fraction.js
 - [x] frethandfinger.js
-- [ ] ghostnote.js
-- [ ] glyph.js
-- [ ] gracenote.js
-- [ ] gracenotegroup.js
-- [ ] header.js
-- [ ] index.js
-- [ ] keymanager.js
-- [ ] keysignature.js
-- [ ] modifier.js
+- [x] ghostnote.js
+- [x] glyph.js
+- [x] gracenote.js
+- [x] gracenotegroup.js
+- [x] index.js
+- [x] keymanager.js
+- [x] keysignature.js
+- [x] modifier.js
 - [x] modifiercontext.js
 - [x] music.js
-- [ ] note.js
-- [ ] notehead.js
-- [ ] ornament.js
-- [ ] pedalmarking.js
-- [ ] raphaelcontext.js
-- [ ] renderer.js
+- [x] note.js
+- [x] notehead.js
+- [x] ornament.js
+- [x] pedalmarking.js
+- [x] raphaelcontext.js
+- [x] renderer.js
 - [x] stave.js
-- [ ] stavebarline.js
+- [x] stavebarline.js
 - [x] staveconnector.js
-- [ ] stavehairpin.js
-- [ ] staveline.js
-- [ ] stavemodifier.js
+- [x] stavehairpin.js
+- [x] staveline.js
+- [x] stavemodifier.js
 - [x] stavenote.js
-- [ ] staverepetition.js
-- [ ] stavesection.js
-- [ ] stavetempo.js
-- [ ] stavetext.js
-- [ ] stavetie.js
-- [ ] stavevolta.js
-- [ ] stem.js
+- [x] staverepetition.js
+- [x] stavesection.js
+- [x] stavetempo.js
+- [x] stavetext.js
+- [x] stavetie.js
+- [x] stavevolta.js
+- [x] stem.js
 - [x] stemmablenote.js
 - [x] stringnumber.js
 - [x] strokes.js
-- [ ] svgcontext.js
+- [x] svgcontext.js
 - [x] tables.js
-- [ ] tabnote.js
-- [ ] tabslide.js
-- [ ] tabstave.js
-- [ ] tabtie.js
-- [ ] textbracket.js
-- [ ] textdynamics.js
-- [ ] textnote.js
-- [ ] tickable.js
-- [ ] tickcontext.js
-- [ ] timesignature.js
-- [ ] timesignote.js
+- [x] tabnote.js
+- [x] tabslide.js
+- [x] tabstave.js
+- [x] tabtie.js
+- [x] textbracket.js
+- [x] textdynamics.js
+- [x] textnote.js
+- [x] tickable.js
+- [x] tickcontext.js
+- [x] timesignature.js
+- [x] timesignote.js
 - [x] tremolo.js
 - [x] tuning.js
-- [ ] tuplet.js
+- [x] tuplet.js
 - [x] vex.js
 - [x] vibrato.js
 - [x] voice.js
-- [ ] voicegroup.js
+- [x] voicegroup.js
