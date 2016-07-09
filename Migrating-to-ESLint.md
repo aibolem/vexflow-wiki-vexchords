@@ -69,7 +69,7 @@ Acquaint yourself with the [eslint rules](http://eslint.org/docs/rules/) and fee
 - [ ] keysignature.js
 - [ ] modifier.js
 - [x] modifiercontext.js
-- [ ] music.js
+- [x] music.js
 - [ ] note.js
 - [ ] notehead.js
 - [ ] ornament.js
@@ -90,11 +90,11 @@ Acquaint yourself with the [eslint rules](http://eslint.org/docs/rules/) and fee
 - [ ] stavetie.js
 - [ ] stavevolta.js
 - [ ] stem.js
-- [ ] stemmablenote.js
+- [x] stemmablenote.js
 - [x] stringnumber.js
 - [x] strokes.js
 - [ ] svgcontext.js
-- [ ] tables.js
+- [x] tables.js
 - [ ] tabnote.js
 - [ ] tabslide.js
 - [ ] tabstave.js
