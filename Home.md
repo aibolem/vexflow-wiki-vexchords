@@ -29,5 +29,6 @@
 * [Gregory Ristow](http://github.com/gristow)
 * [Michael Scott Cuthbert](http://github.com/mscuthbert)
 * [Aaron Mars](http://github.com/aaronmars)
+* [Taehoon Moon](http://github.com/panarch)
 
 All past contributors: https://github.com/0xfe/vexflow/graphs/contributors
