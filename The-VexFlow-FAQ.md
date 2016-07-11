@@ -150,5 +150,33 @@ voice.draw(ctx, stave);
 
 This [fiddle](http://jsfiddle.net/vW9v5/) is a more advanced example of grace notes.
 
+#### How do I display mid-measure clef?
+
+You can display mid-measure clef by adding a `NoteSubGroup` modifier to your `StaveNote`. The `NoteSubGroup` can consists of any kind of `Note` instances, but you may usually use `NoteSubGroup` with `ClefNote` only.
+
+It is also possible to use `ClefNote` without `NoteSubGroup`, but it is not recommended because of multi-voice formatting issue, `ClefNote` without `NoteSubGroup` does not support multi-voice.
+
+```javascript
+var notes = [
+  new Vex.Flow.StaveNote({ keys: ['c/4'], duration: 'q'}),
+  new Vex.Flow.StaveNote({ keys: ['c/4'], duration: 'q'}),
+  new Vex.Flow.StaveNote({ keys: ['c/4'], duration: 'q'}),
+  new Vex.Flow.StaveNote({ keys: ['c/4'], duration: 'q'})
+];
+ 
+var clefNote = new Vex.Flow.ClefNote('bass', 'small');
+var noteSubGroup = new Vex.Flow.NoteSubGroup([clefNote]);
+notes[2].addModifier(0, noteSubGroup);
+
+var voice = new Vex.Flow.Voice({num_beats: 4, beat_value: 4});
+voice.addTickables(notes);
+ 
+var formatter = new Vex.Flow.Formatter();
+formatter.joinVoices([voice]).formatToStave([voice], stave);
+voice.draw(ctx, stave);
+```
+
+[NoteSubGroup tests](http://public.vexflow.com/tests/?module=NoteSubGroup) have more advanced examples.
+
 
 
