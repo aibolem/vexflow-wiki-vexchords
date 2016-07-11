@@ -148,7 +148,7 @@ formatter.joinVoices([voice]).formatToStave([voice], stave);
 voice.draw(ctx, stave);
 ```
 
-This [fiddle](http://jsfiddle.net/vW9v5/) is a more advanced example of grace notes.
+This [jsfiddle](https://jsfiddle.net/vW9v5/24/) is a more advanced example of grace notes.
 
 #### How do I display mid-measure clef?
 
