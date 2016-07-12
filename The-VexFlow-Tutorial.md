@@ -38,7 +38,7 @@ stave.setContext(context).draw();
 
 Here's what it looks like: [ [run](https://jsfiddle.net/nL0cn3vL/2/) ]
 
-_TODO: Insert image_
+![](https://i.imgur.com/WZe5i06.png)
 
 Above, we first create a rendering context from the `DIV` element and specify the `SVG` backend. The rendering context is an abstraction that gives VexFlow a consistent 2D drawing interface across various backends. Typically you would do this just once per application lifetime.
 
@@ -87,6 +87,8 @@ var formatter = new VF.Formatter().joinVoices([voice]).format([voice], 400);
 voice.draw(context, stave);
 ```
 
+![](http://imgur.com/NT62Q7g.png)
+
 Notice how the notes are justified evenly on the stave based on the duration of each note? This is the formatter in action - keeping voices aligned, while balancing the spacing between the notes.
 
 Lets add a second voice with a single whole note to this tune. [ [run](https://jsfiddle.net/7y74r86s/1/) ]
@@ -115,6 +117,8 @@ var formatter = new VF.Formatter().joinVoices(voices).format(voices, 400);
 voices.forEach(function(v) { v.draw(context, stave); })
 ```
 
+![](http://imgur.com/sk1RC26.png)
+
 ## Step 3: All About Modifiers
 
 A modifier is an element that is attached to a note. Modifiers typically inherit from the `VF.Modifier` base class, e.g., `VF.Accidental` representing accidentals, `VF.Vibrato` for vibratos, `VF.Annotation` for annotations , etc.
@@ -142,6 +146,8 @@ var notes = [
 VF.Formatter.FormatAndDraw(context, stave, notes);
 ```
 
+![](http://imgur.com/3wVLRxx.png)
+
 In the above example, note that even though we set the note names and durations correctly, we explicitly request the rendering of accidentals and dots.
 
 This is by design, and allows us to decouple rendering logic and notational semantics. For example, you would not want to render the `#` accidental on `F#` when the key signature already includes it (e.g., key of `G`.)
@@ -168,8 +174,9 @@ var notes = [
 VF.Formatter.FormatAndDraw(context, stave, notes);
 ```
 
-Notice how VexFlow position the accidentals such that they don't collide with each other?
+![](http://imgur.com/6cjs3Rf.png)
 
+Notice how VexFlow position the accidentals such that they don't collide with each other?
 
 
 TODO: Add more steps from [tutorial](http://www.vexflow.com/docs/tutorial.html)
