@@ -115,7 +115,66 @@ var formatter = new VF.Formatter().joinVoices(voices).format(voices, 400);
 voices.forEach(function(v) { v.draw(context, stave); })
 ```
 
+## Step 3: All About Modifiers
+
+A modifier is an element that is attached to a note. Modifiers typically inherit from the `VF.Modifier` base class, e.g., `VF.Accidental` representing accidentals, `VF.Vibrato` for vibratos, `VF.Annotation` for annotations , etc.
+
+Modifiers are self-positioning -- they intelligently juxtapose themselves alongside other modifiers and notes based on standard music notation rules.
+
+Let's add some accidentals and dots. [ [run](https://jsfiddle.net/1tqmkeft/3/) ]
+
+```javascript
+var notes = [
+    new VF.StaveNote({ keys: ["e##/5"], duration: "8d" }).
+      addAccidental(0, new VF.Accidental("##")).addDotToAll(),
+
+    new VF.StaveNote({ keys: ["eb/5"], duration: "16" }).
+      addAccidental(0, new VF.Accidental("b")),
+
+    new VF.StaveNote({ keys: ["d/5", "eb/4"], duration: "h" }).
+    	addDot(0),
+
+    new VF.StaveNote({ keys: ["c/5", "eb/5", "g#/5"], duration: "q" }).
+      addAccidental(1, new VF.Accidental("b")).
+      addAccidental(2, new VF.Accidental("#")).addDotToAll()
+  ];
+
+VF.Formatter.FormatAndDraw(context, stave, notes);
+```
+
+In the above example, note that even though we set the note names and durations correctly, we explicitly request the rendering of accidentals and dots.
+
+This is by design, and allows us to decouple rendering logic and notational semantics. For example, you would not want to render the `#` accidental on `F#` when the key signature already includes it (e.g., key of `G`.)
+
+Also notice that we `FormatAndDraw`, which is a handy helper function that takes care of all the plumbing related to displaying a sequence of notes.
+
+Lets add a few more modifiers and see how they position themselves. [ [run](https://jsfiddle.net/htsm03pn/1/) ]
+
+```javascript
+var notes = [
+    new VF.StaveNote(
+      { keys: ["g/4", "b/4", "cb/5", "e/5", "g#/5", "b/5"],
+        duration: "h" }).
+      addAccidental(0, new VF.Accidental("bb")).
+      addAccidental(1, new VF.Accidental("b")).
+      addAccidental(2, new VF.Accidental("#")).
+      addAccidental(3, new VF.Accidental("n")).
+      addAccidental(4, new VF.Accidental("b")).
+      addAccidental(5, new VF.Accidental("##")),
+    new Vex.Flow.StaveNote({ keys: ["c/4"], duration: "h" })
+  ];
+
+  // Helper function to justify and draw a 4/4 voice
+VF.Formatter.FormatAndDraw(context, stave, notes);
+```
+
+Notice how VexFlow position the accidentals such that they don't collide with each other?
+
+
+
 TODO: Add more steps from [tutorial](http://www.vexflow.com/docs/tutorial.html)
+
+
 
 
 
