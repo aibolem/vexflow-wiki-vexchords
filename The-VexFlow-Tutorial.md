@@ -309,9 +309,42 @@ And here's what it looks like [[run](https://jsfiddle.net/x1mgkv5v/1/)]:
 
 And there you have beams and ties!
 
-TODO: Add more steps from [tutorial](http://www.vexflow.com/docs/tutorial.html)
+## Step 6: Guitar Tablature
 
+VexFlow can also render guitar tablature. The mechanics for displaying tabs are the same as those for standard notation, except that you use different classes for staves and notes.
 
+Let's write some tab. 
 
+```javascript
+// Create a tab stave of width 400 at position 10, 40 on the canvas.
+var stave = new VF.TabStave(10, 40, 400);
+stave.addClef("tab").setContext(context).draw();
 
+var notes = [
+  // A single note
+  new VF.TabNote({
+    positions: [{str: 3, fret: 7}],
+    duration: "q"}),
 
+  // A chord with the note on the 3rd string bent
+  new VF.TabNote({
+    positions: [{str: 2, fret: 10},
+                {str: 3, fret: 9}],
+    duration: "q"}).
+  addModifier(new VF.Bend("Full"), 1),
+
+  // A single note with a harsh vibrato
+  new VF.TabNote({
+    positions: [{str: 2, fret: 5}],
+    duration: "h"}).
+  addModifier(new VF.Vibrato().setHarsh(true).setVibratoWidth(70), 0)
+];
+
+VF.Formatter.FormatAndDraw(context, stave, notes);
+```        
+
+![](https://imgur.com/sHVMhtc.png)
+
+Above ([run](https://jsfiddle.net/7yaykcjp/1/)), we replaced `Stave` with `TabStave` and `StaveNote` with `TabNote`. We also added a `Bend` and a `Vibrato` modifier.
+
+There are two things we have to manually specify here -- the font style, and the background fill color. The former is used to display fret numbers, annotations, and other text. The latter is only required for the SVG backend (although using it with Canvas is harmless).
