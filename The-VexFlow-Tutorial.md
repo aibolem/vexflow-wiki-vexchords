@@ -194,6 +194,115 @@ Take a look at some of the following tables:
 * `Flow.articulationCodes.articulations` - List of articulation codes.
 * `Flow.ornamentCodes.ornaments` - List of ornament codes.
 
+## Step 4: Beam Your Notes
+
+VexFlow can beam your notes for you, but only if you ask it to. The Beam class, when passed a set of contiguous notes (in a shared voice), is responsible for rendering beams based on the durations of each contained note.
+Let's create a melody. 
+
+```javascript
+var notes = [
+  new VF.StaveNote({ keys: ["e##/5"], duration: "8d" }).
+	  addAccidental(0, new VF.Accidental("##")).addDotToAll(),
+  new VF.StaveNote({ keys: ["b/4"], duration: "16" }).
+  	addAccidental(0, new VF.Accidental("b"))
+];
+
+var notes2 = [ /* another group of notes */ ];
+var notes3 = [ /* another group of notes */ ];
+var notes4 = [ /* another group of notes */ ];
+
+// Create a beam for each group of notes
+beams = [
+  new VF.Beam(notes),
+  new VF.Beam(notes2),
+  new VF.Beam(notes3)
+]
+
+// Render the notes followed by the beams
+var all_notes = notes.concat(notes2).concat(notes3).concat(notes4);
+Vex.Flow.Formatter.FormatAndDraw(context, stave, all_notes);
+beams.forEach(function(b) {b.setContext(context).draw()})
+```
+
+In the above example ([run](https://jsfiddle.net/fvqmq9rd/1/)], we created four groups of notes and beamed each groups. The slope of the beams is calculated automatically as a function of the direction of the music. The number of beam lines for each group is dependent on the duration of the notes underneath.
+
+For long scores, manually creating a `Beam` object for each group of notes can get tedious. Luckily, the `Beam` module provides a static method, `generateBeams()`, that allow us to automatically generate beams for our notes. It has two parameters, the notes to automatically beam and a config object. The config object provides many options to beam your notes in different ways, but let's start simple.
+
+```javascript
+var notes = [
+  new VF.StaveNote({ keys: ["e##/5"], duration: "8d" }).
+	  addAccidental(0, new VF.Accidental("##")).addDotToAll(),
+  new VF.StaveNote({ keys: ["b/4"], duration: "16" }).
+  	addAccidental(0, new VF.Accidental("b")),
+  new VF.StaveNote({ keys: ["c/4"], duration: "8" }),
+  new VF.StaveNote({ keys: ["d/4"], duration: "16" }),
+  new VF.StaveNote({ keys: ["e/4"], duration: "16" }).
+	  addAccidental(0, new VF.Accidental("b")),
+  new VF.StaveNote({ keys: ["d/4"], duration: "16" }),
+  new VF.StaveNote({ keys: ["e/4"], duration: "16" }).
+  	addAccidental(0, new VF.Accidental("#")),
+  new VF.StaveNote({ keys: ["g/4"], duration: "32" }),
+  new VF.StaveNote({ keys: ["a/4"], duration: "32" }),
+  new VF.StaveNote({ keys: ["g/4"], duration: "16" }),
+  new VF.StaveNote({ keys: ["d/4"], duration: "q" })
+];
+
+var beams = VF.Beam.generateBeams(notes);
+Vex.Flow.Formatter.FormatAndDraw(context, stave, notes);
+beams.forEach(function(b) {b.setContext(context).draw()})
+```
+
+Notice two things above ([run](https://jsfiddle.net/18whg1he/1/)]:
+
+* Notes were automatically grouped.
+* The stem directions were automatically calculated.
+
+`generateBeams()` will calculate an appropriate stem direction for the entire beam group, even if it was set to a different position earlier.
+
+For more sophisticated beaming examples, take a look at the [Automatic Beaming](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming) wiki page.
+
+## Step 5: Ties
+
+To render a tie, you create a `StaveTie` instance and pass it the two `StaveNotes`. Since the `StaveNote` elements can also be chords, you need to pass in the indices of the specific note heads you want to tie.
+
+```javascript
+var notes = [
+  new VF.StaveNote({ keys: ["e##/5"], duration: "8d" }).
+	  addAccidental(0, new VF.Accidental("##")).addDotToAll(),
+  new VF.StaveNote({ keys: ["b/4"], duration: "16" }).
+  	addAccidental(0, new VF.Accidental("b")),
+  new VF.StaveNote({ keys: ["c/4"], duration: "8" }),
+  new VF.StaveNote({ keys: ["d/4"], duration: "16" }),
+  new VF.StaveNote({ keys: ["d/4"], duration: "16" }),
+  new VF.StaveNote({ keys: ["d/4"], duration: "q" }),
+  new VF.StaveNote({ keys: ["d/4"], duration: "q" })
+];
+
+var beams = VF.Beam.generateBeams(notes);
+VF.Formatter.FormatAndDraw(context, stave, notes);
+beams.forEach(function(b) {b.setContext(context).draw()})
+
+var ties = [
+  new VF.StaveTie({
+    first_note: notes[4],
+    last_note: notes[5],
+    first_indices: [0],
+    last_indices: [0]
+  }),
+  new VF.StaveTie({
+    first_note: notes[5],
+    last_note: notes[6],
+    first_indices: [0],
+    last_indices: [0]
+  })
+];
+ties.forEach(function(t) {t.setContext(context).draw()})
+```
+
+And here's what it looks like [ [run](https://jsfiddle.net/x1mgkv5v/1/) ]:
+
+And there you have beams and ties!
+
 TODO: Add more steps from [tutorial](http://www.vexflow.com/docs/tutorial.html)
 
 
