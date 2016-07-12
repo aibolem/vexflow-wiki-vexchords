@@ -178,6 +178,21 @@ VF.Formatter.FormatAndDraw(context, stave, notes);
 
 Notice how VexFlow position the accidentals such that they don't collide with each other?
 
+## Step 3.5: An Interlude
+
+We've covered a bit of ground here, and you're probably asking for lists of valid note names, accidentals, durations, etc., that you can use with the API.
+
+Fortunately for you, there's a canonical location where this stuff is kept. [VexFlow Tables (vexflow/src/tables.js)](https://github.com/0xfe/vexflow/blob/master/src/tables.js)
+
+Take a look at some of the following tables:
+
+* `Flow.clefProperties.values` - List of valid clef names.
+* `Flow.keyProperties.note_values` - The list of valid note names.
+* `Flow.accidentalCodes.accidentals` - The list of valid accidental names.
+* `Flow.keySignatures.keySpecs` - The list of valid keys.
+* `Flow.durationToTicks` - The list of valid duration codes.
+* `Flow.articulationCodes.articulations` - List of articulation codes.
+* `Flow.ornamentCodes.ornaments` - List of ornament codes.
 
 TODO: Add more steps from [tutorial](http://www.vexflow.com/docs/tutorial.html)
 
