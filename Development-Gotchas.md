@@ -1,3 +1,5 @@
+This list is a WIP and far from complete.
+
 * The usage of the word `top` does not always mean the same thing. Sometimes it is relative to the stem direction, sometimes it is relative to the Canvas.
   * Examples 
     * A. `staveNote.getStemExtents()` returns a `topY` which references the y value of the stem's tip, **not** the top-most y point of the stem (which is what most people would expect, unfortunately). The `topY` is related to the stem direction, not the canvas.
