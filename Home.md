@@ -15,6 +15,7 @@
 
 * Join the VexFlow Google Group at: https://groups.google.com/forum/?fromgroups#!forum/vexflow
 * Send in your changes via a GitHub pull request.
+* Take a look at the [Development Gotchas](https://github.com/0xfe/vexflow/wiki/Development-Gotchas) if some aspects of VexFlow's internals seem confusing.
 * Rebase early, rebase often.
 * Please include tests -- I will not commit changes that don't have accompanying tests.
 * Don't forget to run the [Visual Regression Tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests) -- it is simpler, faster, and more likely to catch issues than eyeballing the output of the QUnit tests.
