@@ -13,4 +13,4 @@ This list is a WIP and far from complete.
     * `stave.getYFor{Top,Botttom}Text(line)` takes a `line` argument which is a *directional offset* from the `top_text_position` and `bottom_text_position` defined in `stave.options`
   * **We would ideally have one consistent way to reference locations on a staff.**
 
-* The `stave` has an option called `spacing_between_lines_px` (often shorted to `line_spacing`) which is non-standard name for what is typically called the "staff space".
+* The `stave` has an option called `spacing_between_lines_px` (often shorted to `line_spacing`) which is non-standard name for what is typically called the "staff/stave space".
