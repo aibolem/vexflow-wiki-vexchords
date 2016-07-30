@@ -1,4 +1,4 @@
-To setup the build environments, first install NodeJS and `npm`. Then, from the `vexflow/` directory (this repo), run:
+To setup the build environment, first install NodeJS and `npm`. Then, from the `vexflow/` directory (this repo), run:
 
     $ git clone _this repository_
     $ npm install
