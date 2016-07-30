@@ -40,3 +40,21 @@ To publish a new version of VexFlow to the NPM repositories:
     $ grunt publish
 
 This bumps the version number in `package.json`, publishes the new NPM package, and submits the new binaries to the git repo.
+
+## Upgrading Dependencies
+
+First install the `npm-check-updates` package, which automates the process of finding and upgrading the versions in `package.json`.
+
+    $ npm cache clean
+    $ npm install -g npm-check-updates
+
+Dry run. This checks for new versions, but does not modify any files.
+
+    $ npm-check-updates
+
+If the versions look sane, you can either update everything in one shot, or provide a package name to update incrementally. The `-u` flag updates `package.json`.
+
+    $ npm-check-updates -u [package name]
+    $ npm install
+
+Test, debug, fix, commit, iterate. Then send a PR!
