@@ -43,7 +43,7 @@ This bumps the version number in `package.json`, publishes the new NPM package, 
 
 ## Upgrading Dependencies
 
-First install the `npm-check-updates` package, which automates the process of finding and upgrading the versions in `package.json`.
+First install the [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) package, which automates the process of finding and upgrading the versions in `package.json`.
 
     $ npm cache clean
     $ npm install -g npm-check-updates
