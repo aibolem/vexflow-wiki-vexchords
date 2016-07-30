@@ -1,6 +1,7 @@
-To setup the build environment, first install NodeJS and `npm`. Then, from the `vexflow/` directory (this repo), run:
+To setup the build environment, first install NodeJS and `npm`. Then:
 
-    $ git clone _this repository_
+    $ git clone https://github.com/0xfe/vexflow.git
+    $ cd vexflow
     $ npm install
     $ npm install -g grunt-cli
 
