@@ -8,7 +8,7 @@ This list is a WIP and far from complete.
 
 * There word `line` is very overloaded, and means drastically different things in different contexts
   * Examples
-    * `staveNote.getKeyProps()` contains objects with a `line` property, that represents a more semantic understanding of the staff. Where the lines are indexed in a `*-based bottom-up* manner. ie, line `1` is the bottom-most line of the staff (ie: E4 in treble clef).
+    * `staveNote.getKeyProps()` contains objects with a `line` property, that represents a more semantic understanding of the staff. Where the lines are indexed in a *1-based bottom-up* manner. ie, line `1` is the bottom-most line of the staff (ie: E4 in treble clef).
     * `stave.getYForLine(line)` takes a `line` argument which is intended to indexed in a *0-based top-down* manner. Meaning that the top-most line of the staff is line `0` 
     * `stave.getYFor{Top,Botttom}Text(line)` takes a `line` argument which is a *directional offset* from the `top_text_position` and `bottom_text_position` defined in `stave.options`
     * The `modifier.text_line`/`modifierContext.state.text_line` properties represent offsets from a modifier's *initial position*. There is not necessarily a relationship with the stave text positions. It could equally represent an offset from the stem tip or an offset from the stave's `top_text_position`
