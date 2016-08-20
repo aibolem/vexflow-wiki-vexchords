@@ -26,4 +26,4 @@ If you're writing code that requires a new file, e.g., a new element, class, mod
   * Add `VF.Test.YourTest.Start()` to `tests/run.js`
   * If your file was called `slurs.js` the test file should be `slurs_test.js`.
 * Run `grunt` to lint, build, and generate docs, and visually inspect the docs to verify correctness.
-* Also run the (Visual Regression Tests)[https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests] and verify that there are no unexpected regressions.
+* Also run the [Visual Regression Tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests) and verify that there are no unexpected regressions.
