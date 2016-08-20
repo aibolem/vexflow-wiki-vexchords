@@ -17,21 +17,9 @@ To see a everything VexFlow can render, take a look at the [tests](http://www.ve
 
 The best place to start is the [VexFlow Tutorial](http://www.vexflow.com/docs/tutorial.html). Once you're comfortable with the basics of the API, start looking at the tests in `tests/*.js` for examples of how to use the various notational elements and tools.
 
-#### Why is the API so complex?
-
-VexFlow is in its third iteration, where each iteration was a complete overhaul. While the first two iterations were much simpler, it turns out that the scope of musical notation is huge and complex.
-
-The desire to support complex musical notation while also providing a high degree of flexibility, steers the design of VexFlow.
-
-Also note that VexFlow is a low-level rendering API. If all you want to do is display music on a page, take a look at higher level libraries such as [VexTab](http://vexflow.com/vextab/).
-
 #### Can I build mobile apps with VexFlow?
 
 Yes, and there are a number of VexFlow-based mobile apps already out there. These apps typically use frameworks like [PhoneGap](phonegap.com) to build HTML5 applications on phones and tablets.
-
-#### Can VexFlow generate audio output from the scores?
-#### Is there a VexFlow editor to enter music without writing code?
-#### How do I import MusicXML / LilyPond / MEI notation?
 
 ### Formatting
 
