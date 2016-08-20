@@ -94,10 +94,8 @@ You can call `Formatter.getMinTotalWidth()` to return the minimum amount of hori
 
 #### Can VexFlow automatically generate beams?
 
-Yes, and there are a few ways to do it.
+Yes, and there are a few ways to do it. See (Automatic Beaming)[https://github.com/0xfe/vexflow/wiki/Automatic-Beaming] for more instructions.
 
-#### How do I render slurs?
-#### How can I align text to notation?
 #### Can I color notes individually?
 
 Yes.  Each of the pitches within a StaveNote (known in VexFlow as "keys"), or the entire note (including stem) can be styled using StaveNote's setKeyStyle(keyIndex, styleObject) or setStyle(styleObject) properties.  
