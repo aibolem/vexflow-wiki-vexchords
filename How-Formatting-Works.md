@@ -11,7 +11,7 @@ The `TickContext` is what groups notes together across multiple voices. A `TickC
 
 ![](http://i.imgur.com/gQjvw4I.png)
 
-Notice that these are these are what are in charge of providing x values to all `Tickable` based classes (eg: `Note`, `StaveNote`, etc-- any duration based class)
+Notice that these are what are in charge of providing x values to all `Tickable` based classes (eg: `Note`, `StaveNote`, etc-- any duration based class)
 
 The `Formatter` is in charge of creating these `TickContexts` based on the voices provided, and if a width is included, it attempts to justify the `TickContexts` across that width. It purely deals with formatting across x values.
 
