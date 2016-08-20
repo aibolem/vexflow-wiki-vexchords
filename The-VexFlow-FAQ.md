@@ -63,22 +63,23 @@ If you want to align voices across multiple staves (e.g., for building a grand s
 var voiceTreble = new Vex.Flow.Voice({num_beats:4, beat_value: 4, resolution:Vex.Flow.RESOLUTION});
 var voiceBass = new Vex.Flow.Voice({num_beats:4, beat_value: 4, resolution:Vex.Flow.RESOLUTION});
 
-voiceTreble.addTickables(notesTreble);
-voiceBass.addTickables(notesBass);
+voiceTreble.addTickables(notesTreble).setStave(staveTreble);
+voiceBass.addTickables(notesBass).setStave(staveBass);
 
 var formatter = new Vex.Flow.Formatter();
+
+// Make sure the staves have the same starting point for notes
+var startX = Math.max(staveTreble.getNoteStartX(), staveBass.getNoteStartX());
+staveTreble.setNoteStartX(startX);
+staveBass.setNoteStartX(startX);
 
 // the treble and bass are joined independently but formatted together
 formatter.joinVoices([voiceTreble]);
 formatter.joinVoices([voiceBass]);
-formatter.format([voiceTreble, voiceBass], stave_length);
+formatter.format([voiceTreble, voiceBass], stave_length - (startX - staveX));
 
-var max_x = Math.max(staveTreble.getNoteStartX(), staveBass.getNoteStartX());
-staveTreble.setNoteStartX(max_x);
-staveBass.setNoteStartX(max_x);
-
-voiceTreble.draw(ctx, staveTreble);
-voiceBass.draw(ctx, staveBass);
+voiceTreble.setContext(ctx).draw();
+voiceBass.setContext(ctx).draw();
 ```
 
 It is important to note that, since the stave modifiers (such as clef, key signature, etc.) take up room in the stave, you will need to render the voices such that they all start on the same `x` coordinate, else the notation will be misaligned. In the above code, `getNoteStartX()` and `setNoteStartX(...)` are used to do this.
