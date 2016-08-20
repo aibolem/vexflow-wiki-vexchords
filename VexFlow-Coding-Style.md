@@ -15,15 +15,15 @@
    * Run `grunt docco` to regenerate the documentation in `docs/`.
    * Take a look at [docs/accidental.html](http://www.vexflow.com/docs/accidental.html) for an example of a generated document.
 * Respect API boundaries. If you don't want your code to break, don't reach into its internals. E.g., prefer `note.getStave()` to `note.stave`.
-* Run `grunt jshint` before sending in a pull request.
+* Run `grunt eslint` and `grunt test` before sending in a pull request.
 
 ### New Files
 
 If you're writing code that requires a new file, e.g., a new element, class, modifier, etc.
 
-* Create the `.js` file in `src/`
-* Add the file to `SOURCES` in `Gruntfile`.
-* Add a test file to `tests/`.
-   * If your file was called `slurs.js` the test file should be `slurs_test.js`.
-* Add `VF.Test.YourTest.Start()` to `tests/run.js`
+* Create the `.js` file in `src/` and a reference in `src/index.js`
+* Add a test file to `tests/` and a reference in `tests/run.js`
+  * Add `VF.Test.YourTest.Start()` to `tests/run.js`
+  * If your file was called `slurs.js` the test file should be `slurs_test.js`.
 * Run `grunt` to lint, build, and generate docs, and visually inspect the docs to verify correctness.
+* Also run the (Visual Regression Tests)[https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests] and verify that there are no unexpected regressions.
