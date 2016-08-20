@@ -82,7 +82,7 @@ You can call `Formatter.getMinTotalWidth()` to return the minimum amount of hori
 
 #### Can VexFlow automatically generate beams?
 
-Yes, and there are a few ways to do it. See (Automatic Beaming)[https://github.com/0xfe/vexflow/wiki/Automatic-Beaming] for more instructions.
+Yes, and there are a few ways to do it. See [Automatic Beaming](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming) for more instructions.
 
 #### Can I color notes individually?
 
