@@ -4,7 +4,7 @@ This tutorial expects you to have some JavaScript programming experience and a b
 
 Enjoy the show!
 
-## Step 1: The Basics [ [run](https://jsfiddle.net/gs4v6k6d/2//) ]
+## Step 1: The Basics [ [run](https://jsfiddle.net/gs4v6k6d/2/) ]
 
 Lets start with a quick example. Below, we have an HTML DIV element with the following code:
 
