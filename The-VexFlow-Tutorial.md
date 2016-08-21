@@ -4,7 +4,7 @@ This tutorial expects you to have some JavaScript programming experience and a b
 
 Enjoy the show!
 
-## Step 1: The Basics [ [run](https://jsfiddle.net/nL0cn3vL/2/) ]
+## Step 1: The Basics [ [run](https://jsfiddle.net/gs4v6k6d/2//) ]
 
 Lets start with a quick example. Below, we have an HTML DIV element with the following code:
 
@@ -36,7 +36,7 @@ stave.addClef("treble").addTimeSignature("4/4");
 stave.setContext(context).draw();
 ```        
 
-Here's what it looks like: [ [run](https://jsfiddle.net/nL0cn3vL/2/) ]
+Here's what it looks like: [ [run](https://jsfiddle.net/gs4v6k6d/2/) ]
 
 ![](https://i.imgur.com/WZe5i06.png)
 
@@ -50,7 +50,7 @@ Finally, we pass the context to the stave and call `draw`, which renders the new
 
 Notice that the stave is not exactly drawn in position 0, 0. This is because it reserves some head-room for higher notes. The amount of headroom can be configured with the `VF.Stave` properties.
 
-## Step 2: Add Some Notes [ [run](https://jsfiddle.net/8eckj32x/2/) ]
+## Step 2: Add Some Notes [ [run](https://jsfiddle.net/8eckj32x/13/) ]
 
 A `StaveNote` is a group of note heads representing a chord. It can consist of one or more notes, with or without a stem and flag.
 
@@ -91,7 +91,7 @@ voice.draw(context, stave);
 
 Notice how the notes are justified evenly on the stave based on the duration of each note? This is the formatter in action - keeping voices aligned, while balancing the spacing between the notes.
 
-Lets add a second voice with a single whole note to this tune. [ [run](https://jsfiddle.net/7y74r86s/1/) ]
+Lets add a second voice with a single whole note to this tune. [ [run](https://jsfiddle.net/7y74r86s/4/) ]
 
 ```javascript
 var notes = [
@@ -125,7 +125,7 @@ A modifier is an element that is attached to a note. Modifiers typically inherit
 
 Modifiers are self-positioning -- they intelligently juxtapose themselves alongside other modifiers and notes based on standard music notation rules.
 
-Let's add some accidentals and dots. [ [run](https://jsfiddle.net/1tqmkeft/3/) ]
+Let's add some accidentals and dots. [ [run](https://jsfiddle.net/1tqmkeft/9/) ]
 
 ```javascript
 var notes = [
@@ -154,7 +154,7 @@ This is by design, and allows us to decouple rendering logic and notational sema
 
 Also notice that we `FormatAndDraw`, which is a handy helper function that takes care of all the plumbing related to displaying a sequence of notes.
 
-Lets add a few more modifiers and see how they position themselves. [ [run](https://jsfiddle.net/htsm03pn/1/) ]
+Lets add a few more modifiers and see how they position themselves. [ [run](https://jsfiddle.net/htsm03pn/3/) ]
 
 ```javascript
 var notes = [
@@ -226,7 +226,7 @@ beams.forEach(function(b) {b.setContext(context).draw()})
 
 ![](http://imgur.com/40H5CTT.png)
 
-In the above example ([run](https://jsfiddle.net/fvqmq9rd/1/)], we created four groups of notes and beamed each groups. The slope of the beams is calculated automatically as a function of the direction of the music. The number of beam lines for each group is dependent on the duration of the notes underneath.
+In the above example ([run](https://jsfiddle.net/fvqmq9rd/3/)], we created four groups of notes and beamed each groups. The slope of the beams is calculated automatically as a function of the direction of the music. The number of beam lines for each group is dependent on the duration of the notes underneath.
 
 For long scores, manually creating a `Beam` object for each group of notes can get tedious. Luckily, the `Beam` module provides a static method, `generateBeams()`, that allow us to automatically generate beams for our notes. It has two parameters, the notes to automatically beam and a config object. The config object provides many options to beam your notes in different ways, but let's start simple.
 
@@ -303,7 +303,7 @@ var ties = [
 ties.forEach(function(t) {t.setContext(context).draw()})
 ```
 
-And here's what it looks like [[run](https://jsfiddle.net/x1mgkv5v/1/)]:
+And here's what it looks like [[run](https://jsfiddle.net/x1mgkv5v/9/)]:
 
 ![](http://imgur.com/YUNpn9G.png)
 
@@ -345,6 +345,6 @@ VF.Formatter.FormatAndDraw(context, stave, notes);
 
 ![](https://imgur.com/sHVMhtc.png)
 
-Above ([run](https://jsfiddle.net/7yaykcjp/1/)), we replaced `Stave` with `TabStave` and `StaveNote` with `TabNote`. We also added a `Bend` and a `Vibrato` modifier.
+Above ([run](https://jsfiddle.net/7yaykcjp/8/)), we replaced `Stave` with `TabStave` and `StaveNote` with `TabNote`. We also added a `Bend` and a `Vibrato` modifier.
 
 There are two things we have to manually specify here -- the font style, and the background fill color. The former is used to display fret numbers, annotations, and other text. The latter is only required for the SVG backend (although using it with Canvas is harmless).
