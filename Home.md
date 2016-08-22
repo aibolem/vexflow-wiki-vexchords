@@ -2,7 +2,7 @@
 
 ### Learn
 
-* [The VexFlow Tutorial](http://www.vexflow.com/docs/tutorial.html) - Get started by learning the basics of the VexFlow rendering API.
+* [The VexFlow Tutorial](http://www.vexflow.com/docs/tutorial.html) - Get started by learning the basics of the VexFlow rendering API. Also take a look at [Using EasyScore](https://github.com/0xfe/vexflow/wiki/Using-EasyScore) to learn about the simpler EasyScore API.
 * [API Documentation](http://public.vexflow.com/docs/) generated from the source code. This is a work in progress.
 * [The VexFlow FAQ](The-VexFlow-FAQ) - Frequently Answered Questions from the VexFlow mailing list. 
 * [VexFlow Sandbox](http://www.vexflow.com/docs/sandbox.html) - A place to experiment with the VexFlow API.
