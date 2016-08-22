@@ -1,5 +1,3 @@
-# Super Fast VexFlow with EasyScore
-
 If you've ready the VexFlow Tutorial, you may have noticed that generating notation using the base API is tedious and tiresome. Fortunately, VexFlow includes helper classes to ease this burden for you. Some of these are `Factory`, `System`, and `EasyScore`.
 
 ## About `Factory`, `System`, and `EasyScore`
