@@ -110,11 +110,11 @@ And here, we wrap a beam in a tuplet to render eighth-note triplets.
 ## Other EasyScore Features
 
 ### Dotted Notes
-To create a dotted note, simply append one or more periods to the note, e.g., 'A5/q..' which renders a quarter note with two dots.
+To create a dotted note, simply append one or more periods to the note, e.g., `A5/q..` which renders a quarter note with two dots.
 
 ### Chords
 To create a chord, simply place multiple notes in between parenthesis, e.g., `(C4 E4 G4)/q, A5` renders a `C-major` chord followed by an `A` note.
 
 ### Note Options
-You set `key=value` attributes on notes by placing the key/value pairs within brackets after the note, e.g., `A5[stem="up",id="foobar"]` will set the ID of this note to "foobar" and render it with an upwards stem.
+You set `key=value` attributes on notes by placing the key/value pairs within brackets after the note, e.g., `A5[stem="up",id="foobar"]` will set the ID of this note to `foobar` and render it with an upwards stem.
 
