@@ -1,8 +1,8 @@
-If you've read the VexFlow Tutorial, you may have noticed that generating notation using the base API can get tedious. Fortunately, VexFlow includes helper classes to ease this burden for you. Some of these are `Factory`, `System`, and `EasyScore`.
+## What is EasyScore?
 
-## About `Factory`, `System`, and `EasyScore`
+EasyScore is a tiny language that you can use to generate all the VexFlow elements necessary for a sequence of musical notation. The language supports notes, accidentals, beams, dots, tuplets, and other common notational elements.
 
-The `Factory` API is a simple factory that generates and initializes VexFlow classes for you. The `System` class lets you render complete multi-stave systems in a single call, taking care of all the formatting and alignment issues for you. Finally, `EasyScore` is a tiny language that you can use to generate all the elements necessary for a sequence of musical notation. `EasyScore` supports notes, accidentals, beams, dots, tuplets, and other common notational elements.
+Here's an example of an EasyScore line representing a C major chord (quarter note) followed by four eighth notes: `(C4 E4 G4)/q, D4/8, E4, F4, G4`.
 
 ## Let's Go!
 
