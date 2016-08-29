@@ -15,7 +15,7 @@ The microtonal accidentals that VexFlow supports are:
 
 This set ALMOST covers the Arabic / Turkish set of accidentals, with the exception of the **3 quarters flat**, which is not present in the Gonville font. Also, Persian accidentals (Koron and Sori) are not represented.
 
-An example output from VexFlow is shown here. This is actually a screenshot from the [VF test module "Accidental"](https://github.com/0xfe/vexflow/blob/master/tests/accidental_tests.js#L279).
+An example output from VexFlow is shown here. This is actually a screenshot from the [VF test module "Accidental"](https://github.com/0xfe/vexflow/blob/master/tests/accidental_tests.js#L261).
 [[https://github.com/infojunkie/music-l10n/blob/master/images/vexflow-microtones.png]]
 
 Support for more accidentals will occur when Gonville is replaced with a more standard and comprehensive font, such as those that are [SMuFL](http://www.smufl.org/)-compatible. SMuFL support is [an ongoing topic](https://github.com/0xfe/vexflow/issues/350) for VexFlow. Once this happens, it will be trivial-ish to add new mnemonics to represent those accidentals.
