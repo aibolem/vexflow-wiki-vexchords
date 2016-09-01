@@ -22,11 +22,11 @@ Installing on OS X, with HomeBrew: `$ brew install librsvg imagemagick`
 Installing on Ubuntu Linux: `$ apt-get install librsvg2-dev librsvg2-bin imagemagick`
 
 ## How to Test
-After you install the dependencies, you can start the test by running the following commands:
+After you install the dependencies, you can start the test by running the following command:
 
 ```
-$ npm run generate
-$ npm run diff
+$ npm test
+(or, on a headless machine) $ xvfb-run -a npm test
 ```
 
 This will store the images of the failed tests (i.e., where there are visible differences) in `build/images/diff`. Visually inspect these images (including the diff image), and if you're happy with the output you can simply submit your changes. Be sure to include the before, after, and diff images in your pull request.
