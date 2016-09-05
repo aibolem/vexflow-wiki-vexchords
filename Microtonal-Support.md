@@ -7,6 +7,11 @@ The microtonal accidentals that VexFlow supports are:
 
 Glyph | Mnemonic | Description | Notation System(s)
 ----- | -------- | ----------- | ------------------
+  | # | sharp | Standard and all others
+  | ## | double sharp | Standard and all others
+  | b | flat | Standard and all others
+  | bb | double flat | Standard and all others
+  | n | natural | Standard and all others 
   | + | 1 quarter-tone sharp | Arabic / Stein-Zimmermann
   | ++ | 3 quarter-tones sharp | Arabic / Stein-Zimmermann
   | bs | 1 quarter-tone flat | Arabic
