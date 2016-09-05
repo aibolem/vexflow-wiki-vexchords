@@ -5,15 +5,21 @@ VexFlow supports SOME microtonal accidentals. The limitation comes mainly from t
 
 The microtonal accidentals that VexFlow supports are:
 
-* one quarter sharp / one comma sharp: VexFlow mnemonic "+"
-* one quarter flat / 4 commas flat: VexFlow mnemonic "bs"
-* 3 quarters sharp: VexFlow mnemonic "++"
-* 1 comma flat: VexFlow mnemonic "d"
-* 5 commas sharp: VexFlow mnemonic "+-"
-* 8 commas sharp: VexFlow mnemonic "++-"
-* 8 commas flat: VexFlow mnemonic "bss"
-
-This set ALMOST covers the Arabic / Turkish set of accidentals, with the exception of the **3 quarters flat**, which is not present in the Gonville font. Also, Persian accidentals (Koron and Sori) are not represented.
+Glyph | Mnemonic | Description | Notation System(s)
+----- | -------- | ----------- | ------------------
+  | + | 1 quarter-tone sharp | Arabic / Stein-Zimmermann
+  | ++ | 3 quarter-tones sharp | Arabic / Stein-Zimmermann
+  | bs | 1 quarter-tone flat | Arabic
+  | d | 1 quarter-tone flat | Stein-Zimmermann
+  | db | 3 quarter-tones flat | Stein-Zimmermann
+  | + | 1 comma sharp | Turkish
+  | +- | 5 commas sharp | Turkish
+  | ++- | 8 commas sharp | Turkish
+  | d | 1 comma flat | Turkish
+  | bs | 5 commas flat | Turkish
+  | bss | 8 commas flat | Turkish
+  | bbs | unknown | unknown
+  
 
 An example output from VexFlow is shown here. This is actually a screenshot from the [VF test module "Accidental"](https://github.com/0xfe/vexflow/blob/master/tests/accidental_tests.js#L261).
 [[https://github.com/infojunkie/music-l10n/blob/master/images/vexflow-microtones.png]]
