@@ -13,17 +13,17 @@ Glyph | Mnemonic | Description | Notation System(s)
   | bb | double flat | Standard and all others
   | n | natural | Standard and all others 
   | + | 1 quarter-tone sharp | Arabic / Stein-Zimmermann
+  | + | 1 comma sharp | Turkish
   | ++ | 3 quarter-tones sharp | Arabic / Stein-Zimmermann
   | bs | 1 quarter-tone flat | Arabic
   | d | 1 quarter-tone flat | Stein-Zimmermann
+  | d | 1 comma flat | Turkish
   | db | 3 quarter-tones flat | Stein-Zimmermann
-  | + | 1 comma sharp | Turkish
   | +- | 5 commas sharp | Turkish
   | ++- | 8 commas sharp | Turkish
-  | d | 1 comma flat | Turkish
   | bs | 5 commas flat | Turkish
   | bss | 8 commas flat | Turkish
-  | bbs | unknown | unknown
+  | bbs | 9 commas flat (?) | Unknown
   
 
 An example output from VexFlow is shown here. This is actually a screenshot from the [VF test module "Accidental"](https://github.com/0xfe/vexflow/blob/master/tests/accidental_tests.js#L261).
