@@ -63,17 +63,17 @@ In the code below, we create a voice with two notes and a chord, and render it o
 ```javascript
 var notes = [
   // A quarter-note C.
-  new VF.StaveNote({ keys: ["c/4"], duration: "q" }),
+  new VF.StaveNote({clef: "treble", keys: ["c/4"], duration: "q" }),
 
   // A quarter-note D.
-  new VF.StaveNote({ keys: ["d/4"], duration: "q" }),
+  new VF.StaveNote({clef: "treble", keys: ["d/4"], duration: "q" }),
 
   // A quarter-note rest. Note that the key (b/4) specifies the vertical
   // position of the rest.
-  new VF.StaveNote({ keys: ["b/4"], duration: "qr" }),
+  new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "qr" }),
 
   // A C-Major chord.
-  new VF.StaveNote({ keys: ["c/4", "e/4", "g/4"], duration: "q" })
+  new VF.StaveNote({clef: "treble", keys: ["c/4", "e/4", "g/4"], duration: "q" })
 ];
 
 // Create a voice in 4/4 and add above notes
@@ -95,14 +95,14 @@ Lets add a second voice with a single whole note to this tune. [ [run](https://j
 
 ```javascript
 var notes = [
-  new VF.StaveNote({ keys: ["c/5"], duration: "q" }),
-  new VF.StaveNote({ keys: ["d/4"], duration: "q" }),
-  new VF.StaveNote({ keys: ["b/4"], duration: "qr" }),
-  new VF.StaveNote({ keys: ["c/4", "e/4", "g/4"], duration: "q" })
+  new VF.StaveNote({clef: "treble", keys: ["c/5"], duration: "q" }),
+  new VF.StaveNote({clef: "treble", keys: ["d/4"], duration: "q" }),
+  new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "qr" }),
+  new VF.StaveNote({clef: "treble", keys: ["c/4", "e/4", "g/4"], duration: "q" })
 ];
 
 var notes2 = [
-  new VF.StaveNote({ keys: ["c/4"], duration: "w" })
+  new VF.StaveNote({clef: "treble", keys: ["c/4"], duration: "w" })
 ];
 
 // Create a voice in 4/4 and add above notes
@@ -129,16 +129,16 @@ Let's add some accidentals and dots. [ [run](https://jsfiddle.net/1tqmkeft/9/) ]
 
 ```javascript
 var notes = [
-    new VF.StaveNote({ keys: ["e##/5"], duration: "8d" }).
+    new VF.StaveNote({clef: "treble", keys: ["e##/5"], duration: "8d" }).
       addAccidental(0, new VF.Accidental("##")).addDotToAll(),
 
-    new VF.StaveNote({ keys: ["eb/5"], duration: "16" }).
+    new VF.StaveNote({clef: "treble", keys: ["eb/5"], duration: "16" }).
       addAccidental(0, new VF.Accidental("b")),
 
-    new VF.StaveNote({ keys: ["d/5", "eb/4"], duration: "h" }).
+    new VF.StaveNote({clef: "treble", keys: ["d/5", "eb/4"], duration: "h" }).
     	addDot(0),
 
-    new VF.StaveNote({ keys: ["c/5", "eb/5", "g#/5"], duration: "q" }).
+    new VF.StaveNote({clef: "treble", keys: ["c/5", "eb/5", "g#/5"], duration: "q" }).
       addAccidental(1, new VF.Accidental("b")).
       addAccidental(2, new VF.Accidental("#")).addDotToAll()
   ];
@@ -159,7 +159,7 @@ Lets add a few more modifiers and see how they position themselves. [ [run](http
 ```javascript
 var notes = [
     new VF.StaveNote(
-      { keys: ["g/4", "b/4", "cb/5", "e/5", "g#/5", "b/5"],
+      {clef: "treble", keys: ["g/4", "b/4", "cb/5", "e/5", "g#/5", "b/5"],
         duration: "h" }).
       addAccidental(0, new VF.Accidental("bb")).
       addAccidental(1, new VF.Accidental("b")).
@@ -167,7 +167,7 @@ var notes = [
       addAccidental(3, new VF.Accidental("n")).
       addAccidental(4, new VF.Accidental("b")).
       addAccidental(5, new VF.Accidental("##")),
-    new Vex.Flow.StaveNote({ keys: ["c/4"], duration: "h" })
+    new Vex.Flow.StaveNote({clef: "treble", keys: ["c/4"], duration: "h" })
   ];
 
   // Helper function to justify and draw a 4/4 voice
@@ -201,9 +201,9 @@ Let's create a melody.
 
 ```javascript
 var notes = [
-  new VF.StaveNote({ keys: ["e##/5"], duration: "8d" }).
+  new VF.StaveNote({clef: "treble", keys: ["e##/5"], duration: "8d" }).
 	  addAccidental(0, new VF.Accidental("##")).addDotToAll(),
-  new VF.StaveNote({ keys: ["b/4"], duration: "16" }).
+  new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "16" }).
   	addAccidental(0, new VF.Accidental("b"))
 ];
 
@@ -232,21 +232,21 @@ For long scores, manually creating a `Beam` object for each group of notes can g
 
 ```javascript
 var notes = [
-  new VF.StaveNote({ keys: ["e##/5"], duration: "8d" }).
+  new VF.StaveNote({clef: "treble", keys: ["e##/5"], duration: "8d" }).
 	  addAccidental(0, new VF.Accidental("##")).addDotToAll(),
-  new VF.StaveNote({ keys: ["b/4"], duration: "16" }).
+  new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "16" }).
   	addAccidental(0, new VF.Accidental("b")),
-  new VF.StaveNote({ keys: ["c/4"], duration: "8" }),
-  new VF.StaveNote({ keys: ["d/4"], duration: "16" }),
-  new VF.StaveNote({ keys: ["e/4"], duration: "16" }).
+  new VF.StaveNote({clef: "treble", keys: ["c/4"], duration: "8" }),
+  new VF.StaveNote({clef: "treble", keys: ["d/4"], duration: "16" }),
+  new VF.StaveNote({clef: "treble", keys: ["e/4"], duration: "16" }).
 	  addAccidental(0, new VF.Accidental("b")),
-  new VF.StaveNote({ keys: ["d/4"], duration: "16" }),
-  new VF.StaveNote({ keys: ["e/4"], duration: "16" }).
+  new VF.StaveNote({clef: "treble", keys: ["d/4"], duration: "16" }),
+  new VF.StaveNote({clef: "treble", keys: ["e/4"], duration: "16" }).
   	addAccidental(0, new VF.Accidental("#")),
-  new VF.StaveNote({ keys: ["g/4"], duration: "32" }),
-  new VF.StaveNote({ keys: ["a/4"], duration: "32" }),
-  new VF.StaveNote({ keys: ["g/4"], duration: "16" }),
-  new VF.StaveNote({ keys: ["d/4"], duration: "q" })
+  new VF.StaveNote({clef: "treble", keys: ["g/4"], duration: "32" }),
+  new VF.StaveNote({clef: "treble", keys: ["a/4"], duration: "32" }),
+  new VF.StaveNote({clef: "treble", keys: ["g/4"], duration: "16" }),
+  new VF.StaveNote({clef: "treble", keys: ["d/4"], duration: "q" })
 ];
 
 var beams = VF.Beam.generateBeams(notes);
@@ -271,15 +271,15 @@ To render a tie, you create a `StaveTie` instance and pass it the two `StaveNote
 
 ```javascript
 var notes = [
-  new VF.StaveNote({ keys: ["e##/5"], duration: "8d" }).
+  new VF.StaveNote({clef: "treble", keys: ["e##/5"], duration: "8d" }).
 	  addAccidental(0, new VF.Accidental("##")).addDotToAll(),
-  new VF.StaveNote({ keys: ["b/4"], duration: "16" }).
+  new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "16" }).
   	addAccidental(0, new VF.Accidental("b")),
-  new VF.StaveNote({ keys: ["c/4"], duration: "8" }),
-  new VF.StaveNote({ keys: ["d/4"], duration: "16" }),
-  new VF.StaveNote({ keys: ["d/4"], duration: "16" }),
-  new VF.StaveNote({ keys: ["d/4"], duration: "q" }),
-  new VF.StaveNote({ keys: ["d/4"], duration: "q" })
+  new VF.StaveNote({clef: "treble", keys: ["c/4"], duration: "8" }),
+  new VF.StaveNote({clef: "treble", keys: ["d/4"], duration: "16" }),
+  new VF.StaveNote({clef: "treble", keys: ["d/4"], duration: "16" }),
+  new VF.StaveNote({clef: "treble", keys: ["d/4"], duration: "q" }),
+  new VF.StaveNote({clef: "treble", keys: ["d/4"], duration: "q" })
 ];
 
 var beams = VF.Beam.generateBeams(notes);
