@@ -115,6 +115,9 @@ And here, we wrap a beam in a tuplet to render eighth-note triplets.
 
 ## Other EasyScore Features
 
+### Rests
+Append `/r` to the note, e.g. `B4/8/r` 
+
 ### Dotted Notes
 To create a dotted note, simply append one or more periods to the note, e.g., `A5/q..` which renders a quarter note with two dots.
 
