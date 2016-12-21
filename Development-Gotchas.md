@@ -15,3 +15,5 @@ This list is a WIP and far from complete.
   * **We would ideally have one consistent way to reference locations on a staff.**
 
 * The `stave` has an option called `spacing_between_lines_px` (often shorted to `line_spacing`) which is non-standard name for what is typically called the "staff/stave space".
+
+* `Formatter#format` and `Formatter#formatToStave` take an `options` object which takes an `align_rests` property. However, if set to `false`, this will still align rests within beams. 
