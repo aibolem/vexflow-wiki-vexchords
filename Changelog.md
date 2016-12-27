@@ -8,4 +8,4 @@
 - Ensure `StaveNote.extraLeftPx` and `StaveNote.extraRightPx` get recalculated in `StaveNote#reset`
 - Lots of elements have been added to the `Factory`
   * Not that the API is subject to change
-- Refactored tests
+- Refactored tests to use `Factory` and `EasyScore`
