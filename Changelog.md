@@ -10,3 +10,4 @@
 - `Factory` constructor `options.renderer.selector` renamed to `options.renderer.elementId` to more appropriately reflect the what the string represents
 - Sori and koron microtonal accidentals have been added
 - Tests have been refactored to use `Factory` and `EasyScore`
+- The font transformation tool (`transform.html`) has been refactored, and generates a font by combining both the `Gonville` and `Microtonal` fonts.
