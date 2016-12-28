@@ -6,6 +6,6 @@
 - Fix blurry canvas rendering on retina screens
 - Rebuild noteheads after `StaveNote#setKeyLine` is called
 - Ensure `StaveNote.extraLeftPx` and `StaveNote.extraRightPx` get recalculated in `StaveNote#reset`
-- `Factory` exposes a lot more elements **API is subject to change**
+- `Factory` exposes a lot more elements -- **API is subject to change**
 - `Factory` constructor `options.renderer.selector` renamed to `options.renderer.elementId` to more appropriately reflect the what the string represents
 - Tests have been refactored to use `Factory` and `EasyScore`
