@@ -17,6 +17,15 @@
 * Respect API boundaries. If you don't want your code to break, don't reach into its internals. E.g., prefer `note.getStave()` to `note.stave`.
 * Run `grunt eslint` and `grunt test` before sending in a pull request.
 
+### Preferred Abbreviations
+
+In general, avoid abbreviations like the plague. Music already has ill-defined semantics and abbreviations only further obfuscate meaning. But here are some exceptions to avoid being verbose (where appropriate):
+
+* `accidental` -> `accid`
+  * Avoid `acc` because such an abbreviation could also refer to an `accent`
+* `articulation` -> `artic`
+* `bounding box` -> `bbox`
+
 ### New Files
 
 If you're writing code that requires a new file, e.g., a new element, class, modifier, etc.
