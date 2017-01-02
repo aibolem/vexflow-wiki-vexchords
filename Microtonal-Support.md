@@ -24,12 +24,14 @@ Glyph | Mnemonic | Description | Notation System(s)
   | bs | 5 commas flat | Turkish
   | bss | 8 commas flat | Turkish
   | bbs | 9 commas flat (?) | Unknown
+  | k | 2-3 commas flat | Iranian (koron)
+  | o | 2-3 commas sharp | Iranian (sori)
   
 
-An example output from VexFlow is shown here. This is actually a screenshot from the [VF test module "Accidental"](https://github.com/0xfe/vexflow/blob/master/tests/accidental_tests.js#L261).
+An example output from VexFlow is shown here. This is actually a screenshot from the [VF test module "Accidental"](https://github.com/0xfe/vexflow/blob/master/tests/accidental_tests.js#L302).
 [[https://github.com/infojunkie/music-l10n/blob/master/images/vexflow-microtones.png]]
 
-Support for [more accidentals](https://github.com/0xfe/vexflow/issues/318) will occur when Gonville is replaced with a more standard and comprehensive font, such as those that are [SMuFL](http://www.smufl.org/)-compatible. SMuFL support is [an ongoing topic](https://github.com/0xfe/vexflow/issues/350) for VexFlow. Once this happens, it will be trivial-ish to add new mnemonics to represent those accidentals.
+Support for [Iranian accidentals](https://github.com/0xfe/vexflow/issues/318) has been added since December 2016. It is planned to further expand support for microtonal accidentals when Gonville is replaced with a more standard and comprehensive font, such as those that are [SMuFL](http://www.smufl.org/)-compatible. SMuFL support is [an ongoing topic](https://github.com/0xfe/vexflow/issues/350) for VexFlow. Once this happens, it will be trivial-ish to add new mnemonics to represent those accidentals.
 
 ### Microtonal Key Signatures
 VexFlow allows to specify key signatures that contain arbitrary accidentals, including microtonal ones, in place of the standard sharp and flat. An example output is shown here. This is a screenshot from the [VF test module "KeySignature"](https://github.com/0xfe/vexflow/blob/master/tests/keysignature_tests.js#L165).
