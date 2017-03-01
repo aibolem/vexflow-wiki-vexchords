@@ -10,6 +10,7 @@
 * [VexFlow Forum Archive](https://groups.google.com/forum/?fromgroups#!forum/vexflow) - Feel free to join and ask questions on the forum.
 * VexFlow [Class Hierarchy](https://github.com/0xfe/vexflow/wiki/VexFlow-Class-Hierarchy) and [Dependency Graph](https://github.com/0xfe/vexflow/wiki/VexFlow-Dependency-Graph)
 * [Visual Regression Tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests)
+* [Animating VexFlow with CSS](Animation-with-VexFlow-&-CSS)
 
 ### Contribute
 
