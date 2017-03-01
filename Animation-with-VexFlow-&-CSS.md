@@ -156,8 +156,8 @@ const visibleNoteGroups[];
 And now we're ready to draw notes & add them to the staff:
 ```javascript
 document.getElementById('add-note').addEventListener('click', (e) => {
-	note = notes.shift(); // pluck the left-most undrawn note
-	if(!note) return; // if we're out of notes, return.
+  note = notes.shift(); // pluck the left-most undrawn note
+  if(!note) return; // if we're out of notes, return.
   const group = context.openGroup(); // create an SVG group element
   visibleNoteGroups.push(group); // add that element to our visibleNoteGroups array
   note.draw(); // draw the note
