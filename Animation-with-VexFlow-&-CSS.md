@@ -95,7 +95,7 @@ var stave = new VF.Stave(10, 10, 10000)
 stave.setContext(context).draw();
 ```
 
-A `TickContext` is required to draw anything that is placed horizontally in relation to time/rhythm, including all kinds of notes (`StaveNote`, `TabNote`, etc...). When used in context with a `Voice` object, this allows VexFlow to space notes in real music horizontally relative to the duration of the note, the space available, and while preserving alignment with other voices or parts in the score.
+A `TickContext` is required to draw anything that is placed horizontally in relation to time/rhythm, including all kinds of notes (`StaveNote`, `TabNote`, etc...). When used in conjunction with a `Voice` object, this allows VexFlow to space notes in real music horizontally relative to the duration of the note, the space available, and while preserving alignment with other voices or parts in the score.
 
 While this is one of the incredibly powerful features of VexFlow, we definitely do not want to use it here. Instead, we want to be able to increase or decrease the rate at which notes appear based on how our user is doing. So, we'll handle adding notes to a `TickContext` manually, and will not create & format a `Voice` as we normally would:
 
@@ -199,7 +199,7 @@ document.getElementById('right-answer').addEventListener('click', (e) => {
   const transformMatrix = window.getComputedStyle(group).transform;
   
   // transformMatrix will be something like 'matrix(1, 0, 0, 1, -118, 0)'
-  // where, since we're only translating in x, the 4th property will be
+  // where, since we're only translating in x, the 5th property will be
   // the current x-translation. You can dive into the gory details of
   // CSS3 transform matrices (along with matrix multiplication) if you want
   // at http://www.useragentman.com/blog/2011/01/07/css3-matrix-transform-for-the-mathematically-challenged/
