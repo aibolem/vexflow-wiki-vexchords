@@ -98,7 +98,7 @@ The styleObject is an object with any of these properties:
 
 // use StaveNote.setStyle() to color all noteheads & the stem:
 var C7 = new Vex.Flow.StaveNote({ keys: ['C/4', 'E/4', 'G/4', 'Bb/4'], duration: '8'});
-C7.setStyle({strokeStyle: "blue", stemStyle: "blue"});
+C7.setStyle({strokeStyle: "blue", strokeStyle: "blue"});
 
 // use StaveNote.setKeyStyle(keyIndex, styleObject) to style an individual notehead.
 // in this example, we use keyIndex = 2, referring to the key "A/4"
