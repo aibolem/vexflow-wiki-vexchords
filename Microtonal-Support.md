@@ -23,7 +23,7 @@ Glyph | Mnemonic | Description | Notation System(s)
 [[https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/%2B%2B-.png]] | ++- | 8 commas sharp | Turkish
 [[https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/bs.png]] | bs | 5 commas flat | Turkish
 [[https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/bss.png]] | bss | 8 commas flat | Turkish
-[[https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/bbs.png]] | bbs | 9 commas flat (?) | Unknown
+[[https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/bbs.png]] | bbs | Unknown | Unknown
 [[https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/k.png]] | k | 2-3 commas flat (koron) | Iranian
 [[https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/o.png]] | o | 2-3 commas sharp (sori) | Iranian
   
