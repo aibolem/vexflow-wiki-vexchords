@@ -5,8 +5,8 @@ VexFlow supports SOME microtonal accidentals. The limitation comes mainly from t
 
 The microtonal accidentals that VexFlow supports are:
 
-Glyph | Mnemonic | Description | Notation System(s)
------ | -------- | ----------- | ------------------
+Glyph | Mnemonic | Notation System(s)
+----- | -------- | ------------------
   | # | sharp | Standard and all others
   | ## | double sharp | Standard and all others
   | b | flat | Standard and all others
