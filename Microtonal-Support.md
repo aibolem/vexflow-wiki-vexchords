@@ -5,27 +5,27 @@ VexFlow supports SOME microtonal accidentals. The limitation comes mainly from t
 
 The microtonal accidentals that VexFlow supports are:
 
-Glyph | Mnemonic | Notation System(s)
------ | -------- | ------------------
-  | # | sharp | Standard and all others
-  | ## | double sharp | Standard and all others
-  | b | flat | Standard and all others
-  | bb | double flat | Standard and all others
-  | n | natural | Standard and all others 
-  | + | 1 quarter-tone sharp | Arabic / Stein-Zimmermann
-  | + | 1 comma sharp | Turkish
-  | ++ | 3 quarter-tones sharp | Arabic / Stein-Zimmermann
-  | bs | 1 quarter-tone flat | Arabic
-  | d | 1 quarter-tone flat | Stein-Zimmermann
-  | d | 1 comma flat | Turkish
-  | db | 3 quarter-tones flat | Stein-Zimmermann
-  | +- | 5 commas sharp | Turkish
-  | ++- | 8 commas sharp | Turkish
-  | bs | 5 commas flat | Turkish
-  | bss | 8 commas flat | Turkish
-  | bbs | 9 commas flat (?) | Unknown
-  | k | 2-3 commas flat | Iranian (koron)
-  | o | 2-3 commas sharp | Iranian (sori)
+Glyph | Mnemonic | Description | Notation System(s)
+----- | -------- | ----------- | ------------------
+[sharp](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/%23.png) | # | sharp | Standard and all others
+[double sharp](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/%23%23.png) | ## | double sharp | Standard and all others
+[flat](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/b.png) | b | flat | Standard and all others
+[double flat](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/bb.png) | bb | double flat | Standard and all others
+[natural](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/n.png) | n | natural | Standard and all others 
+[quarter-tone sharp](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/%2B.png) | + | 1 quarter-tone sharp | Arabic / Stein-Zimmermann
+[1 comma sharp](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/%2B.png) | + | 1 comma sharp | Turkish
+[3 quarter-tones sharp](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/%2B%2B.png) | ++ | 3 quarter-tones sharp | Arabic / Stein-Zimmermann
+[1 quarter-tone flat](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/bs.png) | bs | 1 quarter-tone flat | Arabic
+[1 quarter-tone flat](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/d.png) | d | 1 quarter-tone flat | Stein-Zimmermann
+[1 comma flat](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/d.png) | d | 1 comma flat | Turkish
+[3 quarter-tones flat](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/db.png) | db | 3 quarter-tones flat | Stein-Zimmermann
+[5 commas sharp](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/%2B-.png) | +- | 5 commas sharp | Turkish
+[8 commas sharp](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/%2B%2B-.png) | ++- | 8 commas sharp | Turkish
+[5 commas flat](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/bs.png) | bs | 5 commas flat | Turkish
+[8 commas flat](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/bss.png) | bss | 8 commas flat | Turkish
+[9 commas flat (?)](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/bbs.png) | bbs | 9 commas flat (?) | Unknown
+[koron](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/k.png) | k | 2-3 commas flat | Iranian (koron)
+[sori](https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/o.png) | o | 2-3 commas sharp | Iranian (sori)
   
 
 An example output from VexFlow is shown here. This is actually a screenshot from the [VF test module "Accidental"](https://github.com/0xfe/vexflow/blob/master/tests/accidental_tests.js#L302).
