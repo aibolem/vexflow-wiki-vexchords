@@ -124,7 +124,7 @@ context.restore();
 ```
 ![Green rectangle](images/context-4-rectangle-green.png)
 
-And we're practically on our way to being [Piet Mondrian](https://en.wikipedia.org/wiki/Piet_Mondrian). If he had liked circles or triangles.
+And we're practically on our way to being [Piet Mondrian](https://en.wikipedia.org/wiki/Piet_Mondrian). If he had liked circles, triangles, or anything other than primary colors.
 
 ## Can we draw some music now???
 
