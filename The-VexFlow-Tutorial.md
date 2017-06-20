@@ -266,7 +266,7 @@ Notice two things above ([run](https://jsfiddle.net/18whg1he/1/)]:
 
 `generateBeams()` will calculate an appropriate stem direction for the entire beam group, even if it was set to a different position earlier.
 
-For more sophisticated beaming examples, take a look at the [Automatic Beaming](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming) wiki page.
+For more sophisticated beaming examples, take a look at the [Beams](https://github.com/0xfe/vexflow/wiki/Beams) and the [Automatic Beaming](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming) wiki pages.
 
 ## Step 5: Ties
 
