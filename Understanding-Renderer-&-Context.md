@@ -145,7 +145,7 @@ stave.setContext(context).draw();
 ```
 ![Stave](images/context-5-stave.png)
 
-Ahhh, perfect, we're well on our way to designing a children's piano method book.
+Ahhh, excellent, the design for our children's piano method book is coming along nicely.
 
 Though you may never need to work directly with the methods in a `context`, everything you do with VexFlow will involve one. And now, each time you see VexFlow render notation, you'll know what's really happening.
 
