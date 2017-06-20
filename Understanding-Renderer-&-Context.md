@@ -147,7 +147,9 @@ stave.setContext(context).draw();
 
 Ahhh, perfect, we're well on our way to designing a children's piano method book.
 
-Though you may never need to work directly with a `context`, everything you do with VexFlow will involve one. And it's all in those first five memorizable lines of code:
+Though you may never need to work directly with the methods in a `context`, everything you do with VexFlow will involve one. And now, each time you see VexFlow render notation, you'll know what's really happening.
+
+And all that potential is encapsulated in those first five memorizable lines of code:
 ``` JavaScript
 var VF = Vex.Flow;
 var div = document.getElementById('boo');
