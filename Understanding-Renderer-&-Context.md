@@ -149,7 +149,7 @@ Ahhh, excellent, the design for our children's piano method book is coming along
 
 Though you may never need to work directly with the methods in a `context`, everything you do with VexFlow will involve one. And now, each time you see VexFlow render notation, you'll know what's really happening.
 
-And all that potential is encapsulated in those first five memorizable lines of code:
+All that potential is encapsulated in those first five memorizable lines of code:
 ``` JavaScript
 var VF = Vex.Flow;
 var div = document.getElementById('boo');
