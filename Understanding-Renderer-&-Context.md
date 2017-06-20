@@ -39,7 +39,7 @@ var renderer = new VF.Renderer(div, 3);
 
 Now we have a renderer. We'll do two things with it, first tell it how big we want our svg to be:
 ``` JavaScript
-               (width, height)
+//             (width, height)
 renderer.resize(200,   200);
 ```
 And, critically, we'll ask it to give us the `context` it created. Remember we passed our renderer the number 3 for S-V-G. (Ok, that's not really why it's 3, but it makes it easy to remember.) That line of code told the `renderer` to make an `SVGContext` for us. And here, we ask it to give it to us so that we can use it when we need to draw things:
