@@ -11,7 +11,7 @@ Lets start with a quick example. Below, we have an HTML DIV element with the fol
 ```html
 <div id="boo"></div>
 ```
-Let's do some boilerplate to create and size an SVG, and get a drawing `context`:
+Let's do [some boilerplate](https://github.com/0xfe/vexflow/wiki/Understanding-Renderer-&-Context) to create and size an SVG, and get a drawing `context`:
 
 ```javascript
 VF = Vex.Flow;
