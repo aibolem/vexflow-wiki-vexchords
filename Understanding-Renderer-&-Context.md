@@ -42,7 +42,7 @@ Now we have a renderer. We'll do two things with it, first tell it how big we wa
 //             (width, height)
 renderer.resize(200,   200);
 ```
-And, critically, we'll ask it to give us the `context` it created. Remember we passed our renderer the number 3 for S-V-G. (Ok, that's not really why it's 3, but it makes it easy to remember.) That line of code told the `renderer` to make an `SVGContext` for us. And here, we ask it to give it to us so that we can use it when we need to draw things:
+And, critically, we'll ask it to give us the `context` it created. Remember we passed our renderer the number 3 for S-V-G. (Ok, that's not really why it's 3, but it makes it easy to remember.) That line of code told the `renderer` to make an `SVGContext` for us. And here, we ask the renderer to give that context to us so that we can use it when we need to draw things:
 
 ``` JavaScript
 var context = renderer.getContext();
