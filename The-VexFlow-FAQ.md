@@ -106,6 +106,8 @@ var FMaj = new Vex.Flow.StaveNote({ keys: ['C/4', 'F/4', 'A/4'], duration: '8'})
 FMaj.setKeyStyle(2, {shadowColor: "yellow", shadowBlur: 3});
 ```
 
+For even more fancy styling options see [Coloring & Styling Notes](https://github.com/0xfe/vexflow/wiki/Coloring-&-Styling-Notes)
+
 #### How do I display grace notes?
 
 Grace notes are created by adding a `GraceNoteGroup` modifier to your `StaveNote`. The `GraceNoteGroup` consists of `GraceNote` instances, which are only slightly different from `StaveNotes`. You can call `beamNotes()` on the group to auto-beam the grace notes.
