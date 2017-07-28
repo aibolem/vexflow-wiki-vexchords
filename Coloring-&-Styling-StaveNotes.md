@@ -13,7 +13,7 @@ The styleObject is an object with any of these properties:
 - shadowBlur: the blur radius of the shadow, in pixels, passed as an integer.
 
 So, if we wanted to style all of a note we could do this:
-```javascript
+``` javascript
 
 // use StaveNote.setStyle() to color all noteheads, the stem, and flag:
 var C7 = new Vex.Flow.StaveNote({ keys: ['C/4', 'E/4', 'G/4', 'Bb/4'], duration: '8'});
@@ -21,14 +21,17 @@ C7.setStyle({strokeStyle: "blue", strokeStyle: "blue"});
 ```
 
 Or if we wanted to just color one notehead of a `StaveNote` we'd do this:
-```
+``` javascript
 // use StaveNote.setKeyStyle(keyIndex, styleObject) to style an individual notehead.
 // in this example, we use keyIndex = 2, referring to the key "A/4"
 var FMaj = new Vex.Flow.StaveNote({ keys: ['C/4', 'F/4', 'A/4'], duration: '8'});
 FMaj.setKeyStyle(2, {shadowColor: "yellow", shadowBlur: 3});
 ```
 
-If we wanted to be really fancy we could do something like this:
+If we wanted to be really fancy and do this:
+![Fancy StaveNote Styling Example](images/stavenote-styling-complex.png)
+
+We would use this code:
 ``` javascript
 var notes = [
   // Beam
