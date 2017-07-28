@@ -1,4 +1,4 @@
-All of the elements of a note -- it's beam, stem, notehead(s), flag, and even ledger lines -- can be styled individually or together, through the various `setStyle` methods on a `StaveNote` object.
+All of the elements of a note -- its beam, stem, notehead(s), flag, and even ledger lines -- can be styled individually or together, through the various `setStyle` methods on a `StaveNote` object.
 
 * `StaveNote.setStyle(styleObject)` will style all elements of the note (except ledger lines)
 * `StaveNote.setKeyStyle(keyIndex, styleObject)` will style a particular notehead ('key' in VexFlow terminology). Keys are always counted 0-based from the lowest to highest notehead.
