@@ -11,8 +11,7 @@ Lets start with a quick example. Below, we have an HTML DIV element with the fol
 ```html
 <div id="boo"></div>
 ```
-
-Let's draw an empty stave on this canvas, and set the clef and time signature.
+Let's do [some boilerplate](https://github.com/0xfe/vexflow/wiki/Understanding-Renderer-&-Context) to create and size an SVG, and get a drawing `context`:
 
 ```javascript
 VF = Vex.Flow;
@@ -21,12 +20,16 @@ VF = Vex.Flow;
 var div = document.getElementById("boo")
 var renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
 
-// Configure the rendering context.
+// Size our svg:
 renderer.resize(500, 500);
-var context = renderer.getContext();
-context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
 
-// Create a stave of width 400 at position 10, 40 on the canvas.
+// And get a drawing context:
+var context = renderer.getContext();
+```
+
+Let's draw an empty stave on this svg, and set the clef and time signature.
+``` JavaScript
+// Create a stave at position 10, 40 of width 400 on the canvas.
 var stave = new VF.Stave(10, 40, 400);
 
 // Add a clef and time signature.
@@ -42,7 +45,7 @@ Here's what it looks like: [ [run](https://jsfiddle.net/gs4v6k6d/2/) ]
 
 Above, we first create a rendering context from the `DIV` element and specify the `SVG` backend. The rendering context is an abstraction that gives VexFlow a consistent 2D drawing interface across various backends. Typically you would do this just once per application lifetime.
 
-The context is configurable -- you can control various properties such as colors, fonts, zoom level, etc.
+The context is configurable -- you can control various properties such as colors, fonts, zoom level, etc. (For a deep dive into VexFlow's drawing `context`, check out [Understanding Renderer & Context](https://github.com/0xfe/vexflow/wiki/Understanding-Renderer-&-Context))
 
 We then create our first VexFlow element, `VF.Stave`, give it a position and size, and assign it a clef and time signature.
 
@@ -263,7 +266,7 @@ Notice two things above ([run](https://jsfiddle.net/18whg1he/1/)]:
 
 `generateBeams()` will calculate an appropriate stem direction for the entire beam group, even if it was set to a different position earlier.
 
-For more sophisticated beaming examples, take a look at the [Automatic Beaming](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming) wiki page.
+For more sophisticated beaming examples, take a look at the [Beams](https://github.com/0xfe/vexflow/wiki/Beams) and the [Automatic Beaming](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming) wiki pages.
 
 ## Step 5: Ties
 
