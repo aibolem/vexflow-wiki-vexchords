@@ -13,6 +13,9 @@ VexFlow has support for standard music, guitar tablature, and percussion notatio
 
 To see a everything VexFlow can render, take a look at the [tests](http://www.vexflow.com/tests/index.html) (scroll down to see the images.)
 
+#### Can I import MusicXML
+Checkout the [WIKI page](https://github.com/0xfe/vexflow/wiki/Import-MusicXML) for more information
+
 #### How do I learn to use the VexFlow API?
 
 The best place to start is the [VexFlow Tutorial](http://www.vexflow.com/docs/tutorial.html). Once you're comfortable with the basics of the API, start looking at the tests in `tests/*.js` for examples of how to use the various notational elements and tools.
