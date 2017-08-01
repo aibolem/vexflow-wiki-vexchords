@@ -6,7 +6,7 @@ Here's an example of an EasyScore line representing a C major chord (quarter not
 
 ## Let's Go!
 
-### A Few Notes on a Stave [ [jsfiddle](https://jsfiddle.net/0b6hcc69/5/) ]
+### A Few Notes on a Stave [ [jsfiddle](https://jsfiddle.net/0b6hcc69/83/) ]
 
 Below, we use `Factory`, `System`, and `EasyScore` to render four notes on a treble stave.
 
