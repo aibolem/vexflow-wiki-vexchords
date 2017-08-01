@@ -1,4 +1,4 @@
-# Upcoming Release
+# 1.2.84
 
 - `Accidental.ApplyAccidentals()` no longer breaks on `Notes` that ignore ticks (ie: `TimeSigNote`)
 - `Accidental.applyAccidentals()` now applies accidentals to `GraceNotes`
