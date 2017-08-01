@@ -2,7 +2,7 @@ Though not officially supported by vexflow itself, there are some additional lib
 
 |Project|Description|
 |--|--|
-|https://github.com/bneumann/vexflow-musicxml|Currently under development, no npm package|
+|https://github.com/bneumann/vexflow-musicxml|Currently under development, npm available|
 |https://github.com/opensheetmusicdisplay/opensheetmusicdisplay|Pretty decent library, npm available|
 |https://github.com/SonyCSL-Paris/LeadsheetJS|Has a MusicXML importer to own format, no npm package|
 
