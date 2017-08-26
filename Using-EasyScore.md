@@ -12,7 +12,7 @@ Below, we use `Factory`, `System`, and `EasyScore` to render four notes on a tre
 
 ```javascript
 // Create an SVG renderer and attach it to the DIV element named "boo".
-var vf = new Vex.Flow.Factory({renderer: {selector: 'boo'}});
+var vf = new Vex.Flow.Factory({renderer: {elementId: 'boo'}});
 var score = vf.EasyScore();
 var system = vf.System();
 ```
