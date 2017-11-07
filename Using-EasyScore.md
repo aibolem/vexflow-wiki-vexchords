@@ -54,7 +54,7 @@ system.addStave({
 
 Above, we provided the `stem` option to `score.notes` to explicitly specify the direction of the stem for each voice.
 
-### Multiple Voices on Multiple Staves [ [jsfiddle](https://jsfiddle.net/jp4tdzv4/15/) ]
+### Multiple Voices on Multiple Staves [ [jsfiddle](https://jsfiddle.net/0m3xa0f0/) ]
 
 Now, lets add another stave which renders two more voices.
 
