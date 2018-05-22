@@ -27,7 +27,7 @@ While `num_notes` and `notes_occupied` are not strictly required, for code legib
 
 ### Example
 These options are illustrated in this image:
-![Tuplet example image](http://s22.postimg.org/7ipvuu4up/Screen_Shot_2016_03_21_at_4_08_19_PM.png)
+![Tuplet example](https://github.com/0xfe/vexflow/wiki/images/tuplet.png)
 
 Which is generated using this code:
 ```javascript
