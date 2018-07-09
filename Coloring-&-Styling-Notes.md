@@ -17,7 +17,7 @@ So, if we wanted to style all of a note we could do this:
 
 // use StaveNote.setStyle() to color all noteheads, the stem, and flag:
 var C7 = new Vex.Flow.StaveNote({ keys: ['C/4', 'E/4', 'G/4', 'Bb/4'], duration: '8'});
-C7.setStyle({strokeStyle: "blue", strokeStyle: "blue"});
+C7.setStyle({fillStyle: "blue", strokeStyle: "blue"});
 ```
 
 Or if we wanted to just color one notehead of a `StaveNote` we'd do this:
