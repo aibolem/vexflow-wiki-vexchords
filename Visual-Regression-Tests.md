@@ -17,7 +17,7 @@ Below you can see an example of a blessed image, a current image, and the visual
 
 The test system relies on the open-source libraries, [RSVG](https://github.com/GNOME/librsvg) and [ImageMagick](http://www.imagemagick.org/).
 
-Installing on OS X, with HomeBrew: `$ brew install librsvg imagemagick`
+Installing on OS X, with HomeBrew: `$ brew install librsvg imagemagick`. *NOTE:* you might also need to run `brew reinstall node` to relink the new libraries.
 
 Installing on Ubuntu Linux: `$ apt-get install librsvg2-dev librsvg2-bin imagemagick`
 
