@@ -229,7 +229,7 @@ beams.forEach(function(b) {b.setContext(context).draw()})
 
 ![](http://imgur.com/40H5CTT.png)
 
-In the above example ([run](https://jsfiddle.net/fvqmq9rd/3/)], we created four groups of notes and beamed each groups. The slope of the beams is calculated automatically as a function of the direction of the music. The number of beam lines for each group is dependent on the duration of the notes underneath.
+In the above example ([run](https://jsfiddle.net/fvqmq9rd/3/)), we created four groups of notes and beamed each groups. The slope of the beams is calculated automatically as a function of the direction of the music. The number of beam lines for each group is dependent on the duration of the notes underneath.
 
 For long scores, manually creating a `Beam` object for each group of notes can get tedious. Luckily, the `Beam` module provides a static method, `generateBeams()`, that allow us to automatically generate beams for our notes. It has two parameters, the notes to automatically beam and a config object. The config object provides many options to beam your notes in different ways, but let's start simple.
 
