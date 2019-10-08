@@ -259,7 +259,7 @@ beams.forEach(function(b) {b.setContext(context).draw()})
 
 ![](http://imgur.com/fCh5jJz.png)
 
-Notice two things above ([run](https://jsfiddle.net/18whg1he/1/)]:
+Notice two things above ([run](https://jsfiddle.net/18whg1he/1/)):
 
 * Notes were automatically grouped.
 * The stem directions were automatically calculated.
