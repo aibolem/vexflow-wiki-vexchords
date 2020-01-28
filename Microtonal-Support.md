@@ -19,6 +19,8 @@ Glyph | Mnemonic | Description | Notation System(s)
 [[https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/d.png]] | d | 1 quarter-tone flat | Stein-Zimmermann
 [[https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/d.png]] | d | 1 comma flat | Turkish
 [[https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/db.png]] | db | 3 quarter-tones flat | Stein-Zimmermann
+[[https://user-images.githubusercontent.com/33069673/73285990-26afbb80-41f7-11ea-8df7-e29a4e3254ae.png]] | ashs | Arabic-Sharp-Half-Sharp (1.25 tones sharp) | Arabic
+[[https://user-images.githubusercontent.com/33069673/73286221-7c846380-41f7-11ea-8b39-2bbc722a4242.png]] | afhf | Arabic-Flat-Half-Flat (1.25 tones flat) | Arabic
 [[https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/%2B-.png]] | +- | 5 commas sharp | Turkish
 [[https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/%2B%2B-.png]] | ++- | 8 commas sharp | Turkish
 [[https://github.com/infojunkie/music-l10n/raw/master/images/vexflow/bs.png]] | bs | 5 commas flat | Turkish
