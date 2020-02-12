@@ -1,6 +1,6 @@
 ## What is EasyScore?
 
-EasyScore is a tiny language that you can use to generate all the VexFlow elements necessary for a sequence of musical notation. The language supports notes, accidentals, beams, dots, tuplets, and other common notational elements.
+EasyScore is the fastest way to get started with VexFlow. You can use to generate all the basic VexFlow elements necessary for a sequence of musical notation, and extend them with the standard VexFlow API. The EasyScore language supports notes, accidentals, beams, dots, tuplets, and other common notational elements.
 
 Here's an example of an EasyScore line representing a C major chord (quarter note) followed by four eighth notes: `(C4 E4 G4)/q, D4/8, E4, F4, G4`.
 
@@ -127,3 +127,6 @@ To create a chord, simply place multiple notes in between parenthesis, e.g., `(C
 ### Note Options
 You set `key=value` attributes on notes by placing the key/value pairs within brackets after the note, e.g., `A5[stem="up",id="foobar"]` will set the ID of this note to `foobar` and render it with an upwards stem.
 
+### What's next?
+
+Make sure you've read [The Vexflow Tutorial] and understand the underlying API.
