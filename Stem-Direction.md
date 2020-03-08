@@ -16,14 +16,14 @@ var note = new Vex.Flow.StaveNote({
 var note = new Vex.Flow.StaveNote({
     keys: ['c/5'],
     duration: '4',
-    stem_direction: 1 // 1 is up -1 is down
+    stem_direction: Vex.Flow.StaveNote.STEM_UP // (or STEM_DOWN)
 });
 ```
 
 * You can also get/set the stem direction of a note after it's been created:
 
 ```javascript
-var down = -1;
+var down = Vex.Flow.StaveNote.STEM_DOWN;
 note.setStemDirection(down)
-note.getStemDirection() // returns -1
+note.getStemDirection() // returns -1 -- the value of STEM_DOWN
 ```
