@@ -52,7 +52,7 @@ system.addStave({
 
 <img src="http://imgur.com/d7go4vd.png" width="600"/>
 
-Above, we provided the `stem` option to `score.notes` to explicitly specify the direction of the stem for each voice.
+Above, we provide the `stem` option to `score.notes` to explicitly specify the direction of the stem for each voice.
 
 ### Multiple Voices on Multiple Staves [ [jsfiddle](https://jsfiddle.net/0m3xa0f0/) ]
 
@@ -78,7 +78,7 @@ system.addConnector()
 
 <img src="http://imgur.com/4F0R6Mz.png" width="600"/>
 
-Notice that we had to specify the clef for the EasyScore notes. We also added a `StaveConnector` that rendered along all the staves in the system. All the voices across all the staves are properly formatted, justified, and aligned.
+Notice that we have to specify the clef for the EasyScore notes. We also add a `StaveConnector` that renders across all the staves in the system. All the voices across all the staves are properly formatted, justified, and aligned.
 
 ### Beams and Tuplets [ [jsfiddle](https://jsfiddle.net/ywa7xt7k/3/) ]
 
@@ -109,9 +109,9 @@ system.addStave({
 }).addClef('treble').addTimeSignature('4/4');
 ```
 
-<img src="http://imgur.com/ICEYSX7.png" width="600"/>
-
 And here we wrap a beam in a tuplet to render eighth-note triplets.
+
+<img src="http://imgur.com/ICEYSX7.png" width="600"/>
 
 ## Other EasyScore Features
 
