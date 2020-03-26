@@ -1,4 +1,4 @@
-VexFlow is an engraving engine for music notation, and can be used as a rendering backend to various kinds of web-based music tools, libraries, and applications. It written entirely in JavaScript, and works with both HTML5 Canvas and SVG.
+VexFlow is an engraving engine for music notation and can be used as a rendering backend to various kinds of web-based music tools, libraries, and applications. It written entirely in JavaScript and works with both HTML5 Canvas and SVG.
 
 This tutorial expects you to have some JavaScript programming experience and a basic understanding of music notation terminology.
 
@@ -6,12 +6,12 @@ Enjoy the show!
 
 ## Step 1: The Basics [ [run](https://jsfiddle.net/gs4v6k6d/2/) ]
 
-Lets start with a quick example. Below, we have an HTML DIV element with the following code:
+Let's start with a quick example. Below, we have an HTML DIV element with the following code:
 
 ```html
 <div id="boo"></div>
 ```
-Let's do [some boilerplate](https://github.com/0xfe/vexflow/wiki/Understanding-Renderer-&-Context) to create and size an SVG, and get a drawing `context`:
+Let's do [some boilerplate](https://github.com/0xfe/vexflow/wiki/Understanding-Renderer-&-Context) to create and size an SVG and get a drawing `context`:
 
 ```javascript
 VF = Vex.Flow;
@@ -20,15 +20,15 @@ VF = Vex.Flow;
 var div = document.getElementById("boo")
 var renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
 
-// Size our svg:
+// Size our SVG:
 renderer.resize(500, 500);
 
 // And get a drawing context:
 var context = renderer.getContext();
 ```
 
-Let's draw an empty stave on this svg, and set the clef and time signature.
-``` JavaScript
+Let's draw an empty stave on this SVG, and set the clef and time signature.
+```javascript
 // Create a stave at position 10, 40 of width 400 on the canvas.
 var stave = new VF.Stave(10, 40, 400);
 
@@ -45,7 +45,7 @@ Here's what it looks like: [ [run](https://jsfiddle.net/gs4v6k6d/2/) ]
 
 Above, we first create a rendering context from the `DIV` element and specify the `SVG` backend. The rendering context is an abstraction that gives VexFlow a consistent 2D drawing interface across various backends. Typically you would do this just once per application lifetime.
 
-The context is configurable -- you can control various properties such as colors, fonts, zoom level, etc. (For a deep dive into VexFlow's drawing `context`, check out [Understanding Renderer & Context](https://github.com/0xfe/vexflow/wiki/Understanding-Renderer-&-Context))
+The context is configurable – you can control various properties such as colors, fonts, zoom level, etc. (For a deep dive into VexFlow's drawing `context`, check out [Understanding Renderer & Context](https://github.com/0xfe/vexflow/wiki/Understanding-Renderer-&-Context))
 
 We then create our first VexFlow element, `VF.Stave`, give it a position and size, and assign it a clef and time signature.
 
@@ -55,13 +55,13 @@ Notice that the stave is not exactly drawn in position 0, 0. This is because it 
 
 ## Step 2: Add Some Notes [ [run](https://jsfiddle.net/8eckj32x/13/) ]
 
-A `StaveNote` is a group of note heads representing a chord. It can consist of one or more notes, with or without a stem and flag.
+A `StaveNote` is a group of note heads representing a chord. It can consist of one or more notes with or without a stem and flag.
 
 A sequence of notes is represented by a `Voice`, and multiple voices can be grouped within a `VoiceGroup`.
 
-Finally, you have the `Formatter`, which takes a voice group and alignes, justifies, and renders the voices based on configurable rules, so that all the voices in the group look pretty on the stave(s).
+Finally, you have the `Formatter`, which takes a voice group and aligns, justifies, and renders the voices based on configurable rules, so that all the voices in the group look pretty on the stave(s).
 
-In the code below, we create a voice with two notes and a chord, and render it on the stave. 
+In the code below we create a voice with two notes and a chord and render it on the stave. 
 
 ```javascript
 var notes = [
@@ -79,7 +79,7 @@ var notes = [
   new VF.StaveNote({clef: "treble", keys: ["c/4", "e/4", "g/4"], duration: "q" })
 ];
 
-// Create a voice in 4/4 and add above notes
+// Create a voice in 4/4 and add the notes from above
 var voice = new VF.Voice({num_beats: 4,  beat_value: 4});
 voice.addTickables(notes);
 
@@ -92,9 +92,9 @@ voice.draw(context, stave);
 
 ![](http://imgur.com/NT62Q7g.png)
 
-Notice how the notes are justified evenly on the stave based on the duration of each note? This is the formatter in action - keeping voices aligned, while balancing the spacing between the notes.
+Notice how the notes are justified evenly on the stave based on the duration of each note? This is the formatter in action - keeping voices aligned while balancing the spacing between the notes.
 
-Lets add a second voice with a single whole note to this tune. [ [run](https://jsfiddle.net/7y74r86s/4/) ]
+Let's add a second voice with a single whole note to this tune. [ [run](https://jsfiddle.net/7y74r86s/4/) ]
 
 ```javascript
 var notes = [
@@ -108,7 +108,7 @@ var notes2 = [
   new VF.StaveNote({clef: "treble", keys: ["c/4"], duration: "w" })
 ];
 
-// Create a voice in 4/4 and add above notes
+// Create a voice in 4/4 and add the notes from above
 var voices = [
 	new VF.Voice({num_beats: 4,  beat_value: 4}).addTickables(notes),
 	new VF.Voice({num_beats: 4,  beat_value: 4}).addTickables(notes2)]
@@ -124,9 +124,9 @@ voices.forEach(function(v) { v.draw(context, stave); })
 
 ## Step 3: All About Modifiers
 
-A modifier is an element that is attached to a note. Modifiers typically inherit from the `VF.Modifier` base class, e.g., `VF.Accidental` representing accidentals, `VF.Vibrato` for vibratos, `VF.Annotation` for annotations , etc.
+A modifier is an element that is attached to a note. Modifiers typically inherit from the `VF.Modifier` base class, e.g. `VF.Accidental` representing accidentals, `VF.Vibrato` for vibratos, `VF.Annotation` for annotations, etc.
 
-Modifiers are self-positioning -- they intelligently juxtapose themselves alongside other modifiers and notes based on standard music notation rules.
+Modifiers are self-positioning – they intelligently juxtapose themselves alongside other modifiers and notes based on standard music notation rules.
 
 Let's add some accidentals and dots. [ [run](https://jsfiddle.net/1tqmkeft/9/) ]
 
@@ -151,13 +151,13 @@ VF.Formatter.FormatAndDraw(context, stave, notes);
 
 ![](http://imgur.com/3wVLRxx.png)
 
-In the above example, note that even though we set the note names and durations correctly, we explicitly request the rendering of accidentals and dots.
+Notice that in the above example, even though we set the note names and durations correctly, we explicitly request the rendering of accidentals and dots.
 
-This is by design, and allows us to decouple rendering logic and notational semantics. For example, you would not want to render the `#` accidental on `F#` when the key signature already includes it (e.g., key of `G`.)
+This is by design and allows us to decouple rendering logic and notational semantics. For example, you would not want to render the `#` accidental on `F#` when the key signature already includes it (e.g. key of `G`.)
 
 Also notice that we `FormatAndDraw`, which is a handy helper function that takes care of all the plumbing related to displaying a sequence of notes.
 
-Lets add a few more modifiers and see how they position themselves. [ [run](https://jsfiddle.net/htsm03pn/3/) ]
+Let's add a few more modifiers and see how they position themselves. [ [run](https://jsfiddle.net/htsm03pn/3/) ]
 
 ```javascript
 var notes = [
@@ -173,19 +173,19 @@ var notes = [
     new Vex.Flow.StaveNote({clef: "treble", keys: ["c/4"], duration: "h" })
   ];
 
-  // Helper function to justify and draw a 4/4 voice
+// Helper function to justify and draw a 4/4 voice
 VF.Formatter.FormatAndDraw(context, stave, notes);
 ```
 
 ![](http://imgur.com/6cjs3Rf.png)
 
-Notice how VexFlow position the accidentals such that they don't collide with each other?
+Notice how VexFlow positions the accidentals such that they don't collide with each other?
 
 ## Step 3.5: An Interlude
 
 We've covered a bit of ground here, and you're probably asking for lists of valid note names, accidentals, durations, etc., that you can use with the API.
 
-Fortunately for you, there's a canonical location where this stuff is kept. [VexFlow Tables (vexflow/src/tables.js)](https://github.com/0xfe/vexflow/blob/master/src/tables.js)
+Fortunately for you, there is a canonical location where this stuff is kept. [VexFlow Tables (vexflow/src/tables.js)](https://github.com/0xfe/vexflow/blob/master/src/tables.js)
 
 Take a look at some of the following tables:
 
