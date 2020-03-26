@@ -348,6 +348,6 @@ VF.Formatter.FormatAndDraw(context, stave, notes);
 
 ![](https://imgur.com/sHVMhtc.png)
 
-Above ([run](https://jsfiddle.net/7yaykcjp/8/)), we replaced `Stave` with `TabStave` and `StaveNote` with `TabNote`. We also added a `Bend` and a `Vibrato` modifier.
+Above ([run](https://jsfiddle.net/7yaykcjp/8/)) we replaced `Stave` with `TabStave` and `StaveNote` with `TabNote`. We also added a `Bend` and a `Vibrato` modifier.
 
-There are two things we have to manually specify here -- the font style, and the background fill color. The former is used to display fret numbers, annotations, and other text. The latter is only required for the SVG backend (although using it with Canvas is harmless).
+There are two things we have to manually specify here – the font style and the background fill color. The former is used to display fret numbers, annotations, and other text. The latter is only required for the SVG backend (although using it with Canvas is harmless).
