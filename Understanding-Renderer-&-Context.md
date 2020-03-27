@@ -97,7 +97,7 @@ That's nice and all, but what if we wanted it to be more colorful? Let's delete 
 ``` JavaScript
 context.svg.removeChild(context.svg.lastChild);
 ```
-We don't have to give `context` instructions for the circle again. It will remember the path we were working on until we call `beginPath()` again. So, let's make our circle thicker & more colorful, like a Halloween donut. Then we'll just call 'stroke()' again.
+We don't have to give `context` instructions for the circle again. It will remember the path we were working on until we call `beginPath()` again. So, let's make our circle thicker & more colorful, like a Halloween donut. Then we just call `stroke()` again.
 
 ``` JavaScript
 context.save(); // save the prior style so we can come back to it.
@@ -108,7 +108,7 @@ context.restore(); // restore the prior style, so our stave's lines aren't thick
 ```
 ![Orange circle](images/context-3-circle-orange.png)
 
-The two rectangle methods, `rect` and `fillRect` are special. They will draw directly to the canvas without your having to call `stroke()` or `fill()`.
+The two rectangle methods, `rect` and `fillRect`, are special. They will draw directly to the canvas without your having to call `stroke()` or `fill()`.
 
 ``` JavaScript
 //          (x,  y,  w,  h,  attributes )
@@ -128,9 +128,9 @@ And we're practically on our way to being [Piet Mondrian](https://en.wikipedia.o
 
 ## Can we draw some music now???
 
-So how does this all play out with musical notation? VexFlow has objects representing almost all of the elements of notation. When we construct an element, we give it the musical information it needs to know how to render, and then later we share (or its parent element shares) a context with it so that it can draw itself.
+So how does this all play out with musical notation? VexFlow has objects representing almost all of the elements of notation. When we construct an element, we give it the musical information it needs to know to be able to render, and then, later, we share (or its parent element shares) a context with it, so that it can draw itself.
 
-The easiest example of this to understand is a staff. All it needs to know is where it goes, and how wide it should be:
+The easiest example of this to understand is a stave. All it needs to know is, where it goes and how wide it should be:
 ``` JavaScript
                         (x,   y,  width)
 var stave = new VF.Stave(110, 60, 90);
