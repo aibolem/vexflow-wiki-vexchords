@@ -27,8 +27,8 @@ A `renderer` in VexFlow actually doesn't do much real rendering. It's main job i
 > A `renderer` creates the `context` for you and sizes the available drawing space. It does not actually render anything itself.
 
 We pass the `Renderer` class constructor two arguments.
-- 1. The div in which we'll render our SVG.
-- 2. A number representing the kind of `context` we want to create. SVG is 3. Canvas is 1. But who wants to remember that?
+1. The div in which we'll render our SVG.
+2. A number representing the kind of `context` we want to create. SVG is 3. Canvas is 1. But who wants to remember that?
  They're saved in the codebase as variables to make things easier: `VF.Renderer.Backends.SVG` and `VF.Renderer.Backends.CANVAS`. (They're in CAPS because they're meant to be CONSTANTS.)
 
 ``` JavaScript
