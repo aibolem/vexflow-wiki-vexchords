@@ -2,9 +2,9 @@
 
 VexFlow comes with a visual regression test system. All VexFlow QUnit tests (the ones in `tests/`) that generate images are automatically included in these regression tests.
 
-The goal of this system is to detect regressions in the rendered output without having to rely on human eyeballs, especially given the huge number of tests that exist today. It does this by calculating a [perceptual hash](https://en.wikipedia.org/wiki/Perceptual_hashing) (PHASH) of each test image and comparing it with the hash of a good known _blessed_ image. The larger the arithmetic distance between the hashes, the more different are the two images.
+The goal of this system is to detect regressions in the rendered output without having to rely on human eyeballs, especially given the huge number of tests that exist today. It does this by calculating a [perceptual hash](https://en.wikipedia.org/wiki/Perceptual_hashing) (PHASH) of each test image and comparing it with the hash of a good known _blessed_ image. The larger the arithmetic distance between the hashes, the more different the two images are.
 
-The system also generates a _diff image_, which is an overlay of the two images, with the differences highlighted, to ease debugging.
+The system also generates a _diff image_, which is an overlay of the two images, with the differences highlighted to ease debugging.
 
 ## Crude Example
 Below you can see an example of a blessed image, a current image, and the visual difference (value 27.649.)
@@ -15,9 +15,9 @@ Below you can see an example of a blessed image, a current image, and the visual
 
 ## Prerequisites
 
-The test system relies on the open-source libraries, [RSVG](https://github.com/GNOME/librsvg) and [ImageMagick](http://www.imagemagick.org/).
+The test system relies on the open-source libraries [RSVG](https://github.com/GNOME/librsvg) and [ImageMagick](http://www.imagemagick.org/).
 
-Installing on OS X, with HomeBrew: `$ brew install librsvg imagemagick`. *NOTE:* you might also need to run `brew reinstall node` to relink the new libraries.
+Installing on OS X with HomeBrew: `$ brew install librsvg imagemagick`. *NOTE:* you might also need to run `brew reinstall node` to relink the new libraries.
 
 Installing on Ubuntu Linux: `$ apt-get install librsvg2-dev librsvg2-bin imagemagick`
 
@@ -29,7 +29,7 @@ $ npm test
 (or, on a headless machine) $ xvfb-run -a npm test
 ```
 
-This will store the images of the failed tests (i.e., where there are visible differences) in `build/images/diff`. Visually inspect these images (including the diff image), and if you're happy with the output you can simply submit your changes. Be sure to include the before, after, and diff images in your pull request.
+This will store the images of the failed tests (i.e. where there are visible differences) in `build/images/diff`. Visually inspect these images (including the diff image), and if you're happy with the output you can simply submit your changes. Be sure to include the before, after, and diff images in your pull request.
 
 ## How it Works
 
