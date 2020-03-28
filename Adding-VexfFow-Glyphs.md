@@ -3,12 +3,17 @@ The VexFlow glyphs were generated from the [Gonville](https://www.chiark.greenen
 The glyph paths are stored in `src/fonts/vexflow_font.js` and accessible via the variable `Vex.Flow.Font.glyphs`. You can see the current set of glyphs by opening `src/glyph.html` in your browser. You can see all glyphs by opening `src/transform.html`.
 
 
+<br />
 <img align="center" src="https://i.imgur.com/KO1arxH.png" width=500 />
+<br />
 
+The glyph rendering code is in `src/glyph.js`.
+
+### Adding a Gonville Glyph
 
 To add a Gonville glyph to `Vex.Flow.Font.glyphs`, edit `transform.html` and add the Gonville glyph code to `validGlyphCodes`. It generates a Javascript file you can use to update `src/fonts/vexflow_fonts.js`.
 
-## Adding Custom Glyphs
+### Adding Custom Glyphs
 
 You can add custom glyphs by adding a new path to `src/font/custom_glyphs.js`. Make sure to give it a unique glyph code.
 
@@ -20,7 +25,7 @@ The path structure consists of the following fields:
 
 The full width of the glyph must be `x_max - x_min`.
 
-### Commands in `o` are:
+#### Commands in `o` are:
 
 * `m` - MoveTo(x,y)
 * `l` - LineTo(x,y)
