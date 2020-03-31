@@ -9,9 +9,9 @@ VexFlow has been tested on Google Chrome, Firefox, Safari, Opera, and Internet E
 
 #### What features does it support?
 
-VexFlow has support for standard music, guitar tablature, and percussion notation. While it is a goal to support the vast majority of western music notation, VexFlow also supports a few alternative elements, such as, microtonal notation.
+VexFlow has support for standard music, guitar tablature, and percussion notation. While it is a goal to support the vast majority of western music notation, VexFlow also supports a few alternative elements, such as microtonal notation.
 
-To see a everything VexFlow can render, take a look at the [tests](http://www.vexflow.com/tests/index.html) (scroll down to see the images.)
+To see a everything VexFlow can render, take a look at the [tests](http://www.vexflow.com/tests/index.html) (scroll down to see the images).
 
 #### Can I import MusicXML
 Checkout the [WIKI page](https://github.com/0xfe/vexflow/wiki/Import-MusicXML) for more information
@@ -89,7 +89,7 @@ Yes, and there are a few ways to do it. See [Automatic Beaming](https://github.c
 
 #### Can I color notes individually?
 
-Yes.  Each of the pitches within a StaveNote (known in VexFlow as "keys"), or the entire note (including stem) can be styled using StaveNote's setKeyStyle(keyIndex, styleObject) or setStyle(styleObject) properties.  
+Yes. Each of the pitches within a StaveNote (known in VexFlow as "keys"), or the entire note (including stem) can be styled using StaveNote's `setKeyStyle(keyIndex, styleObject)` or `setStyle(styleObject)` properties.  
 
 The styleObject is an object with any of these properties:
 - fillStyle: the color of the fill (e.g. inner part of a notehead), in the form of a CSS accepted color value.
@@ -98,13 +98,12 @@ The styleObject is an object with any of these properties:
 - shadowBlur: the blur radius of the shadow, in pixels, passed as an integer.
 
 ```javascript
-
-// use StaveNote.setStyle() to color all noteheads & the stem:
+// Use StaveNote.setStyle() to color all noteheads & the stem:
 var C7 = new Vex.Flow.StaveNote({ keys: ['C/4', 'E/4', 'G/4', 'Bb/4'], duration: '8'});
 C7.setStyle({strokeStyle: "blue", strokeStyle: "blue"});
 
-// use StaveNote.setKeyStyle(keyIndex, styleObject) to style an individual notehead.
-// in this example, we use keyIndex = 2, referring to the key "A/4"
+// Use StaveNote.setKeyStyle(keyIndex, styleObject) to style an individual notehead.
+// In this example, we use keyIndex = 2, referring to the key "A/4"
 var FMaj = new Vex.Flow.StaveNote({ keys: ['C/4', 'F/4', 'A/4'], duration: '8'});
 FMaj.setKeyStyle(2, {shadowColor: "yellow", shadowBlur: 3});
 ```
@@ -142,11 +141,11 @@ voice.draw(ctx, stave);
 
 This [jsfiddle](https://jsfiddle.net/vW9v5/24/) is a more advanced example of grace notes.
 
-#### How do I display mid-measure clef?
+#### How do I display a mid-measure clef?
 
-You can display mid-measure clef by adding a `NoteSubGroup` modifier to your `StaveNote`. The `NoteSubGroup` can consists of any kind of `Note` instances, but you may usually use `NoteSubGroup` with `ClefNote` only.
+You can display a mid-measure clef by adding a `NoteSubGroup` modifier to your `StaveNote`. The `NoteSubGroup` can consist of any kind of `Note` instances, but you may usually use `NoteSubGroup` with `ClefNote` only.
 
-It is also possible to use `ClefNote` without `NoteSubGroup`, but it is not recommended because of multi-voice formatting issue, `ClefNote` without `NoteSubGroup` does not support multi-voice.
+It is also possible to use `ClefNote` without `NoteSubGroup`, but it is not recommended because of multi-voice formatting issues. `ClefNote` without `NoteSubGroup` does not support multi-voice.
 
 ```javascript
 var notes = [
