@@ -30,6 +30,18 @@ To publish a new version of VexFlow to the NPM repositories:
 
 This bumps the version number in `package.json`, publishes the new NPM package, and submits the new binaries to the git repo.
 
+## Watch mode
+
+To watch source files for changes and build automatically, use the following two commands:
+
+```sh
+# Watch src/ tree and build unminimized bundle
+$ grunt webpack:watch
+
+# Watch test/ tree and rebuild test bundle
+$ grunt watch
+```
+
 ## Upgrading Dependencies
 
 First install the [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) package, which automates the process of finding and upgrading the versions in `package.json`.
