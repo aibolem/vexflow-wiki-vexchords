@@ -8,7 +8,7 @@
 * [API Documentation](http://public.vexflow.com/build/docs/) generated from the source code. This is a work in progress.
 * [The VexFlow FAQ](The-VexFlow-FAQ) - Frequently Answered Questions from the VexFlow mailing list. 
 * [VexFlow Sandbox](http://www.vexflow.com/docs/sandbox.html) - A place to experiment with the VexFlow API.
-* [Build Instructions](Build-Instructions) - How to build VexFlow from scratch. Requires Ruby and NodeJS.
+* [Build Instructions](Build-And-Release-Instructions) - How to build VexFlow from scratch. Requires Ruby and NodeJS.
 * [VexFlow Forum Archive](https://groups.google.com/forum/?fromgroups#!forum/vexflow) - Feel free to join and ask questions on the forum.
 * VexFlow [Class Hierarchy](https://github.com/0xfe/vexflow/wiki/VexFlow-Class-Hierarchy) and [Dependency Graph](https://github.com/0xfe/vexflow/wiki/VexFlow-Dependency-Graph)
 * [Visual Regression Tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests)
