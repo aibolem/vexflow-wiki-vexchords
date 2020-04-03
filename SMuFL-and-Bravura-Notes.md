@@ -8,7 +8,7 @@
 
 * [OpenType Glyph Inspector](https://opentype.js.org/glyph-inspector.html)
 
-* [glyphs.json](https://raw.githubusercontent.com/w3c/smufl/gh-pages/metadata/glyphnames.json) (from smufl) has mappings from glyph names to UTF code points.
+* [glyphnames.json](https://raw.githubusercontent.com/w3c/smufl/gh-pages/metadata/glyphnames.json) (from smufl) has mappings from glyph names to UTF code points.
 
 ```
 "noteWhole": {
