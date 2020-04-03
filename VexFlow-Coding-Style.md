@@ -2,9 +2,9 @@
 
 * Code must be readable.
 * Code must be testable.
-* In general, try to stick with the conventions in the existing code.
+* In general, try to stick with the conventions in the existing code. (VexFlow is over a decade old, and there's a mix of styles in the code.)
 
-### Style
+### Preferred Style
 
 * No hard-tabs. Use 2 spaces.
 * Comments get preprocessed through [Docco](http://jashkenas.github.io/docco/). This allows Markdown in comments.
