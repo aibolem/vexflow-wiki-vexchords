@@ -1,6 +1,4 @@
-## The VexFlow Wiki
-
-### Learn
+## Learn
 
 * [The VexFlow Tutorial](http://www.vexflow.com/docs/tutorial.html) - Get started by learning the basics of the classic and powerful VexFlow rendering API.
 * If your needs are less complex, check out [Using EasyScore](https://github.com/0xfe/vexflow/wiki/Using-EasyScore) to learn about the simpler EasyScore API.
@@ -17,7 +15,7 @@
 
 * [Build and Release Instructions](Build-And-Release-Instructions) - How to build VexFlow from scratch. How to release packages. Using `grunt` to watch files.
 
-### Contribute
+## Contribute
 
 * Join the VexFlow Google Group at: https://groups.google.com/forum/?fromgroups#!forum/vexflow
 * See the [coding style guide](VexFlow-Coding-Style) guide for general rules and conventions.
@@ -28,7 +26,7 @@
 
 * If you add a new feature, update this Wiki with some documentation and examples.
 
-### Significant Contributors
+## Significant Contributors
 
 * [Mohit Muthanna Cheppudira](http://github.com/0xfe)
 * [Cyril Silverman](http://github.com/Silverwolf90)
