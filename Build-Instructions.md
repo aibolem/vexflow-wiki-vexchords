@@ -27,6 +27,7 @@ To publish a new version of VexFlow to the NPM repositories:
 
     $ npm login
     $ grunt publish
+    $ npm publish
 
 This bumps the version number in `package.json`, publishes the new NPM package, and submits the new binaries to the git repo.
 
