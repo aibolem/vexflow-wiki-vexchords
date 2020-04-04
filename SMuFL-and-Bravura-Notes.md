@@ -6,6 +6,8 @@
 
 ## Notes
 
+* [SMuFL Git Book](https://w3c.github.io/smufl/gitbook/tables/clefs.html) - Good place to browse glyphs and understand metadata.
+
 * [OpenType Glyph Inspector](https://opentype.js.org/glyph-inspector.html)
 
 * [glyphnames.json](https://raw.githubusercontent.com/w3c/smufl/gh-pages/metadata/glyphnames.json) (from smufl) has mappings from glyph names to UTF code points.
