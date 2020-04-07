@@ -5,7 +5,7 @@ VexFlow comes with a pluggable font system for music glyphs. It currently suppor
 You can set your font stack by setting `VF.DEFAULT_FONT_STACK`, or calling `setFontStack()` on an element.
 
 ```javascript
-# Use Bravura as the main font, and fallback to Gonville or Custom (in that order) if glyphs are not found
+// Use Bravura as the main font, and fallback to Gonville or Custom (in that order) if glyphs are not found
 VF.DEFAULT_FONT_STACK = [VF.Fonts.Bravura, VF.Fonts.Gonville, VF.Fonts.Custom]
 ```
 
