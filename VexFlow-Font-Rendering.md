@@ -128,7 +128,25 @@ $ node gonville_fontgen.js ../../src/fonts/
 5) Edit your element source file (e.g., `src/accidental.js` if this is a new accidental) and add the code.
 6) Perform any scaling or repositioning by adding configuration to the relevant metrics file (`src/fonts/bravura_metrics.js`.)
 
-## Font Rendering
+## Glyph Rendering
+
+Rendering a glyph consistently across different fonts, canvases, and backends requires a number of moving parts. At a high, level, here's what happens for the following call:
+
+```javascript
+Glyph.renderGlyph(ctx, x, y, 40, 'noteheadBlack', { fontStack: [...], category: 'stem' })
+```
+
+#### 1) Glyph Resolution
+
+The glyph code is resolved by searching the font stack and returning the first available glyph.
+
+2) Load Glyph Outline
+3) Load Custom Metrics
+4) Apply Transformations
+4) Calculate Bounding Box
+5) Apply Styles
+6) Draw Glyph on Rendering Backend
+7) Restore Styles
 
 The glyph rendering code is in `src/glyph.js`. TODO: expand.
 
