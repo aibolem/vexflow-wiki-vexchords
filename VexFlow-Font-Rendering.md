@@ -8,7 +8,7 @@ VexFlow resolves glyphs through a **font stack**.
 
 The default font stack is: `[Bravura, Gonville, Custom]`. When VexFlow tries to resolve a glyph code, it searches each font in the stack, and returns the first glyph it finds. If it can't find a glyph, an exception is thrown.
 
-You can change the default font stack by setting `VF.DEFAULT_FONT_STACK` before building your score, or calling `setFontStack()` on a specific element.
+You can change the default font stack by setting [`VF.DEFAULT_FONT_STACK`](https://github.com/0xfe/vexflow/blob/master/src/tables.js#L16) before building your score, or calling [`setFontStack()`](https://github.com/0xfe/vexflow/blob/master/src/element.js#L37) on a specific element.
 
 ```javascript
 // Change default font to Gonville
@@ -25,9 +25,9 @@ Vexflow currently supports the following fonts:
 
 ## Font files
 
-Each VexFlow font consists of a `glyph` file and a `metric` file, in the `src/fonts` directory. For example, Bravura has `src/fonts/bravura_glyphs.js` and `src/fonts/bravura_metrics.js`.
+Each VexFlow font consists of a `glyph` file and a `metric` file, in the [`src/fonts`](https://github.com/0xfe/vexflow/tree/master/src/fonts) directory. For example, Bravura has [`src/fonts/bravura_glyphs.js`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_glyphs.js) and [`src/fonts/bravura_metrics.js`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_metrics.js).
 
-The glyph files consist of drawing primitives for each glyph, indexed by glyph code (which is usually a SMuFL code.) The file is machine generated from a font file, and its format is described at the end of this document. Here's an example:
+The glyph files consist of coded drawing primitives (`moveTo`, `lineTo`, `bezierCurve`, etc.) for each glyph, indexed by glyph code (which is usually a SMuFL code.) The file is machine generated from a font file, and its format is described at the end of this document. Here's an example:
 
 ```javascript
     "bracketTop": {
@@ -84,14 +84,130 @@ glyphs: {
 }
 ```
 
+## Glyph Rendering
+
+Rendering a glyph consistently across different fonts, canvases, and backends involves a number of moving parts. At a high, level, here's what happens for the following call:
+
+```javascript
+Glyph.renderGlyph(ctx, x, y, 40, 'noteheadBlack', { fontStack: [...], category: 'stem' })
+```
+
+#### 1) Glyph Resolution
+
+The glyph code (`noteheadBlack`) is resolved by searching the font stack and returning the first available glyph (along with its font, metrics, etc.) This glyph consists of a raw (unprocessed) outline made up of lines and curves.
+
+#### 2) Load Font Metrics and Apply Transformations
+
+Before the final outline can be calculated, some basic transformations may need to be applied.
+
+If a `category` option is provided to `renderGlyph` (e.g., `stem), the following variables are loaded from the `glyphs.stem` section of the font metrics file (`bravura_metrics.js`):  `scale`, `shiftX`, `shiftY`, and `point` from the `glyphs.stem`.
+
+If no `category` is provided, then defaults are used (typically 0-positioned, and 1-scaled.)
+
+#### Bounding Box and Rendering Metrics
+
+The bounding box for the glyph is then calculated, from which the width and height are derived. An origin shift may also be calculated if requested.
+
+#### Apply Styles on Rendering Backend
+
+Depending on the rendering backend (e.g., SVG, Canvas, PDF), styles such as color, stroke-widths, etc. may be applied to the canvas.
+
+#### Render the Glyph
+
+The glyph is ready to be drawn -- depending on the outline and the transformations, a series of `moveTo`, `lineTo`, `bezierCurveTo`, or `quadraticCurveTo` calls may be sent to the backend. Once we're here the glyph is rendered, and canvas styles are restored (if necessary) for whatever comes next.
+
+If you're interested in the gory details, the entire glyph rendering code is available in `src/glyph.js`.
+
+## Metrics File Format
+
+The metrics file (e.g., [`src/font/bravura_metrics.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_metrics.js) consists of a single exported JavaScript configuration object. It has no pre-defined structure, but it does have some conventions. Here's a snippet from the `bravura_metrics.js` file.
+
+```javascript
+ clef: {
+    default: {
+      point: 32,
+      width: 26,
+    },
+    small: {
+      point: 26,
+      width: 20,
+    },
+
+    // ...
+  }
+```
+
+You can lookup a metric from within any element with `this.lookupMetric(metricPath, optionalDefault)`. So to get the point-size for the small cleft, you can call `this.lookupMetric('clef.small.point', 40)`. If the variable is not found, the default (`40` in this case) is returned. If no default is provided, an exception is thrown.
+
+There can be some standardized metric sections used by common classes, e.g., `glyphs` used by the `category` option of the `Glyph` class.
+
+```javascript
+  glyphs: {
+
+    // ...
+
+    textNote: {
+      point: 34,
+      breathMarkTick: {
+        point: 36,
+        shiftY: 9,
+      },
+      breathMarkComma: {
+        point: 36,
+      },
+      segno: {
+        point: 30,
+        shiftX: -7,
+        shiftY: 8,
+      },
+      coda: {
+        point: 20,
+        shiftX: -7,
+        shiftY: 8,
+      }
+    },
+
+    // ...
+
+  }
+```
+
+If a `category` option is provided to `Glyph` class, e.g., `{category: 'textNote'}`, the renderer will lookup metrics such as `textNote.{code}.point` or `textNote.{code}.shiftX` to apply size and shift overrides on a glyph. If it can't find a metric in `textNote.{code}.point`, it check's `textNote.point` next.
+
+This way you can provide default options for a category, and customize them for specific SMuFL codes.
+
+### Glyphs File Format
+
+The Glyphs file (e.g. [`bravura_glyphs.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_glyphs.js), consists of glyph drawing outlines indexed by glyph code. These files are typically machine generated from OTF font files, however you can add custom glyphs by adding a new drawing outline to [`src/font/custom_glyphs.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/custom_glyphs.js).
+
+The glyph structure consists of the following fields:
+
+* `x_min`: left-most x value 
+* `x_max`: right-most x value
+* `ha`: height of glyph
+* `o`: a long string consisting of repeated *drawing commands* followed by coordinates. (Below.)
+
+The full width of the glyph must be `x_max - x_min`.
+
+#### Drawing commands in `o` are:
+
+* `m` - MoveTo(x,y)
+* `l` - LineTo(x,y)
+* `q` - QuadraticCurveTo(cpx, cpy, x, y)
+* `b` - BeizerCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+
+The cp* parameters are coordinates to control points for the curves. All coordinates are scaled by `point_size * 72 / (Vex.Flow.Font.resolution * 100)`.
+
+To see the rendering code, see `Vex.Flow.Glyph.renderOutline()` in `src/glyph.js`. You can see how we generated the outlines for Bravura by examining [`tools/smufl/bravura_fontgen.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/bravura_fontgen.js).
+
 ## Managing Glyphs
 
-We have a bunch of tooling for glyph management in `tools/smufl`.
+We have a bunch of tooling for glyph management in the [`tools/smufl`] directory (https://github.com/0xfe/vexflow/blob/master/tools/smufl). The tools depend on the configuration files in `config/` to pick SMuFL codepoints and associate them with UTF codes or legacy Vexflow font codes (e.g., `vf1`, `vb6`, etc.)
 
 #### Configuration files
 
-* `tools/smufl/config/glyphnames.json` - Mappings from SMuFL code-points to UTF code points. These are used to create the `src/font/font_glyphs.js` files for Vexflow.
-* `tools/smufl/config/valid_codes.js` - List of SMuFL codes used by VexFlow, along with a mapping into legacy vexflow codes.
+* [`tools/smufl/config/glyphnames.json`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/glyphnames.json) - Mappings from SMuFL code-points to UTF code points. These are used to create the `src/font/font_glyphs.js` files for Vexflow.
+* [`tools/smufl/config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js) - List of SMuFL codes used by VexFlow, along with a mapping into legacy vexflow codes.
 
 #### Tools
 
@@ -100,7 +216,7 @@ We have a bunch of tooling for glyph management in `tools/smufl`.
 
 #### Adding a new Bravura Glyph
 
-1) Add the SMuFL glyph code to `config/valid_codes.js`. You can find SMuFL glyph codes from the glyph browser at https://smufl.org. If there is no standard code for your glyph, see next section on creating custom glyphs.
+1) Add the SMuFL glyph code to [`config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js). You can find SMuFL glyph codes from the glyph browser at https://smufl.org. If there is no standard code for your glyph, see next section on creating custom glyphs.
 2) If there's a Gonville glyph available, then set the value of the code in `valid_codes.js` to the Gonville glyph code. If not, simply set it to `null`.
 3) Run `bravura_fontgen.js` to generate a new font file in `src/fonts/bravura_glyphs.js`.
 
@@ -118,7 +234,7 @@ $ node gonville_fontgen.js ../../src/fonts/
 
 #### Creating a custom glyph
 
-1) Create a unique custom code (prefixed with `vex`), e.g., `vexMyNewAccidentalGlyph` and add it to `config/valid_codes.js`. You can set the value type to `null`.
+1) Create a unique custom code (prefixed with `vex`), e.g., `vexMyNewAccidentalGlyph` and add it to [`config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js). You can set the value type to `null`.
 2) Add the glyph outline to `tools/smufl/fonts/custom_glyph.js`. See the *Glyph File Format* section below on how to do that.
 3) Regenerate 'src/fonts/custom_glyphs.js` as so:
 
@@ -128,49 +244,13 @@ $ node gonville_fontgen.js ../../src/fonts/
 5) Edit your element source file (e.g., `src/accidental.js` if this is a new accidental) and add the code.
 6) Perform any scaling or repositioning by adding configuration to the relevant metrics file (`src/fonts/bravura_metrics.js`.)
 
-## Glyph Rendering
+## Resources
 
-Rendering a glyph consistently across different fonts, canvases, and backends requires a number of moving parts. At a high, level, here's what happens for the following call:
+Here are some handy external resources to help you dig through stuff.
 
-```javascript
-Glyph.renderGlyph(ctx, x, y, 40, 'noteheadBlack', { fontStack: [...], category: 'stem' })
-```
+* [SMuFL Git Book](https://w3c.github.io/smufl/gitbook/tables/clefs.html) - Good place to browse glyphs and understand metadata.
+* [OpenType Glyph Inspector](https://opentype.js.org/glyph-inspector.html) - Upload a font file and investigate glyphs.
+* [SMuFL](https://smufl.org) home page -- Learn all about SMuFL
+* [Bravura](https://github.com/steinbergmedia/bravura/tree/master/redist) Github Page -- Download Bravura font files
+* [OpenType](opentype.js.org) home page -- The tools use the OpenType library to parse OTF fonts and generate Vexflow glyph files.
 
-#### 1) Glyph Resolution
-
-The glyph code is resolved by searching the font stack and returning the first available glyph.
-
-2) Load Glyph Outline
-3) Load Custom Metrics
-4) Apply Transformations
-4) Calculate Bounding Box
-5) Apply Styles
-6) Draw Glyph on Rendering Backend
-7) Restore Styles
-
-The glyph rendering code is in `src/glyph.js`. TODO: expand.
-
-## Metrics File Format
-
-### Glyph File Format
-
-You can add custom glyphs by adding a new path to `src/font/custom_glyphs.js`. Make sure to give it a unique glyph code. See instructions in https://github.com/0xfe/vexflow/tree/master/tools/smufl for regenerating font files.
-
-The path structure consists of the following fields:
-
-* `x_min`: left-most x value 
-* `x_max`: right-most x value
-* `o`: a long string consisting of repeated *commands* followed by coordinates. (Below.)
-
-The full width of the glyph must be `x_max - x_min`.
-
-#### Commands in `o` are:
-
-* `m` - MoveTo(x,y)
-* `l` - LineTo(x,y)
-* `q` - QuadraticCurveTo(cpx, cpy, x, y)
-* `b` - BeizerCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
-
-The cp* parameters are coordinates to control points for the curves. All coordinates are scaled by `point_size * 72 / (Vex.Flow.Font.resolution * 100)`.
-
-To see the rendering code, see `Vex.Flow.Glyph.renderOutline()` in `src/glyph.js`.
