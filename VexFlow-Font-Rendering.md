@@ -104,11 +104,11 @@ If a `category` option is provided to `renderGlyph` (e.g., `stem), the following
 
 If no `category` is provided, then defaults are used (typically 0-positioned, and 1-scaled.)
 
-#### Bounding Box and Rendering Metrics
+#### 3) Bounding Box and Rendering Metrics
 
 The bounding box for the glyph is then calculated, from which the width and height are derived. An origin shift may also be calculated if requested.
 
-#### Apply Styles on Rendering Backend
+#### 4) Apply Styles on Rendering Backend
 
 Depending on the rendering backend (e.g., SVG, Canvas, PDF), styles such as color, stroke-widths, etc. may be applied to the canvas.
 
