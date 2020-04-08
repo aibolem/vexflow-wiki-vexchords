@@ -112,7 +112,7 @@ The bounding box for the glyph is then calculated, from which the width and heig
 
 Depending on the rendering backend (e.g., SVG, Canvas, PDF), styles such as color, stroke-widths, etc. may be applied to the canvas.
 
-#### Render the Glyph
+#### 5) Draw!
 
 The glyph is ready to be drawn -- depending on the outline and the transformations, a series of `moveTo`, `lineTo`, `bezierCurveTo`, or `quadraticCurveTo` calls may be sent to the backend. Once we're here the glyph is rendered, and canvas styles are restored (if necessary) for whatever comes next.
 
