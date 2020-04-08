@@ -100,7 +100,7 @@ The glyph code (`noteheadBlack`) is resolved by searching the font stack and ret
 
 Before the final outline can be calculated, some basic transformations may need to be applied.
 
-If a `category` option is provided to `renderGlyph` (e.g., `stem), the following variables are loaded from the `glyphs.stem` section of the font metrics file (`bravura_metrics.js`):  `scale`, `shiftX`, `shiftY`, and `point` from the `glyphs.stem`.
+If a `category` option is provided to `renderGlyph` (e.g., `stem`), the following variables are loaded from the `glyphs.stem` section of the font metrics file (`bravura_metrics.js`):  `scale`, `shiftX`, `shiftY`, and `point` from the `glyphs.stem`.
 
 If no `category` is provided, then defaults are used (typically 0-positioned, and 1-scaled.)
 
