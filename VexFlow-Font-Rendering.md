@@ -25,9 +25,9 @@ Vexflow currently supports the following fonts:
 
 ## Font files
 
-Each VexFlow font consists of a `glyph` file and a `metric` file, in the [`src/fonts`](https://github.com/0xfe/vexflow/tree/master/src/fonts) directory. For example, Bravura has [`src/fonts/bravura_glyphs.js`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_glyphs.js) and [`src/fonts/bravura_metrics.js`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_metrics.js).
+Each VexFlow font consists of a **glyphs file** and a **metrics file**, in the [`src/fonts`](https://github.com/0xfe/vexflow/tree/master/src/fonts) directory. For example, Bravura has [`src/fonts/bravura_glyphs.js`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_glyphs.js) and [`src/fonts/bravura_metrics.js`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_metrics.js).
 
-The glyph files consist of coded drawing primitives (`moveTo`, `lineTo`, `bezierCurve`, etc.) for each glyph, indexed by glyph code (which is usually a SMuFL code.) The file is machine generated from a font file, and its format is described at the end of this document. Here's an example:
+The **glyphs files** consist of coded drawing primitives (`moveTo`, `lineTo`, `bezierCurve`, etc.) for each glyph, indexed by glyph code (which is usually a SMuFL code.) This file is machine generated from a font, and its format is described at the end of this document. Here's an example:
 
 ```javascript
     "bracketTop": {
@@ -48,7 +48,7 @@ The glyph files consist of coded drawing primitives (`moveTo`, `lineTo`, `bezier
     },
 ```
 
-The metric files consist of Vexflow-specific metrics for the font, such as stem lengths, positioning and scaling information, point-size overrides, etc. Metric files are more free form, since they're used differently by different elements, however there are some conventions. Here's an example:
+The **metrics files** consist of Vexflow-specific metrics for the font, such as stem lengths, positioning and scaling information, point-size overrides, etc. Metrics files are more free form, since they're used differently by different elements, however there are some conventions. Here's an example:
 
 ```javascript
 glyphs: {
@@ -89,7 +89,8 @@ glyphs: {
 Rendering a glyph consistently across different fonts, canvases, and backends involves a number of moving parts. At a high, level, here's what happens for the following call:
 
 ```javascript
-Glyph.renderGlyph(ctx, x, y, 40, 'noteheadBlack', { fontStack: [...], category: 'stem' })
+Glyph.renderGlyph(ctx, x, y, 40, 'noteheadBlack',
+  { fontStack: [...], category: 'stem' })
 ```
 
 #### 1) Glyph Resolution
@@ -100,7 +101,7 @@ The glyph code (`noteheadBlack`) is resolved by searching the font stack and ret
 
 Before the final outline can be calculated, some basic transformations may need to be applied.
 
-If a `category` option is provided to `renderGlyph` (e.g., `stem`), the following variables are loaded from the `glyphs.stem` section of the font metrics file (`bravura_metrics.js`):  `scale`, `shiftX`, `shiftY`, and `point` from the `glyphs.stem`.
+If a `category` option is provided to `renderGlyph` (e.g., `{ category: 'stem' }` above), the following variables are loaded from the `glyphs.stem` section of the relevant metrics file (`bravura_metrics.js`):  `scale`, `shiftX`, `shiftY`, and `point` from the `glyphs.stem`.
 
 If no `category` is provided, then defaults are used (typically 0-positioned, and 1-scaled.)
 
@@ -120,7 +121,7 @@ If you're interested in the gory details, the entire glyph rendering code is ava
 
 ## Font Metrics Files
 
-The metrics file (e.g., [`src/font/bravura_metrics.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_metrics.js) consists of a single exported JavaScript configuration object. It has no pre-defined structure, but it does have some conventions. Here's a snippet from the `bravura_metrics.js` file.
+The **metrics files** (e.g., [`src/font/bravura_metrics.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_metrics.js) consist of a single exported JavaScript configuration object. It has no pre-defined structure, but it does have some conventions. Here's a snippet from the `bravura_metrics.js` file.
 
 ```javascript
  clef: {
@@ -183,7 +184,7 @@ There can be some standardized metric sections used by common classes, e.g., `gl
   }
 ```
 
-If a `category` option is provided to `Glyph` class, e.g., `{category: 'textNote'}`, the renderer will lookup metrics such as `textNote.{code}.point` or `textNote.{code}.shiftX` to apply size and shift overrides on a glyph. If it can't find a metric in `textNote.{code}.point`, it check's `textNote.point` next.
+If a `category` option is provided to `Glyph.renderGlyph(ctx, x, y, code, point, options)`, e.g., `{category: 'textNote'}`, the renderer will lookup metrics such as `textNote.{code}.scale` or `textNote.{code}.shiftX` to apply size and shift overrides on a glyph. If it can't find a metric for the specific code in `textNote.{code}.scale`, it check's the parent for a category default (`textNote.scale`).
 
 This way you can provide default options for a category, and customize them for specific SMuFL codes.
 
@@ -213,7 +214,7 @@ To see the rendering code, see `Vex.Flow.Glyph.renderOutline()` in `src/glyph.js
 
 ## Managing Glyphs
 
-We have a bunch of tooling for glyph management in the [`tools/smufl`] directory (https://github.com/0xfe/vexflow/blob/master/tools/smufl). The tools depend on the configuration files in `config/` to pick SMuFL codepoints and associate them with UTF codes or legacy Vexflow font codes (e.g., `vf1`, `vb6`, etc.)
+We have a bunch of tooling for glyph management in the [`tools/smufl`] (https://github.com/0xfe/vexflow/blob/master/tools/smufl) directory. The tools depend on the configuration files in `config/` to pick SMuFL codepoints and associate them with UTF codes or legacy Vexflow font codes (e.g., `vf1`, `vb6`, etc.)
 
 #### Configuration files
 
