@@ -118,7 +118,7 @@ The glyph is ready to be drawn -- depending on the outline and the transformatio
 
 If you're interested in the gory details, the entire glyph rendering code is available in `src/glyph.js`.
 
-## Metrics File Format
+## Font Metrics Files
 
 The metrics file (e.g., [`src/font/bravura_metrics.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_metrics.js) consists of a single exported JavaScript configuration object. It has no pre-defined structure, but it does have some conventions. Here's a snippet from the `bravura_metrics.js` file.
 
@@ -137,7 +137,18 @@ The metrics file (e.g., [`src/font/bravura_metrics.js`](https://github.com/0xfe/
   }
 ```
 
-You can lookup a metric from within any element with `this.lookupMetric(metricPath, optionalDefault)`. So to get the point-size for the small cleft, you can call `this.lookupMetric('clef.small.point', 40)`. If the variable is not found, the default (`40` in this case) is returned. If no default is provided, an exception is thrown.
+### Looking up a metric
+
+You can lookup a metric from within any element with `this.lookupMetric(metricPath, optionalDefault)`. So to get the point-size for the small clef (see above), you can call:
+
+```javascript
+const clefPointSize = this.lookupMetric('clef.small.point', 40);
+renderClef('treble', clefPointSize);
+```
+
+Above, if metric is not found, the default (`40` in this case) is returned. If no default is provided, an exception is thrown.
+
+### Common sections
 
 There can be some standardized metric sections used by common classes, e.g., `glyphs` used by the `category` option of the `Glyph` class.
 
