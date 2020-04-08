@@ -224,7 +224,7 @@ The full width of the glyph must be `x_max - x_min`.
 
 The cp* parameters are coordinates to control points for the curves. All coordinates are scaled by `point_size * 72 / (Vex.Flow.Font.resolution * 100)`.
 
-To see the rendering code, see `Vex.Flow.Glyph.renderOutline()` in `src/glyph.js`. You can see how we generated the outlines for Bravura by examining [`tools/smufl/bravura_fontgen.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/bravura_fontgen.js).
+To see the rendering code, see `Vex.Flow.Glyph.renderOutline()` in `src/glyph.js`. You can see how we generated the outlines for Bravura by examining [`tools/smufl/smufl_fontgen.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/smufl_fontgen.js).
 
 ## Managing Glyphs
 
@@ -237,7 +237,7 @@ We have a bunch of tooling for glyph management in the [`tools/smufl`] (https://
 
 #### Tools
 
-* `smufl_fontgen.js` - Tool to generate `src/fonts/smufl_glyphs.js` from OTF font files based on the above configuration. This tool can be used for any SMuFL-compliant OTF music font file.
+* `smufl_fontgen.js` - Tool to generate `src/fonts/fontname_glyphs.js` from OTF font files based on the above configuration. This tool can be used for any SMuFL-compliant OTF music font file.
 * `gonville_fontgen.js` - Tool to generate `src/fonts/gonville_glyphs.js` and `src.fonts/custom_glyphs.js` from files in the `fonts/` directory.
 
 #### Adding a new Bravura Glyph
