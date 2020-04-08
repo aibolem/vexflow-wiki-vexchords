@@ -237,17 +237,17 @@ We have a bunch of tooling for glyph management in the [`tools/smufl`] (https://
 
 #### Tools
 
-* `bravura_fontgen.js` - Tool to generate `src/fonts/bravura_glyphs.js` from OTF font files based on the above configuration. This tool can be used for any SMuFL-compliant OTF music font file.
+* `smufl_fontgen.js` - Tool to generate `src/fonts/smufl_glyphs.js` from OTF font files based on the above configuration. This tool can be used for any SMuFL-compliant OTF music font file.
 * `gonville_fontgen.js` - Tool to generate `src/fonts/gonville_glyphs.js` and `src.fonts/custom_glyphs.js` from files in the `fonts/` directory.
 
 #### Adding a new Bravura Glyph
 
 1) Add the SMuFL glyph code to [`config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js). You can find SMuFL glyph codes from the glyph browser at https://smufl.org. If there is no standard code for your glyph, see next section on creating custom glyphs.
 2) If there's a Gonville glyph available, then set the value of the code in `valid_codes.js` to the Gonville glyph code. If not, simply set it to `null`.
-3) Run `bravura_fontgen.js` to generate a new font file in `src/fonts/bravura_glyphs.js`.
+3) Run `smufl_fontgen.js` to generate a new font file in `src/fonts/bravura_glyphs.js`.
 
 ```sh
-$ node bravura_fontgen.js fonts/Bravura.otf ../../src/fonts/bravura_glyphs.js
+$ node smufl_fontgen.js fonts/Bravura.otf ../../src/fonts/bravura_glyphs.js
 ```
 
 4) Run `gonville_fontgen.js` to generate a new Gonville font file (if necessary.)
