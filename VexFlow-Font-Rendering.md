@@ -1,4 +1,4 @@
-VexFlow now comes with a pluggable font system for music glyphs, based on [SMuFL](https://www.smufl.org/).
+VexFlow now comes with a pluggable font system for music glyphs, based on [Standard Music Font Layout](https://www.smufl.org/) (SMuFL), developed by the [W3C Music Notation Community Group](https://www.w3.org/community/music-notation/).
 
 The two fonts it currently supports are [Bravura](https://github.com/steinbergmedia/bravura) (a [SMuFL](https://www.smufl.org/) font by Steinberg), and [Gonville](https://www.chiark.greenend.org.uk/~sgtatham/gonville/) (by Simon Tatham.)
 
