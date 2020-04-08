@@ -244,6 +244,12 @@ $ node gonville_fontgen.js ../../src/fonts/
 5) Edit your element source file (e.g., `src/accidental.js` if this is a new accidental) and add the code.
 6) Perform any scaling or repositioning by adding configuration to the relevant metrics file (`src/fonts/bravura_metrics.js`.)
 
+## Testing
+
+The Vexflow tests automatically run all renders using multiple font stacks, so there's not much more to do than to write tests! :-)
+
+<img src="https://i.imgur.com/rfr4pth.png" width=600 />
+
 ## Resources
 
 Here are some handy external resources to help you dig through stuff.
