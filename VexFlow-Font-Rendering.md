@@ -100,7 +100,7 @@ glyphs: {
 
 ## Glyph Rendering
 
-Rendering a glyph consistently across different fonts, canvases, and backends involves a number of moving parts. At a high, level, here's what happens for the following call:
+Rendering a glyph consistently across different fonts, canvases, and backends involves a number of moving parts. At a high level, here's what happens for the following call:
 
 ```javascript
 Glyph.renderGlyph(ctx, x, y, 40, 'noteheadBlack',
@@ -129,7 +129,7 @@ Depending on the rendering backend (e.g., SVG, Canvas, PDF), styles such as colo
 
 #### 5) Draw!
 
-The glyph is ready to be drawn -- depending on the outline and the transformations, a series of `moveTo`, `lineTo`, `bezierCurveTo`, or `quadraticCurveTo` calls may be sent to the backend. Once we're here the glyph is rendered, and canvas styles are restored (if necessary) for whatever comes next.
+The glyph is ready to be drawn -- depending on the outline and the transformations, a series of `moveTo`, `lineTo`, `bezierCurveTo`, or `quadraticCurveTo` calls may be sent to the backend. Once we're here, the glyph is rendered, and canvas styles are restored (if necessary) for whatever comes next.
 
 If you're interested in the gory details, the entire glyph rendering code is available in `src/glyph.js`.
 
@@ -198,13 +198,13 @@ There can be some standardized metric sections used by common classes, e.g., `gl
   }
 ```
 
-If a `category` option is provided to `Glyph.renderGlyph(ctx, x, y, code, point, options)`, e.g., `{category: 'textNote'}`, the renderer will lookup metrics such as `textNote.{code}.scale` or `textNote.{code}.shiftX` to apply size and shift overrides on a glyph. If it can't find a metric for the specific code in `textNote.{code}.scale`, it check's the parent for a category default (`textNote.scale`).
+If a `category` option is provided to `Glyph.renderGlyph(ctx, x, y, code, point, options)`, e.g., `{category: 'textNote'}`, the renderer will lookup metrics such as `textNote.{code}.scale` or `textNote.{code}.shiftX` to apply size and shift overrides on a glyph. If it can't find a metric for the specific code in `textNote.{code}.scale`, it checks the parent for a category default (`textNote.scale`).
 
-This way you can provide default options for a category, and customize them for specific SMuFL codes.
+This way you can provide default options for a category and customize them for specific SMuFL codes.
 
 ### Glyphs File Format
 
-The Glyphs file (e.g. [`bravura_glyphs.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_glyphs.js), consists of glyph drawing outlines indexed by glyph code. These files are typically machine generated from OTF font files, however you can add custom glyphs by adding a new drawing outline to [`src/font/custom_glyphs.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/custom_glyphs.js).
+The Glyphs file (e.g. [`bravura_glyphs.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_glyphs.js) consists of glyph drawing outlines indexed by glyph code. These files are typically machine generated from OTF font files, however you can add custom glyphs by adding a new drawing outline to [`src/font/custom_glyphs.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/custom_glyphs.js).
 
 The glyph structure consists of the following fields:
 
@@ -238,7 +238,7 @@ We have a bunch of tooling for glyph management in the [`tools/smufl`] (https://
 #### Tools
 
 * `smufl_fontgen.js` - Tool to generate `src/fonts/fontname_glyphs.js` from OTF font files based on the above configuration. This tool can be used for any SMuFL-compliant OTF music font file.
-* `gonville_fontgen.js` - Tool to generate `src/fonts/gonville_glyphs.js` and `src.fonts/custom_glyphs.js` from files in the `fonts/` directory.
+* `gonville_fontgen.js` - Tool to generate `src/fonts/gonville_glyphs.js` and `src/fonts/custom_glyphs.js` from files in the `fonts/` directory.
 
 #### Adding a new Bravura Glyph
 
@@ -251,6 +251,7 @@ $ node smufl_fontgen.js fonts/Bravura.otf ../../src/fonts/bravura_glyphs.js
 ```
 
 4) Run `gonville_fontgen.js` to generate a new Gonville font file (if necessary.)
+
 ```sh
 $ node gonville_fontgen.js ../../src/fonts/
 ```
@@ -260,13 +261,14 @@ $ node gonville_fontgen.js ../../src/fonts/
 
 #### Creating a custom glyph
 
-1) Create a unique custom code (prefixed with `vex`), e.g., `vexMyNewAccidentalGlyph` and add it to [`config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js). You can set the value type to `null`.
+1) Create a unique custom code (prefixed with `vex`), e.g., `vexMyNewAccidentalGlyph`, and add it to [`config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js). You can set the value type to `null`.
 2) Add the glyph outline to `tools/smufl/fonts/custom_glyph.js`. See the *Glyph File Format* section below on how to do that.
 3) Regenerate 'src/fonts/custom_glyphs.js` as so:
 
 ```sh
 $ node gonville_fontgen.js ../../src/fonts/
 ```
+
 5) Edit your element source file (e.g., `src/accidental.js` if this is a new accidental) and add the code.
 6) Perform any scaling or repositioning by adding configuration to the relevant metrics file (`src/fonts/bravura_metrics.js`.)
 
@@ -278,11 +280,11 @@ The Vexflow tests automatically run all renders using multiple font stacks, so t
 
 ## Resources
 
-Here are some handy external resources to help you dig through stuff.
+Here are some handy external resources to help you dig through stuff:
 
 * [SMuFL Git Book](https://w3c.github.io/smufl/gitbook/tables/clefs.html) - Good place to browse glyphs and understand metadata.
 * [OpenType Glyph Inspector](https://opentype.js.org/glyph-inspector.html) - Upload a font file and investigate glyphs.
 * [SMuFL](https://smufl.org) home page -- Learn all about SMuFL
-* [Bravura](https://github.com/steinbergmedia/bravura/tree/master/redist) Github Page -- Download Bravura font files
+* [Bravura](https://github.com/steinbergmedia/bravura/tree/master/redist) Github Page -- Download Bravura font files.
 * [OpenType](opentype.js.org) home page -- The tools use the OpenType library to parse OTF fonts and generate Vexflow glyph files.
 
