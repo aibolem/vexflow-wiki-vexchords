@@ -8,12 +8,13 @@
 * [VexFlow Sandbox](http://www.vexflow.com/docs/sandbox.html) - A place to experiment with the VexFlow API.
 * [VexFlow Forum Archive](https://groups.google.com/forum/?fromgroups#!forum/vexflow) - Feel free to join and ask questions on the forum.
 * VexFlow [Class Hierarchy](https://github.com/0xfe/vexflow/wiki/VexFlow-Class-Hierarchy) and [Dependency Graph](https://github.com/0xfe/vexflow/wiki/VexFlow-Dependency-Graph)
-* [Visual Regression Tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests)
 * [Animating VexFlow with CSS](Animation-with-VexFlow-&-CSS)
 
 ## VexFlow Developer Instructions
 
 * [Build and Release Instructions](Build-And-Release-Instructions) - How to build VexFlow from scratch. How to release packages. Using `grunt` to watch files.
+* [VexFlow Font Rendering](https://github.com/0xfe/vexflow/wiki/VexFlow-Font-Rendering) - How to add new glyphs and fonts to VexFlow.
+* [Visual Regression Tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests) - How to run the visual regression tests.
 
 ## Contribute
 
