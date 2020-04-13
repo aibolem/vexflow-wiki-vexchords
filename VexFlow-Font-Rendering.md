@@ -248,7 +248,7 @@ We have a bunch of tooling for glyph management in the [`tools/smufl`] (https://
 
 ```sh
 $ node smufl_fontgen.js fonts/Bravura.otf ../../src/fonts/bravura_glyphs.js
-$ node smufl_fontgen.js fonts/Petaluma-1.055.otf ../../src/fonts/petulama_glyphs.js
+$ node smufl_fontgen.js fonts/Petaluma-1.055.otf ../../src/fonts/petaluma_glyphs.js
 ```
 
 4) Run `gonville_fontgen.js` to generate a new Gonville font file (if necessary.)
