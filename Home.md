@@ -7,7 +7,7 @@
 * [The VexFlow FAQ](The-VexFlow-FAQ) - Frequently Answered Questions from the VexFlow mailing list. 
 * [VexFlow Sandbox](http://www.vexflow.com/docs/sandbox.html) - A place to experiment with the VexFlow API.
 * [VexFlow Forum Archive](https://groups.google.com/forum/?fromgroups#!forum/vexflow) - Feel free to join and ask questions on the forum.
-* VexFlow [Class Hierarchy](https://github.com/0xfe/vexflow/wiki/VexFlow-Class-Hierarchy) and [Dependency Graph](https://github.com/0xfe/vexflow/wiki/VexFlow-Dependency-Graph)
+* VexFlow [Class and Dependency Graphs](https://github.com/0xfe/vexflow/wiki/VexFlow-Class-Diagrams).
 * [Animating VexFlow with CSS](Animation-with-VexFlow-&-CSS)
 
 ## VexFlow Developer Instructions
