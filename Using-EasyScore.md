@@ -50,7 +50,7 @@ system.addStave({
 }).addClef('treble').addTimeSignature('4/4');
 ```
 
-<img src="http://imgur.com/d7go4vd.png" width="600"/>
+<img src="https://imgur.com/AAzdAJT.png" width="600"/>
 
 Above, we provide the `stem` option to `score.notes` to explicitly specify the direction of the stem for each voice.
 
