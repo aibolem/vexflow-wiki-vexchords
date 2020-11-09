@@ -351,3 +351,59 @@ VF.Formatter.FormatAndDraw(context, stave, notes);
 Above ([run](https://jsfiddle.net/7yaykcjp/8/)) we replaced `Stave` with `TabStave` and `StaveNote` with `TabNote`. We also added a `Bend` and a `Vibrato` modifier.
 
 There are two things we have to manually specify here – the font style and the background fill color. The former is used to display fret numbers, annotations, and other text. The latter is only required for the SVG backend (although using it with Canvas is harmless).
+
+## Step 7: Barlines
+
+The Stave APIs were designed such that you don't have more than one bar per stave. The idea is that you render a new stave for every bar, and either attach it by juxtaposing it to an existing stave or rendering it in a new vertical position
+
+```javascript
+  // measure 1
+  var staveMeasure1 = new Vex.Flow.Stave(10, 0, 300);
+  staveMeasure1.addClef("treble").setContext(context).draw();
+
+  var notesMeasure1 = [
+    new Vex.Flow.StaveNote({ keys: ["c/4"], duration: "q" }),
+    new Vex.Flow.StaveNote({ keys: ["d/4"], duration: "q" }),
+    new Vex.Flow.StaveNote({ keys: ["b/4"], duration: "qr" }),
+    new Vex.Flow.StaveNote({ keys: ["c/4", "e/4", "g/4"], duration: "q" }),
+  ];
+
+  // Helper function to justify and draw a 4/4 voice
+  Vex.Flow.Formatter.FormatAndDraw(context, staveMeasure1, notesMeasure1);
+
+  // measure 2 - juxtaposing second measure next to first measure
+  var staveMeasure2 = new Vex.Flow.Stave(
+    staveMeasure1.width + staveMeasure1.x,
+    0,
+    400
+  );
+  staveMeasure2.setContext(context).draw();
+
+  var notesMeasure2_part1 = [
+    new Vex.Flow.StaveNote({ keys: ["c/4"], duration: "8" }),
+    new Vex.Flow.StaveNote({ keys: ["d/4"], duration: "8" }),
+    new Vex.Flow.StaveNote({ keys: ["b/4"], duration: "8" }),
+    new Vex.Flow.StaveNote({ keys: ["c/4", "e/4", "g/4"], duration: "8" }),
+  ];
+
+  var notesMeasure2_part2 = [
+    new Vex.Flow.StaveNote({ keys: ["c/4"], duration: "8" }),
+    new Vex.Flow.StaveNote({ keys: ["d/4"], duration: "8" }),
+    new Vex.Flow.StaveNote({ keys: ["b/4"], duration: "8" }),
+    new Vex.Flow.StaveNote({ keys: ["c/4", "e/4", "g/4"], duration: "8" }),
+  ];
+
+  // create the beams for 8th notes in 2nd measure
+  var beam1 = new Vex.Flow.Beam(notesMeasure2_part1);
+  var beam2 = new Vex.Flow.Beam(notesMeasure2_part2);
+
+  var notesMeasure2 = notesMeasure2_part1.concat(notesMeasure2_part2);
+
+  Vex.Flow.Formatter.FormatAndDraw(context, staveMeasure2, notesMeasure2);
+
+  // Render beams
+  beam1.setContext(context).draw();
+  beam2.setContext(context).draw();
+```  
+
+![](https://i.imgur.com/rrh0wZS.png)
