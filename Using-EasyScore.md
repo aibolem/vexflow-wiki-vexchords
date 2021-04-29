@@ -128,4 +128,5 @@ To create a chord, simply place multiple notes in between parenthesis, e.g. `(C4
 You set `key=value` attributes on notes by placing the key/value pairs within brackets after the note, e.g. `A5[stem="up",id="foobar"]` will set the ID of this note to `foobar` and render it with an upwards stem.
 
 ### What's next?
-Make sure you've read [The VexFlow Tutorial](../The-VexFlow-Tutorial) and understand the underlying API.
+Make sure you've read [The VexFlow Tutorial](https://github.com/0xfe/vexflow/wiki/The-VexFlow-Tutorial) and understand the underlying API.
+
