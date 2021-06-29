@@ -29,12 +29,17 @@
 
 ## Significant Contributors
 
-* [Mohit Muthanna Cheppudira](http://github.com/0xfe)
-* [Cyril Silverman](http://github.com/Silverwolf90)
-* [Larry Kuhns](http://github.com/LarryKu)
-* [Gregory Ristow](http://github.com/gristow)
-* [Michael Scott Cuthbert](http://github.com/mscuthbert)
-* [Aaron Mars](http://github.com/aaronmars)
-* [Taehoon Moon](http://github.com/panarch)
+* [Mohit Muthanna Cheppudira](https://github.com/0xfe)
+* [Michael Scott Cuthbert](https://github.com/mscuthbert)
+* [Aaron Mars](https://github.com/aaronmars)
+* [Gregory Ristow](https://github.com/gristow)
+* [Rodrigo Vilar](https://github.com/rvilarl)
+* [Ron B. Yeh](https://github.com/ronyeh)
+* [Taehoon Moon](https://github.com/panarch)
+
+### Alumni
+* [Cyril Silverman](https://github.com/Silverwolf90)
+* [Larry Kuhns](https://github.com/LarryKu)
+
 
 All past contributors: https://github.com/0xfe/vexflow/graphs/contributors
