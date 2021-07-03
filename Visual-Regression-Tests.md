@@ -31,6 +31,19 @@ $ npm test
 
 This will store the images of the failed tests (i.e. where there are visible differences) in `build/images/diff`. Visually inspect these images (including the diff image), and if you're happy with the output you can simply submit your changes. Be sure to include the before, after, and diff images in your pull request.
 
+Alternatively, you can test against a particular commit (i.e.: master or any other commit). Run the following commands to generate the reference:
+
+```
+$ git checkout master
+$ npm run reference
+```
+
+Then run the following command in your branch:
+
+```
+$ npm run test:reference
+```
+
 ## How it Works
 
 The `npm run generate` command generates images from the current code-base. Files are named by their QUnit module and test name. The last-good-known-images are generated from the last released binaries and stored in `build/images/blessed`. The images from the current code are stored in `build/images/current`.
