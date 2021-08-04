@@ -22,7 +22,7 @@ VexFlow resolves glyphs through a **font stack**.
 
 The default font stack is: `[Bravura, Gonville, Custom]`. When VexFlow tries to resolve a glyph code, it searches each font in the stack, and returns the first glyph it finds. If it can't find a glyph, an exception is thrown.
 
-You can change the default font stack by setting [`VF.DEFAULT_FONT_STACK`](https://github.com/0xfe/vexflow/blob/master/src/tables.js#L16) before building your score, or calling [`setFontStack()`](https://github.com/0xfe/vexflow/blob/master/src/element.js#L37) on a specific element.
+You can change the default font stack by setting [`VF.DEFAULT_FONT_STACK`](https://github.com/0xfe/vexflow/blob/master/src/tables.ts#L16) before building your score, or calling [`setFontStack()`](https://github.com/0xfe/vexflow/blob/master/src/element.ts#L37) on a specific element.
 
 ```javascript
 // Change default font to Gonville
@@ -39,7 +39,7 @@ Vexflow currently supports the following fonts:
 
 ## Font files
 
-Each VexFlow font consists of a **glyphs file** and a **metrics file**, in the [`src/fonts`](https://github.com/0xfe/vexflow/tree/master/src/fonts) directory. For example, Bravura has [`src/fonts/bravura_glyphs.js`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_glyphs.js) and [`src/fonts/bravura_metrics.js`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_metrics.js).
+Each VexFlow font consists of a **glyphs file**, a **metrics file** and a **container file**, in the [`src/fonts`](https://github.com/0xfe/vexflow/tree/master/src/fonts) directory. For example, Bravura has [`src/fonts/bravura_glyphs.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_glyphs.ts), [`src/fonts/bravura_metrics.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_metrics.ts) and  [`src/fonts/bravura.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura.ts).
 
 The **glyphs files** consist of coded drawing primitives (`moveTo`, `lineTo`, `bezierCurve`, etc.) for each glyph, indexed by glyph code (which is usually a SMuFL code.) This file is machine generated from a font, and its format is described at the end of this document. Here's an example:
 
@@ -98,6 +98,20 @@ glyphs: {
 }
 ```
 
+The **container files** consist of a standard container importing the **glyphs file** and the **metrics file** which allows the generation of a separated file using the **dynamic import** feature of [Code Splitting|webpack](https://webpack.js.org/guides/code-splitting/). Here's an example:
+
+```javascript
+import { BravuraFont } from "./bravura_glyphs";
+import { BravuraMetrics } from "./bravura_metrics";
+
+const Bravura = { 
+  fontData: BravuraFont,
+  metrics: BravuraMetrics,
+};
+
+export default Bravura;
+```
+
 ## Glyph Rendering
 
 Rendering a glyph consistently across different fonts, canvases, and backends involves a number of moving parts. At a high level, here's what happens for the following call:
@@ -131,11 +145,11 @@ Depending on the rendering backend (e.g., SVG, Canvas, PDF), styles such as colo
 
 The glyph is ready to be drawn -- depending on the outline and the transformations, a series of `moveTo`, `lineTo`, `bezierCurveTo`, or `quadraticCurveTo` calls may be sent to the backend. Once we're here, the glyph is rendered, and canvas styles are restored (if necessary) for whatever comes next.
 
-If you're interested in the gory details, the entire glyph rendering code is available in `src/glyph.js`.
+If you're interested in the gory details, the entire glyph rendering code is available in `src/glyph.ts`.
 
 ## Font Metrics Files
 
-The **metrics files** (e.g., [`src/font/bravura_metrics.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_metrics.js) consist of a single exported JavaScript configuration object. It has no pre-defined structure, but it does have some conventions. Here's a snippet from the `bravura_metrics.js` file.
+The **metrics files** (e.g., [`src/font/bravura_metrics.ts`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_metrics.ts) consist of a single exported TypeScript configuration object. It has no pre-defined structure, but it does have some conventions. Here's a snippet from the `bravura_metrics.ts` file.
 
 ```javascript
  clef: {
@@ -204,7 +218,7 @@ This way you can provide default options for a category and customize them for s
 
 ### Glyphs File Format
 
-The Glyphs file (e.g. [`bravura_glyphs.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_glyphs.js) consists of glyph drawing outlines indexed by glyph code. These files are typically machine generated from OTF font files, however you can add custom glyphs by adding a new drawing outline to [`src/font/custom_glyphs.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/custom_glyphs.js).
+The Glyphs file (e.g. [`bravura_glyphs.ts`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_glyphs.ts) consists of glyph drawing outlines indexed by glyph code. These files are typically machine generated from OTF font files, however you can add custom glyphs by adding a new drawing outline to [`src/font/custom_glyphs.ts`](https://github.com/0xfe/vexflow/blob/master/src/fonts/custom_glyphs.ts).
 
 The glyph structure consists of the following fields:
 
@@ -238,7 +252,67 @@ We have a bunch of tooling for glyph management in the [`tools/smufl`] (https://
 #### Tools
 
 * `smufl_fontgen.js` - Tool to generate `src/fonts/fontname_glyphs.js` from OTF font files based on the above configuration. This tool can be used for any SMuFL-compliant OTF music font file.
-* `gonville_fontgen.js` - Tool to generate `src/fonts/gonville_glyphs.js` and `src/fonts/custom_glyphs.js` from files in the `fonts/` directory.
+* `gonville_fontgen.js` - Tool to generate `src/fonts/gonville_glyphs.ts` and `src/fonts/custom_glyphs.ts` from files in the `fonts/` directory.
+
+#### Adding a new Font
+
+1) Create the **glyphs file** and **metrics file**
+2) Create the **container file**
+
+```javascript
+import { NewfontFont } from "./newfont_glyphs";
+import { NewfontMetrics } from "./newfont_metrics";
+
+const Bravura = { 
+  fontData: NewfontFont,
+  metrics: NewfontMetrics,
+};
+
+export default Newfont;
+```
+
+3) Import the **Newfont** and create a `LoadNewfont()` function in [`src/font.ts`](https://github.com/0xfe/vexflow/tree/master/src/font.ts)
+
+```javascript
+import { loadNewfont } from '@newfont';
+...
+  case 'Newfont':
+    loadNewfont(this.fontDataMetrics);
+    break;
+```
+
+4) Implement the `LoadNewFont()` static function in [`src/fonts/loadStatic.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/loadStatic.ts)
+
+```javascript
+import Leland from '../fonts/newfont';
+...
+export function loadNewfont(fontDataMetrics: FontDataMetrics) {
+  fontDataMetrics.fontData = Newfont.fontData;
+  fontDataMetrics.metrics = Newfont.metrics;
+}
+```
+
+5) Implement the `LoadNewFont()` dynamic function in [`src/fonts/loadDynamic.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/loadDynamic.ts)
+
+```javascript
+export async function loadNewfont(fontDataMetrics: FontDataMetrics) {
+  const _ = await import(/* webpackChunkName: "newfont" */ '../fonts/newfont');
+  fontDataMetrics.fontData = _.default.fontData;
+  fontDataMetrics.metrics = _.default.metrics;
+}
+```
+
+6) Define `@newfont` [`tsconfig.ts`](https://github.com/0xfe/vexflow/tree/master/tsconfig.js)
+
+```javascript
+"@newfont": ["fonts/loadStatic"]
+```
+
+7) Define `@newfont` [`tsconfig.dynamic.ts`](https://github.com/0xfe/vexflow/tree/master/tsconfig.dynamic.js)
+
+```javascript
+"@newfont": ["fonts/loadDynamic"]
+```
 
 #### Adding a new Bravura Glyph
 
@@ -257,8 +331,8 @@ $ node smufl_fontgen.js fonts/Petaluma-1.055.otf ../../src/fonts/petaluma_glyphs
 $ node gonville_fontgen.js ../../src/fonts/
 ```
 
-5) Edit your element source file (e.g., `src/accidental.js` if this is a new accidental) and add the code.
-6) Perform any scaling or repositioning by adding configuration to the relevant metrics file (`src/fonts/bravura_metrics.js`.)
+5) Edit your element source file (e.g., `src/accidental.ts` if this is a new accidental) and add the code.
+6) Perform any scaling or repositioning by adding configuration to the relevant metrics file (`src/fonts/bravura_metrics.ts`.)
 
 #### Creating a custom glyph
 
@@ -270,8 +344,8 @@ $ node gonville_fontgen.js ../../src/fonts/
 $ node gonville_fontgen.js ../../src/fonts/
 ```
 
-5) Edit your element source file (e.g., `src/accidental.js` if this is a new accidental) and add the code.
-6) Perform any scaling or repositioning by adding configuration to the relevant metrics file (`src/fonts/bravura_metrics.js`.)
+5) Edit your element source file (e.g., `src/accidental.ts` if this is a new accidental) and add the code.
+6) Perform any scaling or repositioning by adding configuration to the relevant metrics file (`src/fonts/bravura_metrics.ts`.)
 
 ## Testing
 
