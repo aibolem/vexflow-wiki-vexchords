@@ -6,7 +6,7 @@ This page is an archive of the work completed in July 2016 to use eslint to enfo
 
 Currently VexFlow is in the process of migrating to [eslint](http://eslint.org/). Using a much stricter config than the previous jshint config provided.
 
-* [Currently completed files](https://github.com/0xfe/vexflow/wiki/Migrating-to-ESLint#complete)
+* [Currently completed files](#complete)
 * [Discussion](https://github.com/0xfe/vexflow/issues/361)
 
 ## Using eslint 
