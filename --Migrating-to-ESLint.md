@@ -1,3 +1,9 @@
+# Archived
+
+This page is an archive of the work completed in July 2016 to use eslint to enforce code quality / style. As of 2021, VexFlow still uses [eslint](https://eslint.org/). See: .eslintrc
+
+---
+
 Currently VexFlow is in the process of migrating to [eslint](http://eslint.org/). Using a much stricter config than the previous jshint config provided.
 
 * [Currently completed files](https://github.com/0xfe/vexflow/wiki/Migrating-to-ESLint#complete)
