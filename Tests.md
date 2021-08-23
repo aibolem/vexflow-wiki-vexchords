@@ -14,9 +14,23 @@ Suppose you just implemented a new VexFlow class called `Hello` in `src/hello.ts
 
 ## Other
 
-If you are testing the private properties of a class, TypeScript and eslint will complain. You can temporarily silence these warnings by adding these lines to the top of your test file:
+If you are testing the internals of a class (e.g., private properties), TypeScript and eslint may complain.
+
+You can disable warnings one line at a time with:
+```
+// eslint-disable-next-line
+// @ts-ignore
+obj.privateField = '123';
+```
+
+In extreme circumstances, you can silence TypeScript and eslint warnings for an entire test file by adding these lines to the top of the file:
 
 ```
 /* eslint-disable */
 // @ts-nocheck
+
+obj.privateField = '123';
+obj = unrelatedObjectWithDifferentType;
+
 ```
+
