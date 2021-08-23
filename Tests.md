@@ -8,8 +8,10 @@ Each class under `src/` has a related test under `tests/`. For example, `src/eas
 
 Suppose you just implemented a new class called `Hello` in `src/hello.ts`.
 
-- To create `tests/hello_tests.ts`, you can copy one of the existing test files (e.g., `tests/barline_tests.ts`.
+- To create `tests/hello_tests.ts`, you can copy one of the existing test files (e.g., `tests/barline_tests.ts`).
 - Modify `run.ts` to import your test module, and add a line to VexFlowTests.run() to invoke your `HelloTests.Start();`
+- The QUnit assertion methods are all globals (we are using QUnit 1.19.0).
+- The `VexFlowTests.runTests()` method creates a visual test (that targets Canvas and SVG and all available fonts).
 
 ## Other
 
