@@ -7,7 +7,10 @@ Run the tests in the browser by loading `flow.html`.
 Each class under `src/` should have a related test under `tests/`. For example, `src/easyscore.ts` is tested by `tests/easyscore_tests.ts`.
 
 
-Let's say you just implemented a new VexFlow class called `Hello` in `src/hello.ts`. To create `tests/hello_tests.ts`, you can copy the template from `tests/_template.ts`.
+Suppose you just implemented a new VexFlow class called `Hello` in `src/hello.ts`.
+
+- To create `tests/hello_tests.ts`, you can copy one of the existing test files (e.g., `tests/barline_tests.ts`.
+- Modify `run.ts` to import your test module, and add a line to VexFlowTests.run() to invoke your `HelloTests.Start();`
 
 ## Other
 
