@@ -1,5 +1,3 @@
-# Tests
-
 After building VexFlow with `grunt`, you will have a `build/` folder containing files like `vexflow-debug.js` and `vexflow-tests.js`. 
 
 Load `flow.html` in a browser to run the tests.
