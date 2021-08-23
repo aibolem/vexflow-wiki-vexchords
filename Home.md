@@ -18,7 +18,7 @@
 
 ## Contribute
 
-* Join the VexFlow Google Group at: https://groups.google.com/forum/?fromgroups#!forum/vexflow
+* Join the VexFlow Google Group at: https://groups.google.com/g/vexflow
 * See the [coding style guide](VexFlow-Coding-Style) guide for general rules and conventions.
 * Send in your changes via a GitHub pull request.
 * Take a look at the [Development Gotchas](https://github.com/0xfe/vexflow/wiki/Development-Gotchas) if some aspects of VexFlow's internals seem confusing.
