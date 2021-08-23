@@ -1,0 +1,1 @@
+See: https://github.com/0xfe/vexflow/blob/master/CHANGELOG.md
