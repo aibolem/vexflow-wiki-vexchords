@@ -1,6 +1,6 @@
 ## Feature
-- [ ] @ronyeh Simplify / Consolidate `setFont()`.
-- [ ] @tommadams Explore a DOM-free SVGContext called: ????
+- [ ] @ronyeh PR to Simplify / Consolidate `setFont()`.
+- [ ] @tommadams PR to pass a RenderContext into Renderer.
 
 ## Test
 - [ ] Run command line visual diffs against 3.0.9.
