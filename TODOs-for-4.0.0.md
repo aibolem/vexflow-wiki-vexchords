@@ -10,7 +10,8 @@
 ## Fix and Document
 - [ ] _\<Add URLs to GitHub issues here\>...._
 - [ ] Classify/Triage Issues. Keep only the highest priority issues for this release. Push all other issues to a future release.
-- [ ] Update CHANGELOG for any breaking changes. 
+- [ ] Update CHANGELOG for any breaking changes.
+- [ ] [Maybe] @0xfe to release PetalumaScript.woff to unpkg under npm package `vexflow-fonts`.
 
 ## Release
 - [ ] @0xfe to release to npm and unpkg
