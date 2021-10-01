@@ -1,6 +1,6 @@
 ## Feature
 - [ ] @ronyeh PR to Simplify / Consolidate `setFont()`.
-- [ ] @tommadams PR to pass a RenderContext into Renderer.
+- [ ] @tommadams PR to pass a RenderContext into Renderer. https://github.com/0xfe/vexflow/pull/1161
 
 ## Test
 - [ ] Run command line visual diffs against 3.0.9.
