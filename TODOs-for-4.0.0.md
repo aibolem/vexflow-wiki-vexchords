@@ -1,5 +1,5 @@
 ## Feature
-- [ ] @ronyeh PR to Simplify / Consolidate `setFont()`.
+- [ ] @ronyeh PR to Simplify / Consolidate `setFont()`. https://github.com/0xfe/vexflow/pull/1163
 - [ ] @tommadams PR to pass a RenderContext into Renderer. https://github.com/0xfe/vexflow/pull/1161
 
 ## Test
