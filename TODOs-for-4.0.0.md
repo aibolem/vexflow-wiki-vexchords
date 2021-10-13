@@ -1,6 +1,5 @@
 ## Feature
 - [ ] @ronyeh PR to Simplify / Consolidate `setFont()`. https://github.com/0xfe/vexflow/pull/1163
-- [ ] @tommadams PR to pass a RenderContext into Renderer. https://github.com/0xfe/vexflow/pull/1161
 
 ## Test
 - [ ] Run command line visual diffs against 3.0.9.
@@ -17,5 +16,6 @@
 - [ ] Close issue [#1155](/0xfe/vexflow/issues/1155) and celebrate.
 
 ## DONE ✓
+- [x] @tommadams PR to pass a RenderContext into Renderer. https://github.com/0xfe/vexflow/pull/1161
 - [x] @ronyeh released PetalumaScript.woff to unpkg under npm package `vexflow-fonts`.
 - [x] ....
