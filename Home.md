@@ -25,20 +25,3 @@
 * [[Test Your Code | Testing]]. Please include tests. Changes that don't have accompanying tests will not be merged.
 * Don't forget to run the [Visual Regression Tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests) -- it is simpler, faster, and more likely to catch issues than eyeballing the output of the QUnit tests.
 * If you add a new feature, update this Wiki with some documentation and examples.
-
-## Significant Contributors
-
-* [Mohit Muthanna Cheppudira](https://github.com/0xfe)
-* [Michael Scott Cuthbert](https://github.com/mscuthbert)
-* [Aaron Mars](https://github.com/aaronmars)
-* [Gregory Ristow](https://github.com/gristow)
-* [Rodrigo Vilar](https://github.com/rvilarl)
-* [Ron B. Yeh](https://github.com/ronyeh)
-* [Taehoon Moon](https://github.com/panarch)
-
-### Alumni
-* [Cyril Silverman](https://github.com/Silverwolf90)
-* [Larry Kuhns](https://github.com/LarryKu)
-
-
-All past contributors: https://github.com/0xfe/vexflow/graphs/contributors
