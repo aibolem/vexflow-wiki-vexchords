@@ -254,64 +254,66 @@ We have a bunch of tooling for glyph management in the [`tools/smufl`] (https://
 * `smufl_fontgen.js` - Tool to generate `src/fonts/fontname_glyphs.js` from OTF font files based on the above configuration. This tool can be used for any SMuFL-compliant OTF music font file.
 * `gonville_fontgen.js` - Tool to generate `src/fonts/gonville_glyphs.ts` and `src/fonts/custom_glyphs.ts` from files in the `fonts/` directory.
 
-#### Adding a new Font
+#### Adding a New Font
 
-1) Create the **glyphs file** and **metrics file**
+For this example, the new font is named "Awesome" instead of Bravura / Petaluma / Gonville.
+
+1) Create the **glyphs file** and **metrics file** for Awesome
 2) Create the **container file**
 
 ```javascript
-import { NewfontFont } from "./newfont_glyphs";
-import { NewfontMetrics } from "./newfont_metrics";
+import { AwesomeFont } from "./awesome_glyphs";
+import { AwesomeMetrics } from "./awesome_metrics";
 
-const Bravura = { 
-  fontData: NewfontFont,
-  metrics: NewfontMetrics,
+const Awesome = { 
+  fontData: AwesomeFont,
+  metrics: AwesomeMetrics,
 };
 
-export default Newfont;
+export default Amazing;
 ```
 
-3) Import the **Newfont** and create a `LoadNewfont()` function in [`src/font.ts`](https://github.com/0xfe/vexflow/tree/master/src/font.ts)
+3) Import **Awesome** and create a `LoadAwesome()` function in [`src/font.ts`](https://github.com/0xfe/vexflow/tree/master/src/font.ts)
 
 ```javascript
-import { loadNewfont } from '@newfont';
+import { loadAwesome } from '@awesome';
 ...
-  case 'Newfont':
-    loadNewfont(this.fontDataMetrics);
+  case 'Awesome':
+    loadAwesome(this.fontDataMetrics);
     break;
 ```
 
-4) Implement the `LoadNewFont()` static function in [`src/fonts/loadStatic.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/loadStatic.ts)
+4) Implement the `loadAwesome()` static function in [`src/fonts/loadStatic.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/loadStatic.ts)
 
 ```javascript
-import Leland from '../fonts/newfont';
+import Awesome from '../fonts/awesome';
 ...
-export function loadNewfont(fontDataMetrics: FontDataMetrics) {
-  fontDataMetrics.fontData = Newfont.fontData;
-  fontDataMetrics.metrics = Newfont.metrics;
+export function loadAwesome(fontDataMetrics: FontDataMetrics) {
+  fontDataMetrics.fontData = Awesome.fontData;
+  fontDataMetrics.metrics = Awesome.metrics;
 }
 ```
 
-5) Implement the `LoadNewFont()` dynamic function in [`src/fonts/loadDynamic.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/loadDynamic.ts)
+5) Implement the `loadAwesome()` dynamic function in [`src/fonts/loadDynamic.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/loadDynamic.ts)
 
 ```javascript
-export async function loadNewfont(fontDataMetrics: FontDataMetrics) {
-  const _ = await import(/* webpackChunkName: "newfont" */ '../fonts/newfont');
+export async function loadAwesome(fontDataMetrics: FontDataMetrics) {
+  const _ = await import(/* webpackChunkName: "awesome" */ '../fonts/awesome');
   fontDataMetrics.fontData = _.default.fontData;
   fontDataMetrics.metrics = _.default.metrics;
 }
 ```
 
-6) Define `@newfont` [`tsconfig.ts`](https://github.com/0xfe/vexflow/tree/master/tsconfig.js)
+6) Define `@awesome` [`tsconfig.ts`](https://github.com/0xfe/vexflow/tree/master/tsconfig.js)
 
 ```javascript
-"@newfont": ["fonts/loadStatic"]
+"@awesome": ["fonts/loadStatic"]
 ```
 
-7) Define `@newfont` [`tsconfig.dynamic.ts`](https://github.com/0xfe/vexflow/tree/master/tsconfig.dynamic.js)
+7) Define `@awesome` [`tsconfig.dynamic.ts`](https://github.com/0xfe/vexflow/tree/master/tsconfig.dynamic.js)
 
 ```javascript
-"@newfont": ["fonts/loadDynamic"]
+"@awesome": ["fonts/loadDynamic"]
 ```
 
 #### Adding a new Bravura Glyph
