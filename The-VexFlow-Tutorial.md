@@ -1,1 +1,1 @@
-(C4 E4 G4)/q, D4/8, E4, F4, G4
+See: [[Tutorial]]
