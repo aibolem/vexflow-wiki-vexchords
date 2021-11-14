@@ -43,6 +43,18 @@ $ grunt webpack:watch
 $ grunt watch
 ```
 
+## Publishing Manually
+
+- Bump version in `package.json`. Then `git commit`.
+- Cut release: `grunt release` (pushes new git tag)
+- Log into NPM: `npm login`
+- Publish: `npm publish [--tag beta]`
+
+### Remove version tag from repo
+
+- Remove local tag: `git tag -d 4.0.0`
+- Remove remote tag: `git push --delete origin 4.0.0`
+
 ## Upgrading Dependencies
 
 First install the [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) package, which automates the process of finding and upgrading the versions in `package.json`.
