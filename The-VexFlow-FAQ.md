@@ -167,7 +167,7 @@ formatter.joinVoices([voice]).formatToStave([voice], stave);
 voice.draw(ctx, stave);
 ```
 
-[NoteSubGroup tests](http://public.vexflow.com/tests/?module=NoteSubGroup) have more advanced examples.
+[NoteSubGroup tests](https://github.com/0xfe/vexflow/blob/master/tests/notesubgroup_tests.ts) have more advanced examples.
 
 
 
