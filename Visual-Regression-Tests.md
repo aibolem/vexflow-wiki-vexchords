@@ -44,6 +44,10 @@ Then run the following command in your branch:
 $ npm run test:reference
 ```
 
+### VE_GENERATE_OPTIONS environment variable
+You can specify the options by using environment variable.
+For more information, please refer to the https://github.com/0xfe/vexflow/pull/1268#issue-1086463563
+
 ## How it Works
 
 The `npm run generate` command generates images from the current code-base. Files are named by their QUnit module and test name. The last-good-known-images are generated from the last released binaries and stored in `build/images/blessed`. The images from the current code are stored in `build/images/current`.
