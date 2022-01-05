@@ -44,9 +44,9 @@ Then run the following command in your branch:
 $ npm run test:reference
 ```
 
-### VE_GENERATE_OPTIONS environment variable
-You can specify the options by using environment variable.
-For more information, please refer to the https://github.com/0xfe/vexflow/pull/1268#issue-1086463563
+### VF_GENERATE_OPTIONS environment variable
+You can specify the options by using an environment variable.
+For more information, please refer to https://github.com/0xfe/vexflow/pull/1268#issue-1086463563
 
 ## How it Works
 
