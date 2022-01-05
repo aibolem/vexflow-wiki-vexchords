@@ -4,7 +4,7 @@
 
 [[Changelog | https://github.com/0xfe/vexflow/blob/master/CHANGELOG.md]]
 
-[[Building | Build-And-Release-Instructions]]
+[[Building | BUILD & RELEASE]]
 
 [[Testing]]
 
