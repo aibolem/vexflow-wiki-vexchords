@@ -1,1 +1,1 @@
- 
+[ [VexFlow.com](https://vexflow.com/) ] [ [API](https://0xfe.github.io/vexflow/api/) ] [ [GitHub Repo](https://github.com/0xfe/vexflow) ] [ [Contributors](https://github.com/0xfe/vexflow/graphs/contributors) ]
