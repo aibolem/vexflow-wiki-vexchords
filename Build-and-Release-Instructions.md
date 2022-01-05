@@ -36,7 +36,7 @@ Run tests on command line:
 
 To run tests in the browser, open `tests/flow.html` in a new browser tab.
 
-Don't forget the [[Visual Regression Tests]] .
+Don't forget the [[Visual Regression Tests]].
 
 ## Watch mode
 
@@ -52,30 +52,41 @@ grunt watch
 
 ## Publishing Manually
 
--   Bump version in `package.json`. Then `git commit`.
--   Cut release: `grunt release` (pushes new git tag)
+-   Bump version in `package.json`
+-   `git commit`.
+-   xxxxxxx
+-   Push new git tag.
 -   Log into NPM: `npm login`
 -   Publish: `npm publish [--tag beta]`
 
-### Remove version tag from repo
+### Push a version tag to GitHub
 
--   Remove local tag: `git tag -d 4.0.0`
--   Remove remote tag: `git push --delete origin 4.0.0`
+    git push origin 4.0.0
 
-## Upgrading Dependencies
+### Remove version tag from local repo and GitHub
+
+```sh
+    # Remove local tag
+    git tag -d 4.0.0
+
+    # Remove remote tag
+    git push --delete origin 4.0.0
+```
+
+## Upgrade Dependencies
 
 First install the [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) package, which automates the process of finding and upgrading the versions in `package.json`.
 
-    $ npm cache clean
-    $ npm install -g npm-check-updates
+    npm cache clean
+    npm install -g npm-check-updates
 
 Dry run. This checks for new versions, but does not modify any files.
 
-    $ npm-check-updates
+    npm-check-updates
 
 If the versions look sane, you can either update everything in one shot, or provide a package name to update incrementally. The `-u` flag updates `package.json`.
 
-    $ npm-check-updates -u [package name]
-    $ npm install
+    npm-check-updates -u [package name]
+    npm install
 
 Test, debug, fix, commit, iterate. Then send a PR!
