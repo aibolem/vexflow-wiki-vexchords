@@ -1,59 +1,66 @@
-To setup the build environment, first install NodeJS and `npm`. Then:
+# Prerequisites
 
-    $ git clone https://github.com/0xfe/vexflow.git
-    $ cd vexflow
-    $ npm install
-    $ npm install -g grunt-cli
+Make sure you have installed [Node.js](https://nodejs.org/) 16.x or greater and [npm](https://docs.npmjs.com/cli/v7/configuring-npm/install#using-a-node-version-manager-to-install-nodejs-and-npm).
 
-Note that you can also install `grunt-cli` locally (without the -g flag). If you do so, you'll need to fully qualify the path in the commands below: `./node_modules/.bin/grunt`.
+We use the `grunt` task runner, so install [grunt-cli](https://www.npmjs.com/package/grunt-cli) globally.
 
-## Building
+    npm install -g grunt-cli
 
-Build with:
+If you do not install **grunt-cli** globally, you'll need to use the full path to the local `grunt` command when following this guide:
 
-    $ grunt
+    ./node_modules/.bin/grunt
+
+# Download the Source and Install Dependencies
+
+```
+git clone git@github.com:0xfe/vexflow.git
+cd vexflow
+npm install
+```
+
+# Build
+
+Build everything, including libraries for production use, debugging, and unit tests:
+
+    grunt
 
 Clean with:
 
-    $ grunt clean
+    grunt clean
+
+# Test
 
 Run tests on command line:
 
-    $ grunt test
+    grunt test
 
-To run tests in the browser, open `tests/flow.html` in a new browser tab. Don't forget the [Visual Regression Tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests).
+To run tests in the browser, open `tests/flow.html` in a new browser tab.
 
-To publish a new version of VexFlow to the NPM repositories:
-
-    $ npm login
-    $ grunt publish
-    $ npm publish
-
-This bumps the version number in `package.json`, publishes the new NPM package, and submits the new binaries to the git repo.
+Don't forget the [[Visual Regression Tests]] .
 
 ## Watch mode
 
-To watch source files for changes and build automatically, use the following two commands:
+To watch source files for changes and build automatically, use the following commands:
 
 ```sh
 # Watch src/ tree and build unminimized bundle
-$ grunt webpack:watch
+grunt webpack:watch
 
 # Watch test/ tree and rebuild test bundle
-$ grunt watch
+grunt watch
 ```
 
 ## Publishing Manually
 
-- Bump version in `package.json`. Then `git commit`.
-- Cut release: `grunt release` (pushes new git tag)
-- Log into NPM: `npm login`
-- Publish: `npm publish [--tag beta]`
+-   Bump version in `package.json`. Then `git commit`.
+-   Cut release: `grunt release` (pushes new git tag)
+-   Log into NPM: `npm login`
+-   Publish: `npm publish [--tag beta]`
 
 ### Remove version tag from repo
 
-- Remove local tag: `git tag -d 4.0.0`
-- Remove remote tag: `git push --delete origin 4.0.0`
+-   Remove local tag: `git tag -d 4.0.0`
+-   Remove remote tag: `git push --delete origin 4.0.0`
 
 ## Upgrading Dependencies
 
