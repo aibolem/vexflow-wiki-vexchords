@@ -6,7 +6,7 @@ We use the `grunt` task runner, so install [grunt-cli](https://www.npmjs.com/pac
 
     npm install -g grunt-cli
 
-If you do not install **grunt-cli** globally, you'll need to use the full path to the local `grunt` command when following this guide:
+If you do not install **grunt-cli** globally, you'll need to use the full path to the local `grunt` command:
 
     ./node_modules/.bin/grunt
 
