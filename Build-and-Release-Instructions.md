@@ -66,14 +66,14 @@ grunt watch
 ### Remove version tag from local repo and GitHub
 
 ```sh
-    # Remove local tag
-    git tag -d 4.0.0
+# Remove local tag
+git tag -d 4.0.0
 
-    # Remove remote tag
-    git push --delete origin 4.0.0
+# Remove remote tag
+git push --delete origin 4.0.0
 ```
 
-## Upgrade Dependencies
+# Upgrade Dependencies
 
 Install [npm-check-updates](https://www.npmjs.com/package/npm-check-updates), which automates the process of finding and upgrading the versions in `package.json`.
 
