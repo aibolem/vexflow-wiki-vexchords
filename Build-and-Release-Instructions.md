@@ -75,12 +75,11 @@ grunt watch
 
 ## Upgrade Dependencies
 
-First install the [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) package, which automates the process of finding and upgrading the versions in `package.json`.
+Install [npm-check-updates](https://www.npmjs.com/package/npm-check-updates), which automates the process of finding and upgrading the versions in `package.json`.
 
-    npm cache clean
     npm install -g npm-check-updates
 
-Dry run. This checks for new versions, but does not modify any files.
+Dry run: Invoke the command with no arguments to check for new versions. This does not modify any files.
 
     npm-check-updates
 
@@ -89,4 +88,4 @@ If the versions look sane, you can either update everything in one shot, or prov
     npm-check-updates -u [package name]
     npm install
 
-Test, debug, fix, commit, iterate. Then send a PR!
+Build, test, debug, fix, iterate. If everything works and there are no visual diffs, commit your changes and submit a PR!
