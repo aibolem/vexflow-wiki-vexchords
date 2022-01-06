@@ -15,6 +15,8 @@ Below you can see an example of a blessed image, a current image, and the visual
 
 ## Prerequisites
 
+**Note**: If you are running Windows, you can follow the instructions [here](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests-from-Windows-10-11-(Ubuntu-VM)) to set up an environment to run the visual regression tests, and then follow the Ubuntu path.
+
 The test system relies on the open-source libraries [RSVG](https://github.com/GNOME/librsvg) and [ImageMagick](http://www.imagemagick.org/).
 
 Installing on OS X with HomeBrew: `$ brew install librsvg imagemagick`. *NOTE:* you might also need to run `brew reinstall node` to relink the new libraries.
