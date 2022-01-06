@@ -1,4 +1,4 @@
-This page may if for someone who does most of their development on Windows and doesn't run OSX or Linux natively.  Someone like me.  It is probably the easiest way to run the visual regression tests if you are in this boat.
+This page is if for someone who does most of their development on Windows and doesn't run OSX or Linux natively.  Someone like me.  It is probably the easiest way to run the visual regression tests if you are such a person.
 
 You will need to create a Linux box in a virtual machine.  You can run the virtual machine in either VMWare or Oracle VirtualBox as a host.  This guide shows VirtualBox, but VMWare should work similarly.
 
