@@ -64,14 +64,16 @@ And Node/NPM
 
 `sudo apt-get install -y nodejs`
 
-**Important note**:  I was unable to get vexflow to work with the latest (16.x at the time of this writing).  The issue is with an NPM package called canvas that has a number of issues.  There may be other solutions, but I found it easiest just to install the older version of node as shown above.
+**Important note**:  I was unable to get vexflow to work with the latest version of Node(16.x at the time of this writing).  The issue is with an NPM package called canvas that has a number of issues.  There may be other solutions, but I found it easiest just to install the older version of node as shown above.
 
-`> npm -version
+```
+> npm -version
 6.14.6
 > node --version
 12.18.3
-`
+```
+
 You can use NVM if you have multiple node versions to support.
 
-From here, 
+From here, you can follow the instructions for  [build](https://github.com/0xfe/vexflow/wiki/Build%2C-Test%2C-Release) and [visual regression tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests) from the wiki
 
