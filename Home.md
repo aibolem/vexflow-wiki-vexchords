@@ -12,7 +12,7 @@
 
 ## VexFlow Developer Instructions
 
--   [Build and Release Instructions](Build-And-Release-Instructions) - How to build VexFlow from scratch. Use `grunt watch` to watch files. How to release packages.
+-   [[Build, Test, and Release Instructions|Build, Test, Release]]
 -   [[Font Rendering|VexFlow-Font-Rendering]] - How to add new glyphs and fonts to VexFlow.
 -   [Visual Regression Tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests) - How to run the visual regression tests.
 
