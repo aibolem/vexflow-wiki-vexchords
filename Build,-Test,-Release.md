@@ -20,41 +20,128 @@ npm install
 
 # Build
 
-Build everything, including libraries for production use, debugging, and unit tests:
+Build all libraries (production, debug, and tests):
 
     grunt
 
-Clean with:
+Clean the `build/` and `reference/` folders::
 
     grunt clean
 
 # Test
 
-Run tests on command line:
+Run tests on the command line:
 
     grunt test
 
-To run tests in the browser, open `tests/flow.html` in a new browser tab.
+To run tests in the browser, open `tests/flow.html` in a new browser tab. This will load the CJS version of VexFlow, from `vexflow/build/cjs/vexflow-debug-with-tests.js`. You can also try the following commands:
 
-Don't forget the [[Visual Regression Tests]].
+```sh
+# Open the default browser to the flow.html test page.
+grunt test:browser:cjs
+
+# Open the default browser to `http://localhost:8080/tests/flow.html?esm=true`.
+# A web server needs to be serving the `vexflow/` directory (e.g., `npx http-server`).
+grunt test:browser:esm
+```
+
+Don't forget the [Visual Regression Tests](./Visual-Regression-Tests):
+
+```sh
+# reference images will be generated from the last known good build.
+git checkout master
+
+# builds vexflow and copies the build output into the reference/ directory.
+grunt reference
+
+git checkout <my-feature-branch>
+
+# builds the feature branch and does a visual diff against the version in the reference/ directory.
+npm run test:reference
+```
 
 ## Watch mode
 
-To watch source files for changes and build automatically, use the following commands:
+To watch source files and build automatically when a file changes:
 
-```sh
-# Watch src/ tree and build unminimized bundle
-grunt webpack:watch
-
-# Watch test/ tree and rebuild test bundle
+```
 grunt watch
 ```
 
-## Publishing Manually
+# Publish with [release-it](https://www.npmjs.com/package/release-it)
 
--   Bump version in `package.json`
--   `git commit`.
--   xxxxxxx
+We use [release-it](https://www.npmjs.com/package/release-it) to help us publish to NPM and GitHub.
+
+Run the following command on a single line:
+
+```
+GITHUB_TOKEN=__PERSONAL_ACCESS_TOKEN__   npm run release
+```
+
+To automatically release to GitHub, you need to have a personal access token with **repo** rights.
+
+Generate one here: https://github.com/settings/tokens/new?scopes=repo&description=release-it
+
+If you have 2FA enabled for NPM, you will need to provide a one time password to publish to NPM.
+
+**release-it** will walk you though the steps:
+
+```
+$ GITHUB_TOKEN=__PERSONAL_ACCESS_TOKEN__   npm run release
+
+🚀 Let's release vexflow (currently at 4.0.0)
+
+? Select increment (next version): patch (4.0.1)
+✔ echo add build/ folder
+✔ git add -f build/
+✔ git commit -m 'Add build/ for the release.'
+
+? Publish vexflow to npm? Yes
+? Please enter OTP for npm: __YOUR_ONE_TIME_PASSWORD__
+? Commit (release vexflow version 4.0.1)? Yes
+? Tag (4.0.1)? Yes
+? Push? Yes
+? Create a release on GitHub (Release 4.0.1)? Yes
+✔ echo Successfully released vexflow v4.0.1 to 0xfe/vexflow.
+✔ echo remove build/ folder
+✔ git rm -r build/
+✔ git commit -m 'Remove build/ after the release.'
+🔗 https://www.npmjs.com/package/vexflow
+🔗 https://github.com/0xfe/vexflow/releases/tag/4.0.1
+🏁 Done (in 38s.)
+```
+
+## Pre-release [ alpha | beta | rc ]
+
+`package.json` defines the following scripts:
+
+```
+npm run release
+npm run release-dry-run
+npm run release-alpha
+npm run release-beta
+npm run release-rc
+```
+
+`release-dry-run` walks you through the steps, but does not actually publish anything.
+
+You can run a pre-release multiple times, and it will increment the pre-release number.
+
+https://www.npmjs.com/package/vexflow?activeTab=versions
+
+## Publish Manually
+
+You can also publish to NPM and GitHub manually.
+
+First, we need to bump the version number in `package.json` and create a git tag. We can do this with the `npm version` command, which increments the version number, and commits a new git tag to the repository:
+
+```bash
+# Usage: npm version [<new_version> | major | minor | patch | prerelease --preid=<alpha | beta | rc>]
+
+# Examples
+npm version
+```
+
 -   Push new git tag.
 -   Log into NPM: `npm login`
 -   Publish: `npm publish [--tag beta]`
