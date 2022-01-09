@@ -16,4 +16,11 @@ VexFlow now provides an ESM build, in addition to the traditional CommonJS libra
 
 ## Breaking Changes
 
-XXXXXX
+### Gruntfile and package.json scripts
+Many of the package.json scripts have been moved into Gruntfile.js. See the top of Gruntfile.js for a list of the different commands you can invoke while building & testing VexFlow.
+
+### More
+[Add Detail Here]
+
+### More
+[Add Detail Here]
