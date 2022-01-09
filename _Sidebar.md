@@ -2,7 +2,7 @@
 
 [[Tutorial]]
 
-[[Changelog | https://github.com/0xfe/vexflow/blob/master/CHANGELOG.md]]
+[[Changelog]]
 
 [[Build / Test / Release | Build, Test, Release]]
 
