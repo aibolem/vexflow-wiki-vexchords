@@ -4,8 +4,6 @@ This document details the major changes, and includes links to PRs or issues whe
 
 The list of [breaking changes](#breaking-changes) is at the bottom of this page.
 
-[here](#place-1)
-
 # TypeScript
 
 VexFlow has been converted to TypeScript!
