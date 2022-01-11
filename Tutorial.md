@@ -128,7 +128,7 @@ A modifier is an element that is attached to a note. Modifiers typically inherit
 
 Modifiers are self-positioning – they intelligently juxtapose themselves alongside other modifiers and notes based on standard music notation rules.
 
-Let's add some accidentals and dots. [ [run](https://jsfiddle.net/1tqmkeft/9/) ]
+Let's add some accidentals and dots. [ [run](https://jsfiddle.net/r2sbmu4j/) ]
 
 ```javascript
 var notes = [
