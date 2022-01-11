@@ -53,7 +53,7 @@ Finally, we pass the context to the stave and call `draw`, which renders the new
 
 Notice that the stave is not exactly drawn in position 0, 0. This is because it reserves some head-room for higher notes. The amount of headroom can be configured with the `VF.Stave` properties.
 
-## Step 2: Add Some Notes [ [run](https://jsfiddle.net/8eckj32x/13/) ]
+## Step 2: Add Some Notes [ [run](https://jsfiddle.net/4gj06fqo/1/) ]
 
 A `StaveNote` is a group of note heads representing a chord. It can consist of one or more notes with or without a stem and flag.
 
