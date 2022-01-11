@@ -94,7 +94,7 @@ voice.draw(context, stave);
 
 Notice how the notes are justified evenly on the stave based on the duration of each note? This is the formatter in action - keeping voices aligned while balancing the spacing between the notes.
 
-Let's add a second voice with a single whole note to this tune. [ [run](https://jsfiddle.net/7y74r86s/4/) ]
+Let's add a second voice with a single whole note to this tune. [ [run](https://jsfiddle.net/n501pwm4/1/) ]
 
 ```javascript
 var notes = [
