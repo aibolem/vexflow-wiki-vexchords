@@ -83,8 +83,8 @@ var notes = [
 var voice = new VF.Voice({num_beats: 4,  beat_value: 4});
 voice.addTickables(notes);
 
-// Format and justify the notes to 400 pixels.
-var formatter = new VF.Formatter().joinVoices([voice]).format([voice], 400);
+// Format and justify the notes to 350 pixels (50 pixels left for key and time signatures).
+var formatter = new VF.Formatter().joinVoices([voice]).format([voice], 350);
 
 // Render voice
 voice.draw(context, stave);
