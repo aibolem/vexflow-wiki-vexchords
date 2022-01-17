@@ -70,7 +70,7 @@ grunt watch
 
 # Publish with [release-it](https://www.npmjs.com/package/release-it)
 
-We use [release-it](https://www.npmjs.com/package/release-it) to help us publish to NPM and GitHub.
+We use [release-it](https://www.npmjs.com/package/release-it) to streamline the process of publishing to NPM and GitHub.
 
 Run the following command on a single line:
 
@@ -78,7 +78,7 @@ Run the following command on a single line:
 GITHUB_TOKEN=__PERSONAL_ACCESS_TOKEN__   npm run release
 ```
 
-To automatically release to GitHub, you need to have a personal access token with **repo** rights.
+To automate the release to GitHub, you need to have a personal access token with **repo** rights.
 
 Generate one here: https://github.com/settings/tokens/new?scopes=repo&description=release-it
 
@@ -113,19 +113,30 @@ $ GITHUB_TOKEN=__PERSONAL_ACCESS_TOKEN__   npm run release
 
 ## Pre-release [ alpha | beta | rc ]
 
-`package.json` defines the following scripts:
+`Gruntfile.js` defines a `release` task that accepts pre-release tags as arguments:
+
 
 ```
-npm run release
-npm run release-dry-run
-npm run release-alpha
-npm run release-beta
-npm run release-rc
+GITHUB_TOKEN=XYZ grunt release
+GITHUB_TOKEN=XYZ grunt release:alpha
+GITHUB_TOKEN=XYZ grunt release:beta
+GITHUB_TOKEN=XYZ grunt release:rc
 ```
 
-`release-dry-run` walks you through the steps, but does not actually publish anything.
+Adding a `dry-run` argument will walk you through the steps without actually publishing anything.
+
+```
+GITHUB_TOKEN=XYZ grunt release:dry-run
+GITHUB_TOKEN=XYZ grunt release:dry-run:alpha
+GITHUB_TOKEN=XYZ grunt release:dry-run:beta
+GITHUB_TOKEN=XYZ grunt release:dry-run:rc
+```
 
 You can run a pre-release multiple times, and it will increment the pre-release number.
+
+```
+4.1.0-alpha.1 => 4.1.0-alpha.2
+```
 
 https://www.npmjs.com/package/vexflow?activeTab=versions
 
@@ -145,12 +156,15 @@ npm version
 -   Push new git tag.
 -   Log into NPM: `npm login`
 -   Publish: `npm publish [--tag beta]`
+-   Create a GitHub release: https://github.com/0xfe/vexflow/releases/new
 
 ### Push a version tag to GitHub
 
     git push origin 4.0.0
 
 ### Remove version tag from local repo and GitHub
+
+If something went wrong and you need to remove a tag, follow these steps:
 
 ```sh
 # Remove local tag
