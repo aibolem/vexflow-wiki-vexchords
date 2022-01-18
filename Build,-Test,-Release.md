@@ -115,7 +115,6 @@ $ GITHUB_TOKEN=__PERSONAL_ACCESS_TOKEN__   npm run release
 
 `Gruntfile.js` defines a `release` task that accepts pre-release tags as arguments:
 
-
 ```
 GITHUB_TOKEN=XYZ grunt release
 GITHUB_TOKEN=XYZ grunt release:alpha
@@ -140,35 +139,85 @@ You can run a pre-release multiple times, and it will increment the pre-release 
 
 https://www.npmjs.com/package/vexflow?activeTab=versions
 
-## Publish Manually
+## Publish Manually to npm and GitHub
 
-You can also publish to NPM and GitHub manually.
+The `npm version` command increments the version number in `package.json` and commits a new git tag to the repository:
 
-First, we need to bump the version number in `package.json` and create a git tag. We can do this with the `npm version` command, which increments the version number, and commits a new git tag to the repository:
-
-```bash
+```sh
 # Usage: npm version [<new_version> | major | minor | patch | prerelease --preid=<alpha | beta | rc>]
 
-# Examples
+# Show the current version.
 npm version
+
+# Bump the version. Add a git tag. Commit to the local git repo with a message.
+# patch revision: X.Y.0 => X.Y.1
+npm version patch --git-tag-version=false
+# minor revision: X.1.Z => X.2.0
+npm version minor --git-tag-version=false
+# major revision: 4.Y.Z => 5.0.0
+npm version major --git-tag-version=false
+
+# Pre-release: alpha | beta | rc
+npm version prerelease --preid=alpha --git-tag-version=false
+npm version prerelease --preid=beta  --git-tag-version=false
+npm version prerelease --preid=rc    --git-tag-version=false
+
 ```
 
--   Push new git tag.
--   Log into NPM: `npm login`
--   Publish: `npm publish [--tag beta]`
--   Create a GitHub release: https://github.com/0xfe/vexflow/releases/new
+Build VexFlow for production, and add the `build/` directory to the repository, and commit and tag this release.
 
-### Push a version tag to GitHub
+```
+grunt
+git add -f build/
+git commit -m "Release version: $(node -p "require('./package.json').version")"
+git tag $(node -p "require('./package.json').version")
+```
 
-    git push origin 4.0.0
+### Publish to npm
 
-### Remove version tag from local repo and GitHub
+```sh
+npm login
 
-If something went wrong and you need to remove a tag, follow these steps:
+# Publish to 'latest' so that 'npm install vexflow' will get this version.
+npm publish
+
+# Publish with a pre-release tag. Example: npm install vexflow@beta will download the version published with --tag beta.
+npm publish --tag rc
+npm publish --tag beta
+npm publish --tag alpha
+```
+
+### Release to GitHub
+
+Push the git tag of the build we are releasing. For example, if the tag is `4.0.0`:
+
+```sh
+git push origin 4.0.0
+```
+
+Create a GitHub release from the tag we just pushed.
+
+If you have the [GitHub CLI](https://cli.github.com/) installed:
+
+```sh
+# Create a release from the specified tag.
+gh release create 4.0.0 --title "Release 4.0.0"
+
+# Create a release from the version number in the package.json.
+VEX_VER=$(node -p "require('./package.json').version") && gh release create $VEX_VER --title "Release $VEX_VER"
+```
+
+If you don't have the GitHub CLI, you can create a release from the web:
+
+https://github.com/0xfe/vexflow/releases/new
+
+![Choose Tag](images/github-release-choose-tag.png)
+
+If something went wrong and you need to remove a version tag:
 
 ```sh
 # Remove local tag
-git tag -d 4.0.0
+git tag --delete 4.0.0
 
 # Remove remote tag
 git push --delete origin 4.0.0
