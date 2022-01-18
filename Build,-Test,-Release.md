@@ -81,14 +81,12 @@ You will also need to provide a one time password (2FA) to publish to npm.
 To release a new version, run the following command on a single line:
 
 ```
-GITHUB_TOKEN=__PERSONAL_ACCESS_TOKEN__   npm run release
+GITHUB_TOKEN=__PERSONAL_ACCESS_TOKEN__   grunt release
 ```
 
-**release-it** will walk you though the steps:
+Answer the questions (or hit ENTER to accept the default):
 
 ```
-$ GITHUB_TOKEN=__PERSONAL_ACCESS_TOKEN__   npm run release
-
 🚀 Let's release vexflow (currently at 4.0.0)
 
 ? Select increment (next version): patch (4.0.1)
@@ -102,10 +100,10 @@ $ GITHUB_TOKEN=__PERSONAL_ACCESS_TOKEN__   npm run release
 ? Tag (4.0.1)? Yes
 ? Push? Yes
 ? Create a release on GitHub (Release 4.0.1)? Yes
-✔ echo Successfully released vexflow v4.0.1 to 0xfe/vexflow.
+✔ echo Successfully released vexflow 4.0.1 to https://github.com/0xfe/vexflow
 ✔ echo remove build/ folder
 ✔ git rm -r build/
-✔ git commit -m 'Remove build/ after the release.'
+✔ git commit -m 'Remove build/ after releasing version 4.0.1.'
 🔗 https://www.npmjs.com/package/vexflow
 🔗 https://github.com/0xfe/vexflow/releases/tag/4.0.1
 🏁 Done
@@ -113,7 +111,7 @@ $ GITHUB_TOKEN=__PERSONAL_ACCESS_TOKEN__   npm run release
 
 ## Pre-release: alpha | beta | rc
 
-The `release` task (in `Gruntfile.js`) accepts a pre-release tag as an argument:
+`grunt release` accepts a pre-release tag as an argument:
 
 ```
 GITHUB_TOKEN=XYZ grunt release
@@ -122,7 +120,7 @@ GITHUB_TOKEN=XYZ grunt release:beta
 GITHUB_TOKEN=XYZ grunt release:rc
 ```
 
-Add a `dry-run` argument to walk through the steps without actually publishing anything:
+Add `dry-run` to walk through the steps without actually publishing anything:
 
 ```
 GITHUB_TOKEN=XYZ grunt release:dry-run
@@ -139,11 +137,15 @@ You can run a pre-release multiple times, and it will increment the pre-release 
 
 # Publish Manually to npm and GitHub
 
-The `npm version` command increments the version number in `package.json` and commits a new git tag to the repository:
+Show the current VexFlow version:
 
-Show the current version with: `npm version`
+```
+npm version
+```
 
-Then bump the version in package.json WITHOUT committing a new git tag. Here are some examples:
+Increment the version in `package.json` WITHOUT committing a new git tag (`--git-tag-version=false`).
+
+Choose one of the following:
 
 ```sh
 # patch revision: X.Y.0 => X.Y.1
@@ -153,19 +155,30 @@ npm version minor --git-tag-version=false
 # major revision: 4.Y.Z => 5.0.0
 npm version major --git-tag-version=false
 
-
-# Pre-release: alpha | beta | rc
-# Increment the number after the pre-release tag, e.g.: 4.0.1-alpha.0 => 4.0.1-alpha.1
+# Use a pre-release tag (alpha | beta | rc) and increment the number after the pre-release tag.
+# e.g.: 4.0.1-alpha.0 => 4.0.1-alpha.1
 npm version prerelease --preid=alpha --git-tag-version=false
 npm version prerelease --preid=beta  --git-tag-version=false
 npm version prerelease --preid=rc    --git-tag-version=false
-# Increment the patch | minor | major version number, but with a pre-release tag.
-npm version prepatch --preid=beta --git-tag-version=false
-npm version preminor --preid=beta --git-tag-version=false
-npm version premajor --preid=beta --git-tag-version=false
+
+# Use a pre-release tag (alpha | beta | rc) and increment the patch | minor | major version number.
+# e.g.: 4.0.1-alpha.W => 4.0.2-alpha.0
+npm version prepatch   --preid=alpha --git-tag-version=false
+npm version prepatch   --preid=beta  --git-tag-version=false
+npm version prepatch   --preid=rc    --git-tag-version=false
+
+# e.g.: 4.0.Z-alpha.W => 4.1.0-alpha.0
+npm version preminor   --preid=alpha --git-tag-version=false
+npm version preminor   --preid=beta  --git-tag-version=false
+npm version preminor   --preid=rc    --git-tag-version=false
+
+# e.g.: 4.Y.Z-alpha.W => 5.0.0-alpha.0
+npm version premajor   --preid=alpha --git-tag-version=false
+npm version premajor   --preid=beta  --git-tag-version=false
+npm version premajor   --preid=rc    --git-tag-version=false
 ```
 
-Build VexFlow for production, add the `build/` directory to the repository, and commit and tag this release.
+Build VexFlow for production. Add the `build/` directory to the repository. Commit and tag this release.
 
 ```sh
 grunt
@@ -176,7 +189,7 @@ git commit -m "Release version: $VEX_VER"
 git tag $VEX_VER
 ```
 
-### Publish to npm
+## Publish to npm
 
 ```sh
 npm login
@@ -190,7 +203,7 @@ npm publish --tag beta
 npm publish --tag alpha
 ```
 
-### Release to GitHub
+## Release to GitHub
 
 Push the git tag of the build we are releasing. For example, if the tag is `4.0.0`:
 
@@ -227,9 +240,11 @@ git tag --delete 4.0.0
 git push --delete origin 4.0.0
 ```
 
-### Clean Up
+## Clean Up
 
-After releasing, we remove the `build/` directory from the repository. This means that a tagged release will have the `build/` files, but a fresh clone of the repository will NOT have any `build/` files.
+After releasing, remove the `build/` directory from the repository.
+
+This means that a tagged release will have the `build/` files, but a fresh clone of the repository will NOT have any `build/` files.
 
 ```sh
 git rm -r build/
