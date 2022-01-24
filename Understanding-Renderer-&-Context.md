@@ -1,10 +1,10 @@
 Almost every VexFlow example starts with the same five lines of code. Those of us who use VexFlow regularly have them memorized:
 ``` JavaScript
-VF = Vex.Flow;
-var div = document.getElementById("boo")
-var renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
+const VF = Vex.Flow;
+const div = document.getElementById("boo")
+const renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
 renderer.resize(200, 200);
-var context = renderer.getContext();
+const context = renderer.getContext();
 ```
 These five lines set up the space where we'll render the music, and create the `context` object that will do the drawing. Let's take a deep dive into them to really start to understand how VexFlow's rendering mechanism works.
 
@@ -12,7 +12,7 @@ These five lines set up the space where we'll render the music, and create the `
 
 First we make a shortcut to the complete VexFlow library, calling it VF. You don't need this, you can type Vex.Flow every time. But we promise VF will be much more comfortable in the long run.
 ``` JavaScript
-var VF = Vex.Flow;
+const VF = Vex.Flow;
 ```
 
 The next line gets a reference to the div that will hold our svg, where the music will be rendered:
