@@ -1,45 +1,46 @@
-[VexFlow](https://vexflow.com) now comes with a pluggable font system for music glyphs, based on [Standard Music Font Layout](https://www.smufl.org/) (SMuFL), developed by the [W3C Music Notation Community Group](https://www.w3.org/community/music-notation/).
+[VexFlow](https://vexflow.com) comes with a pluggable font system for music glyphs, based on [Standard Music Font Layout](https://www.smufl.org/) (SMuFL), developed by the [W3C Music Notation Community Group](https://www.w3.org/community/music-notation/).
 
-The fonts it currently supports are:
+By default, it supports the following fonts:
 
-* [Bravura](https://github.com/steinbergmedia/bravura) (a SMuFL font by Steinberg)
-* [Petaluma](https://github.com/steinbergmedia/petaluma) (a SMuFL font by Steinberg)
-* [Gonville](https://www.chiark.greenend.org.uk/~sgtatham/gonville/) (by Simon Tatham)
+-   [Bravura](https://github.com/steinbergmedia/bravura) (a SMuFL font by Steinberg)
+-   [Petaluma](https://github.com/steinbergmedia/petaluma) (a SMuFL font by Steinberg)
+-   [Gonville](https://www.chiark.greenend.org.uk/~sgtatham/gonville/) (by Simon Tatham)
+-   Custom - Glyphs submitted by Vexflow contributors (microtonal accidentals, eastern music glyphs, etc).
 
-### Bravura Ornaments
-<img src="https://imgur.com/oS5L9eX.png" alt="Bravura Ornaments" width=700/>
+## Bravura
 
-### Petaluma Ornaments
-<img src="https://imgur.com/uP2IXnf.png" alt="Petaluma Ornaments" width=700/>
+<img src="https://imgur.com/oS5L9eX.png" alt="Bravura" width=700/>
 
-### Gonville Ornaments
-<img src="https://imgur.com/aCfdJij.png" alt="Gonville Ornaments" width=700/>
+## Petaluma
 
+<img src="https://imgur.com/uP2IXnf.png" alt="Petaluma" width=700/>
 
-## The VexFlow Font Stack
+## Gonville
+
+<img src="https://imgur.com/aCfdJij.png" alt="Gonville" width=700/>
+<br><br>
+
+# Font Stack
 
 VexFlow resolves glyphs through a **font stack**.
 
 The default font stack is: `[Bravura, Gonville, Custom]`. When VexFlow tries to resolve a glyph code, it searches each font in the stack, and returns the first glyph it finds. If it can't find a glyph, an exception is thrown.
 
-You can change the default font stack by setting [`VF.DEFAULT_FONT_STACK`](https://github.com/0xfe/vexflow/blob/master/src/tables.ts#L16) before building your score, or calling [`setFontStack()`](https://github.com/0xfe/vexflow/blob/master/src/element.ts#L37) on a specific element.
+Change the font stack by calling [`Flow.setMusicFont(...fontNames)`](https://github.com/0xfe/vexflow/blob/37d7285b56c0f18e4fb45b878d6d5b49d1521495/src/flow.ts#L215-L222):
 
 ```javascript
-// Change default font to Gonville
-VF.DEFAULT_FONT_STACK = [VF.Fonts.Gonville, VF.Fonts.Bravura, VF.Fonts.Custom]
+Vex.Flow.setMusicFont("Petaluma", "Bravura", "Gonville");
 ```
 
-### Supported Fonts
+# Font Files
 
-Vexflow currently supports the following fonts:
+Each VexFlow music font consists of a **glyphs file**, a **metrics file** and a **loader file**, in the [`src/fonts`](https://github.com/0xfe/vexflow/tree/master/src/fonts) directory.
 
-* [Bravura](https://github.com/steinbergmedia/bravura) - A SMuFL font made by Steinberg.
-* [Gonville](https://www.chiark.greenend.org.uk/~sgtatham/gonville/) - A font made for Gnu Lilypond by Simon Tatham.
-* Custom - A set of glyphs submitted by Vexflow contributors, e.g., microtonal accidentals, eastern music glyphs, etc.
+For example, Bravura has:
 
-## Font files
-
-Each VexFlow font consists of a **glyphs file**, a **metrics file** and a **container file**, in the [`src/fonts`](https://github.com/0xfe/vexflow/tree/master/src/fonts) directory. For example, Bravura has [`src/fonts/bravura_glyphs.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_glyphs.ts), [`src/fonts/bravura_metrics.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_metrics.ts) and  [`src/fonts/bravura.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura.ts).
+-   [`src/fonts/bravura_glyphs.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_glyphs.ts)
+-   [`src/fonts/bravura_metrics.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_metrics.ts)
+-   [`src/fonts/load_bravura.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/load_bravura.ts).
 
 The **glyphs files** consist of coded drawing primitives (`moveTo`, `lineTo`, `bezierCurve`, etc.) for each glyph, indexed by glyph code (which is usually a SMuFL code.) This file is machine generated from a font, and its format is described at the end of this document. Here's an example:
 
@@ -104,9 +105,9 @@ The **container files** consist of a standard container importing the **glyphs f
 import { BravuraFont } from "./bravura_glyphs";
 import { BravuraMetrics } from "./bravura_metrics";
 
-const Bravura = { 
-  fontData: BravuraFont,
-  metrics: BravuraMetrics,
+const Bravura = {
+    fontData: BravuraFont,
+    metrics: BravuraMetrics,
 };
 
 export default Bravura;
@@ -129,7 +130,7 @@ The glyph code (`noteheadBlack`) is resolved by searching the font stack and ret
 
 Before the final outline can be calculated, some basic transformations may need to be applied.
 
-If a `category` option is provided to `renderGlyph` (e.g., `{ category: 'stem' }` above), the following variables are loaded from the `glyphs.stem` section of the relevant metrics file (`bravura_metrics.js`):  `scale`, `shiftX`, `shiftY`, and `point` from the `glyphs.stem`.
+If a `category` option is provided to `renderGlyph` (e.g., `{ category: 'stem' }` above), the following variables are loaded from the `glyphs.stem` section of the relevant metrics file (`bravura_metrics.js`): `scale`, `shiftX`, `shiftY`, and `point` from the `glyphs.stem`.
 
 If no `category` is provided, then defaults are used (typically 0-positioned, and 1-scaled.)
 
@@ -171,8 +172,8 @@ The **metrics files** (e.g., [`src/font/bravura_metrics.ts`](https://github.com/
 You can lookup a metric from within any element with `this.lookupMetric(metricPath, optionalDefault)`. So to get the point-size for the small clef (see above), you can call:
 
 ```javascript
-const clefPointSize = this.lookupMetric('clef.small.point', 40);
-renderClef('treble', clefPointSize);
+const clefPointSize = this.lookupMetric("clef.small.point", 40);
+renderClef("treble", clefPointSize);
 ```
 
 Above, if metric is not found, the default (`40` in this case) is returned. If no default is provided, an exception is thrown.
@@ -222,21 +223,21 @@ The Glyphs file (e.g. [`bravura_glyphs.ts`](https://github.com/0xfe/vexflow/blob
 
 The glyph structure consists of the following fields:
 
-* `x_min`: left-most x value 
-* `x_max`: right-most x value
-* `ha`: height of glyph
-* `o`: a long string consisting of repeated *drawing commands* followed by coordinates. (Below.)
+-   `x_min`: left-most x value
+-   `x_max`: right-most x value
+-   `ha`: height of glyph
+-   `o`: a long string consisting of repeated _drawing commands_ followed by coordinates. (Below.)
 
 The full width of the glyph must be `x_max - x_min`.
 
 #### Drawing commands in `o` are:
 
-* `m` - MoveTo(x,y)
-* `l` - LineTo(x,y)
-* `q` - QuadraticCurveTo(cpx, cpy, x, y)
-* `b` - BeizerCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+-   `m` - MoveTo(x,y)
+-   `l` - LineTo(x,y)
+-   `q` - QuadraticCurveTo(cpx, cpy, x, y)
+-   `b` - BeizerCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
 
-The cp* parameters are coordinates to control points for the curves. All coordinates are scaled by `point_size * 72 / (Vex.Flow.Font.resolution * 100)`.
+The cp* parameters are coordinates to control points for the curves. All coordinates are scaled by `point_size * 72 / (Vex.Flow.Font.resolution \* 100)`.
 
 To see the rendering code, see `Vex.Flow.Glyph.renderOutline()` in `src/glyph.js`. You can see how we generated the outlines for Bravura by examining [`tools/smufl/smufl_fontgen.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/smufl_fontgen.js).
 
@@ -246,34 +247,34 @@ We have a bunch of tooling for glyph management in the [`tools/smufl`] (https://
 
 #### Configuration files
 
-* [`tools/smufl/config/glyphnames.json`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/glyphnames.json) - Mappings from SMuFL code-points to UTF code points. These are used to create the `src/font/font_glyphs.js` files for Vexflow.
-* [`tools/smufl/config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js) - List of SMuFL codes used by VexFlow, along with a mapping into legacy vexflow codes.
+-   [`tools/smufl/config/glyphnames.json`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/glyphnames.json) - Mappings from SMuFL code-points to UTF code points. These are used to create the `src/font/font_glyphs.js` files for Vexflow.
+-   [`tools/smufl/config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js) - List of SMuFL codes used by VexFlow, along with a mapping into legacy vexflow codes.
 
 #### Tools
 
-* `smufl_fontgen.js` - Tool to generate `src/fonts/fontname_glyphs.js` from OTF font files based on the above configuration. This tool can be used for any SMuFL-compliant OTF music font file.
-* `gonville_fontgen.js` - Tool to generate `src/fonts/gonville_glyphs.ts` and `src/fonts/custom_glyphs.ts` from files in the `fonts/` directory.
+-   `smufl_fontgen.js` - Tool to generate `src/fonts/fontname_glyphs.js` from OTF font files based on the above configuration. This tool can be used for any SMuFL-compliant OTF music font file.
+-   `gonville_fontgen.js` - Tool to generate `src/fonts/gonville_glyphs.ts` and `src/fonts/custom_glyphs.ts` from files in the `fonts/` directory.
 
 #### Adding a New Font
 
 For this example, the new font is named "Awesome" instead of Bravura / Petaluma / Gonville.
 
-1) Create the **glyphs file** and **metrics file** for Awesome
-2) Create the **container file**
+1. Create the **glyphs file** and **metrics file** for Awesome
+2. Create the **container file**
 
 ```javascript
 import { AwesomeFont } from "./awesome_glyphs";
 import { AwesomeMetrics } from "./awesome_metrics";
 
-const Awesome = { 
-  fontData: AwesomeFont,
-  metrics: AwesomeMetrics,
+const Awesome = {
+    fontData: AwesomeFont,
+    metrics: AwesomeMetrics,
 };
 
 export default Amazing;
 ```
 
-3) Import **Awesome** and create a `LoadAwesome()` function in [`src/font.ts`](https://github.com/0xfe/vexflow/tree/master/src/font.ts)
+3. Import **Awesome** and create a `LoadAwesome()` function in [`src/font.ts`](https://github.com/0xfe/vexflow/tree/master/src/font.ts)
 
 ```javascript
 import { loadAwesome } from '@awesome';
@@ -283,7 +284,7 @@ import { loadAwesome } from '@awesome';
     break;
 ```
 
-4) Implement the `loadAwesome()` static function in [`src/fonts/loadStatic.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/loadStatic.ts)
+4. Implement the `loadAwesome()` static function in [`src/fonts/loadStatic.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/loadStatic.ts)
 
 ```javascript
 import Awesome from '../fonts/awesome';
@@ -294,23 +295,23 @@ export function loadAwesome(fontDataMetrics: FontDataMetrics) {
 }
 ```
 
-5) Implement the `loadAwesome()` dynamic function in [`src/fonts/loadDynamic.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/loadDynamic.ts)
+5. Implement the `loadAwesome()` dynamic function in [`src/fonts/loadDynamic.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/loadDynamic.ts)
 
 ```javascript
 export async function loadAwesome(fontDataMetrics: FontDataMetrics) {
-  const _ = await import(/* webpackChunkName: "awesome" */ '../fonts/awesome');
-  fontDataMetrics.fontData = _.default.fontData;
-  fontDataMetrics.metrics = _.default.metrics;
+    const _ = await import(/* webpackChunkName: "awesome" */ "../fonts/awesome");
+    fontDataMetrics.fontData = _.default.fontData;
+    fontDataMetrics.metrics = _.default.metrics;
 }
 ```
 
-6) Define `@awesome` [`tsconfig.ts`](https://github.com/0xfe/vexflow/tree/master/tsconfig.js)
+6. Define `@awesome` [`tsconfig.ts`](https://github.com/0xfe/vexflow/tree/master/tsconfig.js)
 
 ```javascript
 "@awesome": ["fonts/loadStatic"]
 ```
 
-7) Define `@awesome` [`tsconfig.dynamic.ts`](https://github.com/0xfe/vexflow/tree/master/tsconfig.dynamic.js)
+7. Define `@awesome` [`tsconfig.dynamic.ts`](https://github.com/0xfe/vexflow/tree/master/tsconfig.dynamic.js)
 
 ```javascript
 "@awesome": ["fonts/loadDynamic"]
@@ -318,36 +319,36 @@ export async function loadAwesome(fontDataMetrics: FontDataMetrics) {
 
 #### Adding a new Bravura Glyph
 
-1) Add the SMuFL glyph code to [`config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js). You can find SMuFL glyph codes from the glyph browser at https://smufl.org. If there is no standard code for your glyph, see next section on creating custom glyphs.
-2) If there's a Gonville glyph available, then set the value of the code in `valid_codes.js` to the Gonville glyph code. If not, simply set it to `null`.
-3) Run `smufl_fontgen.js` to generate the new Bravura and Petaluma glyph files.
+1. Add the SMuFL glyph code to [`config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js). You can find SMuFL glyph codes from the glyph browser at https://smufl.org. If there is no standard code for your glyph, see next section on creating custom glyphs.
+2. If there's a Gonville glyph available, then set the value of the code in `valid_codes.js` to the Gonville glyph code. If not, simply set it to `null`.
+3. Run `smufl_fontgen.js` to generate the new Bravura and Petaluma glyph files.
 
 ```sh
 $ node smufl_fontgen.js fonts/Bravura.otf ../../src/fonts/bravura_glyphs.js
 $ node smufl_fontgen.js fonts/Petaluma-1.055.otf ../../src/fonts/petaluma_glyphs.js
 ```
 
-4) Run `gonville_fontgen.js` to generate a new Gonville font file (if necessary.)
+4. Run `gonville_fontgen.js` to generate a new Gonville font file (if necessary.)
 
 ```sh
 $ node gonville_fontgen.js ../../src/fonts/
 ```
 
-5) Edit your element source file (e.g., `src/accidental.ts` if this is a new accidental) and add the code.
-6) Perform any scaling or repositioning by adding configuration to the relevant metrics file (`src/fonts/bravura_metrics.ts`.)
+5. Edit your element source file (e.g., `src/accidental.ts` if this is a new accidental) and add the code.
+6. Perform any scaling or repositioning by adding configuration to the relevant metrics file (`src/fonts/bravura_metrics.ts`.)
 
 #### Creating a custom glyph
 
-1) Create a unique custom code (prefixed with `vex`), e.g., `vexMyNewAccidentalGlyph`, and add it to [`config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js). You can set the value type to `null`.
-2) Add the glyph outline to `tools/smufl/fonts/custom_glyph.js`. See the *Glyph File Format* section below on how to do that.
-3) Regenerate 'src/fonts/custom_glyphs.js` as so:
+1. Create a unique custom code (prefixed with `vex`), e.g., `vexMyNewAccidentalGlyph`, and add it to [`config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js). You can set the value type to `null`.
+2. Add the glyph outline to `tools/smufl/fonts/custom_glyph.js`. See the _Glyph File Format_ section below on how to do that.
+3. Regenerate 'src/fonts/custom_glyphs.js` as so:
 
 ```sh
 $ node gonville_fontgen.js ../../src/fonts/
 ```
 
-5) Edit your element source file (e.g., `src/accidental.ts` if this is a new accidental) and add the code.
-6) Perform any scaling or repositioning by adding configuration to the relevant metrics file (`src/fonts/bravura_metrics.ts`.)
+5. Edit your element source file (e.g., `src/accidental.ts` if this is a new accidental) and add the code.
+6. Perform any scaling or repositioning by adding configuration to the relevant metrics file (`src/fonts/bravura_metrics.ts`.)
 
 ## Testing
 
@@ -359,9 +360,8 @@ The Vexflow tests automatically run all renders using multiple font stacks, so t
 
 Here are some handy external resources to help you dig through stuff:
 
-* [SMuFL Git Book](https://w3c.github.io/smufl/gitbook/tables/clefs.html) - Good place to browse glyphs and understand metadata.
-* [OpenType Glyph Inspector](https://opentype.js.org/glyph-inspector.html) - Upload a font file and investigate glyphs.
-* [SMuFL](https://smufl.org) home page -- Learn all about SMuFL
-* [Bravura](https://github.com/steinbergmedia/bravura/tree/master/redist) Github Page -- Download Bravura font files.
-* [OpenType](opentype.js.org) home page -- The tools use the OpenType library to parse OTF fonts and generate Vexflow glyph files.
-
+-   [SMuFL Git Book](https://w3c.github.io/smufl/gitbook/tables/clefs.html) - Good place to browse glyphs and understand metadata.
+-   [OpenType Glyph Inspector](https://opentype.js.org/glyph-inspector.html) - Upload a font file and investigate glyphs.
+-   [SMuFL](https://smufl.org) home page -- Learn all about SMuFL
+-   [Bravura](https://github.com/steinbergmedia/bravura/tree/master/redist) Github Page -- Download Bravura font files.
+-   [OpenType](opentype.js.org) home page -- The tools use the OpenType library to parse OTF fonts and generate Vexflow glyph files.
