@@ -42,7 +42,7 @@ For example, Bravura has:
 -   [`src/fonts/bravura_metrics.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/bravura_metrics.ts)
 -   [`src/fonts/load_bravura.ts`](https://github.com/0xfe/vexflow/tree/master/src/fonts/load_bravura.ts).
 
-The **glyphs files** consist of coded drawing primitives (`moveTo`, `lineTo`, `bezierCurve`, etc.) for each glyph, indexed by glyph code (which is usually a SMuFL code.) This file is machine generated from a font, and its format is described at the end of this document. Here's an example:
+**Glyphs files** include drawing primitives (`moveTo`, `lineTo`, `bezierCurve`, etc.) for each glyph, indexed by glyph code (a SMuFL code.) This file is generated from a OTF font file by a [script](#Tools). Here's an example:
 
 ```javascript
     "bracketTop": {
@@ -117,16 +117,20 @@ export default Bravura;
 
 Rendering a glyph consistently across different fonts, canvases, and backends involves a number of moving parts. At a high level, here's what happens for the following call:
 
+
+
 ```javascript
-Glyph.renderGlyph(ctx, x, y, 40, 'noteheadBlack',
-  { fontStack: [...], category: 'stem' })
+Glyph.renderGlyph(ctx,
+                  x, y, 40,
+                  'noteheadBlack',
+                  { fontStack: [...], category: 'stem' })
 ```
 
-#### 1) Glyph Resolution
+### 1) Glyph Resolution
 
 The glyph code (`noteheadBlack`) is resolved by searching the font stack and returning the first available glyph (along with its font, metrics, etc.) This glyph consists of a raw (unprocessed) outline made up of lines and curves.
 
-#### 2) Load Font Metrics and Apply Transformations
+### 2) Load Font Metrics and Apply Transformations
 
 Before the final outline can be calculated, some basic transformations may need to be applied.
 
@@ -134,19 +138,19 @@ If a `category` option is provided to `renderGlyph` (e.g., `{ category: 'stem' }
 
 If no `category` is provided, then defaults are used (typically 0-positioned, and 1-scaled.)
 
-#### 3) Bounding Box and Rendering Metrics
+### 3) Bounding Box and Rendering Metrics
 
 The bounding box for the glyph is then calculated, from which the width and height are derived. An origin shift may also be calculated if requested.
 
-#### 4) Apply Styles on Rendering Backend
+### 4) Apply Styles on Rendering Backend
 
 Depending on the rendering backend (e.g., SVG, Canvas, PDF), styles such as color, stroke-widths, etc. may be applied to the canvas.
 
-#### 5) Draw!
+### 5) Draw
 
-The glyph is ready to be drawn -- depending on the outline and the transformations, a series of `moveTo`, `lineTo`, `bezierCurveTo`, or `quadraticCurveTo` calls may be sent to the backend. Once we're here, the glyph is rendered, and canvas styles are restored (if necessary) for whatever comes next.
+The glyph is ready to be drawn. Depending on the outline and the transformations, a series of `moveTo`, `lineTo`, `bezierCurveTo`, or `quadraticCurveTo` calls are sent to the backend. The glyph is rendered, and canvas styles are restored (if necessary) for whatever comes next.
 
-If you're interested in the gory details, the entire glyph rendering code is available in `src/glyph.ts`.
+If you're interested in the details, the entire glyph rendering code is available in [`src/glyph.ts`](https://github.com/0xfe/vexflow/blob/master/src/glyph.ts).
 
 ## Font Metrics Files
 
@@ -250,7 +254,7 @@ We have a bunch of tooling for glyph management in the [`tools/smufl`] (https://
 -   [`tools/smufl/config/glyphnames.json`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/glyphnames.json) - Mappings from SMuFL code-points to UTF code points. These are used to create the `src/font/font_glyphs.js` files for Vexflow.
 -   [`tools/smufl/config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js) - List of SMuFL codes used by VexFlow, along with a mapping into legacy vexflow codes.
 
-#### Tools
+### Tools
 
 -   `smufl_fontgen.js` - Tool to generate `src/fonts/fontname_glyphs.js` from OTF font files based on the above configuration. This tool can be used for any SMuFL-compliant OTF music font file.
 -   `gonville_fontgen.js` - Tool to generate `src/fonts/gonville_glyphs.ts` and `src/fonts/custom_glyphs.ts` from files in the `fonts/` directory.
