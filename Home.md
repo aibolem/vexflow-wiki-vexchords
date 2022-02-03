@@ -6,8 +6,8 @@
 -   [API Documentation](https://0xfe.github.io/vexflow/api/) generated from the source code. This is a work in progress.
 -   [Frequently Asked Questions](FAQ) from the VexFlow mailing list.
 -   Experiment with the VexFlow API: [VexFlow 4 Sandbox](https://jsfiddle.net/zjgfp217/) | [VexFlow 3.0.9 Sandbox](https://jsfiddle.net/sa7nor23/)
--   [VexFlow Forum Archive](https://groups.google.com/forum/?fromgroups#!forum/vexflow) - Feel free to join and ask questions on the forum.
--   VexFlow [Class and Dependency Graphs](https://github.com/0xfe/vexflow/wiki/VexFlow-Class-Diagrams).
+-   [VexFlow Forum](https://groups.google.com/forum/?fromgroups#!forum/vexflow) - Feel free to join and ask questions on the forum.
+-   VexFlow [Class and Dependency Graphs](VexFlow-Class-Diagrams).
 -   [Animating VexFlow with CSS](Animation-with-VexFlow-&-CSS)
 
 ## VexFlow Developer Instructions

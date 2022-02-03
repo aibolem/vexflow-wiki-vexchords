@@ -113,48 +113,52 @@ const Bravura = {
 export default Bravura;
 ```
 
-## Glyph Rendering
+# Glyph Rendering
 
-Rendering a glyph consistently across different fonts, canvases, and backends involves a number of moving parts. At a high level, here's what happens for the following call:
-
-
+Rendering a glyph consistently across different fonts, canvases, and backends involves a number of moving parts. Let's walk through what happens when the following line of code is run:
 
 ```javascript
-Glyph.renderGlyph(ctx,
-                  x, y, 40,
-                  'noteheadBlack',
-                  { fontStack: [...], category: 'stem' })
+Glyph.renderGlyph(ctx, 
+                  x, y, fontSize,
+                  glyphCode,
+                  { category: 'flag.tabStem' })
+
 ```
 
-### 1) Glyph Resolution
+## 1) Glyph Resolution
 
-The glyph code (`noteheadBlack`) is resolved by searching the font stack and returning the first available glyph (along with its font, metrics, etc.) This glyph consists of a raw (unprocessed) outline made up of lines and curves.
+The glyph code (e.g., `noteheadBlack`, `coda`) is resolved by searching the music font stack and returning the first available glyph (along with its font, metrics, etc.) This glyph consists of an unprocessed outline made up of lines and curves.
 
-### 2) Load Font Metrics and Apply Transformations
+## 2) Load Font Metrics and Apply Transformations
 
-Before the final outline can be calculated, some basic transformations may need to be applied.
+Before the final outline can be calculated, some transformations may need to be applied.
 
-If a `category` option is provided to `renderGlyph` (e.g., `{ category: 'stem' }` above), the following variables are loaded from the `glyphs.stem` section of the relevant metrics file (`bravura_metrics.js`): `scale`, `shiftX`, `shiftY`, and `point` from the `glyphs.stem`.
+If a `category` option is provided to `renderGlyph(...)` (e.g., `{ category: 'flag.tabStem' }` above), the following variables are loaded from the `glyphs.flag.tabStem` section of the font metrics file [`bravura_metrics.js`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_metrics.ts#L220-L222):
+
+-   `scale`
+-   `shiftX`
+-   `shiftY`
+-   `point`
 
 If no `category` is provided, then defaults are used (typically 0-positioned, and 1-scaled.)
 
-### 3) Bounding Box and Rendering Metrics
+## 3) Bounding Box and Rendering Metrics
 
 The bounding box for the glyph is then calculated, from which the width and height are derived. An origin shift may also be calculated if requested.
 
-### 4) Apply Styles on Rendering Backend
+## 4) Apply Styles on Rendering Backend
 
-Depending on the rendering backend (e.g., SVG, Canvas, PDF), styles such as color, stroke-widths, etc. may be applied to the canvas.
+Depending on the rendering backend (e.g., SVG, Canvas), styles such as color, stroke-widths, may be applied.
 
-### 5) Draw
+## 5) Draw
 
 The glyph is ready to be drawn. Depending on the outline and the transformations, a series of `moveTo`, `lineTo`, `bezierCurveTo`, or `quadraticCurveTo` calls are sent to the backend. The glyph is rendered, and canvas styles are restored (if necessary) for whatever comes next.
 
 If you're interested in the details, the entire glyph rendering code is available in [`src/glyph.ts`](https://github.com/0xfe/vexflow/blob/master/src/glyph.ts).
 
-## Font Metrics Files
+# Font Metrics Files
 
-The **metrics files** (e.g., [`src/font/bravura_metrics.ts`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_metrics.ts) consist of a single exported TypeScript configuration object. It has no pre-defined structure, but it does have some conventions. Here's a snippet from the `bravura_metrics.ts` file.
+The **metrics files** (e.g., [`src/font/bravura_metrics.ts`](https://github.com/0xfe/vexflow/blob/master/src/fonts/bravura_metrics.ts) consist of a single exported configuration object. It has no pre-defined structure, but it does have some conventions. Here's a snippet from the `bravura_metrics.ts` file.
 
 ```javascript
  clef: {
@@ -171,18 +175,23 @@ The **metrics files** (e.g., [`src/font/bravura_metrics.ts`](https://github.com/
   }
 ```
 
-### Looking up a metric
+## Looking up a metric
 
-You can lookup a metric from within any element with `this.lookupMetric(metricPath, optionalDefault)`. So to get the point-size for the small clef (see above), you can call:
+You can lookup a metric from within any element with:
+```
+Tables.currentMusicFont().lookupMetric(metricPath, optionalDefault);
+```
+
+So to get the point-size for the small clef in the `bravura_metrics.ts` excerpt above, you can call:
 
 ```javascript
-const clefPointSize = this.lookupMetric("clef.small.point", 40);
+const clefPointSize = Tables.currentMusicFont().lookupMetric('clef.small.point', 40);
 renderClef("treble", clefPointSize);
 ```
 
-Above, if metric is not found, the default (`40` in this case) is returned. If no default is provided, an exception is thrown.
+If metric is not found, the default (`40` in this case) is returned. If no default is provided, an exception is thrown.
 
-### Common sections
+## Common sections
 
 There can be some standardized metric sections used by common classes, e.g., `glyphs` used by the `category` option of the `Glyph` class.
 
@@ -359,13 +368,13 @@ $ node gonville_fontgen.js ../../src/fonts/
 The Vexflow tests automatically run all renders using multiple font stacks, so there's not much more to do than to write tests! :-)
 
 <img src="https://i.imgur.com/rfr4pth.png" width=600 />
+<br><br>
 
-## Resources
+# Resources
 
-Here are some handy external resources to help you dig through stuff:
+Here are some handy external resources:
 
--   [SMuFL Git Book](https://w3c.github.io/smufl/gitbook/tables/clefs.html) - Good place to browse glyphs and understand metadata.
+-   [SMuFL](https://www.smufl.org/version/latest/) – Browse the glyphs and understand metadata (e.g., [Clefs](https://www.smufl.org/version/latest/range/clefs/)).
 -   [OpenType Glyph Inspector](https://opentype.js.org/glyph-inspector.html) - Upload a font file and investigate glyphs.
--   [SMuFL](https://smufl.org) home page -- Learn all about SMuFL
--   [Bravura](https://github.com/steinbergmedia/bravura/tree/master/redist) Github Page -- Download Bravura font files.
--   [OpenType](opentype.js.org) home page -- The tools use the OpenType library to parse OTF fonts and generate Vexflow glyph files.
+-   [Bravura](https://github.com/steinbergmedia/bravura/tree/master/redist) – Download Bravura font files.
+-   [OpenType](opentype.js.org) – The tools use the OpenType library to parse OTF fonts and generate Vexflow glyph files.
