@@ -72,16 +72,12 @@ grunt watch
 
 We use [release-it](https://www.npmjs.com/package/release-it) to streamline the process of publishing to [npm](https://www.npmjs.com/package/vexflow?activeTab=versions) and [GitHub](https://github.com/0xfe/vexflow/releases).
 
-To automate the release to GitHub, you need a personal access token with **repo** rights.
+You need to provide a one time password (2FA) to publish to npm.
 
-Generate one here: https://github.com/settings/tokens/new?scopes=repo&description=release-it
-
-You will also need to provide a one time password (2FA) to publish to npm.
-
-To release a new version, run the following command on a single line:
+To release a new version, run the following command:
 
 ```
-GITHUB_TOKEN=__PERSONAL_ACCESS_TOKEN__   grunt release
+grunt release
 ```
 
 Answer the questions (or hit ENTER to accept the default):
@@ -134,6 +130,21 @@ You can run a pre-release multiple times, and it will increment the pre-release 
 ```
 4.1.0-alpha.1  =>  4.1.0-alpha.2
 ```
+
+## Release to GitHub Automatically
+
+By default, `grunt release` will open a browser to the GitHub release page where you can customize the text before submitting.
+
+To automate this step, you need a personal access token with **repo** rights.
+
+Generate one here: https://github.com/settings/tokens/new?scopes=repo&description=release-it
+
+Then, to release a new version, run the following command on a single line:
+
+```
+GITHUB_TOKEN=__PERSONAL_ACCESS_TOKEN__   grunt release
+```
+
 
 # Publish Manually to npm and GitHub
 

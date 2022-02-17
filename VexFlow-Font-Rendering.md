@@ -243,7 +243,7 @@ The glyph structure consists of the following fields:
 
 The full width of the glyph must be `x_max - x_min`.
 
-#### Drawing commands in `o` are:
+### Drawing commands in `o` are:
 
 -   `m` - MoveTo(x,y)
 -   `l` - LineTo(x,y)
@@ -258,7 +258,7 @@ To see the rendering code, see `Vex.Flow.Glyph.renderOutline()` in `src/glyph.js
 
 We have a bunch of tooling for glyph management in the [`tools/smufl`] (https://github.com/0xfe/vexflow/blob/master/tools/smufl) directory. The tools depend on the configuration files in `config/` to pick SMuFL codepoints and associate them with UTF codes or legacy Vexflow font codes (e.g., `vf1`, `vb6`, etc.)
 
-#### Configuration files
+### Configuration files
 
 -   [`tools/smufl/config/glyphnames.json`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/glyphnames.json) - Mappings from SMuFL code-points to UTF code points. These are used to create the `src/font/font_glyphs.js` files for Vexflow.
 -   [`tools/smufl/config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js) - List of SMuFL codes used by VexFlow, along with a mapping into legacy vexflow codes.
@@ -268,7 +268,7 @@ We have a bunch of tooling for glyph management in the [`tools/smufl`] (https://
 -   `smufl_fontgen.js` - Tool to generate `src/fonts/fontname_glyphs.js` from OTF font files based on the above configuration. This tool can be used for any SMuFL-compliant OTF music font file.
 -   `gonville_fontgen.js` - Tool to generate `src/fonts/gonville_glyphs.ts` and `src/fonts/custom_glyphs.ts` from files in the `fonts/` directory.
 
-#### Adding a New Font
+### Add a New Font
 
 For this example, the new font is named "Awesome" instead of Bravura / Petaluma / Gonville.
 
@@ -330,7 +330,7 @@ export async function loadAwesome(fontDataMetrics: FontDataMetrics) {
 "@awesome": ["fonts/loadDynamic"]
 ```
 
-#### Adding a new Bravura Glyph
+### Adding a new Bravura Glyph
 
 1. Add the SMuFL glyph code to [`config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js). You can find SMuFL glyph codes from the glyph browser at https://smufl.org. If there is no standard code for your glyph, see next section on creating custom glyphs.
 2. If there's a Gonville glyph available, then set the value of the code in `valid_codes.js` to the Gonville glyph code. If not, simply set it to `null`.
@@ -350,7 +350,7 @@ $ node gonville_fontgen.js ../../src/fonts/
 5. Edit your element source file (e.g., `src/accidental.ts` if this is a new accidental) and add the code.
 6. Perform any scaling or repositioning by adding configuration to the relevant metrics file (`src/fonts/bravura_metrics.ts`.)
 
-#### Creating a custom glyph
+### Create a custom glyph
 
 1. Create a unique custom code (prefixed with `vex`), e.g., `vexMyNewAccidentalGlyph`, and add it to [`config/valid_codes.js`](https://github.com/0xfe/vexflow/blob/master/tools/smufl/config/valid_codes.js). You can set the value type to `null`.
 2. Add the glyph outline to `tools/smufl/fonts/custom_glyph.js`. See the _Glyph File Format_ section below on how to do that.
