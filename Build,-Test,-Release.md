@@ -72,15 +72,13 @@ grunt watch
 
 We use [release-it](https://www.npmjs.com/package/release-it) to streamline the process of publishing to [npm](https://www.npmjs.com/package/vexflow?activeTab=versions) and [GitHub](https://github.com/0xfe/vexflow/releases).
 
-You need to provide a one time password (2FA) to publish to npm.
-
 To release a new version, run the following command:
 
 ```
 grunt release
 ```
 
-Answer the questions (or hit ENTER to accept the default):
+Answer each question (or hit ENTER to accept the default). You will need to provide a one time password (2FA) to publish to npm.
 
 ```
 🚀 Let's release vexflow (currently at 4.0.0)
