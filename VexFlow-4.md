@@ -23,15 +23,33 @@ Common JS projects include web sites that use regular `<script src="...">` tags,
 
 ES module projects include web sites that use `<script type="module" src="...">` tags, and Node JS projects that use the `import` keyword or `import()` function.
 
+
+***
+
+
 # Quick Start
 
-`npm install vexflow`
+To include a score into a static web page, add a script tag pointing to the `vexflow.js` into your HTML source. You can use a CDN that serves NPM packages, such as jsdelivr or unpkg:
 
-... TODO ...
+```
+<script src="https://cdn.jsdelivr.net/npm/vexflow@4.0.1-beta.2/build/cjs/vexflow.js"></script>
+```
+
+If you use NPM to install packages into your project, you can include vexflow as follows:
+
+```
+npm install vexflow
+```
+
+In your JS file:
+
+```
+import { Vex } from "vexflow"; // Adds about 800 KiB to your project.
+```
 
 # The Fun Details!
 
-Clone the repository and build with `grunt`:
+If you'd like to explore the source code, you can clone the repository and build with `grunt`:
 
 ```
 git clone git@github.com:0xfe/vexflow.git .
