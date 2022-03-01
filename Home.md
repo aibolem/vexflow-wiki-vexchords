@@ -11,10 +11,10 @@
 -   [Animating VexFlow with CSS](Animation-with-VexFlow-&-CSS)
 
 ## VexFlow Developer Instructions
-
 -   [[Build, Test, and Release Instructions|Build, Test, Release]]
 -   [[Font Rendering|VexFlow-Font-Rendering]] - How to add new glyphs and fonts to VexFlow.
 -   [Visual Regression Tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests) - How to run the visual regression tests.
+-   [[Overview of VexFlow 4|VexFlow4]]
 
 ## Contribute
 
