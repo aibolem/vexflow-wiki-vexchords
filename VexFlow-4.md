@@ -1,10 +1,13 @@
-VexFlow 4 comprises over 1600 commits from April 2020 to February 2022!
+VexFlow 4 comprises [over 1600 commits from April 2020 to February 2022](https://github.com/0xfe/vexflow/compare/00ec15c67ff333ea49f4d3defbd9e22374c03684...4403e315277a73c072d74677abdae6fd398164f4)!
 
-[Apr 21 2020 / Commit 00ec15c67ff333ea49f4d3defbd9e22374c03684](https://github.com/0xfe/vexflow/commit/00ec15c67ff333ea49f4d3defbd9e22374c03684)
 
-... 1611 commits ...
+> [Apr 21 2020 / Commit 00ec15c67ff333ea49f4d3defbd9e22374c03684](https://github.com/0xfe/vexflow/commit/00ec15c67ff333ea49f4d3defbd9e22374c03684)
+>
+> ... 1611 commits ...
+>
+> [Feb 28, 2022 / Commit 4403e315277a73c072d74677abdae6fd398164f4](https://github.com/0xfe/vexflow/commit/4403e315277a73c072d74677abdae6fd398164f4)
 
-[Feb 28, 2022 / Commit 4403e315277a73c072d74677abdae6fd398164f4](https://github.com/0xfe/vexflow/commit/4403e315277a73c072d74677abdae6fd398164f4)
+See the [list of commits below](#full-list-of-commits).
 
 # Main Features
 
