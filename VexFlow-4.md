@@ -13,7 +13,7 @@ See the [list of commits below](#full-list-of-commits).
 
 ## TypeScript
 
-VexFlow 4 was converted to TypeScript, in an effort led by [Rodrigo Vilar](https://github.com/rvilarl) and [Ron Yeh](https://github.com/ronyeh). You can integrate the VexFlow source directly into your TypeScript projects, or you can import VexFlow through `npm install vexflow`.
+VexFlow 4 is written in TypeScript. The effort to rewrite VexFlow in TypeScript was led by [Rodrigo Vilar](https://github.com/rvilarl) and [Ron Yeh](https://github.com/ronyeh). You can integrate the source directly into your TypeScript projects, or you can import VexFlow through `npm install vexflow`.
 
 ## Common JS + ES Modules
 
