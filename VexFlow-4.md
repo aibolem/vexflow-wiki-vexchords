@@ -118,7 +118,7 @@ vexflow-font-petaluma.js
 Ordered from newest to oldest:
 
 
-[4403e315277a73c072d74677abdae6fd398164f4](https://github.com/0xfe/vexflow/commit/4403e315277a73c072d74677abdae6fd398164f4) Merge pull request #1334 from ronyeh/release-script
+[4403e315277a73c072d74677abdae6fd398164f4](https://github.com/0xfe/vexflow/commit/4403e315277a73c072d74677abdae6fd398164f4) `Merge pull request #1334 from ronyeh/release-script`
 
 [2c398e0e16f41c558885a03c53590f514edfd433](https://github.com/0xfe/vexflow/commit/2c398e0e16f41c558885a03c53590f514edfd433) Do not exit the program when calling TypeScript.compile(...). Instead, return true if the compilation was successful. Only expose the compile(...) function.
 
@@ -3342,5 +3342,5 @@ Ordered from newest to oldest:
 
 [f4753d368df84627464bfa32c5af83c1bce0b175](https://github.com/0xfe/vexflow/commit/f4753d368df84627464bfa32c5af83c1bce0b175) Minor cleanup.
 
-[00ec15c67ff333ea49f4d3defbd9e22374c03684](https://github.com/0xfe/vexflow/commit/00ec15c67ff333ea49f4d3defbd9e22374c03684) Committing release binaries for new version: 3.0.9[
-](https://github.com/0xfe/vexflow/commit/)(https
+[00ec15c67ff333ea49f4d3defbd9e22374c03684](https://github.com/0xfe/vexflow/commit/00ec15c67ff333ea49f4d3defbd9e22374c03684) Committing release binaries for new version: 3.0.9
+
