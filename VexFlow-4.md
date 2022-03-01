@@ -1,5 +1,3 @@
-# VexFlow 4
-
 VexFlow 4 comprises over 1600 commits from April 2020 to February 2022!
 
 [Apr 21 2020](https://github.com/0xfe/vexflow/commit/00ec15c67ff333ea49f4d3defbd9e22374c03684)
