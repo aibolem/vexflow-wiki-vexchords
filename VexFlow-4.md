@@ -115,8 +115,10 @@ vexflow-font-petaluma.js
 
 # Full List of Commits
 
-Ordered from newest to oldest:
 
+<details>
+<summary>See all commits between VexFlow 3.0.9 and VexFlow 4.0.1 (ordered from newest to oldest)</summary>
+<br>
 
 [4403e315277a73c072d74677abdae6fd398164f4](https://github.com/0xfe/vexflow/commit/4403e315277a73c072d74677abdae6fd398164f4) `Merge pull request #1334 from ronyeh/release-script`
 
@@ -3344,3 +3346,4 @@ Ordered from newest to oldest:
 
 [00ec15c67ff333ea49f4d3defbd9e22374c03684](https://github.com/0xfe/vexflow/commit/00ec15c67ff333ea49f4d3defbd9e22374c03684) Committing release binaries for new version: 3.0.9
 
+</details>
