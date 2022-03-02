@@ -24,4 +24,4 @@
 -   Take a look at the [Development Gotchas](https://github.com/0xfe/vexflow/wiki/Development-Gotchas) if some aspects of VexFlow's internals seem confusing.
 -   [[Test Your Code | Testing]]. Please include tests. Changes that don't have accompanying tests will not be merged.
 -   Don't forget to run the [Visual Regression Tests](https://github.com/0xfe/vexflow/wiki/Visual-Regression-Tests) -- it is simpler, faster, and more likely to catch issues than eyeballing the output of the QUnit tests.
--   If you add a new feature, update this Wiki with documentation and examples.
+-   If you add a new feature, update this wiki with documentation and examples. Thanks!
