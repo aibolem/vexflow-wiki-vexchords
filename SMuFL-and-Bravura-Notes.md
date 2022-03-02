@@ -14,13 +14,13 @@
 
 ```
 "noteWhole": {
-        "alternateCodepoint": "U+1D15D", 
-        "codepoint": "U+E1D2", 
-        "description": "Whole note (semibreve)"
-    }, 
-    "noteheadBlack": {
-        "alternateCodepoint": "U+1D158", 
-        "codepoint": "U+E0A4", 
-        "description": "Black notehead"
-    }, 
+    "alternateCodepoint": "U+1D15D", 
+    "codepoint": "U+E1D2", 
+    "description": "Whole note (semibreve)"
+}, 
+"noteheadBlack": {
+    "alternateCodepoint": "U+1D158", 
+    "codepoint": "U+E0A4", 
+    "description": "Black notehead"
+}, 
 ```
