@@ -345,6 +345,12 @@ Now we need to generate the `awesome_glyphs.ts` and `awesome_metrics.ts` files. 
 
 3. Let's take a look at the glyphs file first. Open `bravura_glyphs.ts` to see what it should look like. It's a big file containing all the glyph outlines for each SMuFL code. To generate this file, we use the `fontgen_smufl.js` tool.
 
+```
+node fontgen_smufl.js AwesomeFont.otf ../../src/fonts/awesome_glyphs.ts
+```
+
+4. The easiest way to generate `awesome_metrics.ts` is to duplicate the `bravura_metrics.ts` file and then customize it to adjust the scale and position of your glyphs.
+
 # More Info
 
 Here are some handy external resources:
