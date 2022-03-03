@@ -26,10 +26,36 @@ You can use any CDN that serves NPM packages. Our favorites are jsdelivr and unp
 - Minified: https://unpkg.com/vexflow/build/cjs/vexflow.js
 - Debug: https://unpkg.com/vexflow/build/cjs/vexflow-debug.js
 
+Notice that the above URLs contain `/cjs/` in the path. These VexFlow builds are used with Common JS projects (e.g., HTML pages with regular `<script>` tags, or Node.js scripts that use `const Vex = require('vexflow');`).
 
-## Common JS vs ES Module
+## ES Module
 
-...
+If your project uses ES Modules, you will need to import an entry file under `build/esm/`. Remember that ESM projects use `<script type="module" ...>` or specify `"type": "module"` in their package.json.
+
+One easy way to test the ESM build is via Skypack:
+
+```
+<script type="module">
+    import { Vex } from "https://cdn.skypack.dev/vexflow@beta/build/esm/entry/vexflow.js";
+
+    Vex.Flow.setMusicFont("Bravura");
+
+    const factory = new Vex.Flow.Factory({
+        renderer: { elementId: "outputBravura", width: 500, height: 130 },
+    });
+    const score = factory.EasyScore();
+    factory
+        .System()
+        .addStave({
+            voices: [score.voice(score.notes("C#5/q, B4, A4, G#4", { stem: "up" })), score.voice(score.notes("C#4/h, C#4", { stem: "down" }))],
+        })
+        .addClef("treble")
+        .addTimeSignature("4/4");
+    factory.draw();
+</script>
+```
+
+
 
 # Node.js
 
