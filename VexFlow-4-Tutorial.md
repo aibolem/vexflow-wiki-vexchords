@@ -64,3 +64,32 @@ The output will look something like:
 }
 ```
 
+The VexFlow 4 library adds about 800 KiB to your app bundle. If you don't need all three music engraving fonts, you can import a different entry file that includes a single music font:
+
+```
+// Choose one of the import paths below to create a smaller bundle.
+// Each path maps to a different entry file in the vexflow npm package.
+import { Vex, Flow, Factory, Stave, EasyScore } from "vexflow/bravura";
+import { Vex, Flow, Factory, Stave, EasyScore } from "vexflow/gonville";
+import { Vex, Flow, Factory, Stave, EasyScore } from "vexflow/petaluma";
+```
+
+For example, the `vexflow/gonville` entry point adds about 450 KiB to your app bundle.
+
+To get this to work in the current TypeScript (version 4.6 as of February 2022), you'll need to edit your tsconfig.json file to define what "vexflow/bravura" will resolve to.
+
+```json
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            // Choose one of the options below to customize the font that will be statically compiled into your entry bundle.
+            "vexflow/bravura":  ["node_modules/vexflow/entry/vexflow-bravura.ts"],  // 486 KiB
+            "vexflow/gonville": ["node_modules/vexflow/entry/vexflow-gonville.ts"], // 439 KiB
+            "vexflow/petaluma": ["node_modules/vexflow/entry/vexflow-petaluma.ts"]  // 460 KiB
+        },
+    ...
+}
+```
+
+A future version of TypeScript will not require you to edit your tsconfig.json. Instead, TypeScript will understand the `exports` field in [VexFlow's package.json](https://github.com/0xfe/vexflow/blob/master/package.json#L5-L25), and importing `"vexflow/petaluma"` will automatically include only the Petaluma music font.
