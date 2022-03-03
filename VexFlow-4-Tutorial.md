@@ -78,7 +78,7 @@ For example, the `vexflow/gonville` entry point adds about 450 KiB to your app b
 
 To get this to work in the current TypeScript (version 4.6 as of February 2022), you'll need to edit your tsconfig.json file to define what "vexflow/bravura" will resolve to.
 
-```json
+```typescript
 {
     "compilerOptions": {
         "baseUrl": "./",
