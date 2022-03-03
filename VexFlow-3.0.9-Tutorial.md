@@ -1,6 +1,6 @@
 This page includes details for integrating with VexFlow 3.0.9, which was published in April 2020.
 
-# <script> tag
+# script tag
 
 Add the following <script> tag to your HTML page:
 
