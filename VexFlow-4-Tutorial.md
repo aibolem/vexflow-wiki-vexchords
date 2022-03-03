@@ -43,3 +43,24 @@ If your TypeScript project uses a bundler such as webpack or esbuild, you will n
 npm install vexflow
 ```
 
+In your `app.ts`, you can import the classes you need. 
+
+```
+import { Vex, Flow, Factory, Stave, EasyScore } from "vexflow";
+```
+
+If you need a quick way to check that VexFlow is imported correctly, you can print out the build information.
+
+```
+// A simple way to check that VexFlow is included properly:
+console.log(Vex.Flow.BUILD);
+
+/*
+{
+    "VERSION": "4.0.1",
+    "ID": "efbdff60979ea561ff45bc4ab0b0a9dc12fde868",
+    "DATE": "2022-02-28T01:06:16.478Z"
+}
+*/
+```
+
