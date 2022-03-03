@@ -55,6 +55,7 @@ One easy way to test the ESM build is via Skypack:
 </script>
 ```
 
+<img width="239" alt="VexFlow Score" src="https://user-images.githubusercontent.com/239113/156512601-3204c501-e15e-4147-95ee-2376143703ec.png">
 
 
 # Node.js
