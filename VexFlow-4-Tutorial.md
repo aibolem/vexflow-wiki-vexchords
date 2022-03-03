@@ -183,7 +183,7 @@ import { Vex, Flow, Factory, Stave, EasyScore } from "vexflow/petaluma";
 
 For example, the `vexflow/gonville` entry point adds about 450 KiB to your app bundle.
 
-To get this to work in the current TypeScript (version 4.6 as of February 2022), you'll need to edit your tsconfig.json file to define what "vexflow/bravura" will resolve to.
+To get this to work in the current TypeScript (version 4.6 as of February 2022), you'll need to edit your tsconfig.json file to specify the entry file that "vexflow/bravura" resolves to. Do this with [`compilerOptions.paths`](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping).
 
 ```typescript
 {
@@ -199,4 +199,8 @@ To get this to work in the current TypeScript (version 4.6 as of February 2022),
 }
 ```
 
-A future version of TypeScript will not require you to edit your tsconfig.json. Instead, TypeScript will understand the `exports` field in [VexFlow's package.json](https://github.com/0xfe/vexflow/blob/master/package.json#L5-L25), and importing `"vexflow/petaluma"` will automatically include only the Petaluma music font.
+A future version of TypeScript will not require you to edit your `tsconfig.json` paths. Instead, TypeScript will understand the `exports` field in [VexFlow's package.json](https://github.com/0xfe/vexflow/blob/master/package.json#L5-L25), and importing `"vexflow/petaluma"` will automatically include only the Petaluma music font.
+
+This feature *might* appear in TypeScript 4.7:
+* https://github.com/microsoft/TypeScript/issues/33079#issuecomment-992768515
+* https://github.com/microsoft/TypeScript/issues/33079#issuecomment-986107078
