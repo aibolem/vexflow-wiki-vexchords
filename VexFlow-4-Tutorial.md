@@ -12,6 +12,21 @@ First, we add a <script> tag to include the VexFlow library.
 
 ...
 
+## CDN
+
+You can use any CDN that serves NPM packages. Our favorites are jsdelivr and unpkg. Choose the one that works best for you!
+
+**jsdelivr**
+
+- Minified: https://cdn.jsdelivr.net/npm/vexflow/build/cjs/vexflow.js
+- Debug: https://cdn.jsdelivr.net/npm/vexflow/build/cjs/vexflow-debug.js
+
+**unpkg**
+
+- Minified: https://unpkg.com/vexflow/build/cjs/vexflow.js
+- Debug: https://unpkg.com/vexflow/build/cjs/vexflow-debug.js
+
+
 ## Common JS vs ES Module
 
 ...
