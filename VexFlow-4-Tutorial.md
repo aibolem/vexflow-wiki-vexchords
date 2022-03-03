@@ -39,8 +39,6 @@ You'll need to make sure you have a target `<div>` to contain the score. In the 
 <div id="output"></div>
 ```
 
-## CDN
-
 You can use any CDN that serves NPM packages. Our favorites are jsdelivr and unpkg. Choose the one that works best for you!
 
 **jsdelivr**
