@@ -6,11 +6,38 @@ The quickest way is to add <script> tags into a static HTML page.
 
 First, we add a <script> tag to include the VexFlow library.
 
-```
+```html
 <script src="https://cdn.jsdelivr.net/npm/vexflow/build/cjs/vexflow.js"></script>
 ```
 
-...
+Below that, add a second `<script>` tag that renders a score:
+
+```html
+<script>
+console.log("VexFlow Build:", Vex.Flow.BUILD);
+
+const { Factory } = Vex.Flow;
+
+const factory = new Factory({
+    renderer: { elementId: "output", width: 500, height: 200 },
+});
+const score = factory.EasyScore();
+factory
+    .System()
+    .addStave({
+        voices: [score.voice(score.notes("C#5/q, B4, A4, G#4", { stem: "up" })), score.voice(score.notes("C#4/h, C#4", { stem: "down" }))],
+    })
+    .addClef("treble")
+    .addTimeSignature("4/4");
+factory.draw();
+</script>
+```
+
+You'll need to make sure you have a target `<div>` to contain the score. In the example above, we told VexFlow to look for a `<div>` with `id="output"`, so your HTML page needs to include:
+
+```html
+<div id="output"></div>
+```
 
 ## CDN
 
@@ -34,7 +61,7 @@ If your project uses ES Modules, you will need to import an entry file under `bu
 
 One easy way to test the ESM build is via Skypack:
 
-```
+```html
 <script type="module">
     import { Vex } from "https://cdn.skypack.dev/vexflow@beta/build/esm/entry/vexflow.js";
 
