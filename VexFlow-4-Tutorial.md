@@ -1,6 +1,6 @@
 Below, we demonstrate different ways to display a VexFlow score in your project.
 
-# 1 - <script> tag
+# script tag
 
 The quickest way is to add <script> tags into a static HTML page.
 
@@ -31,10 +31,15 @@ You can use any CDN that serves NPM packages. Our favorites are jsdelivr and unp
 
 ...
 
-# 2 - Node.js
+# Node.js
 
 ...
 
-# 3 - TypeScript
+# TypeScript
 
-...
+If your TypeScript project uses a bundler such as webpack or esbuild, you will need to make sure that VexFlow can be imported. The easiest way is to use npm:
+
+```
+npm install vexflow
+```
+
