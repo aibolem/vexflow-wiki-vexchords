@@ -33,13 +33,13 @@ You can use any CDN that serves NPM packages. Our favorites are jsdelivr and unp
 
 # Node.js
 
-For Node.js projects, use npm:
+You can import VexFlow in your Node.js script. First, install the library:
 
 ```sh
 npm install vexflow
 ```
 
-Then you can import vexflow in your node script. For example, the following program saves a PDF score:
+The following program saves a PDF score:
 
 ```javascript
 import { Vex, Stave, StaveNote, Formatter } from "vexflow";
