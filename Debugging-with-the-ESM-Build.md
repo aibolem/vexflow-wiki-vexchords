@@ -9,4 +9,4 @@ Short Summary
 1. Refresh your webpage and see the results.
 
 
-
+*Note!* Your browser might serve up a cached version of the VexFlow library and test page when you refresh. If this happens, you can open the developer tools and disable caching while the dev tools are open.
