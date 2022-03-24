@@ -1,6 +1,6 @@
-# 4.0.0
+# 4.0.1
 
-4.0.0 is the first major release of VexFlow since version 3.0.9 in April 2020.
+4.0.1 is the first major release of VexFlow since version 3.0.9 in April 2020.
 
 This document details the major changes, and includes links to PRs or issues where appropriate.
 
@@ -14,27 +14,9 @@ VexFlow has been converted to TypeScript! The project compiles to ES6.
 
 VexFlow now provides an ESM build, in addition to the traditional CommonJS library that works with `require()`.
 
-## Breaking Changes
+## Other Features
 
-### Gruntfile and package.json scripts
-Many of the package.json scripts have been moved into Gruntfile.js. See the top of Gruntfile.js for a list of the different commands you can invoke while building & testing VexFlow. If you previously used commands like `npm run xxxx`, you can look for the equivalent command in the Gruntfile.js (in most cases, `npm run xxxx` changed to `grunt xxxx`).
-
-### More
-[Add Detail Here]
-
-### More
-[Add Detail Here]
-
-
----
----
----
-
-**TODO** Merge the below text into the above.
-
-## Features
-
-- Improve handling of music fonts and text fonts.
+- Improved handling of music fonts and text fonts.
 - Optional lazy loading of music fonts.
 - `setFont(...)` method can be called in these ways:
   - `setFont(family, size, weight, style)`
@@ -43,7 +25,13 @@ Many of the package.json scripts have been moved into Gruntfile.js. See the top 
   - `setFont(fontInfoObject)`
     - e.g., `setFont({ family: 'Times', size: 12 })`
 
-## Breaking
+
+## Breaking Changes
+
+### Gruntfile and package.json scripts
+Many of the package.json scripts have been moved into Gruntfile.js. See the top of Gruntfile.js for a list of the different commands you can invoke while building & testing VexFlow. If you previously used commands like `npm run xxxx`, you can look for the equivalent command in the Gruntfile.js (in most cases, `npm run xxxx` changed to `grunt xxxx`).
+
+## Other Breaking Changes
 
 - The tsconfig.json `compilerOptions.target` has been updated to ES6 / ES2015. If you are targeting an older environment, you will need to build directly from source code (and change the target back to ES5).
 - `Stave.setNumLines(n: number)` requires a number. Previously, a string would also work. See: [stave.ts](https://github.com/0xfe/vexflow/blob/master/src/stave.ts) and [#1083](https://github.com/0xfe/vexflow/issues/1083).
