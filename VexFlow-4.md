@@ -121,7 +121,7 @@ VexFlow 4 was brought to you by:
 
 # List of Commits
 
-* Latest Commit [March 24, 2022 / Commit cb8a4ffe04863c63b2b7711c6f7d1872a619bc70](https://github.com/0xfe/vexflow/commit/cb8a4ffe04863c63b2b7711c6f7d1872a619bc70)
+4.0.1 [March 24, 2022 / Commit cb8a4ffe04863c63b2b7711c6f7d1872a619bc70](https://github.com/0xfe/vexflow/commit/cb8a4ffe04863c63b2b7711c6f7d1872a619bc70)
 
 <details>
 <summary>See all commits between VexFlow 3.0.9 and VexFlow 4.0.1 (ordered from newest to oldest)</summary>
@@ -3355,4 +3355,4 @@ VexFlow 4 was brought to you by:
 
 </details>
 
-* First Commit [Apr 21 2020 / Commit 00ec15c67ff333ea49f4d3defbd9e22374c03684](https://github.com/0xfe/vexflow/commit/00ec15c67ff333ea49f4d3defbd9e22374c03684)
+3.0.9 [Apr 21 2020 / Commit 00ec15c67ff333ea49f4d3defbd9e22374c03684](https://github.com/0xfe/vexflow/commit/00ec15c67ff333ea49f4d3defbd9e22374c03684)
