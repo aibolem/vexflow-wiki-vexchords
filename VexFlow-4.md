@@ -1,21 +1,3 @@
-VexFlow 4 was released on March 24, 2022.
-
-It was the first major release since version 3.0.9, and included [over 1600 commits from April 2020 to March 2022](https://github.com/0xfe/vexflow/compare/00ec15c67ff333ea49f4d3defbd9e22374c03684...4403e315277a73c072d74677abdae6fd398164f4)!
-
-VexFlow 4 was brought to you by:
-- Rodrigo Vilar, Ron B. Yeh, Aaron David Newman, Mohit Muthanna Cheppudira
-- @h-sug1no, Tom Madams, @wassertim, Michael Scott Cuthbert, Gregory Ristow
-- @sschmidTU, @cmloegcmluin, @sschmid, @cmigliorini, @Andrew13648, @aleen42, @RyoSusami, @jeroenlammerts, @eliot-akira, @deemaagog 
-
-
-> [Apr 21 2020 / Commit 00ec15c67ff333ea49f4d3defbd9e22374c03684](https://github.com/0xfe/vexflow/commit/00ec15c67ff333ea49f4d3defbd9e22374c03684)
->
-> ... 1611 commits ...
->
-> [Feb 28, 2022 / Commit 4403e315277a73c072d74677abdae6fd398164f4](https://github.com/0xfe/vexflow/commit/4403e315277a73c072d74677abdae6fd398164f4)
-
-See the [list of commits below](#full-list-of-commits).
-
 # Main Features
 
 ## TypeScript
@@ -119,6 +101,25 @@ vexflow-font-custom.js
 vexflow-font-gonville.js
 vexflow-font-petaluma.js
 ```
+
+# Release Notes
+
+VexFlow 4 was released on March 24, 2022.
+
+It was the first major release since version 3.0.9, and included [over 1600 commits from April 2020 to March 2022](https://github.com/0xfe/vexflow/compare/00ec15c67ff333ea49f4d3defbd9e22374c03684...4403e315277a73c072d74677abdae6fd398164f4)!
+
+VexFlow 4 was brought to you by:
+- Rodrigo Vilar, Ron B. Yeh, Aaron David Newman, Mohit Muthanna Cheppudira
+- @h-sug1no, Tom Madams, @wassertim, Michael Scott Cuthbert, Gregory Ristow
+- @sschmidTU, @cmloegcmluin, @sschmid, @cmigliorini, @Andrew13648, @aleen42, @RyoSusami, @jeroenlammerts, @eliot-akira, @deemaagog 
+
+
+> [Apr 21 2020 / Commit 00ec15c67ff333ea49f4d3defbd9e22374c03684](https://github.com/0xfe/vexflow/commit/00ec15c67ff333ea49f4d3defbd9e22374c03684)
+>
+> ... 1611 commits ...
+>
+> [March 24, 2022 / Commit cb8a4ffe04863c63b2b7711c6f7d1872a619bc70](https://github.com/0xfe/vexflow/commit/cb8a4ffe04863c63b2b7711c6f7d1872a619bc70)
+
 
 # Full List of Commits
 
