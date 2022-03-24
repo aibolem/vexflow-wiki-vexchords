@@ -111,11 +111,8 @@ It was the first major release since version 3.0.9, and included [over 1600 comm
 VexFlow 4 was brought to you by:
 
 > Rodrigo Vilar, Ron B. Yeh, Aaron David Newman, Mohit Muthanna Cheppudira
-
 > @h-sug1no, Tom Madams, @wassertim, Michael Scott Cuthbert, Gregory Ristow
-
 > @sschmidTU, @cmloegcmluin, @sschmid, @cmigliorini, @Andrew13648
-
 > @aleen42, @RyoSusami, @jeroenlammerts, @eliot-akira, @deemaagog 
 
 
