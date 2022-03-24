@@ -110,24 +110,18 @@ It was the first major release since version 3.0.9, and included [over 1600 comm
 
 VexFlow 4 was brought to you by:
 
-Rodrigo Vilar, Ron B. Yeh, Aaron David Newman, Mohit Muthanna Cheppudira
+> Rodrigo Vilar, Ron B. Yeh, Aaron David Newman, Mohit Muthanna Cheppudira
 
-@h-sug1no, Tom Madams, @wassertim, Michael Scott Cuthbert, Gregory Ristow
+> @h-sug1no, Tom Madams, @wassertim, Michael Scott Cuthbert, Gregory Ristow
 
-@sschmidTU, @cmloegcmluin, @sschmid, @cmigliorini, @Andrew13648
+> @sschmidTU, @cmloegcmluin, @sschmid, @cmigliorini, @Andrew13648
 
-@aleen42, @RyoSusami, @jeroenlammerts, @eliot-akira, @deemaagog 
-
-
-> [Apr 21 2020 / Commit 00ec15c67ff333ea49f4d3defbd9e22374c03684](https://github.com/0xfe/vexflow/commit/00ec15c67ff333ea49f4d3defbd9e22374c03684)
->
-> ... 1611 commits ...
->
-> [March 24, 2022 / Commit cb8a4ffe04863c63b2b7711c6f7d1872a619bc70](https://github.com/0xfe/vexflow/commit/cb8a4ffe04863c63b2b7711c6f7d1872a619bc70)
+> @aleen42, @RyoSusami, @jeroenlammerts, @eliot-akira, @deemaagog 
 
 
-# Full List of Commits
+# List of Commits
 
+* Latest Commit [March 24, 2022 / Commit cb8a4ffe04863c63b2b7711c6f7d1872a619bc70](https://github.com/0xfe/vexflow/commit/cb8a4ffe04863c63b2b7711c6f7d1872a619bc70)
 
 <details>
 <summary>See all commits between VexFlow 3.0.9 and VexFlow 4.0.1 (ordered from newest to oldest)</summary>
@@ -3360,3 +3354,5 @@ Rodrigo Vilar, Ron B. Yeh, Aaron David Newman, Mohit Muthanna Cheppudira
 [00ec15c67ff333ea49f4d3defbd9e22374c03684](https://github.com/0xfe/vexflow/commit/00ec15c67ff333ea49f4d3defbd9e22374c03684) `Committing release binaries for new version: 3.0.9`
 
 </details>
+
+* First Commit [Apr 21 2020 / Commit 00ec15c67ff333ea49f4d3defbd9e22374c03684](https://github.com/0xfe/vexflow/commit/00ec15c67ff333ea49f4d3defbd9e22374c03684)
