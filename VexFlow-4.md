@@ -106,7 +106,7 @@ vexflow-font-petaluma.js
 
 VexFlow 4 was released on March 24, 2022.
 
-It was the first major release since version 3.0.9, and included [over 1600 commits from April 2020 to March 2022](https://github.com/0xfe/vexflow/compare/00ec15c67ff333ea49f4d3defbd9e22374c03684...4403e315277a73c072d74677abdae6fd398164f4)!
+It was the first major release since version 3.0.9, and included [over 1600 commits from April 2020 to March 2022](https://github.com/0xfe/vexflow/compare/00ec15c67ff333ea49f4d3defbd9e22374c03684...cb8a4ffe04863c63b2b7711c6f7d1872a619bc70)!
 
 VexFlow 4 was brought to you by:
 
