@@ -15,7 +15,7 @@ Common JS projects include web sites that use regular `<script src="...">` tags,
 ES module projects include web sites that use `<script type="module" src="...">` tags, and Node JS projects that use the `import` keyword or `import()` function.
 
 ## More Features
-* Automatic layout of notes was improved, thanks to @AaronDavidNewman and others.
+* Automatic layout of notes was improved, thanks to @aarondavidnewman and others.
 * Handling of music and text fonts was improved by @ronyeh and @rvilarl.
 * The process for building and testing VexFlow was improved by @h-sug1no and @ronyeh.
 * Performance & rendering improvements by @tommadams.
@@ -134,6 +134,6 @@ git log --pretty=tformat:"%H    %an    %s"  00ec15c67ff333ea49f4d3defbd9e22374c0
 git rev-list --ancestry-path 00ec15c67ff333ea49f4d3defbd9e22374c03684..46af63bb5eb52c66d3a30d978b3a08d04eecf5c6
 ```
 
-To review the details of a specific commit on GitHub, prepend `https://github.com/0xfe/vexflow/commit/` to any commit ID. For example: `https://github.com/0xfe/vexflow/commit/151e452ff569958469ccd73f32218914cd0f823c`.
+To review the details of a specific commit on GitHub, prepend `https://github.com/0xfe/vexflow/commit/` to any commit ID. For example: [`https://github.com/0xfe/vexflow/commit/151e452ff569958469ccd73f32218914cd0f823c`](https://github.com/0xfe/vexflow/commit/151e452ff569958469ccd73f32218914cd0f823c).
 
-To see a list of commits preceding a particular commit, prepend `https://github.com/0xfe/vexflow/commits/` to any commit ID. For example: `https://github.com/0xfe/vexflow/commits/151e452ff569958469ccd73f32218914cd0f823c`.
+To see a list of commits preceding a particular commit, prepend `https://github.com/0xfe/vexflow/commits/` to any commit ID. For example: [`https://github.com/0xfe/vexflow/commits/151e452ff569958469ccd73f32218914cd0f823c`](https://github.com/0xfe/vexflow/commits/151e452ff569958469ccd73f32218914cd0f823c).
