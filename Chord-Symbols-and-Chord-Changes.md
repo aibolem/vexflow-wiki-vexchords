@@ -90,9 +90,9 @@ The last few examples show a superscript. As you'd expect, `VF.ChordSymbol.symbo
 
 ![](https://imgur.com/07rgGF8.png)
 
-## Some more tricks
+## More
 
-You can sandbox these [[here](https://jsfiddle.net/AaronDavidNewman/4ucmjveL/)].
+You try our the techniques in this [sandbox](https://jsfiddle.net/AaronDavidNewman/4ucmjveL/).
 
 ### Parenthesis:
 

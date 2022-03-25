@@ -65,7 +65,7 @@ An `SVGContext` (or `CanvasContext` if you passed in `1` to the renderer) contai
 
 If you've followed this far (congratulations), we're ready to explore drawing with `context` which, in addition to giving you an idea of how everything in VexFlow is drawn, turns out to be really fun. (It's basically [LOGO](https://en.wikipedia.org/wiki/Logo_(programming_language)#Turtle_and_graphics) for adults.)
 
-These next steps can be followed in this [jsfiddle](https://jsfiddle.net/gristow/r21r2kea/).
+These next steps can be followed in this [example](https://jsfiddle.net/gristow/r21r2kea/).
 
 The basic paradigm of a `context` is to move a `pen` from point to point, creating a path. We can then either trace the outline of the path with a `stroke()`, or if we've created an enclosed space (say, a polygon) with our path, we can `fill()` it. For ease, these drawing commands are chainable.
 

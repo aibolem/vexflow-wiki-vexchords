@@ -15,7 +15,7 @@ staveNoteGroup.style.opacity = "0";
 Imagine that we wanted to create a sight-reading app using VexFlow, in which notes scrolled into view, and a user had to play them on a keyboard before they reached the left hand side of the staff. Something like:
 ![](https://cloud.githubusercontent.com/assets/3900962/23332303/54ac5a06-fb6f-11e6-9826-630a9a2540a9.gif)
 
-(tldr: here's the [JS Fiddle](https://jsfiddle.net/gristow/Ln76ysjv/))
+(tldr: here's the [example](https://jsfiddle.net/gristow/Ln76ysjv/))
 
 We'll first want to setup our divs & VexFlow rendering boilerplate:
 ```html
@@ -210,4 +210,4 @@ document.getElementById('right-answer').addEventListener('click', (e) => {
 });
 ```
 
-You can see all of it in action on this [JS Fiddle](https://jsfiddle.net/gristow/Ln76ysjv/).
+You can see all of it in action on this [example](https://jsfiddle.net/gristow/Ln76ysjv/).
