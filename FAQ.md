@@ -12,11 +12,11 @@ VexFlow has been tested on Google Chrome, Firefox, Safari, Opera, and Internet E
 
 VexFlow has support for standard music, guitar tablature, and percussion notation. While it is a goal to support the vast majority of western music notation, VexFlow also supports a few alternative elements, such as microtonal notation.
 
-To see a everything VexFlow can render, take a look at the [tests](http://www.vexflow.com/tests/index.html) (scroll down to see the images).
+To see everything VexFlow can render, take a look at the [tests](http://www.vexflow.com/tests/index.html) (scroll down to see the images).
 
-#### Can I import MusicXML
+#### Can I import MusicXML?
 
-Checkout the [WIKI page](https://github.com/0xfe/vexflow/wiki/Import-MusicXML) for more information
+Checkout this [wiki page](https://github.com/0xfe/vexflow/wiki/Import-MusicXML) for more information
 
 #### How do I learn to use the VexFlow API?
 
@@ -142,7 +142,7 @@ formatter.joinVoices([voice]).formatToStave([voice], stave);
 voice.draw(ctx, stave);
 ```
 
-This [example](https://jsfiddle.net/vW9v5/24/) is a more advanced example of grace notes.
+Here is [a more advanced example of grace notes](https://jsfiddle.net/smyht3q5/).
 
 #### How do I display a mid-measure clef?
 
