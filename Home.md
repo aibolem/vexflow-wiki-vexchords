@@ -2,7 +2,7 @@
 
 -   [VexFlow Tutorial](Tutorial) - Get started by learning the basics of the powerful VexFlow rendering API.
 -   If your needs are less complex, check out [[EasyScore|Using-EasyScore]] to learn about the simpler EasyScore API.
--   Almost every VexFlow project begins with the same five lines of code. Check out [Understanding Renderer and Context](https://github.com/0xfe/vexflow/wiki/Understanding-Renderer-&-Context) to learn what they really do.
+-   VexFlow projects usually start with the same few lines of code. Check out [Understanding Renderer and Context](https://github.com/0xfe/vexflow/wiki/Understanding-Renderer-&-Context) to learn what they really do.
 -   [API Documentation](https://0xfe.github.io/vexflow/api/) generated from the source code. This is a work in progress.
 -   [Frequently Asked Questions](FAQ) from the VexFlow mailing list.
 -   Experiment with the [VexFlow API sandbox](https://jsfiddle.net/1Ltwk58o/).
