@@ -37,7 +37,7 @@ Many of the package.json scripts have been moved into Gruntfile.js. See the top 
 - `Note.addModifier(modifier: Modifier, index?: number): this` throws a RuntimeError if the parameters are reversed.
 - To add a dot, use the following code:
 
-```
+```typescript
 const dot = new Dot();
 dot.setDotShiftY(note.glyph.dot_shiftY);
 note.addModifier(dot, i);
