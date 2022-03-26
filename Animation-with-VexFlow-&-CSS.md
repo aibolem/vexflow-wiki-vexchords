@@ -1,5 +1,3 @@
-## Animation with VexFlow & CSS
-
 When using VexFlow's `SVGContext` to render, it is possible to access the individual DOM elements in the rendered SVG and animate (or style them) much as one would on any other DOM node. The basic principle is to (1) open a group object in the SVG Context, (2) draw any elements you want within that group, (3) close the group, and (4) apply your animations/styling to this object.
 
 ```javascript
