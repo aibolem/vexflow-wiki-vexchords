@@ -48,33 +48,21 @@ You can see the [ChordSymbol unit tests](https://github.com/0xfe/vexflow/blob/ma
 
 What we've done so far looks kind of 'meh. The smaller image is a bit blurry, and the spacing between the notes isn't correct - this will cause problems for more complex formatting. Using a supported font will fix this.
 
-The `ChordSymbol` module supports two external text fonts at the time of this writing. The default font used depends on the engraving (music) font: If you use the music font _**Petaluma**_, the default text font is '_**PetalumaScript**_' (both provided by Steinburg Media). _**Bravura**_ and _**Gonville**_ music fonts default to _**RobotoSlab**_, one of the Roboto family of web fonts provided by Google Fonts [ [read more](https://fonts.google.com/specimen/Roboto+Slab)]. Both are provided under the SIL Open Font License [ [read more](https://www.smufl.org/fonts/)].
+The `ChordSymbol` module supports two external text fonts. The default font used depends on the music engraving font. If you use the music font _**Petaluma**_, the default text font is '_**PetalumaScript**_' (both provided by Steinburg Media). _**Bravura**_ and _**Gonville**_ music fonts default to _**RobotoSlab**_, one of the Roboto family of web fonts provided by Google Fonts [ [read more](https://fonts.google.com/specimen/Roboto+Slab)]. The music fonts are provided under the SIL Open Font License [ [read more](https://www.smufl.org/fonts/)]. Roboto Slab is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-To use the fonts in your application, the simplest way is to just include the css to download the font.
+To use the fonts, the simplest way is to call:
 
-```css
-@font-face {
-    font-family: "petalumaScript";
-    src: url("https://aarondavidnewman.github.io/Smoosic/build/styles/fonts/petalumascript-webfont.woff2") format("woff2"), url("https://aarondavidnewman.github.io/Smoosic/build/styles/fonts/petalumascript-webfont.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "robotoSlab";
-    src: url("https://aarondavidnewman.github.io/Smoosic/build/styles/fonts/robotoslab-webfont.woff2") format("woff2"), url("https://aarondavidnewman.github.io/Smoosic/build/styles/fonts/robotoslab-webfont.woff") format("woff");
-    font-weight: 500;
-    font-style: normal;
-}
+```
+await Vex.Flow.Font.loadWebFonts();
 ```
 
-VexFlow will try to use 'robotoSlab' or 'petalumaScript' font, and fall back to 'Times' or 'Arial' respectively. You can also set the font explicitly for each chord, with this or any font you choose (see below on non-standard fonts):
+Depending on the music engraving font, VexFlow either use 'Roboto Slab' or 'PetalumaScript', and fall back to 'Times' or 'Arial' respectively. You can also set the font explicitly for each chord:
 
 ```javascript
-var chord = new VF.ChordSymbol().setFont("robotoSlab", 15, "normal").addGlyphOrText("Bb7");
+const chord = new ChordSymbol().setFont("Roboto Slab", 15).addGlyphOrText("Bb7");
 ```
 
-Now we'll try again [ [run](https://jsfiddle.net/AaronDavidNewman/0em1k5jy/)]:
+Take a look at [this example](https://jsfiddle.net/w15pgfab/):
 
 ![](https://imgur.com/ROaXd84.png)
 
@@ -86,20 +74,9 @@ The last few examples show a superscript. As you'd expect, `SymbolModifiers.SUBS
 
 ![](https://imgur.com/07rgGF8.png)
 
-
-
-
-
-
-
-
-
-
-
-
 ## More
 
-Try our the techniques in this [sandbox](https://jsfiddle.net/AaronDavidNewman/4ucmjveL/).
+Try out the techniques in this [sandbox](https://jsfiddle.net/AaronDavidNewman/4ucmjveL/).
 
 ### Parenthesis:
 
