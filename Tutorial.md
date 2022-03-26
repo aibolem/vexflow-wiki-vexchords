@@ -53,8 +53,6 @@ Finally, we pass the context to the stave and call `draw`, which renders the new
 
 Notice that the stave is not exactly drawn in position 0, 0. This is because it reserves some head-room for higher notes. The amount of headroom can be configured with the `Stave` properties.
 
-++++++++++++++++++
-
 # Step 2: Add Some Notes [ [run](https://jsfiddle.net/4gj06fqo/1/) ]
 
 A `StaveNote` is a group of note heads representing a chord. It can consist of one or more notes with or without a stem and flag.
@@ -151,8 +149,6 @@ Notice that in the above example, even though we set the note names and duration
 This is by design and allows us to decouple rendering logic and notational semantics. For example, you would not want to render the `#` accidental on `F#` when the key signature already includes it (e.g. key of `G`).
 
 Also notice that we `FormatAndDraw`, which is a handy helper function that takes care of all the plumbing related to displaying a sequence of notes.
-
-++++++++++++++++++
 
 Let's add a few more modifiers and see how they position themselves. [See this example.](https://jsfiddle.net/6fovsLy8/)
 

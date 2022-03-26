@@ -94,26 +94,26 @@ var chord3 = new VF.ChordSymbol()
     .setFontSize(14);
 ```
 
-### Thing over Other Thing
+## Slash Chords (e.g., C over F)
 
-If you have an `csymDiagonalArrangementSlash` symbol in your chord, the logic will try to condense your chord - moving the left side up and to the right, and the right side down and to the left (commonly spoken as 'C over F'):
+If you have a `csymDiagonalArrangementSlash` symbol in your chord, VexFlow will condense your chord by moving the left part up and to the right, and the right part down and to the left. This allows you to render slash chords, like C/G or C/E or D/F♯:
+
+```javascript
+const slashChord = new ChordSymbol().addGlyphOrText("C").addGlyph("majorSeventh", { symbolModifier: SymbolModifiers.SUPERSCRIPT }).addGlyphOrText("/F");
+```
 
 ![](https://imgur.com/O4XWrsi.png)
 
-```javascript
-var chord2 = new VF.ChordSymbol().addGlyphOrText("C").addGlyph("majorSeventh", { symbolModifier: VF.ChordSymbol.symbolModifiers.SUPERSCRIPT }).addGlyphOrText("/F");
-```
+## Positioning
 
-## Chord symbol position
-
-Chords can be positioned: left/right/center of the note (horizontally) or above and below the note (vertically). Below may work nicely for music theory or figured base (My music theory years are far behind me so I'm not quite sure if these are right) [ [run](https://jsfiddle.net/AaronDavidNewman/zmdgtku1/)]:
+Chords can be positioned: left/right/center of the note (horizontally) or above and below the note (vertically). Below may work nicely for notation such as figured bass. [See this example](https://jsfiddle.net/k27L3egs/):
 
 ![](https://imgur.com/lpsfnWT.png)
 
 ```javascript
-chords.push(new VF.ChordSymbol().setVertical("bottom").addText("I").addTextSuperscript("6").addTextSubscript("4"));
+chords.push(new ChordSymbol().setVertical("bottom").addText("I").addTextSuperscript("6").addTextSubscript("4"));
 // ...
-chords.push(new VF.ChordSymbol().addLine(12).setVertical("bottom"));
+chords.push(new ChordSymbol().addLine(12).setVertical("bottom"));
 ```
 
 You can also double stack on the top or the bottom. See the unit test cases for an example.
