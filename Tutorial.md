@@ -13,27 +13,28 @@ Let's start with a quick example. Below, we have an HTML DIV element with the fo
 Add [some boilerplate](https://github.com/0xfe/vexflow/wiki/Understanding-Renderer-&-Context) to create and size an SVG and get a drawing `context`:
 
 ```javascript
-VF = Vex.Flow;
+const {
+  Renderer,
+  Stave
+} = Vex.Flow;
 
 // Create an SVG renderer and attach it to the DIV element named "boo".
-var div = document.getElementById("output");
-var renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
+const div = document.getElementById('output');
+const renderer = new Renderer(div, Renderer.Backends.SVG);
 
-// Size our SVG:
+// Configure the rendering context.
 renderer.resize(500, 500);
-
-// And get a drawing context:
-var context = renderer.getContext();
+const context = renderer.getContext();
 ```
 
 Let's draw an empty stave on this SVG, and set the clef and time signature.
 
 ```javascript
-// Create a stave at position 10, 40 of width 400 on the canvas.
-var stave = new VF.Stave(10, 40, 400);
+// Create a stave of width 400 at position 10, 40 on the canvas.
+const stave = new Stave(10, 40, 400);
 
 // Add a clef and time signature.
-stave.addClef("treble").addTimeSignature("4/4");
+stave.addClef('treble').addTimeSignature('4/4');
 
 // Connect it to the rendering context and draw!
 stave.setContext(context).draw();
@@ -54,6 +55,8 @@ Finally, we pass the context to the stave and call `draw`, which renders the new
 Notice that the stave is not exactly drawn in position 0, 0. This is because it reserves some head-room for higher notes. The amount of headroom can be configured with the `Stave` properties.
 
 # Step 2: Add Some Notes [ [run](https://jsfiddle.net/4gj06fqo/1/) ]
+
+<!-- FIX Step 2 and Step 3 -->
 
 A `StaveNote` is a group of note heads representing a chord. It can consist of one or more notes with or without a stem and flag.
 
@@ -188,95 +191,171 @@ Take a look at some of the following tables:
 -   `Flow.articulationCodes.articulations` - List of articulation codes.
 -   `Flow.ornamentCodes.ornaments` - List of ornament codes.
 
-
-
-
-
 # Step 4: Beam Your Notes
 
-VexFlow can beam your notes for you, but only if you ask it to. The `Beam` class, when passed a set of adjacent notes (in a shared voice), is responsible for rendering beams based on the durations of each note. See this example:
+VexFlow can beam your notes for you, but only if you ask it to. The `Beam` class, when passed a set of adjacent notes (in a shared voice), is responsible for rendering beams based on the durations of each note. See [this example](https://jsfiddle.net/47Ld0a28/):
 
 ```javascript
-const notes = [new StaveNote({ clef: "treble", keys: ["e##/5"], duration: "8d" }).addAccidental(0, new Accidental("##")).addDotToAll(), new StaveNote({ clef: "treble", keys: ["b/4"], duration: "16" }).addAccidental(0, new Accidental("b"))];
+const { Renderer, Stave, StaveNote, Accidental, Beam, Formatter, Dot } = Vex.Flow;
 
-var notes2 = [
-    /* another group of notes */
-];
-var notes3 = [
-    /* another group of notes */
-];
-var notes4 = [
-    /* another group of notes */
+// Create an SVG renderer and attach it to the DIV element named "boo".
+const div = document.getElementById("output");
+const renderer = new Renderer(div, Renderer.Backends.SVG);
+
+// Configure the rendering context.
+renderer.resize(500, 500);
+const context = renderer.getContext();
+
+// Create a stave of width 400 at position 10, 40 on the canvas.
+const stave = new Stave(10, 40, 400);
+
+// Add a clef and time signature.
+stave.addClef("treble").addTimeSignature("4/4");
+
+// Connect it to the rendering context and draw!
+stave.setContext(context).draw();
+
+const notes1 = [
+    dotted(
+        new StaveNote({
+            keys: ["e##/5"],
+            duration: "8d",
+        }).addModifier(new Accidental("##"))
+    ),
+    new StaveNote({
+        keys: ["b/4"],
+        duration: "16",
+    }).addModifier(new Accidental("b")),
 ];
 
-// Create a beam for each group of notes
-beams = [new Beam(notes), new Beam(notes2), new Beam(notes3)];
+const notes2 = [
+    new StaveNote({
+        keys: ["c/4"],
+        duration: "8",
+    }),
+    new StaveNote({
+        keys: ["d/4"],
+        duration: "16",
+    }),
+    new StaveNote({
+        keys: ["e/4"],
+        duration: "16",
+    }).addModifier(new Accidental("b")),
+];
 
-// Render the notes followed by the beams
-var all_notes = notes.concat(notes2).concat(notes3).concat(notes4);
-Vex.Flow.Formatter.FormatAndDraw(context, stave, all_notes);
-beams.forEach(function (b) {
+const notes3 = [
+    new StaveNote({
+        keys: ["d/4"],
+        duration: "16",
+    }),
+    new StaveNote({
+        keys: ["e/4"],
+        duration: "16",
+    }).addModifier(new Accidental("#")),
+    new StaveNote({
+        keys: ["g/4"],
+        duration: "32",
+    }),
+    new StaveNote({
+        keys: ["a/4"],
+        duration: "32",
+    }),
+    new StaveNote({
+        keys: ["g/4"],
+        duration: "16",
+    }),
+];
+
+const notes4 = [
+    new StaveNote({
+        keys: ["d/4"],
+        duration: "q",
+    }),
+];
+
+const allNotes = notes1.concat(notes2).concat(notes3).concat(notes4);
+
+// Create the beams for the first three groups.
+// This hides the normal stems and flags.
+const beams = [new Beam(notes1), new Beam(notes2), new Beam(notes3)];
+
+Formatter.FormatAndDraw(context, stave, allNotes);
+
+// Draw the beams and stems.
+beams.forEach((b) => {
     b.setContext(context).draw();
 });
+
+// Helper function.
+function dotted(staveNote) {
+    Dot.buildAndAttach([staveNote]);
+    return staveNote;
+}
 ```
 
 ![](http://imgur.com/40H5CTT.png)
 
-In [the above example](https://jsfiddle.net/fvqmq9rd/3/), we created four groups of notes and beamed each groups. The slope of the beams is calculated automatically as a function of the direction of the music. The number of beam lines for each group is dependent on the duration of the notes underneath.
+In [the above example](https://jsfiddle.net/47Ld0a28/), we created beams for the first three groups of notes. The slope of the beams is calculated automatically as a function of the direction of the music. The number of beam lines for each group depends on the duration of the notes underneath.
 
-For long scores, manually creating a `Beam` object for each group of notes can get tedious. Luckily, the `Beam` class provides a static method, `generateBeams()`, that allow us to automatically generate beams for our notes. It has two parameters, 1) the notes to beam and 2) a config object. The config object provides options to beam your notes in different ways, but let's start simple.
+For long scores, manually creating a `Beam` object for each group of notes can get tedious. Luckily, the `Beam` class provides a static method, [`generateBeams()`](https://github.com/0xfe/vexflow/blob/46af63bb5eb52c66d3a30d978b3a08d04eecf5c6/src/beam.ts#L185), that allow us to automatically generate beams for our notes. It takes two parameters, 1) the notes to beam and 2) a config object. The config object provides options to beam your notes in different ways, but let's start with [a basic example](https://jsfiddle.net/jaq5upb2/):
 
 ```javascript
-var notes = [
-    new StaveNote({ clef: "treble", keys: ["e##/5"], duration: "8d" }).addAccidental(0, new Accidental("##")).addDotToAll(),
-    new StaveNote({ clef: "treble", keys: ["b/4"], duration: "16" }).addAccidental(0, new Accidental("b")),
-    new StaveNote({ clef: "treble", keys: ["c/4"], duration: "8" }),
-    new StaveNote({ clef: "treble", keys: ["d/4"], duration: "16" }),
-    new StaveNote({ clef: "treble", keys: ["e/4"], duration: "16" }).addAccidental(0, new Accidental("b")),
-    new StaveNote({ clef: "treble", keys: ["d/4"], duration: "16" }),
-    new StaveNote({ clef: "treble", keys: ["e/4"], duration: "16" }).addAccidental(0, new Accidental("#")),
-    new StaveNote({ clef: "treble", keys: ["g/4"], duration: "32" }),
-    new StaveNote({ clef: "treble", keys: ["a/4"], duration: "32" }),
-    new StaveNote({ clef: "treble", keys: ["g/4"], duration: "16" }),
-    new StaveNote({ clef: "treble", keys: ["d/4"], duration: "q" }),
+const { Renderer, Stave, Accidental, StaveNote, Beam, Formatter, Dot } = Vex.Flow;
+
+// Create an SVG renderer and attach it to the DIV element named "boo".
+const div = document.getElementById("output");
+const renderer = new Renderer(div, Renderer.Backends.SVG);
+
+// Configure the rendering context.
+renderer.resize(500, 500);
+const context = renderer.getContext();
+
+// Create a stave of width 400 at position 10, 40 on the canvas.
+const stave = new Stave(10, 40, 400);
+
+// Add a clef and time signature.
+stave.addClef("treble").addTimeSignature("4/4");
+
+// Connect it to the rendering context and draw!
+stave.setContext(context).draw();
+
+const notes = [
+    dotted(new StaveNote({ keys: ["e##/5"], duration: "8d" }).addModifier(new Accidental("##"))),
+    new StaveNote({ keys: ["b/4"], duration: "16" }).addModifier(new Accidental("b")),
+    new StaveNote({ keys: ["c/4"], duration: "8" }),
+    new StaveNote({ keys: ["d/4"], duration: "16" }),
+    new StaveNote({ keys: ["e/4"], duration: "16" }).addModifier(new Accidental("b")),
+    new StaveNote({ keys: ["d/4"], duration: "16" }),
+    new StaveNote({ keys: ["e/4"], duration: "16" }).addModifier(new Accidental("#")),
+    new StaveNote({ keys: ["g/4"], duration: "32" }),
+    new StaveNote({ keys: ["a/4"], duration: "32" }),
+    new StaveNote({ keys: ["g/4"], duration: "16" }),
+    new StaveNote({ keys: ["d/4"], duration: "q" }),
 ];
 
-var beams = VF.Beam.generateBeams(notes);
-Vex.Flow.Formatter.FormatAndDraw(context, stave, notes);
-beams.forEach(function (b) {
+const beams = Beam.generateBeams(notes);
+Formatter.FormatAndDraw(context, stave, notes);
+beams.forEach((b) => {
     b.setContext(context).draw();
 });
+
+// A helper function to add a dot to a note.
+function dotted(note) {
+    Dot.buildAndAttach([note]);
+    return note;
+}
 ```
 
 ![](http://imgur.com/fCh5jJz.png)
 
-Notice two things above ([run](https://jsfiddle.net/18whg1he/1/)):
+Notice two things [in the above example](https://jsfiddle.net/jaq5upb2/):
 
 -   Notes were automatically grouped.
 -   The stem directions were automatically calculated.
 
-`generateBeams()` will calculate an appropriate stem direction for the entire beam group, even if it was set to a different position earlier.
+`generateBeams()` will calculate an appropriate stem direction for the entire beam group.
 
 For more sophisticated beaming examples, take a look at the [Beams](https://github.com/0xfe/vexflow/wiki/Beams) and the [Automatic Beaming](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming) wiki pages.
-
-
-
-+++++
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Step 5: Ties
 
@@ -370,9 +449,6 @@ function dotted(note) {
 And [here's what it looks like](https://jsfiddle.net/bLc07tzj/):
 
 ![](http://imgur.com/YUNpn9G.png)
-
-
-
 
 # Step 6: Guitar Tablature
 
