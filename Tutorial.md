@@ -188,10 +188,13 @@ Take a look at some of the following tables:
 -   `Flow.articulationCodes.articulations` - List of articulation codes.
 -   `Flow.ornamentCodes.ornaments` - List of ornament codes.
 
+
+
+
+
 # Step 4: Beam Your Notes
 
-VexFlow can beam your notes for you, but only if you ask it to. The `Beam` class, when passed a set of contiguous notes (in a shared voice), is responsible for rendering beams based on the durations of each contained note.
-Let's create a melody.
+VexFlow can beam your notes for you, but only if you ask it to. The `Beam` class, when passed a set of adjacent notes (in a shared voice), is responsible for rendering beams based on the durations of each note. See this example:
 
 ```javascript
 const notes = [new StaveNote({ clef: "treble", keys: ["e##/5"], duration: "8d" }).addAccidental(0, new Accidental("##")).addDotToAll(), new StaveNote({ clef: "treble", keys: ["b/4"], duration: "16" }).addAccidental(0, new Accidental("b"))];
@@ -219,9 +222,9 @@ beams.forEach(function (b) {
 
 ![](http://imgur.com/40H5CTT.png)
 
-In the above example ([run](https://jsfiddle.net/fvqmq9rd/3/)), we created four groups of notes and beamed each groups. The slope of the beams is calculated automatically as a function of the direction of the music. The number of beam lines for each group is dependent on the duration of the notes underneath.
+In [the above example](https://jsfiddle.net/fvqmq9rd/3/), we created four groups of notes and beamed each groups. The slope of the beams is calculated automatically as a function of the direction of the music. The number of beam lines for each group is dependent on the duration of the notes underneath.
 
-For long scores, manually creating a `Beam` object for each group of notes can get tedious. Luckily, the `Beam` module provides a static method, `generateBeams()`, that allow us to automatically generate beams for our notes. It has two parameters, the notes to automatically beam and a config object. The config object provides many options to beam your notes in different ways, but let's start simple.
+For long scores, manually creating a `Beam` object for each group of notes can get tedious. Luckily, the `Beam` class provides a static method, `generateBeams()`, that allow us to automatically generate beams for our notes. It has two parameters, 1) the notes to beam and 2) a config object. The config object provides options to beam your notes in different ways, but let's start simple.
 
 ```javascript
 var notes = [
@@ -256,53 +259,120 @@ Notice two things above ([run](https://jsfiddle.net/18whg1he/1/)):
 
 For more sophisticated beaming examples, take a look at the [Beams](https://github.com/0xfe/vexflow/wiki/Beams) and the [Automatic Beaming](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming) wiki pages.
 
+
+
++++++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Step 5: Ties
 
-To render a tie, you create a `StaveTie` instance and pass it the two `StaveNotes`. Since the `StaveNote` elements can also be chords, you need to pass in the indices of the specific note heads you want to tie.
+To render a tie, create a `StaveTie` instance and pass it two `StaveNotes`. Since `StaveNote` elements can also be chords, you need to pass in the indices of the specific note heads you want to tie together. [See this example](https://jsfiddle.net/bLc07tzj/):
 
 ```javascript
-var notes = [
-    new VF.StaveNote({ clef: "treble", keys: ["e##/5"], duration: "8d" }).addAccidental(0, new VF.Accidental("##")).addDotToAll(),
-    new VF.StaveNote({ clef: "treble", keys: ["b/4"], duration: "16" }).addAccidental(0, new VF.Accidental("b")),
-    new VF.StaveNote({ clef: "treble", keys: ["c/4"], duration: "8" }),
-    new VF.StaveNote({ clef: "treble", keys: ["d/4"], duration: "16" }),
-    new VF.StaveNote({ clef: "treble", keys: ["d/4"], duration: "16" }),
-    new VF.StaveNote({ clef: "treble", keys: ["d/4"], duration: "q" }),
-    new VF.StaveNote({ clef: "treble", keys: ["d/4"], duration: "q" }),
+const { Renderer, Formatter, Stave, StaveNote, Accidental, Beam, Dot, StaveTie } = Vex.Flow;
+
+// Create an SVG renderer and attach it to the DIV element named "boo".
+const div = document.getElementById("output");
+const renderer = new Renderer(div, Renderer.Backends.SVG);
+
+// Configure the rendering context.
+renderer.resize(500, 500);
+const context = renderer.getContext();
+
+// Create a stave of width 400 at position 10, 40 on the canvas.
+const stave = new Stave(10, 40, 400);
+
+// Add a clef and time signature.
+stave.addClef("treble").addTimeSignature("4/4");
+
+// Connect it to the rendering context and draw!
+stave.setContext(context).draw();
+
+const notes = [
+    dotted(
+        new StaveNote({
+            keys: ["e##/5"],
+            duration: "8d",
+        }).addModifier(new Accidental("##"))
+    ),
+    new StaveNote({
+        keys: ["b/4"],
+        duration: "16",
+    }).addModifier(new Accidental("b")),
+    new StaveNote({
+        keys: ["c/4"],
+        duration: "8",
+    }),
+    new StaveNote({
+        keys: ["d/4"],
+        duration: "16",
+    }),
+    new StaveNote({
+        keys: ["d/4"],
+        duration: "16",
+    }),
+    new StaveNote({
+        keys: ["d/4"],
+        duration: "q",
+    }),
+    new StaveNote({
+        keys: ["d/4"],
+        duration: "q",
+    }),
 ];
 
-var beams = VF.Beam.generateBeams(notes);
-VF.Formatter.FormatAndDraw(context, stave, notes);
+const beams = Beam.generateBeams(notes);
+Formatter.FormatAndDraw(context, stave, notes);
 beams.forEach(function (b) {
     b.setContext(context).draw();
 });
 
-var ties = [
-    new VF.StaveTie({
+const ties = [
+    new StaveTie({
         first_note: notes[4],
         last_note: notes[5],
         first_indices: [0],
         last_indices: [0],
     }),
-    new VF.StaveTie({
+    new StaveTie({
         first_note: notes[5],
         last_note: notes[6],
         first_indices: [0],
         last_indices: [0],
     }),
 ];
-ties.forEach(function (t) {
+
+ties.forEach((t) => {
     t.setContext(context).draw();
 });
+
+// A helper function to add a dot to a note.
+function dotted(note) {
+    Dot.buildAndAttach([note]);
+    return note;
+}
 ```
 
-And here's what it looks like [[run](https://jsfiddle.net/x1mgkv5v/9/)]:
+And [here's what it looks like](https://jsfiddle.net/bLc07tzj/):
 
 ![](http://imgur.com/YUNpn9G.png)
 
-And there you have beams and ties!
 
-+++++
+
 
 # Step 6: Guitar Tablature
 
