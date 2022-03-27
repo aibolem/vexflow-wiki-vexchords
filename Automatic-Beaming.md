@@ -1,5 +1,3 @@
-# Automatic Beaming
-
 * [Forcing Stem Directions](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming#force-stem-direction)
 * [Maintain Stem Directions](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming#maintain-stem-directions)
 * [Beaming Over All Rests](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming#beaming-rests)
