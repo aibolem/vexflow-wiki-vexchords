@@ -1,4 +1,3 @@
-# Beams
 In order to beam sets of notes together, VexFlow provides a `Beam` object. But before we can use it, we need to create some `StaveNotes`. 
 
 *Note: These code samples are incomplete. We assume you understand [how to set up the rendering context, build a `Stave` and draw VexFlow objects](https://github.com/0xfe/vexflow/wiki/Understanding-Renderer-&-Context).*
