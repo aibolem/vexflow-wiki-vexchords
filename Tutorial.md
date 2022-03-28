@@ -93,25 +93,51 @@ voice.draw(context, stave);
 
 Notice how the notes are justified evenly on the stave based on the duration of each note? This is the formatter in action - keeping voices aligned while balancing the spacing between the notes.
 
-Let's add a second voice with a single whole note to this tune. [ [run](https://jsfiddle.net/n501pwm4/1/) ]
+Let's add a second voice with a single whole note to this tune. [See this example:](https://jsfiddle.net/awe4vdms/)
 
 ```javascript
-var notes = [
-    new VF.StaveNote({ clef: "treble", keys: ["c/5"], duration: "q" }),
-    new VF.StaveNote({ clef: "treble", keys: ["d/4"], duration: "q" }),
-    new VF.StaveNote({ clef: "treble", keys: ["b/4"], duration: "qr" }),
-    new VF.StaveNote({ clef: "treble", keys: ["c/4", "e/4", "g/4"], duration: "q" }),
+const notes = [
+    new StaveNote({
+        keys: ["c/5"],
+        duration: "q",
+    }),
+    new StaveNote({
+        keys: ["d/4"],
+        duration: "q",
+    }),
+    new StaveNote({
+        keys: ["b/4"],
+        duration: "qr",
+    }),
+    new StaveNote({
+        keys: ["c/4", "e/4", "g/4"],
+        duration: "q",
+    }),
 ];
 
-var notes2 = [new VF.StaveNote({ clef: "treble", keys: ["c/4"], duration: "w" })];
+const notes2 = [
+    new StaveNote({
+        keys: ["c/4"],
+        duration: "w",
+    }),
+];
 
-// Create a voice in 4/4 and add the notes from above
-var voices = [new VF.Voice({ num_beats: 4, beat_value: 4 }).addTickables(notes), new VF.Voice({ num_beats: 4, beat_value: 4 }).addTickables(notes2)];
+// Create a voice in 4/4 and add above notes
+const voices = [
+    new Voice({
+        num_beats: 4,
+        beat_value: 4,
+    }).addTickables(notes),
+    new Voice({
+        num_beats: 4,
+        beat_value: 4,
+    }).addTickables(notes2),
+];
 
 // Format and justify the notes to 400 pixels.
-var formatter = new VF.Formatter().joinVoices(voices).format(voices, 400);
+new Formatter().joinVoices(voices).format(voices, 350);
 
-// Render voices
+// Render voices.
 voices.forEach(function (v) {
     v.draw(context, stave);
 });
@@ -119,35 +145,69 @@ voices.forEach(function (v) {
 
 ![](https://imgur.com/sk1RC26.png)
 
-# Step 3: Modifiers
+# Step 3: Modifiers [ [run](https://jsfiddle.net/4rt75dja/) ]
 
 A modifier is an element that is attached to a note. Modifiers typically inherit from the `Modifier` base class. VexFlow supports modifiers like `Accidental`, `Vibrato`, `Annotation`, and more.
 
-Modifiers are self-positioning – they intelligently juxtapose themselves alongside other modifiers and notes based on standard music notation rules.
+Modifiers are self-positioning – they juxtapose themselves alongside other modifiers and notes based on standard music notation rules.
 
-Let's add some accidentals and dots. [ [run](https://jsfiddle.net/4rt75dja/) ]
+Let's add some accidentals and dots. [See this example:](https://jsfiddle.net/4rt75dja/)
 
 ```javascript
-var notes = [
-    new VF.StaveNote({ clef: "treble", keys: ["e##/5"], duration: "8d" }).addModifier(new Accidental("##")).addDotToAll(),
+const notes = [
+    dotted(
+        new StaveNote({
+            keys: ["e##/5"],
+            duration: "8d",
+        }).addModifier(new Accidental("##"))
+    ),
 
-    new StaveNote({ clef: "treble", keys: ["eb/5"], duration: "16" }).addModifier(new Accidental("b")),
+    new StaveNote({
+        keys: ["eb/5"],
+        duration: "16",
+    }).addModifier(new Accidental("b")),
 
-    new StaveNote({ clef: "treble", keys: ["d/5", "eb/4"], duration: "h" }).addDot(0),
+    dotted(
+        new StaveNote({
+            keys: ["eb/4", "d/5"],
+            duration: "h",
+        }),
+        0 /* add dot to note at index==0 */
+    ),
 
-    new StaveNote({ clef: "treble", keys: ["c/5", "eb/5", "g#/5"], duration: "q" }).addAccidental(1, new Accidental("b")).addAccidental(2, new Accidental("#")).addDotToAll(),
+    dotted(
+        new StaveNote({
+            keys: ["c/5", "eb/5", "g#/5"],
+            duration: "q",
+        })
+            .addModifier(new Accidental("b"), 1)
+            .addModifier(new Accidental("#"), 2)
+    ),
 ];
 
 Formatter.FormatAndDraw(context, stave, notes);
+
+function dotted(staveNote, noteIndex = -1) {
+    if (noteIndex < 0) {
+        Dot.buildAndAttach([staveNote], {
+            all: true,
+        });
+    } else {
+        Dot.buildAndAttach([staveNote], {
+            index: noteIndex,
+        });
+    }
+    return staveNote;
+}
 ```
 
 ![](https://imgur.com/3wVLRxx.png)
 
 Notice that in the above example, even though we set the note names and durations correctly, we explicitly request the rendering of accidentals and dots.
 
-This is by design and allows us to decouple rendering logic and notational semantics. For example, you would not want to render the `#` accidental on `F#` when the key signature already includes it (e.g. key of `G`).
+This allows us to decouple rendering logic and notational semantics. For example, you would not want to render the `#` accidental on `F#` when the key signature already includes it (e.g. key of `G`).
 
-Also notice that we `FormatAndDraw`, which is a handy helper function that takes care of all the plumbing related to displaying a sequence of notes.
+Also notice that we use `Formatter.FormatAndDraw(...)`, which is a helper function that takes care of all the plumbing related to displaying a sequence of notes.
 
 Let's add a few more modifiers and see how they position themselves. [See this example.](https://jsfiddle.net/6fovsLy8/)
 
@@ -163,7 +223,7 @@ const notes = [
     new StaveNote({ keys: ["c/4"], duration: "h" }),
 ];
 
-// Helper function to justify and draw a 4/4 voice
+// Helper function to justify and draw a 4/4 voice.
 Formatter.FormatAndDraw(context, stave, notes);
 ```
 
@@ -187,9 +247,9 @@ Take a look at some of the following tables:
 -   `Flow.articulationCodes.articulations` - List of articulation codes.
 -   `Flow.ornamentCodes.ornaments` - List of ornament codes.
 
-# Step 4: Beam Your Notes
+# Step 4: Beam Your Notes [ [run](https://jsfiddle.net/47Ld0a28/) ]
 
-VexFlow can beam your notes for you, but only if you ask it to. The `Beam` class, when passed a set of adjacent notes (in a shared voice), is responsible for rendering beams based on the durations of each note. See [this example](https://jsfiddle.net/47Ld0a28/):
+VexFlow can beam your notes for you, but only if you ask it to. The `Beam` class, when passed a set of adjacent notes (in a shared voice), is responsible for rendering beams based on the durations of each note. [See this example](https://jsfiddle.net/47Ld0a28/):
 
 ```javascript
 const { Renderer, Stave, StaveNote, Accidental, Beam, Formatter, Dot } = Vex.Flow;
@@ -353,7 +413,7 @@ Notice two things [in the above example](https://jsfiddle.net/jaq5upb2/):
 
 For more sophisticated beaming examples, take a look at the [Beams](https://github.com/0xfe/vexflow/wiki/Beams) and the [Automatic Beaming](https://github.com/0xfe/vexflow/wiki/Automatic-Beaming) wiki pages.
 
-# Step 5: Ties
+# Step 5: Ties [ [run](https://jsfiddle.net/bLc07tzj/) ]
 
 To render a tie, create a `StaveTie` instance and pass it two `StaveNotes`. Since `StaveNote` elements can also be chords, you need to pass in the indices of the specific note heads you want to tie together. [See this example](https://jsfiddle.net/bLc07tzj/):
 
