@@ -74,25 +74,27 @@ The last few examples show a superscript. As you'd expect, `SymbolModifiers.SUBS
 
 ![](https://imgur.com/07rgGF8.png)
 
-## More
 
-Try out the techniques in this [sandbox](https://jsfiddle.net/AaronDavidNewman/4ucmjveL/).
+## Parentheses
 
-### Parenthesis:
-
-You can put `leftParenTall` and `rightParenTall` on either side of the super/subscripts to get parenthesis on the full vertical extent of the chord.
+You can put `leftParenTall` and `rightParenTall` on either side of the superscript/subscript to get parenthesis on the full vertical extent of the chord.
 
 ![](https://imgur.com/HufgfOX.png)
 
 ```javascript
-var chord3 = new VF.ChordSymbol()
+const chord3 = new ChordSymbol()
     .addGlyphOrText("D")
     .addGlyph("leftParenTall")
-    .addGlyphOrText("6", { symbolModifier: VF.ChordSymbol.symbolModifiers.SUPERSCRIPT })
-    .addGlyphOrText("9", { symbolModifier: VF.ChordSymbol.symbolModifiers.SUBSCRIPT })
+    .addGlyphOrText("6", { symbolModifier: SymbolModifiers.SUPERSCRIPT })
+    .addGlyphOrText("9", { symbolModifier: SymbolModifiers.SUBSCRIPT })
     .addGlyph("rightParenTall")
     .setFontSize(14);
 ```
+
+## ChordSymbol Sandbox
+
+Try out these techniques in the [ChordSymbol Sandbox](https://jsfiddle.net/ydfhco2e/).
+
 
 ## Slash Chords (e.g., C over F)
 
