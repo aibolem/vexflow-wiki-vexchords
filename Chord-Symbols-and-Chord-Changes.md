@@ -1,17 +1,17 @@
-In VexFlow, the chord change module can create chord change symbols, like you'd see in a jazz or pop fake book.
+In VexFlow, the ChordSymbol module can create chord change symbols, like you'd see in a jazz or pop fake book.
 
 ![](https://imgur.com/oCHK9dM.png)
 
-To do this, it formats musical symbols (glyphs) from the rendering engine alongside ordinary text. To do that, it needs to know detailed information about the text font you're using. So chord changes will work best if you use one of the fonts that VexFlow knows about. Instructions for doing this, and adding additional text fonts, can be found [later in this guide](#add-a-new-text-font).
+To do this, it formats musical symbols (glyphs) from the rendering engine alongside ordinary text, which requires information about the text font you're using. Chord symbols will work best if you use one of the fonts that VexFlow already knows about. Instructions for adding additional text fonts can be found [later in this guide](#add-a-new-text-font).
 
 # Chord Symbols with Default Fonts
 
-First we'll create a couple of chord symbols using the default browser-safe fonts. Note: this assumes you have read the VexFlow tutorial [section on modifiers](https://github.com/0xfe/vexflow/wiki/Tutorial#step-3-all-about-modifiers)
+First we'll create a couple of chord symbols using the default browser-safe fonts. Note: this assumes you have read the VexFlow tutorial [section on modifiers](https://github.com/0xfe/vexflow/wiki/Tutorial#step-3-modifiers)
 
 To create a chord symbol and add it to a note:
 
 ```javascript
-const chord1 = new ChordSymbol()
+const chord = new ChordSymbol()
     .setFontSize(14)
     .addText("B")
     .addGlyph("b")
@@ -20,43 +20,58 @@ const chord1 = new ChordSymbol()
     .addGlyph("b", { symbolModifier: SymbolModifiers.SUPERSCRIPT })
     .addText("5", { symbolModifier: SymbolModifiers.SUPERSCRIPT })
     .addGlyph(")", { symbolModifier: SymbolModifiers.SUPERSCRIPT });
+staveNote.addModifier(chord);
 ```
 
-In the example above, we told VexFlow to create a chord with: the letter 'B' for the key, the glyph corresponding with the flat symbol, and the chord extension `7(♭5)` in superscript. [ See an example. ](https://jsfiddle.net/4gczbt1L/)
+In the example above, we told VexFlow to create a chord with: the letter 'B' for the key, the glyph corresponding with the flat symbol, and the chord extension `7(♭5)` in superscript. [ See this example. ](https://jsfiddle.net/4gczbt1L/)
 
 ![](https://imgur.com/nIzD2lW.png)
 
-The example below shows how you can let VexFlow automatically select between glyphs and text:
+Instead of calling `addText()` or `addGlyph()` for every single character, we can let VexFlow automatically select between glyphs and text:
 
 ```javascript
-const chord2 = new ChordSymbol().setFontSize(10).addGlyphOrText("Bb").addGlyphOrText("7(b5)", { symbolModifier: SymbolModifiers.SUPERSCRIPT });
-staveNote.addModifier(chord2);
+const chord = new ChordSymbol().setFontSize(10).addGlyphOrText("Bb").addGlyphOrText("7(b5)", { symbolModifier: SymbolModifiers.SUPERSCRIPT });
+staveNote.addModifier(chord);
 ```
 
-VexFlow automatically uses the flat symbol for 'b', the parentheses symbols ( and ), and text for the numbers and note names.
-`ChordSymbol` supports [15 symbols at present](https://github.com/0xfe/vexflow/blob/46af63bb5eb52c66d3a30d978b3a08d04eecf5c6/src/chordsymbol.ts#L159-L220):
+VexFlow automatically uses the flat symbol for 'b', the parentheses symbols ( and ), and text for the numbers and note names. `ChordSymbol` currently supports [15 symbols](https://github.com/0xfe/vexflow/blob/46af63bb5eb52c66d3a30d978b3a08d04eecf5c6/src/chordsymbol.ts#L159-L220):
 
-`+ - ( ) b # /`
+```
++ - ( ) b # /
+```
 
-result in the expected symbols, and other symbols can be specified explicitly with `addGlyph()`:
+result in the expected symbols, and other symbols can be specified explicitly with `addGlyph(...)`:
 
-`'diminished', 'halfDiminished', 'leftParenTall', 'rightParenTall', 'majorSeventh', 'leftBracket', 'rightBracket'`
+```
+'diminished', 'halfDiminished', 'leftParenTall', 'rightParenTall', 'majorSeventh', 'leftBracket', 'rightBracket'
+```
 
 You can see the [ChordSymbol unit tests](https://github.com/0xfe/vexflow/blob/master/tests/chordsymbol_tests.ts) for more details.
 
-# Web Fonts
+# Chord Symbols with Supported Web Fonts
 
-What we've done so far looks kind of 'meh. The smaller image is a bit blurry, and the spacing between the notes isn't correct - this will cause problems for more complex formatting. Using a supported font will fix this.
+Using the built in browser fonts works, but there are some issues. For example, the spacing between symbols isn't correct. Using a supported web font will fix this.
 
-The `ChordSymbol` module supports two external text fonts. The default font used depends on the music engraving font. If you use the music font _**Petaluma**_, the default text font is '_**PetalumaScript**_' (both provided by Steinburg Media). _**Bravura**_ and _**Gonville**_ music fonts default to _**RobotoSlab**_, one of the Roboto family of web fonts provided by Google Fonts [ [read more](https://fonts.google.com/specimen/Roboto+Slab)]. The music fonts are provided under the SIL Open Font License [ [read more](https://www.smufl.org/fonts/)]. Roboto Slab is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+The `ChordSymbol` module supports two external web fonts for text (see: [`Font.loadWebFonts()`](https://github.com/0xfe/vexflow/blob/46af63bb5eb52c66d3a30d978b3a08d04eecf5c6/src/font.ts#L349-L367)). 
 
-To use the fonts, the simplest way is to call:
+VexFlow chooses a text font to match the current music engraving font. If you use the music font **Petaluma**, the default text font is **PetalumaScript**. For **Bravura** and **Gonville** music fonts, VexFlow uses [**Roboto Slab**](https://fonts.google.com/specimen/Roboto+Slab). The music fonts are provided under the [SIL Open Font License](https://www.smufl.org/fonts/). Roboto Slab is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-```
+To use these web fonts, call:
+
+```javascript
 await Vex.Flow.Font.loadWebFonts();
 ```
 
-Depending on the music engraving font, VexFlow either use 'Roboto Slab' or 'PetalumaScript', and fall back to 'Times' or 'Arial' respectively. You can also set the font explicitly for each chord:
+or with Promises:
+
+```javascript
+Vex.Flow.Font.loadWebFonts().then(() => {
+    // Web fonts loaded.
+});
+```
+
+
+Depending on the music engraving font, VexFlow uses either 'Roboto Slab' or 'PetalumaScript', and falls back to 'Times' or 'Arial' if necessary. You can also set the font explicitly for each chord:
 
 ```javascript
 const chord = new ChordSymbol().setFont("Roboto Slab", 15).addGlyphOrText("Bb7");
@@ -66,14 +81,16 @@ Take a look at [this example](https://jsfiddle.net/w15pgfab/):
 
 ![](https://imgur.com/ROaXd84.png)
 
-That looks better. Now that we have fonts with some good formatting, we can do some more practical applications.
+We now have chord symbols with nicer formatting.
 
 ## Stacking
 
-The last few examples show a superscript. As you'd expect, `SymbolModifiers.SUBSCRIPT` gives you subscript. If you do superscript immediately followed by a subscript, the logic will align them vertically and stack them. [See this example.](https://jsfiddle.net/r9Ljckhn/)
+The last few examples show a superscript. As you'd expect, `SymbolModifiers.SUBSCRIPT` gives you subscript. If you do superscript immediately followed by a subscript, the logic will align them stack them vertically. [See this example.](https://jsfiddle.net/r9Ljckhn/)
+
+
+
 
 ![](https://imgur.com/07rgGF8.png)
-
 
 ## Parentheses
 
@@ -82,7 +99,7 @@ You can put `leftParenTall` and `rightParenTall` on either side of the superscri
 ![](https://imgur.com/HufgfOX.png)
 
 ```javascript
-const chord3 = new ChordSymbol()
+const chord = new ChordSymbol()
     .addGlyphOrText("D")
     .addGlyph("leftParenTall")
     .addGlyphOrText("6", { symbolModifier: SymbolModifiers.SUPERSCRIPT })
@@ -91,14 +108,9 @@ const chord3 = new ChordSymbol()
     .setFontSize(14);
 ```
 
-## ChordSymbol Sandbox
-
-Try out these techniques in the [ChordSymbol Sandbox](https://jsfiddle.net/ydfhco2e/).
-
-
 ## Slash Chords (e.g., C over F)
 
-If you have a `csymDiagonalArrangementSlash` symbol in your chord, VexFlow will condense your chord by moving the left part up and to the right, and the right part down and to the left. This allows you to render slash chords, like C/G or C/E or D/F♯:
+If you have a `/` or `csymDiagonalArrangementSlash` symbol in your chord, VexFlow will condense your chord by moving the left part up and to the right, and the right part down and to the left. This allows you to render slash chords, like C/G or C/E or D/F♯:
 
 ```javascript
 const slashChord = new ChordSymbol().addGlyphOrText("C").addGlyph("majorSeventh", { symbolModifier: SymbolModifiers.SUPERSCRIPT }).addGlyphOrText("/F");
@@ -120,9 +132,14 @@ chords.push(new ChordSymbol().addLine(12).setVertical("bottom"));
 
 You can also double stack on the top or the bottom. See the unit test cases for an example.
 
+## Sandbox
+
+Try out these techniques in the [ChordSymbol sandbox](https://jsfiddle.net/ydfhco2e/).
+
+
 # What if I want my own fonts?
 
-Just like with the browser default fonts, you can use any font you want. But you might have issues with the formatting, because VexFlow will still be using the metrics for the default fonts. Most English fonts will have a similar vertical baseline, but the spacing between the letters might vary, especially for longer strings or more florid typefaces.
+Just like with the browser default fonts, you can specify any font you want. But you might have issues with the formatting, because VexFlow will still be using metrics for the default fonts. Most English fonts have a similar vertical baseline, but the horizontal spacing between the letters might vary, especially for longer strings or more florid typefaces.
 
 Here's an example of using a font called **Concert One**. The formatting is a bit uneven, but for this example, at least, it works.
 
