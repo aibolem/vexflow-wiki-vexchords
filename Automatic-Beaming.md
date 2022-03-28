@@ -15,7 +15,7 @@ beams.forEach(function(beam) {
 });
 ```
 
-![](http://i.imgur.com/lcQU7F3.png)
+![](https://i.imgur.com/lcQU7F3.png)
 
 Notice two things:
 
@@ -33,13 +33,13 @@ var beams = Beam.generateBeams(notes, {
   stem_direction: -1
 });
 ```
-![](http://i.imgur.com/mUdQqmH.png)
+![](https://i.imgur.com/mUdQqmH.png)
 
 ### Maintain Stem Directions 
 
 By setting `maintain_stem_directions` to `true`, the stem directions for each note will not be altered. Take a look at the initial stem directions for the following notes:
 
-![](http://i.imgur.com/TbBBIGo.png)
+![](https://i.imgur.com/TbBBIGo.png)
 
 By generating the beams using `maintain_stem_directions`, the beams are further split up within the beat group where the stem direction changed.
 ```javascript
@@ -47,13 +47,13 @@ var beams = Beam.generateBeams(notes, {
   maintain_stem_directions: true
 });
 ```
-![](http://i.imgur.com/IvRf0c2.png)
+![](https://i.imgur.com/IvRf0c2.png)
 
 ### Beaming Rests
 
 By default, rests break up beam groups. 
 
-![](http://i.imgur.com/pR8W4nV.png)
+![](https://i.imgur.com/pR8W4nV.png)
 
 By setting `beam_rests` to `true`, the beams will extend over rests.
 ```javascript
@@ -61,7 +61,7 @@ var beams = Beam.generateBeams(notes, {
   beam_rests: true
 });
 ```
-![](http://i.imgur.com/QDc37uG.png)
+![](https://i.imgur.com/QDc37uG.png)
 
 ### Beam Middle Rests Only
 
@@ -73,7 +73,7 @@ var beams = Beam.generateBeams(notes, {
   beam_middle_only: true
 });
 ```
-![](http://i.imgur.com/3XogNvn.png)
+![](https://i.imgur.com/3XogNvn.png)
 
 ### Stemlets
 
@@ -84,7 +84,7 @@ var beams = Vex.Flow.Beam.generateBeams(notes, {
   show_stemlets: true
 });
 ```
-![](http://i.imgur.com/11WSh9Z.png)
+![](https://i.imgur.com/11WSh9Z.png)
 ### Custom Beam Groups
 
 You can pass in custom beam group sequences to the `groups` property of the `config` object. These beam groups are represented by an array of `Vex.Flow.Fractions`, where each `Fraction` represents a single beam group. The following example beams in groups of 3 8th notes.
@@ -94,7 +94,7 @@ var beams = Beam.generateBeams(notes, {
   groups: [new Vex.Flow.Fraction(3, 8)]
 });
 ```
-![](http://i.imgur.com/2j09Adk.png)
+![](https://i.imgur.com/2j09Adk.png)
 
 The following example beams notes in sequences of 3 and then 5 8th notes
 ```javascript
@@ -105,4 +105,4 @@ var beams = Beam.generateBeams(notes, {
   ]
 });
 ```
-![](http://i.imgur.com/o4WzoFN.png)
+![](https://i.imgur.com/o4WzoFN.png)

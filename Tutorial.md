@@ -13,13 +13,10 @@ Let's start with a quick example. Below, we have an HTML DIV element with the fo
 Add [some boilerplate](https://github.com/0xfe/vexflow/wiki/Understanding-Renderer-&-Context) to create and size an SVG and get a drawing `context`:
 
 ```javascript
-const {
-  Renderer,
-  Stave
-} = Vex.Flow;
+const { Renderer, Stave } = Vex.Flow;
 
 // Create an SVG renderer and attach it to the DIV element named "boo".
-const div = document.getElementById('output');
+const div = document.getElementById("output");
 const renderer = new Renderer(div, Renderer.Backends.SVG);
 
 // Configure the rendering context.
@@ -34,7 +31,7 @@ Let's draw an empty stave on this SVG, and set the clef and time signature.
 const stave = new Stave(10, 40, 400);
 
 // Add a clef and time signature.
-stave.addClef('treble').addTimeSignature('4/4');
+stave.addClef("treble").addTimeSignature("4/4");
 
 // Connect it to the rendering context and draw!
 stave.setContext(context).draw();
@@ -54,46 +51,45 @@ Finally, we pass the context to the stave and call `draw`, which renders the new
 
 Notice that the stave is not exactly drawn in position 0, 0. This is because it reserves some head-room for higher notes. The amount of headroom can be configured with the `Stave` properties.
 
-# Step 2: Add Some Notes [ [run](https://jsfiddle.net/4gj06fqo/1/) ]
-
-<!-- FIX Step 2 and Step 3 -->
+# Step 2: Add Notes [ [run](https://jsfiddle.net/c36p8eo2/) ]
 
 A `StaveNote` is a group of note heads representing a chord. It can consist of one or more notes with or without a stem and flag.
 
-A sequence of notes is represented by a `Voice`, and multiple voices can be grouped within a `VoiceGroup`.
+A sequence of notes is represented by a `Voice`.
 
-Finally, you have the `Formatter`, which takes a voice group and aligns, justifies, and renders the voices based on configurable rules, so that all the voices in the group look pretty on the stave(s).
+Finally, you have the `Formatter`, which takes an array of voices and aligns, justifies, and renders the voices based on configurable rules, so that all the voices in the group look pretty on the stave(s).
 
 In the code below we create a voice with two notes and a chord and render it on the stave.
 
 ```javascript
-var notes = [
+// Create the notes
+const notes = [
     // A quarter-note C.
-    new VF.StaveNote({ clef: "treble", keys: ["c/4"], duration: "q" }),
+    new StaveNote({ keys: ["c/4"], duration: "q" }),
 
     // A quarter-note D.
-    new VF.StaveNote({ clef: "treble", keys: ["d/4"], duration: "q" }),
+    new StaveNote({ keys: ["d/4"], duration: "q" }),
 
     // A quarter-note rest. Note that the key (b/4) specifies the vertical
     // position of the rest.
-    new VF.StaveNote({ clef: "treble", keys: ["b/4"], duration: "qr" }),
+    new StaveNote({ keys: ["b/4"], duration: "qr" }),
 
     // A C-Major chord.
-    new VF.StaveNote({ clef: "treble", keys: ["c/4", "e/4", "g/4"], duration: "q" }),
+    new StaveNote({ keys: ["c/4", "e/4", "g/4"], duration: "q" }),
 ];
 
-// Create a voice in 4/4 and add the notes from above
-var voice = new VF.Voice({ num_beats: 4, beat_value: 4 });
+// Create a voice in 4/4 and add above notes
+const voice = new Voice({ num_beats: 4, beat_value: 4 });
 voice.addTickables(notes);
 
-// Format and justify the notes to 350 pixels (50 pixels left for key and time signatures).
-var formatter = new VF.Formatter().joinVoices([voice]).format([voice], 350);
+// Format and justify the notes to 400 pixels.
+new Formatter().joinVoices([voice]).format([voice], 350);
 
 // Render voice
 voice.draw(context, stave);
 ```
 
-![](http://imgur.com/NT62Q7g.png)
+![](https://i.imgur.com/NT62Q7g.png)
 
 Notice how the notes are justified evenly on the stave based on the duration of each note? This is the formatter in action - keeping voices aligned while balancing the spacing between the notes.
 
@@ -121,7 +117,7 @@ voices.forEach(function (v) {
 });
 ```
 
-![](http://imgur.com/sk1RC26.png)
+![](https://imgur.com/sk1RC26.png)
 
 # Step 3: Modifiers
 
@@ -145,7 +141,7 @@ var notes = [
 Formatter.FormatAndDraw(context, stave, notes);
 ```
 
-![](http://imgur.com/3wVLRxx.png)
+![](https://imgur.com/3wVLRxx.png)
 
 Notice that in the above example, even though we set the note names and durations correctly, we explicitly request the rendering of accidentals and dots.
 
@@ -171,7 +167,7 @@ const notes = [
 Formatter.FormatAndDraw(context, stave, notes);
 ```
 
-![](http://imgur.com/6cjs3Rf.png)
+![](https://imgur.com/6cjs3Rf.png)
 
 Notice how VexFlow positions the accidentals such that they don't collide with each other?
 
@@ -293,7 +289,7 @@ function dotted(staveNote) {
 }
 ```
 
-![](http://imgur.com/40H5CTT.png)
+![](https://imgur.com/40H5CTT.png)
 
 In [the above example](https://jsfiddle.net/47Ld0a28/), we created beams for the first three groups of notes. The slope of the beams is calculated automatically as a function of the direction of the music. The number of beam lines for each group depends on the duration of the notes underneath.
 
@@ -346,7 +342,7 @@ function dotted(note) {
 }
 ```
 
-![](http://imgur.com/fCh5jJz.png)
+![](https://imgur.com/fCh5jJz.png)
 
 Notice two things [in the above example](https://jsfiddle.net/jaq5upb2/):
 
@@ -448,9 +444,9 @@ function dotted(note) {
 
 And [here's what it looks like](https://jsfiddle.net/bLc07tzj/):
 
-![](http://imgur.com/YUNpn9G.png)
+![](https://imgur.com/YUNpn9G.png)
 
-# Step 6: Guitar Tablature
+# Step 6: Guitar Tablature [ [run](https://jsfiddle.net/fudezsmr/) ]
 
 VexFlow can also render guitar tablature. The mechanics for displaying tabs are the same as those for standard notation, except that you use different classes for staves and notes.
 
@@ -501,7 +497,7 @@ Formatter.FormatAndDraw(context, stave, notes);
 
 In [the example above](https://jsfiddle.net/fudezsmr/) instead of using `Stave` and `StaveNote`, we use `TabStave` and `TabNote`. We also added a `Bend` and a `Vibrato` modifier.
 
-# Step 7: Barlines
+# Step 7: Barlines [ [run](https://jsfiddle.net/zrx6k5ao/) ]
 
 The `Stave` APIs were designed such that you don't have more than one bar / measure per stave. The idea is that you render a new `Stave` for every bar, and either attach it by juxtaposing it to an existing stave or rendering it in a new row. [See this example](https://jsfiddle.net/zrx6k5ao/):
 

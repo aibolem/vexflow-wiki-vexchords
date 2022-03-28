@@ -9,7 +9,7 @@ The formatting related objects are the following:
 
 The `TickContext` is what groups notes together across multiple voices. A `TickContext` is created for every unique tick position across all voices. See the following picture to see outlines of each `TickContext`.
 
-![](http://i.imgur.com/gQjvw4I.png)
+![](https://i.imgur.com/gQjvw4I.png)
 
 Notice that these are what are in charge of providing x values to all `Tickable` based classes (eg: `Note`, `StaveNote`, etc-- any duration based class)
 
@@ -17,13 +17,13 @@ The `Formatter` is in charge of creating these `TickContexts` based on the voice
 
 A `ModifierContext` contains a `Tickable` and its attached modifiers. One of its purposes is to keep track of the space needed on either side of the `Tickable`. The `TickContext` will use this data to expand as necessary. See below:
 
-![](http://i.imgur.com/OkOQOFs.png)
+![](https://i.imgur.com/OkOQOFs.png)
 
 The `Formatter` creates the `ModifierContexts` when `Formatter.joinVoices(voices)` is called. You can pass multiple voices to the method to have `Tickables` share a `ModifierContext` at identical tick positions. This is specifically for formatting multiple voices onto the same `Stave` while making sure the modifiers are arranged without overlapping.  `Formatter.joinVoices()` can be called multiple times, for music with multiple staves.  For instance, if `voice1` and `voice2` appear together on the same `Stave` and `voice3` and `textVoice` appear together on another `Stave`, the `Formatter` call to ensure that the `ModifierContext` is set properly for each staff would be `formatter.joinVoices([voice1, voice2]).joinVoices([voice3, textVoice])`.
 
 Notice what happens to the `TickContexts` when you do not create the `ModifierContexts`. Also notice that the accidentals are no longer avoiding each other but overlap. That's because the `ModifierContext` handles shifting modifiers to avoid collision.
 
-![](http://i.imgur.com/WBaZPlD.png)
+![](https://i.imgur.com/WBaZPlD.png)
 
 It is important to note that basically every class has a `.preFormat()` and a `.postFormat()` method. `Modifiers` do not, but instead have a static `<Modifier>.format()` method.
 * `.preFormat()` deals with calculating widths so that the formatter can justify the objects. For modifiers this also deals with articulation stacking (but it's naive and could work better).

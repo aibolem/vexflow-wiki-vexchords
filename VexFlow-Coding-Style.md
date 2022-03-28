@@ -13,7 +13,7 @@
    * If you contributed significantly to the file, feel free to add an "Author:" comment below the copyright.
    * All methods and parameters must be documented using [TSDoc](https://tsdoc.org).
    * Run `grunt typedoc` to regenerate the documentation in `docs/`.
-   * Take a look at [docs/classes/accidental.html](http://www.vexflow.com/docs/classes/accidental.html) for an example of a generated document.
+   * Take a look at [docs/api/classes/Accidental.html](https://0xfe.github.io/vexflow/api/classes/Accidental.html) for an example of a generated document.
 * Respect API boundaries. If you don't want your code to break, don't reach into its internals. E.g., prefer `note.getStave()` to `note.stave`.
 * Create a reference from master `git checkout master` and `npm run reference`
 * Run `npm run test:reference` on your branch before sending in a pull request.

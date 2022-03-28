@@ -20,7 +20,7 @@ Checkout this [wiki page](https://github.com/0xfe/vexflow/wiki/Import-MusicXML) 
 
 #### How do I learn to use the VexFlow API?
 
-The best place to start is the [VexFlow Tutorial](http://www.vexflow.com/docs/tutorial.html). Once you're comfortable with the basics of the API, start looking at the tests in `tests/*.js` for examples of how to use the various notational elements and tools.
+The best place to start is the [VexFlow Tutorial](https://github.com/0xfe/vexflow/wiki/Tutorial). Once you're comfortable with the basics of the API, start looking at the tests in `tests/*.js` for examples of how to use the various notational elements and tools.
 
 #### Can I build mobile apps with VexFlow?
 
