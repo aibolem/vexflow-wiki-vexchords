@@ -33,12 +33,13 @@ Let's build it, and take a look at the demos.
 
 ```
 grunt
-open tests/flow.html
 ```
 
 Done building. I open the `vexflow/build/` folder to visually inspect the output. Looks good. I see some output files related to the Leland font, which is new in 4.1.0.
 
-Open `vexflow/tests/flow.html` to see the browser tests.
+There are a some examples inside the `vexflow/demos/` folder. They look good to me!
+
+Also, let's check the browser unit tests in `vexflow/tests/flow.html`.
 
 ```
 open tests/flow.html
