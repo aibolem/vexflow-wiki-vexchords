@@ -1,7 +1,7 @@
 
 
 # Release VexFlow 4.1.0
-This section documents how I tested and released VexFlow 4.1.0 
+Ron Yeh: This section documents how I tested and released VexFlow 4.1.0. 
 
 First, check that I'm in the correct repository folder on my computer.
 
